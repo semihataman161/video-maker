@@ -1,0 +1,3 @@
+LLM_MODEL = "llama3.1:8b"
+
+CHUNK_CHAR_LIMIT = 800
