@@ -1,7 +1,7 @@
-from pathlib import Path
-
 import torch
 from diffusers import StableDiffusionPipeline
+from pathlib import Path
+from ..constants import OUTPUT_DIR
 
 
 class ImageService:
@@ -9,8 +9,8 @@ class ImageService:
 
     def __init__(
             self,
-            chunks_dir: str = "output/chunks",
-            images_dir: str = "output/images",
+            chunks_dir: Path = OUTPUT_DIR / "chunks",
+            images_dir: Path = OUTPUT_DIR / "images",
             device: str = "cpu",
     ):
         self.chunks_dir = Path(chunks_dir)

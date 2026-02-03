@@ -1,17 +1,15 @@
 import subprocess
 from pathlib import Path
-
-from .constants import LLM_MODEL, CHUNK_CHAR_LIMIT
-
-BASE_DIR = Path(__file__).parent
+from ..constants import OUTPUT_DIR
+from .constants import BASE_DIR, LLM_MODEL, CHUNK_CHAR_LIMIT
 
 
 class ScriptService:
     def __init__(
             self,
-            output_dir: str = "output",
-            chunks_dir: str = "output/chunks",
-            script_path: str = "output/script.txt",
+            output_dir: Path = OUTPUT_DIR,
+            chunks_dir: Path = OUTPUT_DIR / "chunks",
+            script_path: Path = OUTPUT_DIR / "script.txt",
             prompt_path: Path = BASE_DIR / "prompts" / "story_prompt.txt",
     ):
         self.output_dir = Path(output_dir)

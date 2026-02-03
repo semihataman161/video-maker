@@ -1,13 +1,14 @@
 import subprocess
-from pathlib import Path
 from pydub import AudioSegment
+from pathlib import Path
+from ..constants import OUTPUT_DIR
 from .constants import PIPER_MODEL
 
 
 class AudioService:
     def __init__(self):
-        self.chunks_dir = Path("output/chunks")
-        self.audio_dir = Path("output/audio")
+        self.chunks_dir: Path = OUTPUT_DIR / "chunks"
+        self.audio_dir: Path = OUTPUT_DIR / "audio"
         self.audio_dir.mkdir(parents=True, exist_ok=True)
 
     def __create_chunks(self) -> None:

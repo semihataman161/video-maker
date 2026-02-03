@@ -1,11 +1,12 @@
 from pathlib import Path
+from ..constants import OUTPUT_DIR
 
 
 class SubtitleService:
     def __init__(
             self,
-            script_path: str = "output/script.txt",
-            subtitle_dir: str = "output/subtitle",
+            script_path: Path = OUTPUT_DIR / "script.txt",
+            subtitle_dir: Path = OUTPUT_DIR / "subtitle",
             subtitle_name: str = "subtitle.srt",
     ):
         self.script_path = Path(script_path)

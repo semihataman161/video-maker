@@ -1,17 +1,16 @@
-from pathlib import Path
-
 from moviepy.video.io.ImageSequenceClip import ImageSequenceClip
 from moviepy.audio.io.AudioFileClip import AudioFileClip
-
+from pathlib import Path
+from ..constants import OUTPUT_DIR
 from .constants import FPS
 
 
 class VideoService:
     def __init__(
             self,
-            images_dir: str = "output/images",
-            audio_path: str = "output/audio/merged.wav",
-            output_path: str = "output/product.mp4",
+            images_dir: Path = OUTPUT_DIR / "images",
+            audio_path: Path = OUTPUT_DIR / "audio" / "merged.wav",
+            output_path: Path = OUTPUT_DIR / "product.mp4",
     ):
         self.images_dir = Path(images_dir)
         self.audio_path = Path(audio_path)

@@ -1,4 +1,4 @@
 from .audio_service import AudioService
-from .constants import PIPER_MODEL
+from .constants import BASE_DIR, PIPER_MODEL
 
-__all__ = ["AudioService", "PIPER_MODEL"]
+__all__ = ["AudioService", "BASE_DIR", "PIPER_MODEL"]

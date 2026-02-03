@@ -208,3 +208,10 @@ __marimo__/
 
 # Idea
 .idea/
+
+# Piper
+*.onnx
+*.onnx.json
+
+# Output
+output/
