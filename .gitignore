@@ -215,3 +215,6 @@ __marimo__/
 
 # Output
 output/
+
+# DS_Store
+**/.DS_Store

@@ -1,6 +1,7 @@
+from pathlib import Path
 import torch
 from diffusers import StableDiffusionPipeline
-from pathlib import Path
+
 from ..constants import OUTPUT_DIR
 
 
@@ -9,24 +10,17 @@ class ImageService:
 
     def __init__(
             self,
-            chunks_dir: Path = OUTPUT_DIR / "chunks",
-            images_dir: Path = OUTPUT_DIR / "images",
+            script_dir=Path(OUTPUT_DIR / "script"),
+            images_dir=Path(OUTPUT_DIR / "images"),
             device: str = "cpu",
     ):
-        self.chunks_dir = Path(chunks_dir)
+        self.script_dir = Path(script_dir)
         self.images_dir = Path(images_dir)
+        self.images_dir.mkdir(parents=True, exist_ok=True)
         self.device = device
 
-    def __summarize_scene(self, text: str) -> str:
-        sentences = text.split(".")
-        important = sentences[:2]
-        clean = " ".join(important)
-        return clean[:300]
-
     def __create_prompts(self) -> None:
-        self.images_dir.mkdir(parents=True, exist_ok=True)
-
-        for i, chunk in enumerate(sorted(self.chunks_dir.glob("*.txt"))):
+        for i, chunk in enumerate(sorted(self.script_dir.glob("*.txt"))):
             text = chunk.read_text()
 
             prompt = (
@@ -34,7 +28,7 @@ class ImageService:
                     "35mm photography, shallow depth of field, high detail, "
                     "moody atmosphere, dark tones, "
                     "scene description: "
-                    + self.__summarize_scene(text)
+                    + text
             )
 
             prompt_path = self.images_dir / f"prompt_{i:03}.txt"
