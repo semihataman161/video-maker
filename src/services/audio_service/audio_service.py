@@ -1,36 +1,33 @@
 from pathlib import Path
-import subprocess
-from pydub import AudioSegment
+from TTS.api import TTS
 
 from ..constants import OUTPUT_DIR
-from .constants import PIPER_MODEL
+from .constants import BASE_DIR
 
 
 class AudioService:
-    def __init__(self):
-        self.script_dir = Path(OUTPUT_DIR / "script")
+    def __init__(self, script: str):
+        self.script = script.strip()
         self.audio_dir = Path(OUTPUT_DIR / "audio")
         self.audio_dir.mkdir(parents=True, exist_ok=True)
+        self.speaker_wav = Path(BASE_DIR / "speaker.wav")
 
-    def __create_chunks(self) -> None:
-        for chunk in sorted(self.script_dir.glob("*.txt")):
-            out = self.audio_dir / f"{chunk.stem}.wav"
+        # Initialize XTTS (CPU mode for macOS)
+        self.tts = TTS(
+            model_name="tts_models/multilingual/multi-dataset/xtts_v2",
+            progress_bar=True,
+            gpu=False,  # macOS → must stay False
+        )
 
-            subprocess.run(
-                ["piper", "--model", PIPER_MODEL, "--output_file", str(out)],
-                input=chunk.read_text(),
-                text=True,
-                check=True
-            )
+    def run(self) -> None:
+        if not self.script:
+            raise ValueError("Script content is empty.")
 
-    def __merge(self, output_name) -> None:
-        combined = AudioSegment.empty()
+        output_path = self.audio_dir / "output.wav"
 
-        for wav in sorted(self.audio_dir.glob("chunk_*.wav")):
-            combined += AudioSegment.from_wav(wav)
-
-        combined.export(self.audio_dir / output_name, format="wav")
-
-    def run(self, output_name: str = "merged.wav") -> None:
-        self.__create_chunks()
-        self.__merge(output_name)
+        self.tts.tts_to_file(
+            text=self.script,
+            speaker_wav=str(self.speaker_wav),
+            language="en",
+            file_path=str(output_path),
+        )
