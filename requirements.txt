@@ -83,7 +83,7 @@ networkx==2.8.8
 nltk==3.9.2
 num2words==0.5.14
 numba==0.64.0
-numpy==1.22.0
+numpy==1.26.4
 packaging==26.0
 pandas==1.5.3
 pillow==11.3.0
