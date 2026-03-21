@@ -308,3 +308,177 @@ Growth happens in the doing.
 
 Not in the waiting.
 """
+
+VISUAL_PLAN = {
+    "characters": [
+        {
+            "name": "Maya",
+            "age": 28,
+            "gender": "female",
+            "physical_appearance": "South Asian woman with shoulder-length dark brown hair, warm brown eyes, medium brown skin tone, gentle facial features, slender build, approximately 5'6\" tall",
+            "clothing_style": "Simple modern casual wear - light colored linen shirt, dark comfortable pants, minimal jewelry, worn leather sandals",
+            "overall_vibe": "Thoughtful, gentle, tired but kind, carries visible tension in her shoulders",
+            "master_visual_prompt": "Cinematic portrait of a 28-year-old South Asian woman with shoulder-length dark brown hair and warm brown eyes, medium brown skin, gentle tired expression, wearing simple light linen clothing, soft natural lighting, 50mm lens, realistic film photography"
+        },
+        {
+            "name": "Elena",
+            "age": 72,
+            "gender": "female",
+            "physical_appearance": "Elderly woman with silver-gray hair pulled back in a low bun, warm smile lines around her eyes, light olive skin, weathered hands, petite frame, approximately 5'3\" tall, calm presence",
+            "clothing_style": "Traditional simple clothing - long earth-toned skirt, loose cotton blouse, hand-knitted shawl around shoulders, comfortable worn shoes",
+            "overall_vibe": "Wise, peaceful, gentle, grounded, radiates calm and patience",
+            "master_visual_prompt": "Cinematic portrait of a 72-year-old woman with silver-gray hair in a low bun, warm wrinkled face with kind eyes, light olive skin, wearing earth-toned traditional simple clothing, peaceful expression, soft natural lighting, 50mm lens, realistic film photography"
+        }
+    ],
+    "environment": {
+        "location_type": "Small hillside village with traditional cottages",
+        "cultural_setting": "Mediterranean or Southern European inspired village",
+        "season": "Late spring or early summer",
+        "weather_style": "Warm, gentle sunlight, clear skies, occasional soft clouds",
+        "architecture_style": "Simple stone and whitewashed cottages, wooden details, terracotta roofs, cobblestone paths",
+        "natural_elements": "Rolling hills in background, olive trees, wild grasses, small gardens with vegetables and flowers, scattered wildflowers",
+        "overall_atmosphere": "Peaceful, timeless, sun-drenched, quiet rural beauty, warm and welcoming"
+    },
+    "visual_style": {
+        "photography_style": "Cinematic film still, natural documentary style",
+        "camera_lens": "35mm and 50mm prime lenses",
+        "lighting_style": "Soft natural daylight, golden hour warmth, gentle shadows, no harsh contrasts",
+        "color_grading": "Warm earth tones, muted pastels, soft greens and browns, gentle golden highlights, slightly desaturated for calm mood",
+        "realism_level": "Photorealistic, natural, grounded in reality",
+        "rendering_quality": "High detail, film grain texture, shallow depth of field, professional cinematography, 4K quality"
+    },
+    "scenes": [
+        {
+            "scene_number": 1,
+            "short_title": "Maya waking up worried",
+            "visual_description": "Maya lying in bed, eyes open staring at ceiling, morning light streaming through simple window, hand on forehead, rumpled bedsheets, small modest bedroom with minimal furniture",
+            "main_characters_in_scene": ["Maya"],
+            "camera_shot_type": "Medium close-up",
+            "camera_angle": "Slightly high angle looking down at bed",
+            "time_of_day": "Early morning",
+            "emotional_tone": "Restless, tense, troubled",
+            "key_objects": ["bed", "window", "morning light", "simple wooden furniture"]
+        },
+        {
+            "scene_number": 2,
+            "short_title": "Maya walking through village",
+            "visual_description": "Maya walking alone on cobblestone path between whitewashed buildings, head slightly down, arms wrapped around herself, village market stalls in soft focus background, other villagers going about their day",
+            "main_characters_in_scene": ["Maya"],
+            "camera_shot_type": "Full body shot",
+            "camera_angle": "Eye level, following from side",
+            "time_of_day": "Mid-morning",
+            "emotional_tone": "Isolated, burdened, distant",
+            "key_objects": ["cobblestone path", "village buildings", "market stalls", "stone walls"]
+        },
+        {
+            "scene_number": 3,
+            "short_title": "Maya lying awake at night",
+            "visual_description": "Maya in bed at night, moonlight through window, eyes wide open, hands clasped on chest, dark room with shadows, visible tension in her face",
+            "main_characters_in_scene": ["Maya"],
+            "camera_shot_type": "Close-up on face",
+            "camera_angle": "Eye level from bedside",
+            "time_of_day": "Night",
+            "emotional_tone": "Sleepless, anxious, exhausted",
+            "key_objects": ["bed", "window with moonlight", "pillow", "shadows"]
+        },
+        {
+            "scene_number": 4,
+            "short_title": "Elena's cottage exterior",
+            "visual_description": "Small stone cottage at village edge with wooden door, small garden with vegetables and flowers, wooden bench outside, hills visible in background, warm afternoon sunlight, peaceful setting",
+            "main_characters_in_scene": [],
+            "camera_shot_type": "Wide establishing shot",
+            "camera_angle": "Eye level",
+            "time_of_day": "Afternoon",
+            "emotional_tone": "Peaceful, inviting, warm",
+            "key_objects": ["stone cottage", "wooden bench", "garden", "flowers", "hills"]
+        },
+        {
+            "scene_number": 5,
+            "short_title": "Elena shelling peas",
+            "visual_description": "Elena sitting on wooden bench outside cottage, wooden bowl in lap, hands shelling peas, peaceful expression, garden visible beside her, dappled sunlight through nearby tree",
+            "main_characters_in_scene": ["Elena"],
+            "camera_shot_type": "Medium shot",
+            "camera_angle": "Slightly low angle",
+            "time_of_day": "Afternoon",
+            "emotional_tone": "Serene, centered, calm",
+            "key_objects": ["wooden bench", "bowl of peas", "garden", "cottage wall", "tree"]
+        },
+        {
+            "scene_number": 6,
+            "short_title": "Maya and Elena talking",
+            "visual_description": "Maya and Elena sitting together on bench, facing each other, Maya leaning forward with worried expression, Elena listening with calm attentive face, cottage wall behind them, afternoon light",
+            "main_characters_in_scene": ["Maya", "Elena"],
+            "camera_shot_type": "Two-shot medium",
+            "camera_angle": "Eye level",
+            "time_of_day": "Afternoon",
+            "emotional_tone": "Intimate, vulnerable, supportive",
+            "key_objects": ["wooden bench", "cottage wall", "bowl of peas set aside"]
+        },
+        {
+            "scene_number": 7,
+            "short_title": "Elena giving Maya the bag",
+            "visual_description": "Elena standing, handing large cloth bag to Maya who is receiving it with both hands, bag appears heavy, stones visible through opening, cottage doorway in background, both women in full view",
+            "main_characters_in_scene": ["Maya", "Elena"],
+            "camera_shot_type": "Full body medium shot",
+            "camera_angle": "Eye level",
+            "time_of_day": "Late afternoon",
+            "emotional_tone": "Curious, solemn, beginning of task",
+            "key_objects": ["cloth bag", "river stones", "cottage doorway", "Elena's garden"]
+        },
+        {
+            "scene_number": 8,
+            "short_title": "Maya carrying the heavy bag",
+            "visual_description": "Maya walking on village path, large bag on shoulder, body leaning under weight, strained expression, one hand supporting bag, cobblestone path ahead, hills in background, late afternoon sun",
+            "main_characters_in_scene": ["Maya"],
+            "camera_shot_type": "Full body shot",
+            "camera_angle": "Slightly low angle from front",
+            "time_of_day": "Late afternoon",
+            "emotional_tone": "Struggling, burdened, determined",
+            "key_objects": ["heavy cloth bag", "stones", "cobblestone path", "village buildings"]
+        },
+        {
+            "scene_number": 9,
+            "short_title": "Maya resting exhausted",
+            "visual_description": "Maya stopped on path, sitting on low stone wall, bag set down beside her, rubbing her shoulder, face showing pain and exhaustion, village path continues ahead, golden hour light",
+            "main_characters_in_scene": ["Maya"],
+            "camera_shot_type": "Medium shot",
+            "camera_angle": "Eye level",
+            "time_of_day": "Golden hour",
+            "emotional_tone": "Exhausted, hurting, overwhelmed",
+            "key_objects": ["stone wall", "heavy bag", "cobblestone path", "village in background"]
+        },
+        {
+            "scene_number": 10,
+            "short_title": "Elena explaining the lesson",
+            "visual_description": "Elena and Maya sitting close on bench, Elena holding Maya's hand gently, speaking with kind expression, Maya listening with tears in eyes, morning light, cottage garden blooming beside them",
+            "main_characters_in_scene": ["Maya", "Elena"],
+            "camera_shot_type": "Close two-shot",
+            "camera_angle": "Slightly low angle, intimate",
+            "time_of_day": "Morning",
+            "emotional_tone": "Tender, revelation, emotional breakthrough",
+            "key_objects": ["wooden bench", "Elena's hand holding Maya's", "garden flowers", "cottage wall"]
+        },
+        {
+            "scene_number": 11,
+            "short_title": "Maya practicing releasing worry",
+            "visual_description": "Maya standing alone on hillside path overlooking village, eyes closed, hands open at sides in releasing gesture, peaceful expression, gentle breeze moving her hair, wildflowers around her, warm afternoon light",
+            "main_characters_in_scene": ["Maya"],
+            "camera_shot_type": "Full body shot",
+            "camera_angle": "Eye level from side",
+            "time_of_day": "Afternoon",
+            "emotional_tone": "Peaceful, practicing, lighter",
+            "key_objects": ["hillside path", "wildflowers", "village below", "open sky"]
+        },
+        {
+            "scene_number": 12,
+            "short_title": "Maya and Elena at sunset",
+            "visual_description": "Maya and Elena sitting together on bench outside cottage, side by side looking at sunset, pink and gold sky, peaceful silence between them, Maya's posture relaxed, Elena's hand near Maya's, garden silhouetted, tranquil ending",
+            "main_characters_in_scene": ["Maya", "Elena"],
+            "camera_shot_type": "Wide shot from behind",
+            "camera_angle": "Eye level, viewing from back",
+            "time_of_day": "Sunset",
+            "emotional_tone": "Peaceful, resolved, companionable, hopeful",
+            "key_objects": ["wooden bench", "cottage", "garden", "sunset sky", "hills in distance"]
+        }
+    ]
+}
