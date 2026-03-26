@@ -7,12 +7,12 @@ from ..constants import OUTPUT_DIR
 
 
 class ImageService:
-    MODEL_ID = "runwayml/stable-diffusion-v1-5"
+    MODEL_ID = "Lykon/anylora-Anime-Mix"
 
     NEGATIVE_PROMPT = """
-    blurry, low resolution, extra fingers, extra limbs,
-    bad anatomy, distorted face, watermark, text, logo,
-    cartoon, illustration, painting, unrealistic
+    text, watermark, logo, blurry, low resolution, bad anatomy,
+    extra fingers, extra limbs, distorted face, realistic, photography,
+    3d render, doll, plastic, grain, noise
     """
 
     def __init__(self, visual_plan: dict):
@@ -25,12 +25,13 @@ class ImageService:
 
         # ---------------- DEVICE CONFIG ----------------
         self.device = "mps" if torch.backends.mps.is_available() else "cpu"
+        self.dtype = torch.float16 if self.device == "mps" else torch.float32
 
-        print(f"🔥 Loading Stable Diffusion 1.5 on {self.device}...")
+        print(f"🔥 Loading Anime Model ({self.MODEL_ID}) on {self.device} with {self.dtype}...")
 
         self.pipe = StableDiffusionPipeline.from_pretrained(
             self.MODEL_ID,
-            torch_dtype=torch.float32,
+            torch_dtype=self.dtype,
             safety_checker=None,
         )
 
@@ -46,7 +47,7 @@ class ImageService:
         blocks = []
         for c in self.visual_plan["characters"]:
             blocks.append(
-                f"{c['name']}, {c['age']} year old {c['gender']}, "
+                f"1 {c['gender']}, {c['age']} year old, {c['name']}, "
                 f"{c['physical_appearance']}, "
                 f"{c['clothing_style']}"
             )
@@ -64,15 +65,10 @@ class ImageService:
         """
 
     def __build_style_block(self):
-        style = self.visual_plan["visual_style"]
-
-        return f"""
-        {style['photography_style']},
-        shot on {style['camera_lens']},
-        {style['lighting_style']},
-        {style['color_grading']},
-        {style['realism_level']},
-        {style['rendering_quality']}
+        return """
+        masterpiece, high quality, highres, anime style, 
+        illustrative, painterly, vibrant colors, soft lighting,
+        detailed background, clean lines
         """
 
     def __build_scene_prompt(self, scene):
@@ -85,10 +81,10 @@ class ImageService:
         Camera shot: {scene['camera_shot_type']}
         Camera angle: {scene['camera_angle']}
         Time of day: {scene['time_of_day']}
-        Emotional tone expressed physically: {scene['emotional_tone']}
+        Emotional tone: {scene['emotional_tone']}
 
-        cinematic composition, ultra realistic, professional photography,
-        sharp focus, detailed skin texture, natural lighting
+        (Ghibli style:0.8), (Makoto Shinkai style:0.8), digital illustration,
+        detailed scenery, atmospheric, cinematic lighting
         """
 
     # -------------------------------------------------
@@ -103,12 +99,12 @@ class ImageService:
     def run(self):
         # ----------------- PORTRAITS -----------------
         for character in self.visual_plan["characters"]:
-            generator = torch.Generator().manual_seed(42)
+            generator = torch.Generator(device=self.device).manual_seed(42)
 
             image = self.pipe(
-                prompt=character["master_visual_prompt"],
+                prompt=f"{self.__build_style_block()}, {character['master_visual_prompt']}",
                 negative_prompt=self.NEGATIVE_PROMPT,
-                num_inference_steps=28,
+                num_inference_steps=20,
                 guidance_scale=7.5,
                 width=512,
                 height=768,
@@ -122,14 +118,14 @@ class ImageService:
 
         # ----------------- SCENES -----------------
         for scene in self.visual_plan["scenes"]:
-            generator = torch.Generator().manual_seed(42)
+            generator = torch.Generator(device=self.device).manual_seed(42)
 
             prompt = self.__build_scene_prompt(scene)
 
             image = self.pipe(
                 prompt=prompt,
                 negative_prompt=self.NEGATIVE_PROMPT,
-                num_inference_steps=28,
+                num_inference_steps=20,
                 guidance_scale=7.5,
                 width=768,
                 height=512,

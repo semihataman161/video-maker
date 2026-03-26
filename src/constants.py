@@ -318,7 +318,7 @@ VISUAL_PLAN = {
             "physical_appearance": "Caucasian man in his late twenties with short brown hair, light stubble, hazel eyes, average build, approximately 5'10\" tall, slightly tired expression",
             "clothing_style": "casual modern winter clothing - dark gray jacket, jeans, brown boots, simple knit beanie, neutral earth tones",
             "overall_vibe": "restless, searching, gentle, introspective",
-            "master_visual_prompt": "cinematic portrait of a 28-year-old Caucasian man with short brown hair and light stubble, hazel eyes showing thoughtful uncertainty, wearing a dark gray winter jacket, natural lighting, realistic photography, shallow depth of field"
+            "master_visual_prompt": "anime style portrait of a 28-year-old Caucasian man with short brown hair and light stubble, hazel eyes, wearing a dark gray winter jacket, soft lighting, illustrative, clean lines, (Ghibli style:0.8)"
         },
         {
             "name": "Thomas",
@@ -327,7 +327,7 @@ VISUAL_PLAN = {
             "physical_appearance": "elderly Caucasian man with white hair, weathered kind face, deep smile lines, blue-gray eyes, lean build, approximately 5'8\" tall, gentle warm expression",
             "clothing_style": "practical gardening clothes - tan work jacket, flannel shirt, worn brown pants, gardening gloves tucked in pocket, earth-toned colors",
             "overall_vibe": "wise, calm, patient, grounded, warm",
-            "master_visual_prompt": "cinematic portrait of a 72-year-old Caucasian man with white hair and weathered kind face, blue-gray eyes radiating warmth and wisdom, wearing a tan work jacket over flannel shirt, natural soft lighting, realistic photography, film grain"
+            "master_visual_prompt": "anime style portrait of a 72-year-old Caucasian man with white hair and weathered kind face, blue-gray eyes, wearing a tan work jacket over flannel shirt, soft natural lighting, illustrative, (Ghibli style:0.8)"
         }
     ],
     "environment": {
@@ -340,12 +340,12 @@ VISUAL_PLAN = {
         "overall_cinematic_atmosphere": "quiet, peaceful, slightly melancholic winter beauty, natural muted colors, calm stillness"
     },
     "visual_style": {
-        "photography_style": "cinematic film still, documentary realism",
-        "camera_lens_type": "35mm and 50mm prime lenses",
-        "lighting_style": "natural diffused daylight, soft shadows, overcast winter light, golden hour for spring scenes",
-        "color_grading": "desaturated earth tones, cool blues and grays for winter, warm greens and golds for spring, muted palette, film grain texture",
-        "realism_level": "photorealistic, authentic human expressions and environments",
-        "rendering_quality_keywords": "high detail, shallow depth of field, natural bokeh, 4K quality, film photography aesthetic, Kodak Portra color science"
+        "photography_style": "anime illustration, Ghibli inspired",
+        "camera_lens_type": "35mm and 50mm equivalent",
+        "lighting_style": "soft diffused daylight, painterly shadows, overcast winter light, golden hour for spring scenes",
+        "color_grading": "vibrant yet natural colors, cool blues and grays for winter, warm greens and golds for spring, muted palette",
+        "realism_level": "stylized anime, illustrative",
+        "rendering_quality_keywords": "masterpiece, high quality, highres, detailed background, clean lines"
     },
     "scenes": [
         {
