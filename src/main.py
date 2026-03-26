@@ -1,13 +1,12 @@
-from services import AudioService, ImageService, VideoService
+from services import AudioService, ImageService, VideoService, TimerService
 from constants import SCRIPT, VISUAL_PLAN
 
-print("🎙 Creating Audio...")
-AudioService(SCRIPT).run()
+timer = TimerService()
 
-print("🎨 Creating Images...")
-ImageService(VISUAL_PLAN).run()
+timer.measure("🎙 Creating Audio", lambda: AudioService(SCRIPT).run())
+timer.measure("🎨 Creating Images", lambda: ImageService(VISUAL_PLAN).run())
+timer.measure("🎬 Creating Video", lambda: VideoService().run())
 
-print("🎬 Creating Video...")
-VideoService().run()
+timer.summary()
 
 print("✅ DONE → output/product.mp4")
