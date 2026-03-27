@@ -1,11 +1,11 @@
 from pathlib import Path
 import re
 from pydub import AudioSegment
-import torch
 from TTS.api import TTS
 
 from ..constants import OUTPUT_DIR
 from .constants import BASE_DIR
+from ...utils.device_utils import get_device
 
 
 class AudioService:
@@ -15,8 +15,11 @@ class AudioService:
         self.audio_dir.mkdir(parents=True, exist_ok=True)
         self.speaker_wav = Path(BASE_DIR / "speaker.wav")
 
-        device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.tts = TTS(model_name="tts_models/multilingual/multi-dataset/xtts_v2").to(device)
+        self.device = get_device()
+        print(f"🔊 Loading TTS on {self.device}")
+        self.tts = TTS(
+            model_name="tts_models/multilingual/multi-dataset/xtts_v2"
+        ).to(self.device)
 
     def split_script(self, max_chars=400):
         paragraphs = [p.strip() for p in self.script.split("\n\n") if p.strip()]
@@ -28,12 +31,14 @@ class AudioService:
             else:
                 sentences = re.split(r'(?<=[.!?]) +', p)
                 current = ""
+
                 for s in sentences:
                     if len(current) + len(s) < max_chars:
                         current += " " + s
                     else:
                         chunks.append(current.strip())
                         current = s
+
                 if current:
                     chunks.append(current.strip())
 

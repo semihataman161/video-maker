@@ -10,7 +10,7 @@ class VideoService:
     def __init__(
             self,
             images_dir=Path(OUTPUT_DIR / "images"),
-            audio_path=Path(OUTPUT_DIR / "audio" / "merged.wav"),
+            audio_path=Path(OUTPUT_DIR / "audio" / "output.wav"),
             output_path=Path(OUTPUT_DIR / "product.mp4"),
     ):
         self.images_dir = Path(images_dir)
