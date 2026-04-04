@@ -149,9 +149,9 @@ Return ALL prompts in ONE continuous block of text.
 
 Format like this:
 
-[full prompt]
-[full prompt]
-[full prompt]
+1) [full prompt]
+2) [full prompt]
+3) [full prompt]
 ...
 
 Rules:

@@ -18,7 +18,10 @@ class VideoService:
         self.output_path = Path(output_path)
 
     def __create(self) -> None:
-        images = sorted(self.images_dir.glob("*.jpg"))
+        images = sorted(
+            self.images_dir.glob("*.png"),
+            key=lambda x: int(x.stem)
+        )
 
         if not images:
             raise RuntimeError("No images created!")
@@ -32,7 +35,7 @@ class VideoService:
             fps=1 / duration_per_image,
         )
 
-        clip = clip.with_audio(audio)
+        clip = clip.set_audio(audio)
 
         clip.write_videofile(
             str(self.output_path),
