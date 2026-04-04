@@ -4,7 +4,7 @@ import gc
 from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
 
 from ..constants import OUTPUT_DIR
-from ...utils.device_utils import get_device, get_dtype
+from src.utils.device_utils import get_device, get_dtype
 
 
 class ImageService:

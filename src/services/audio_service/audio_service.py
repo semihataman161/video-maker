@@ -5,7 +5,7 @@ from TTS.api import TTS
 
 from ..constants import OUTPUT_DIR
 from .constants import BASE_DIR
-from ...utils.device_utils import get_device
+from src.utils.device_utils import get_device
 
 
 class AudioService:

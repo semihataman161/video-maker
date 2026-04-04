@@ -11,7 +11,8 @@ create_env:
 
 delete_env:
 	rm -rf $(VENV_NAME)
+	pip cache purge
 	@echo "🗑️ Virtual environment deleted."
 
 run:
-	PYTHONPATH=src $(VENV_NAME)/bin/python src/main.py
+	PYTHONPATH=. $(VENV_NAME)/bin/python -m src.main
