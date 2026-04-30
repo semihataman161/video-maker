@@ -1,7 +1,11 @@
 PYTHON_VERSION=3.11.8
 VENV_NAME=.venv
 
-create_env:
+activate_venv:
+	@echo "Run this command to activate:"
+	@echo "source $(VENV_NAME)/bin/activate"
+
+create_venv:
 	pyenv install -s $(PYTHON_VERSION)
 	pyenv local $(PYTHON_VERSION)
 	python -m venv $(VENV_NAME)
@@ -9,7 +13,7 @@ create_env:
 	$(VENV_NAME)/bin/pip install -r requirements.txt
 	@echo "✅ Environment created and dependencies installed."
 
-delete_env:
+delete_venv:
 	rm -rf $(VENV_NAME)
 	pip cache purge
 	@echo "🗑️ Virtual environment deleted."
