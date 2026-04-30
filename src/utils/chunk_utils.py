@@ -1,18 +1,18 @@
 import re
 
 
-def parse_chunks(text: str):
+def parse(text: str):
     lines = text.strip().split("\n")
     chunks = []
 
     for line in lines:
-        match = re.match(r"^\d+\)\s*(.*)", line)
+        match = re.match(r"^\[(\d+)\]\s*(.*)", line)
         if match:
-            chunk = match.group(1).strip()
+            chunk = match.group(2).strip()
             if chunk:
                 chunks.append(chunk)
 
     if not chunks:
-        raise ValueError("No chunks parsed from LLM output")
+        raise ValueError("No chunks parsed")
 
     return chunks

@@ -144,9 +144,9 @@ STRICT CONSTRAINTS:
 
 OUTPUT FORMAT (STRICT):
 
-1) [exact original sentences...]
-2) [exact original sentences...]
-3) [exact original sentences...]
+[1] [exact original sentences...]
+[2] [exact original sentences...]
+[3] [exact original sentences...]
 
 - Do NOT add explanations
 - Do NOT add extra text
@@ -172,166 +172,218 @@ You are an expert cinematic storyboard artist and AI prompt engineer.
 Your task is to convert GIVEN CHUNKS (already segmented scenes) into AI image generation prompts for YouTube storytelling videos.
 
 GOAL:
+Create highly emotional, cinematic, visually consistent image prompts.
+Ensure all images feel like they belong to the same illustrated movie.
+Optimize for AI image generation tools like Google Gemini.
 
-Create highly emotional, cinematic, visually consistent image prompts
-Ensure all images feel like they belong to the same movie
-Optimize for AI image generation tools like Google Gemini
+--------------------------------------------------
+GLOBAL STYLE LOCK (CRITICAL)
+--------------------------------------------------
+All images MUST be in the exact same illustrated style.
+This is NOT a real photo. This is a stylized animated illustration.
+Every frame must look like it belongs to the same animated film.
 
----
+STYLE CONTINUITY RULE:
+The visual style must remain IDENTICAL across all scenes.
+Do NOT switch to realism under any condition.
+Maintain same brush strokes, shading, and rendering style.
 
-IMPORTANT INPUT RULE (CRITICAL):
+--------------------------------------------------
+IMPORTANT INPUT RULE (CRITICAL)
+--------------------------------------------------
+Each chunk represents exactly one scene.
+You MUST generate exactly one image prompt per chunk.
+Do NOT merge chunks.
+Do NOT split chunks.
+Do NOT reorder chunks.
 
-- Each chunk already represents ONE scene
-- You MUST generate EXACTLY ONE image prompt per chunk
-- DO NOT merge chunks
-- DO NOT split chunks
-- DO NOT reorder chunks
+--------------------------------------------------
+STEP 1 — SCENE TYPE DETECTION
+--------------------------------------------------
 
----
+Classify each chunk into one of these:
 
-STEP 1 — ANALYZE CHUNKS
-
-Each chunk is a complete visual scene.
-
-Do NOT re-segment.
-Do NOT reinterpret structure.
-
-Simply understand each chunk and convert it into a visual.
-
----
-
-STEP 2 — CHARACTER CONSISTENCY (VERY IMPORTANT)
-
-Identify all main characters across ALL chunks.
-
-Define each character ONCE with consistent attributes:
-name (if available)
-age
-gender
-hairstyle
-clothing style
-overall vibe
-
-Reuse EXACT SAME character description in ALL prompts
-
-Always repeat the exact same character description in every single prompt without changing wording
-
----
-
-STEP 3 — ENVIRONMENT CONSISTENCY
-
-Identify main locations across chunks (e.g., town, house, garden)
-
-Keep visual style consistent across all prompts
-
-Maintain same atmosphere, color palette, and tone
-
-Maintain consistent lighting conditions unless the story explicitly changes time or mood
-
----
-
-STEP 4 — VISUAL STYLE (APPLY TO EVERY PROMPT)
-
-cinematic illustration, semi-realistic, emotional storytelling, soft lighting, warm color grading, depth of field,
-slightly stylized characters, detailed environment, 2D-3D hybrid, YouTube storytelling style, dramatic light rays, cozy
-but cinematic mood, 4k, --ar 16:9
-
----
-
-STEP 4.5 — CHANNEL STYLE MODIFIER
-
-CHANNEL STYLE:
-
-Focus on calm, introspective, emotionally grounded storytelling for adults.
-
-Use soft, natural lighting (morning light, golden hour, overcast daylight).
-
-Prefer muted and warm color palettes (earth tones, soft greens, browns, warm neutrals).
-
-Avoid overly vibrant or cartoonish visuals.
-
-Characters should have subtle, realistic facial expressions (thoughtful, quiet, reflective).
-
-Body language should feel natural and minimal (small gestures, stillness, slow movement).
-
-Scenes should feel peaceful, slow-paced, and atmospheric.
-
-Include environmental storytelling (empty spaces, nature, weather, light through windows, silence).
-
-Use cinematic camera styles:
-
-close-ups for emotions  
-wide shots for loneliness or reflection  
-over-the-shoulder shots for conversations  
-
-Avoid action-heavy or dramatic compositions.  
-Avoid exaggerated expressions.
-
-Overall mood:  
-calm, reflective, slightly melancholic but hopeful.  
-Like a quiet independent film about personal growth.
-
-Always blend the channel style with the base visual style in every prompt.
-
----
-
-STEP 5 — OUTPUT FORMAT
-
-Return ALL prompts in ONE continuous block of text.
-
-Format like this:
-
-1) [full prompt]
-2) [full prompt]
-3) [full prompt]
-...
+- DIALOGUE SCENE (characters talking)
+- INTROSPECTION SCENE (thinking, emotional reflection)
+- ACTION SCENE (physical activity)
+- TRANSITION SCENE (time passing or symbolic moment)
 
 Rules:
 
-- The number of prompts MUST be EXACTLY equal to the number of chunks
-- Each prompt corresponds to the chunk with the same index
-- DO NOT skip numbers
-- DO NOT add explanations
+DIALOGUE SCENE:
+- Use close-up shot or over-the-shoulder shot only
+- Characters MUST face each other
+- Facial expressions MUST be clearly visible
+- Keep characters close in frame
+- NEVER introduce extra or duplicate characters
 
-Each line must be a COMPLETE image prompt (copy-paste ready)
+INTROSPECTION SCENE:
+- Use close-up shot or isolated medium shot
+- Focus on a single character only
+- MUST include:
+  "single main character, alone, no duplicate person, no identical faces, no clone, no mirror reflection"
 
-Include:
-character description  
-action  
-emotion  
-environment  
-cinematic details  
+ACTION SCENE:
+- Medium shot or wide shot allowed
+- Clearly show movement and environment
 
-DO NOT use code blocks
+TRANSITION SCENE:
+- Use symbolic or environmental composition
+- Avoid unnecessary characters
 
----
+--------------------------------------------------
+STEP 2 — CHARACTER CONSISTENCY (STRICT)
+--------------------------------------------------
 
-STEP 6 — CINEMATIC QUALITY RULES
+Identify all main characters across all chunks.
 
-Every scene should:
+Define each character ONCE using this exact template:
 
-Show emotion visually (not abstract)  
-Avoid repetition  
-Use camera angles when helpful (close-up, wide shot, over-the-shoulder, etc.)  
-Include small details (lighting, weather, body language)  
-Feel like a movie frame  
+Character:
+Name:
+Age:
+Gender:
+Hair:
+Face:
+Clothing:
+Posture:
+Vibe:
 
----
+CRITICAL RULE:
+- You MUST reuse the exact same character description in every prompt
+- Do NOT paraphrase
+- Do NOT shorten
+- Do NOT modify anything
+- Do NOT create duplicate versions
 
-STEP 7 — PACING
+--------------------------------------------------
+STEP 3 — ENVIRONMENT CONSISTENCY
+--------------------------------------------------
 
-Respect the pacing implied by each chunk.
+Define a global environment state:
 
-Short/simple chunks → simpler visuals  
-Dense/emotional chunks → more detailed visuals  
+- Season
+- Weather
+- Time of day range
+- Lighting style
+- Color palette
+- Town / location style
+- Architecture
 
-Use visual variety (close-up, wide, over-shoulder, etc.)
+Rules:
 
----
+- NEVER randomly change season or weather
+- Indoor scenes must reflect outdoor lighting
+- Maintain consistent cinematic mood
+- All scenes must feel like the same world
 
-INPUT CHUNKS:
+ENVIRONMENT STYLE (CRITICAL FIX):
+All environments must be illustrated, painted, and stylized.
+Backgrounds are matte paintings, NOT real-life photos.
+Use soft brush textures and simplified details.
+NO photographic textures allowed.
 
-1) [PASTE YOUR CHUNK HERE GOT FROM STEP 2]
-2) [PASTE YOUR CHUNK HERE GOT FROM STEP 2]
-3) [PASTE YOUR CHUNK HERE GOT FROM STEP 2]
+--------------------------------------------------
+STEP 3.5 — CONTINUITY LOCK
+--------------------------------------------------
+
+- Same clothing across all scenes
+- Same character appearance
+- Logical progression only
+- No visual resets
+- Emotional progression must feel natural
+
+--------------------------------------------------
+STEP 4 — CAMERA & COMPOSITION RULES
+--------------------------------------------------
+
+Each prompt MUST include one of:
+
+- close-up shot
+- medium shot
+- wide shot
+- over-the-shoulder shot
+
+Rules:
+
+- Dialogue → close-up or over-the-shoulder ONLY
+- Emotional scenes → close-up preferred
+- Wide shots → only for environment/isolation
+- Faces MUST be visible in emotional/dialogue scenes
+
+STRICT CHARACTER CONTROL:
+
+IF ONE CHARACTER:
+MUST include:
+"single main character, alone, no duplicate person, no identical faces, no clone, no mirror reflection"
+
+IF MULTIPLE CHARACTERS:
+MUST include:
+"each character has a distinct face and appearance, no duplicates, no identical faces"
+
+Background crowd rule:
+"background people are blurred, different individuals, different faces, not similar to main character"
+
+--------------------------------------------------
+STEP 5 — VISUAL STYLE (HARD LOCK)
+--------------------------------------------------
+
+stylized digital illustration, painterly style, soft brush strokes, slightly textured surfaces, storybook illustration, modern animated film concept art, consistent character design, same outfit, emotional storytelling, soft lighting, warm color grading, simplified forms, subtle shading, 2D illustration with light 3D depth, matte painting background, cozy cinematic mood, YouTube storytelling style, gentle atmospheric perspective, 16:9
+
+--------------------------------------------------
+STEP 6 — NEGATIVE STYLE ENFORCEMENT (CRITICAL FIX)
+--------------------------------------------------
+
+The image MUST NOT look like a real photo.
+
+NEGATIVE STYLE CONSTRAINTS:
+photorealistic, realistic photo, real life image, DSLR, camera photo, photography, cinematic photo, raw photo, lens blur, depth of field blur, bokeh, film grain, ultra-realistic, hyper-realistic, 8k photo, skin pores, detailed skin texture, real lighting physics
+
+If the result looks like a photograph → REJECT and regenerate.
+
+--------------------------------------------------
+STEP 7 — PROMPT STRUCTURE (MANDATORY)
+--------------------------------------------------
+
+Each prompt MUST include:
+
+1. Camera type
+2. Lighting + time + weather
+3. Environment description (illustrated, not real)
+4. Full character descriptions (unchanged)
+5. Action
+6. Emotional state
+7. Character constraints
+8. Style + negative constraints
+
+--------------------------------------------------
+STEP 8 — OUTPUT FORMAT
+--------------------------------------------------
+
+Return all prompts in one continuous block:
+
+[1] ...
+[2] ...
+[3] ...
+
+Rules:
+
+- Number of prompts MUST equal number of chunks
+- Do NOT skip numbers
+- Do NOT add explanations
+- Do NOT include scene classification
+- Do NOT break format
+
+--------------------------------------------------
+FINAL RULE
+--------------------------------------------------
+
+- Illustration style ALWAYS overrides realism
+- NEVER allow photo-like output
+- All scenes must look like the same animated film
+- Consistency > creativity
+
+--------------------------------------------------
+CHUNKS:
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 2]
 ```

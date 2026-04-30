@@ -29,7 +29,7 @@ class AudioService:
         timeline = []
         current_time = 0
 
-        for i, chunk in enumerate(self.chunks):
+        for i, chunk in enumerate(self.chunks, start=1):
             temp_path = self.audio_dir / f"chunk_{i}.wav"
 
             self.tts.tts_to_file(
