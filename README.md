@@ -2,16 +2,18 @@
 
 ## 🍎 For macOS
 
-### 1. Install Dependencies
+### 1. Install Global Dependencies
 
 ```bash
+1) Pyenv
 brew install pyenv
-
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-
 source ~/.zshrc
+
+2) Ffmpeg
+brew install ffmpeg
 ```
 
 ---

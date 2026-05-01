@@ -18,8 +18,9 @@ class AudioService:
         self.device = get_device()
         print(f"🔊 Loading TTS on {self.device}")
         self.tts = TTS(
-            model_name="tts_models/multilingual/multi-dataset/xtts_v2"
-        ).to(self.device)
+            model_name="tts_models/multilingual/multi-dataset/xtts_v2",
+            gpu=(self.device == "cuda")
+        )
 
     def run(self) -> None:
         if not self.chunks:

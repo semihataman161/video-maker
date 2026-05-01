@@ -8,7 +8,7 @@ activate_venv:
 create_venv:
 	pyenv install -s $(PYTHON_VERSION)
 	pyenv local $(PYTHON_VERSION)
-	python -m venv $(VENV_NAME)
+	pyenv exec python -m venv $(VENV_NAME)
 	$(VENV_NAME)/bin/pip install --upgrade pip
 	$(VENV_NAME)/bin/pip install -r requirements.txt
 	@echo "✅ Environment created and dependencies installed."
