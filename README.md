@@ -1,13 +1,33 @@
 # video-maker
 
-HOW TO RUN THE PROJECT:
+## 🍎 For macOS
 
-```
-1. make create_env
-2. make run
+### 1. Install Dependencies
+
+```bash
+brew install pyenv
+
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+
+source ~/.zshrc
 ```
 
-1) SCRIPT PROMPT (Claude Sonnet 4.5):
+---
+
+### 2. Run the Project
+
+```bash
+make create_env
+make run
+```
+
+---
+
+## 3. PROMPTS
+
+### 1) SCRIPT PROMPT (Claude Sonnet 4.5)
 
 ```
 You are a storyteller writing a calm, comforting life-lesson story for adults.
@@ -73,7 +93,9 @@ Write like a calm narrator speaking gently to the listener.
 Write only the story script.
 ```
 
-2) CHUNK PROMPT (ChatGPT):
+---
+
+### 2) CHUNK PROMPT (ChatGPT)
 
 ```
 You are a strict text segmentation engine for visual storytelling.
@@ -164,7 +186,9 @@ SCRIPT:
 [PASTE YOUR SCRIPT HERE GOT FROM STEP 1]
 ```
 
-3) IMAGE PROMPT (ChatGPT):
+---
+
+### 3) IMAGE PROMPT (ChatGPT)
 
 ```
 You are an expert cinematic storyboard artist and AI prompt engineer.
