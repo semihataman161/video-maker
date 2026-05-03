@@ -14,6 +14,7 @@ class AudioService:
         self.audio_dir = Path(OUTPUT_DIR / "audio")
         self.audio_dir.mkdir(parents=True, exist_ok=True)
         self.speaker_wav = Path(BASE_DIR / "speaker.wav")
+        self.pause = 0.4
 
         self.device = get_device()
         print(f"🔊 Loading TTS on {self.device}")
@@ -49,14 +50,14 @@ class AudioService:
                 "text": chunk,
                 "start": current_time,
                 "end": current_time + duration,
-                "duration": duration
+                "duration": duration,
+                "pause": self.pause
             })
 
-            silence_duration = 0.4
-            silence = AudioSegment.silent(duration=int(silence_duration * 1000))
+            silence = AudioSegment.silent(duration=int(self.pause * 1000))
 
             combined += segment + silence
-            current_time += duration + silence_duration
+            current_time += duration + self.pause
 
         final_audio_path = self.audio_dir / "output.wav"
         combined.export(final_audio_path, format="wav")

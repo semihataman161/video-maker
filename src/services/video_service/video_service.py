@@ -1,6 +1,6 @@
-from pathlib import Path
 import json
-from moviepy.editor import ImageClip, concatenate_videoclips
+from pathlib import Path
+from moviepy.editor import ImageClip, CompositeVideoClip
 from moviepy.audio.io.AudioFileClip import AudioFileClip
 
 from ..constants import OUTPUT_DIR
@@ -10,7 +10,7 @@ from .constants import FPS
 class VideoService:
     def __init__(
             self,
-            images_dir=Path(OUTPUT_DIR / "images"),
+            images_dir=Path(OUTPUT_DIR / "images" / "cropped"),
             audio_path=Path(OUTPUT_DIR / "audio" / "output.wav"),
             timeline_path=Path(OUTPUT_DIR / "audio" / "timeline.json"),
             output_path=Path(OUTPUT_DIR / "product.mp4"),
@@ -35,10 +35,19 @@ class VideoService:
             if not img_path.exists():
                 raise RuntimeError(f"Missing image: {img_path}")
 
-            clip = ImageClip(str(img_path)).set_duration(scene["duration"])
+            total_duration = scene["duration"] + scene["pause"]
+
+            clip = (
+                ImageClip(str(img_path))
+                .set_start(scene["start"])
+                .set_duration(total_duration)
+            )
+
             clips.append(clip)
 
-        final_clip = concatenate_videoclips(clips, method="compose")
+        total_video_duration = timeline[-1]["end"] + timeline[-1]["pause"]
+
+        final_clip = CompositeVideoClip(clips).set_duration(total_video_duration)
 
         audio = AudioFileClip(str(self.audio_path))
         final_clip = final_clip.set_audio(audio)

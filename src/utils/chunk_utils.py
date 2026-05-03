@@ -1,7 +1,7 @@
 import re
 
 
-def parse(text: str):
+def parse_chunks(text: str):
     lines = text.strip().split("\n")
     chunks = []
 
