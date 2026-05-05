@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
-from moviepy.editor import ImageClip, CompositeVideoClip
+from moviepy.video.VideoClip import ImageClip
+from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
 from moviepy.audio.io.AudioFileClip import AudioFileClip
 
 from ..constants import OUTPUT_DIR
@@ -20,12 +21,17 @@ class VideoService:
         self.timeline_path = Path(timeline_path)
         self.output_path = Path(output_path)
 
+        self.TARGET_SIZE = (1920, 1080)
+
     def run(self) -> None:
         if not self.timeline_path.exists():
             raise RuntimeError("Timeline file not found!")
 
         with open(self.timeline_path) as f:
             timeline = json.load(f)
+
+        if not timeline:
+            raise RuntimeError("Timeline is empty!")
 
         clips = []
 
@@ -39,18 +45,31 @@ class VideoService:
 
             clip = (
                 ImageClip(str(img_path))
-                .set_start(scene["start"])
-                .set_duration(total_duration)
+                .resized(new_size=self.TARGET_SIZE)
+                .with_start(scene["start"])
+                .with_duration(total_duration)
             )
 
             clips.append(clip)
 
-        total_video_duration = timeline[-1]["end"] + timeline[-1]["pause"]
+        total_video_duration = max(
+            scene["end"] + scene["pause"] for scene in timeline
+        )
 
-        final_clip = CompositeVideoClip(clips).set_duration(total_video_duration)
+        final_clip = (
+            CompositeVideoClip(
+                clips,
+                size=self.TARGET_SIZE
+            )
+            .with_duration(total_video_duration)
+        )
+
+        if not self.audio_path.exists():
+            raise RuntimeError("Audio file not found!")
 
         audio = AudioFileClip(str(self.audio_path))
-        final_clip = final_clip.set_audio(audio)
+
+        final_clip = final_clip.with_audio(audio)
 
         final_clip.write_videofile(
             str(self.output_path),
