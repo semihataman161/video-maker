@@ -1,9 +1,9 @@
-import json
 from pathlib import Path
 from pydub import AudioSegment
 from TTS.api import TTS
 
 from src.utils.device_utils import get_device
+from src.utils.timeline_utils import save_timeline
 from src.constants import AUDIO_DIR
 
 
@@ -108,14 +108,7 @@ class AudioService:
         final_audio_path = AUDIO_DIR / "merged.wav"
         combined.export(final_audio_path, format="wav")
 
-    def __save_timeline(self, timeline: list[dict]) -> None:
-        timeline_path = AUDIO_DIR / "timeline.json"
-        with open(timeline_path, "w") as f:
-            json.dump(timeline, f, indent=2)
-
-        print(f"🧠 Timeline saved → {timeline_path}")
-
     def run(self) -> None:
         combined, timeline = self.__process_chunks()
         self.__export_audio(combined)
-        self.__save_timeline(timeline)
+        save_timeline(timeline)
