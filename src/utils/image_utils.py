@@ -32,8 +32,6 @@ def crop_images(
         right_pct: float,
         bottom_pct: float
 ):
-    os.makedirs(output_dir, exist_ok=True)
-
     for filename in os.listdir(input_dir):
         if filename.lower().endswith((".jpg", ".jpeg", ".png")):
             input_path = os.path.join(input_dir, filename)

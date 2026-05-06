@@ -1,5 +1,5 @@
 class ImageService:
-    def __init__(self, visual_plan: dict):
+    def __init__(self):
         pass
 
     def run(self):

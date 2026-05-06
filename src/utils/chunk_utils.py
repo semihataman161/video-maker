@@ -13,6 +13,6 @@ def parse_chunks(text: str):
                 chunks.append(chunk)
 
     if not chunks:
-        raise ValueError("No chunks parsed")
+        raise RuntimeError("No chunks parsed!")
 
     return chunks

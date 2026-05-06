@@ -30,3 +30,16 @@ CHUNKS = """
 [29] He stood beside Thomas in the spring sunlight. "Thank you," Liam said. Thomas handed him a watering can. "Keep planting," he said.
 [30] And Liam did. Not because he could see the future. But because he finally understood. Growth happens in the doing. Not in the waiting.
 """
+
+from pathlib import Path
+
+# ASSETS DIRECTORIES
+ASSETS_DIR = Path(__file__).resolve().parents[1] / "assets"
+FONTS_DIR = ASSETS_DIR / "fonts"
+
+# OUTPUT DIRECTORIES
+OUTPUT_DIR = Path(__file__).resolve().parents[1] / "output"
+AUDIO_DIR = OUTPUT_DIR / "audio"
+IMAGES_DIR = OUTPUT_DIR / "images"
+ORIGINAL_IMAGES_DIR = IMAGES_DIR / "original"
+CROPPED_IMAGES_DIR = IMAGES_DIR / "cropped"
