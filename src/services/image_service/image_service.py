@@ -2,5 +2,5 @@ class ImageService:
     def __init__(self):
         pass
 
-    def run(self):
+    def run(self) -> None:
         pass

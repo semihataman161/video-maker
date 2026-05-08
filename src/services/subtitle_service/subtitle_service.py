@@ -3,6 +3,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from moviepy.video.VideoClip import TextClip
 
+from .subtitle_protocol import SubtitleProtocol
+
 
 @dataclass
 class SubtitleConfig:
@@ -16,7 +18,7 @@ class SubtitleConfig:
     wrap_width: int = 40
 
 
-class SubtitleService:
+class SubtitleService(SubtitleProtocol):
     def __init__(self, timeline, video_size, config: SubtitleConfig):
         self.timeline = timeline
         self.video_width = int(video_size[0])
@@ -64,7 +66,7 @@ class SubtitleService:
 
         return clip
 
-    def build(self):
+    def get_clip(self):
         subtitle_clips = []
 
         for scene in self.timeline:

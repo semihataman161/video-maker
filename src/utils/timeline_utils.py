@@ -23,3 +23,10 @@ def get_timeline():
         raise RuntimeError("Timeline is empty!")
 
     return timeline
+
+
+def get_total_duration(timeline):
+    return max(
+        float(scene["end"]) + float(scene["pause"])
+        for scene in timeline
+    )

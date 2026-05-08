@@ -1,4 +1,4 @@
-from src.services import AudioService, VideoService, TimerService, SubtitleService, SubtitleConfig
+from src.services import AudioService, VideoService, TimerService, SubtitleService, SubtitleConfig, EffectService
 from src.utils.directory_utils import create_directories
 from src.utils.chunk_utils import parse_chunks
 from src.utils.image_utils import crop_images
@@ -9,7 +9,10 @@ from src.constants import CHUNKS, TARGET_IMAGE_SIZE, OUTPUT_DIR, AUDIO_DIR, ORIG
 create_directories([AUDIO_DIR, ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR])
 
 timer = TimerService()
+# Creating Audio
 timer.measure("🎙 Creating Audio", lambda: AudioService(parse_chunks(CHUNKS)).run())
+
+# Cropping Images
 timer.measure(
     "✂️ Cropping Images",
     lambda: crop_images(
@@ -21,6 +24,8 @@ timer.measure(
         bottom_pct=0,
     )
 )
+
+# Creating Video
 subtitle_config = SubtitleConfig(
     font=str(FONTS_DIR / "Montserrat-Bold.ttf"),
     fontsize=55,
@@ -36,7 +41,9 @@ subtitle_service = SubtitleService(
     video_size=TARGET_IMAGE_SIZE,
     config=subtitle_config,
 )
-timer.measure("🎬 Creating Video", lambda: VideoService(subtitle_service=subtitle_service).run())
+effect_service = EffectService(mode="random")
+video_service = VideoService(subtitle_service=subtitle_service, effect_service=effect_service)
+timer.measure("🎬 Creating Video", lambda: video_service.run())
 timer.summary()
 
 print(f"✅ DONE → {OUTPUT_DIR}/product.mp4")
