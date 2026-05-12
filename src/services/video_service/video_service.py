@@ -1,17 +1,14 @@
+from pathlib import Path
+from typing import Any
 from moviepy.video.VideoClip import ImageClip
 from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
 from moviepy.audio.io.AudioFileClip import AudioFileClip
 
 from src.utils.timeline_utils import get_timeline, get_total_duration
-from src.constants import (
-    TARGET_IMAGE_SIZE,
-    OUTPUT_DIR,
-    AUDIO_DIR,
-    CROPPED_IMAGES_DIR,
-)
+from src.constants import (TARGET_IMAGE_SIZE, CROPPED_IMAGES_DIR)
 from ..effect_service import EffectProtocol
 from ..subtitle_service import SubtitleProtocol
-from .constants import FPS
+from .constants import FPS, AUDIO_PATH, OUTPUT_PATH
 
 
 class VideoService:
@@ -23,40 +20,27 @@ class VideoService:
         self.subtitle_service = subtitle_service
         self.effect_service = effect_service
 
-        self.output_path = OUTPUT_DIR / "product.mp4"
-        self.audio_path = AUDIO_DIR / "merged.wav"
-
         # ✅ Validation
         self.__validate_paths()
 
     def __validate_paths(self):
-        if not self.audio_path.exists():
-            raise ValueError(f"Audio file not found: {self.audio_path}")
+        if not AUDIO_PATH.exists():
+            raise ValueError(f"Audio file not found: {AUDIO_PATH}")
 
-    def __create_image_clip(self, img_path, start, total_duration):
-        if self.effect_service:
-            overscaled_size = (
-                int(TARGET_IMAGE_SIZE[0] * 1.15),
-                int(TARGET_IMAGE_SIZE[1] * 1.15),
-            )
-
-            clip = (
-                ImageClip(str(img_path))
-                .resized(new_size=overscaled_size)
-                .with_start(start)
-                .with_duration(total_duration)
-            )
-
-            return self.effect_service.get_clip(clip)
-
-        return (
+    def __create_image_clip(self, img_path: Path, start: float, total_duration: float):
+        clip = (
             ImageClip(str(img_path))
             .resized(new_size=TARGET_IMAGE_SIZE)
             .with_start(start)
             .with_duration(total_duration)
         )
 
-    def __create_image_clips(self, timeline):
+        if self.effect_service:
+            return self.effect_service.get_clip(clip)
+
+        return clip
+
+    def __create_image_clips(self, timeline: list[dict[str, Any]]):
         clips = []
 
         for scene in timeline:
@@ -77,7 +61,7 @@ class VideoService:
 
         return clips
 
-    def run(self) -> None:
+    def run(self):
         # 📄 Timeline
         timeline = get_timeline()
 
@@ -105,12 +89,12 @@ class VideoService:
         )
 
         # 🔊 Audio
-        audio = AudioFileClip(str(self.audio_path))
+        audio = AudioFileClip(str(AUDIO_PATH))
         final_clip = final_clip.with_audio(audio)
 
         # 🎞️ Render
         final_clip.write_videofile(
-            str(self.output_path),
+            str(OUTPUT_PATH),
             fps=FPS,
             codec="libx264",
             audio_codec="aac",

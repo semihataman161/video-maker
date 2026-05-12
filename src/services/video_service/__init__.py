@@ -1,4 +1,4 @@
 from .video_service import VideoService
-from .constants import FPS
+from .constants import OUTPUT_PATH, AUDIO_PATH, FPS
 
-__all__ = ["VideoService", "FPS"]
+__all__ = ["VideoService", "OUTPUT_PATH", "AUDIO_PATH", "FPS"]

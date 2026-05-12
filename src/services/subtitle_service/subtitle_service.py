@@ -1,4 +1,5 @@
 import textwrap
+from typing import Any
 from dataclasses import dataclass
 from pathlib import Path
 from moviepy.video.VideoClip import TextClip
@@ -19,10 +20,10 @@ class SubtitleConfig:
 
 
 class SubtitleService(SubtitleProtocol):
-    def __init__(self, timeline, video_size, config: SubtitleConfig):
+    def __init__(self, timeline: list[dict[str, Any]], video_size: tuple[int, int], config: SubtitleConfig):
         self.timeline = timeline
-        self.video_width = int(video_size[0])
-        self.video_height = int(video_size[1])
+        self.video_width = video_size[0]
+        self.video_height = video_size[1]
         self.config = config
 
         # ✅ Validation
@@ -32,7 +33,7 @@ class SubtitleService(SubtitleProtocol):
         if not Path(self.config.font).exists():
             raise ValueError(f"Font not found: {self.config.font}")
 
-    def __wrap_text(self, text: str) -> str:
+    def __wrap_text(self, text: str):
         return "\n".join(
             textwrap.wrap(text, width=self.config.wrap_width)
         )
@@ -44,7 +45,7 @@ class SubtitleService(SubtitleProtocol):
             return "center", int(self.config.margin)
         return "center", "center"
 
-    def __create_clip(self, scene):
+    def __create_clip(self, scene: dict[str, Any]):
         wrapped_text = self.__wrap_text(scene["text"])
         max_width = int(self.video_width * 0.8)
 

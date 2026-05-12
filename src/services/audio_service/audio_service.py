@@ -5,29 +5,27 @@ from TTS.api import TTS
 from src.utils.device_utils import get_device
 from src.utils.timeline_utils import save_timeline
 from src.constants import AUDIO_DIR
+from .constants import SPEAKER_WAV, MODEL_NAME, PAUSE
 
 
 class AudioService:
     def __init__(self, chunks: list[str]):
         self.chunks = chunks
 
-        self.speaker_wav = Path(__file__).with_name("speaker.wav")
-        self.model_name = "tts_models/multilingual/multi-dataset/xtts_v2"
-        self.pause = 0.4
         self.device = get_device()
 
         print(f"🔊 Loading TTS on {self.device}")
         self.tts = TTS(
-            model_name=self.model_name,
+            model_name=MODEL_NAME,
             gpu=(self.device == "cuda")
         )
 
-    def __generate_audio_file(self, index: int, text: str) -> Path:
+    def __generate_audio_file(self, index: int, text: str):
         temp_path = AUDIO_DIR / f"chunk_{index}.wav"
 
         self.tts.tts_to_file(
             text=text,
-            speaker_wav=str(self.speaker_wav),
+            speaker_wav=str(SPEAKER_WAV),
             language="en",
             file_path=str(temp_path),
             temperature=0.6,
@@ -53,7 +51,7 @@ class AudioService:
             "start": start,
             "end": start + duration,
             "duration": duration,
-            "pause": self.pause
+            "pause": PAUSE
         }
 
     def __append_with_pause(
@@ -61,7 +59,7 @@ class AudioService:
             combined: AudioSegment,
             segment: AudioSegment
     ) -> AudioSegment:
-        silence = AudioSegment.silent(duration=int(self.pause * 1000))
+        silence = AudioSegment.silent(duration=int(PAUSE * 1000))
         return combined + segment + silence
 
     def __process_chunk(
@@ -84,7 +82,7 @@ class AudioService:
 
         combined = self.__append_with_pause(combined, segment)
 
-        new_current_time = current_time + duration + self.pause
+        new_current_time = current_time + duration + PAUSE
 
         return combined, timeline_entry, new_current_time
 
@@ -104,11 +102,11 @@ class AudioService:
 
         return combined, timeline
 
-    def __export_audio(self, combined: AudioSegment) -> None:
+    def __export_audio(self, combined: AudioSegment):
         final_audio_path = AUDIO_DIR / "merged.wav"
         combined.export(final_audio_path, format="wav")
 
-    def run(self) -> None:
+    def run(self):
         combined, timeline = self.__process_chunks()
         self.__export_audio(combined)
         save_timeline(timeline)
