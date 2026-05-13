@@ -1,6 +1,7 @@
-from pathlib import Path
-from pydub import AudioSegment
+import whisper
 from TTS.api import TTS
+from pydub import AudioSegment
+from pathlib import Path
 
 from src.utils.device_utils import get_device
 from src.utils.timeline_utils import save_timeline
@@ -20,6 +21,9 @@ class AudioService:
             gpu=(self.device == "cuda")
         )
 
+        print("🧠 Loading Whisper model")
+        self.whisper_model = whisper.load_model("base")
+
     def __generate_audio_file(self, index: int, text: str):
         temp_path = AUDIO_DIR / f"chunk_{index}.wav"
 
@@ -38,12 +42,32 @@ class AudioService:
         duration = len(segment) / 1000
         return segment, duration
 
+    def __transcribe_words(self, audio_path: Path, offset: float):
+        result = self.whisper_model.transcribe(
+            str(audio_path),
+            word_timestamps=True,
+            fp16=False,
+        )
+
+        words = []
+
+        for segment in result["segments"]:
+            for word in segment["words"]:
+                words.append({
+                    "word": word["word"].strip(),
+                    "start": float(word["start"]) + offset,
+                    "end": float(word["end"]) + offset,
+                })
+
+        return words
+
     def __create_timeline_entry(
             self,
             index: int,
             text: str,
             start: float,
-            duration: float
+            duration: float,
+            words: list[dict]
     ) -> dict:
         return {
             "index": index,
@@ -51,7 +75,8 @@ class AudioService:
             "start": start,
             "end": start + duration,
             "duration": duration,
-            "pause": PAUSE
+            "pause": PAUSE,
+            "words": words,
         }
 
     def __append_with_pause(
@@ -73,11 +98,17 @@ class AudioService:
 
         segment, duration = self.__load_audio_segment(temp_path)
 
+        words = self.__transcribe_words(
+            audio_path=temp_path,
+            offset=current_time,
+        )
+
         timeline_entry = self.__create_timeline_entry(
             index=index,
             text=chunk,
             start=current_time,
-            duration=duration
+            duration=duration,
+            words=words,
         )
 
         combined = self.__append_with_pause(combined, segment)

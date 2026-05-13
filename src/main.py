@@ -24,17 +24,18 @@ timer.measure(
         bottom_pct=0,
     )
 )
-
 # Creating Video
 subtitle_config = SubtitleConfig(
     font=str(FONTS_DIR / "Montserrat-Bold.ttf"),
     fontsize=55,
     color="white",
+    active_color="yellow",
     stroke_color="black",
     stroke_width=3,
     position="bottom",
-    margin=200,
-    wrap_width=32,
+    vertical_margin=200,
+    words_per_chunk=4,
+    word_spacing=10
 )
 subtitle_service = SubtitleService(
     timeline=get_timeline(),
@@ -42,7 +43,10 @@ subtitle_service = SubtitleService(
     config=subtitle_config,
 )
 effect_service = EffectService(mode="random")
-video_service = VideoService(subtitle_service=subtitle_service, effect_service=effect_service)
+video_service = VideoService(
+    subtitle_service=subtitle_service,
+    effect_service=effect_service
+)
 timer.measure("🎬 Creating Video", lambda: video_service.run())
 timer.summary()
 

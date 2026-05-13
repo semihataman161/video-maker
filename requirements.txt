@@ -13,13 +13,14 @@ imageio==2.34.0
 imageio-ffmpeg==0.4.9
 moviepy==2.2.1
 
-# Audio / TTS
+# Audio
 TTS==0.22.0
+openai-whisper==20250625
 librosa==0.10.1
 soundfile==0.12.1
 pydub==0.25.1
 
-# Data / Utils
+# Data
 numpy==1.26.4
 scipy==1.11.4
 pandas==1.5.3
