@@ -1,4 +1,4 @@
-import whisper
+import whisperx
 from TTS.api import TTS
 from pydub import AudioSegment
 from pathlib import Path
@@ -21,8 +21,11 @@ class AudioService:
             gpu=(self.device == "cuda")
         )
 
-        print("🧠 Loading Whisper model")
-        self.whisper_model = whisper.load_model("base")
+        print(f"🧠 Loading WhisperX alignment model on {self.device}")
+        self.alignment_model, self.metadata = whisperx.load_align_model(
+            language_code="en",
+            device=self.device,
+        )
 
     def __generate_audio_file(self, index: int, text: str):
         temp_path = AUDIO_DIR / f"chunk_{index}.wav"
@@ -42,17 +45,36 @@ class AudioService:
         duration = len(segment) / 1000
         return segment, duration
 
-    def __transcribe_words(self, audio_path: Path, offset: float):
-        result = self.whisper_model.transcribe(
-            str(audio_path),
-            word_timestamps=True,
-            fp16=False,
+    def __align_words(
+            self,
+            audio_path: Path,
+            text: str,
+            offset: float,
+            duration: float,
+    ):
+        audio = whisperx.load_audio(str(audio_path))
+
+        transcript = [{
+            "start": 0,
+            "end": duration,
+            "text": text,
+        }]
+
+        aligned_result = whisperx.align(
+            transcript=transcript,
+            model=self.alignment_model,
+            align_model_metadata=self.metadata,
+            audio=audio,
+            device=self.device,
         )
 
         words = []
 
-        for segment in result["segments"]:
+        for segment in aligned_result["segments"]:
             for word in segment["words"]:
+                if "start" not in word or "end" not in word:
+                    continue
+
                 words.append({
                     "word": word["word"].strip(),
                     "start": float(word["start"]) + offset,
@@ -95,12 +117,13 @@ class AudioService:
             current_time: float
     ) -> tuple[AudioSegment, dict, float]:
         temp_path = self.__generate_audio_file(index, chunk)
-
         segment, duration = self.__load_audio_segment(temp_path)
 
-        words = self.__transcribe_words(
+        words = self.__align_words(
             audio_path=temp_path,
+            text=chunk,
             offset=current_time,
+            duration=duration,
         )
 
         timeline_entry = self.__create_timeline_entry(
@@ -112,7 +135,6 @@ class AudioService:
         )
 
         combined = self.__append_with_pause(combined, segment)
-
         new_current_time = current_time + duration + PAUSE
 
         return combined, timeline_entry, new_current_time
