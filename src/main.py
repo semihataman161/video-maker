@@ -1,10 +1,20 @@
 from src.services import AudioService, VideoService, TimerService, SubtitleService, SubtitleConfig, EffectService
 from src.utils.file_utils import create_directories
 from src.utils.chunk_utils import parse_chunks
-from src.utils.image_utils import crop_images
+from src.utils.image_utils import crop_image, crop_images
 from src.utils.timeline_utils import get_timeline
 from src.constants import CHUNKS, TARGET_IMAGE_SIZE, OUTPUT_DIR, AUDIO_DIR, ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR, \
     FONTS_DIR
+
+# Crop Thumbnail
+crop_image(
+    image_path=ORIGINAL_IMAGES_DIR / "thumbnail.png",
+    output_path=CROPPED_IMAGES_DIR / "thumbnail.png",
+    left_pct=0,
+    top_pct=0,
+    right_pct=0.06,
+    bottom_pct=0,
+)
 
 create_directories([AUDIO_DIR, ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR])
 
