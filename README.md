@@ -558,6 +558,51 @@ If a direct translation sounds unnatural:
 The final script should feel originally written in the TARGET LANGUAGE.
 
 ==================================================
+NAME & ENTITY LOCALIZATION RULES
+
+VERY IMPORTANT:
+
+All character names, place names, and culturally identifiable proper nouns MUST be naturally localized for the TARGET LANGUAGE and culture whenever appropriate.
+
+Character names should NOT be translated literally.
+
+Instead, generate NEW culturally natural names that:
+
+* fit the TARGET LANGUAGE naturally
+* match the character’s gender
+* match the character’s approximate age
+* match the emotional tone of the story
+* sound believable to native speakers
+* preserve immersion for local audiences
+
+The names should feel like they originally belonged to that culture.
+
+For every story:
+
+* choose names dynamically
+* adapt names contextually
+* maintain consistency throughout the script
+
+DO NOT:
+
+* keep obviously foreign names if they break immersion
+* mechanically transliterate names
+* reuse the same replacement names across different stories
+* use stereotypical, comedic, or exaggerated names
+* choose names that feel historically or culturally mismatched
+* randomly switch names during the story
+
+DO:
+
+* generate culturally native-sounding names
+* preserve the emotional identity of the characters
+* keep social tone and age perception consistent
+* adapt local places, cafés, neighborhoods, or town names naturally when appropriate
+* ensure all localized names sound natural when spoken aloud
+
+The audience should feel that the story was originally written in the TARGET LANGUAGE, not translated from another language.
+
+==================================================
 PACING PRESERVATION
 
 Maintain:
@@ -587,14 +632,31 @@ Avoid:
 * textbook phrasing
 
 ==================================================
+CRITICAL OUTPUT FORMATTING RULES
+
+VERY IMPORTANT:
+
+* Every chunk MUST remain on a SINGLE LINE
+* Never insert line breaks inside a chunk
+* Never split dialogue into multiple lines
+* Never create paragraph spacing inside chunks
+* Preserve chunk numbering exactly
+* Output format must be:
+  [1] translated text...
+  [2] translated text...
+  [3] translated text...
+
+Each numbered chunk must contain the FULL localized text in one continuous line.
+
+==================================================
 OUTPUT FORMAT
 
 Return:
 
 * ONLY the translated localized script
 * preserve chunk numbering exactly
-* preserve paragraph spacing
 * preserve structure
+* each chunk on exactly one line
 
 Do NOT:
 
@@ -602,6 +664,7 @@ Do NOT:
 * add notes
 * summarize
 * add commentary
+* add extra spacing between chunks
 
 ==================================================
 SCRIPT CHUNKS:
