@@ -1,8 +1,8 @@
 from typing import Any
 from dataclasses import dataclass
-from pathlib import Path
 from moviepy.video.VideoClip import TextClip
 
+from src.utils.file_utils import validate_path
 from .subtitle_protocol import SubtitleProtocol
 
 
@@ -33,11 +33,7 @@ class SubtitleService(SubtitleProtocol):
         self.config = config
 
         # ✅ Validation
-        self.__validate_paths()
-
-    def __validate_paths(self):
-        if not Path(self.config.font).exists():
-            raise ValueError(f"Font not found: {self.config.font}")
+        validate_path(self.config.font)
 
     def __get_y_position(self):
         if self.config.position == "bottom":

@@ -5,7 +5,8 @@ from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
 from moviepy.audio.io.AudioFileClip import AudioFileClip
 
 from src.utils.timeline_utils import get_timeline, get_total_duration
-from src.constants import (TARGET_IMAGE_SIZE, CROPPED_IMAGES_DIR)
+from src.utils.file_utils import validate_path
+from src.constants import TARGET_IMAGE_SIZE, CROPPED_IMAGES_DIR
 from ..effect_service import EffectProtocol
 from ..subtitle_service import SubtitleProtocol
 from .constants import FPS, AUDIO_PATH, OUTPUT_PATH
@@ -21,11 +22,7 @@ class VideoService:
         self.effect_service = effect_service
 
         # ✅ Validation
-        self.__validate_paths()
-
-    def __validate_paths(self):
-        if not AUDIO_PATH.exists():
-            raise ValueError(f"Audio file not found: {AUDIO_PATH}")
+        validate_path(AUDIO_PATH)
 
     def __create_image_clip(self, img_path: Path, start: float, total_duration: float):
         clip = (

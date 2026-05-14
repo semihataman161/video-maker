@@ -1,5 +1,5 @@
 from src.services import AudioService, VideoService, TimerService, SubtitleService, SubtitleConfig, EffectService
-from src.utils.directory_utils import create_directories
+from src.utils.file_utils import create_directories
 from src.utils.chunk_utils import parse_chunks
 from src.utils.image_utils import crop_images
 from src.utils.timeline_utils import get_timeline
