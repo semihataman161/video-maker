@@ -1,4 +1,4 @@
 from .audio_service import AudioService
-from .constants import SPEAKER_WAV, MODEL_NAME, PAUSE
+from .constants import SPEAKERS_DIR, TTS_MODEL, PAUSE
 
-__all__ = ["AudioService", "SPEAKER_WAV", "MODEL_NAME", "PAUSE"]
+__all__ = ["AudioService", "SPEAKERS_DIR", "TTS_MODEL", "PAUSE"]

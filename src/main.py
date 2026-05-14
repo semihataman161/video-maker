@@ -3,14 +3,21 @@ from src.utils.file_utils import create_directories
 from src.utils.chunk_utils import parse_chunks
 from src.utils.image_utils import crop_images
 from src.utils.timeline_utils import get_timeline
-from src.constants import CHUNKS, TARGET_IMAGE_SIZE, OUTPUT_DIR, AUDIO_DIR, ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR, \
+from src.constants import CHUNKS, LANGUAGE, TARGET_IMAGE_SIZE, OUTPUT_DIR, AUDIO_DIR, ORIGINAL_IMAGES_DIR, \
+    CROPPED_IMAGES_DIR, \
     FONTS_DIR
 
 create_directories([AUDIO_DIR, ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR])
 
 timer = TimerService()
 # Creating Audio
-timer.measure("🎙 Creating Audio", lambda: AudioService(parse_chunks(CHUNKS)).run())
+timer.measure(
+    "🎙 Creating Audio",
+    lambda: AudioService(
+        chunks=parse_chunks(CHUNKS),
+        language=LANGUAGE
+    ).run()
+)
 # Cropping Images
 timer.measure(
     "✂️ Cropping Images",

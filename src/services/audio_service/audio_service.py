@@ -3,27 +3,33 @@ from TTS.api import TTS
 from pydub import AudioSegment
 from pathlib import Path
 
+from src.utils.file_utils import validate_path
 from src.utils.device_utils import get_device
 from src.utils.timeline_utils import save_timeline
 from src.constants import AUDIO_DIR
-from .constants import SPEAKER_WAV, MODEL_NAME, PAUSE
+from .constants import SPEAKERS_DIR, TTS_MODEL, PAUSE
 
 
 class AudioService:
-    def __init__(self, chunks: list[str]):
+    def __init__(self, chunks: list[str], language: str):
         self.chunks = chunks
+        self.language = language
+
+        self.speaker_wav = SPEAKERS_DIR / f"{language}.wav"
+        # ✅ Validation
+        validate_path(self.speaker_wav)
 
         self.device = get_device()
 
-        print(f"🔊 Loading TTS on {self.device}")
+        print(f"🧠 🔊 Loading TTS for '{self.language}' on '{self.device}'")
         self.tts = TTS(
-            model_name=MODEL_NAME,
+            model_name=TTS_MODEL,
             gpu=(self.device == "cuda")
         )
 
-        print(f"🧠 Loading WhisperX alignment model on {self.device}")
+        print(f"🧠 Loading WhisperX alignment model for '{self.language}' on '{self.device}'")
         self.alignment_model, self.metadata = whisperx.load_align_model(
-            language_code="en",
+            language_code=self.language,
             device=self.device,
         )
 
@@ -32,8 +38,8 @@ class AudioService:
 
         self.tts.tts_to_file(
             text=text,
-            speaker_wav=str(SPEAKER_WAV),
-            language="en",
+            speaker_wav=str(self.speaker_wav),
+            language=self.language,
             file_path=str(temp_path),
             temperature=0.6,
         )
