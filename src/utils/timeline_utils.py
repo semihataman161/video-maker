@@ -10,7 +10,7 @@ def save_timeline(timeline: list[dict]):
     with open(timeline_path, "w") as file:
         json.dump(timeline, file, indent=2)
 
-    print(f"🧠 Timeline saved → {timeline_path}")
+    print(f"📝 Timeline saved → {timeline_path}")
 
 
 def get_timeline() -> list[dict[str, Any]]:

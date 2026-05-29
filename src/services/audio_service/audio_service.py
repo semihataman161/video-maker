@@ -21,13 +21,13 @@ class AudioService:
 
         self.device = get_device()
 
-        print(f"🧠 🔊 Loading TTS for '{self.language}' on '{self.device}'")
+        print(f"🔊 Loading TTS for '{self.language}' on '{self.device}'")
         self.tts = TTS(
             model_name=TTS_MODEL,
             gpu=(self.device == "cuda")
         )
 
-        print(f"🧠 Loading WhisperX alignment model for '{self.language}' on '{self.device}'")
+        print(f"🗣️ Loading WhisperX alignment model for '{self.language}' on '{self.device}'")
         self.alignment_model, self.metadata = whisperx.load_align_model(
             language_code=self.language,
             device=self.device,

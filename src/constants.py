@@ -32,16 +32,17 @@ CHUNKS = """
 """
 
 TARGET_IMAGE_SIZE = (1920, 1080)
-LANGUAGE = "tr"
+LANGUAGE = "en"
 
 from pathlib import Path
 
 # ASSETS DIRECTORIES
-ASSETS_DIR = Path(__file__).resolve().parents[1] / "assets"
+ROOT_DIR = Path(__file__).resolve().parents[1]
+ASSETS_DIR = ROOT_DIR / "assets"
 FONTS_DIR = ASSETS_DIR / "fonts"
 
 # OUTPUT DIRECTORIES
-OUTPUT_DIR = Path(__file__).resolve().parents[1] / "output"
+OUTPUT_DIR = ROOT_DIR / "output"
 AUDIO_DIR = OUTPUT_DIR / "audio"
 IMAGES_DIR = OUTPUT_DIR / "images"
 ORIGINAL_IMAGES_DIR = IMAGES_DIR / "original"
