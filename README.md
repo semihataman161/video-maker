@@ -21,7 +21,7 @@ brew install ffmpeg
 ### 2. Run the Project
 
 ```bash
-make create_env
+make create_venv
 make run
 ```
 
