@@ -32,7 +32,7 @@ CHUNKS = """
 """
 
 TARGET_IMAGE_SIZE = (1920, 1080)
-LANGUAGE = "en"
+LANGUAGE = "English"
 
 from pathlib import Path
 
