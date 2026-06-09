@@ -16,3 +16,8 @@ def parse_chunks(text: str):
         raise RuntimeError("No chunks parsed!")
 
     return chunks
+
+
+def split_sentences(text: str) -> list[str]:
+    sentences = re.findall(r'(?:.*?[.?!]"?\s)|(?:.+$)', text)
+    return [s.strip() for s in sentences if s.strip()]

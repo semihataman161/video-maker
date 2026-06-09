@@ -10,8 +10,9 @@ from pathlib import Path
 
 from src.utils.file_utils import validate_paths
 from src.utils.timeline_utils import save_timeline
+from src.utils.chunk_utils import split_sentences
 from src.constants import AUDIO_DIR
-from .constants import TTS_MODEL, ALIGNMENT_MODEL, PAUSE, SAMPLE_RATE, SPEAKERS_DIR
+from .constants import TTS_MODEL, ALIGNMENT_MODEL, CHUNK_PAUSE, SENTENCE_PAUSE, SAMPLE_RATE, SPEAKERS_DIR
 
 os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
 
@@ -60,11 +61,9 @@ class AudioService:
 
         return str(converted_path)
 
-    def __generate_audio_file(self, index: int, text: str) -> Path:
-        temp_path = AUDIO_DIR / f"chunk_{index}.wav"
-
+    def __generate_sentence_audio(self, sentence: str) -> np.ndarray:
         results = list(self.tts_model.generate(
-            text=text,
+            text=sentence,
             ref_audio=self.speaker_wav,
             ref_text=self.ref_text,
         ))
@@ -76,9 +75,25 @@ class AudioService:
         ]
 
         if not all_audio:
-            raise RuntimeError(f"Audio data is empty for Chunk {index}: {text[:50]}...")
+            raise RuntimeError(f"Audio data is empty: {sentence[:50]}...")
 
-        audio_array = np.concatenate(all_audio) if len(all_audio) > 1 else all_audio[0]
+        return np.concatenate(all_audio) if len(all_audio) > 1 else all_audio[0]
+
+    def __generate_audio_file(self, index: int, text: str) -> Path:
+        temp_path = AUDIO_DIR / f"chunk_{index}.wav"
+
+        sentences = split_sentences(text)
+        silence = np.zeros(int(SAMPLE_RATE * SENTENCE_PAUSE), dtype=np.float32)
+
+        audio_parts = []
+        for sentence in sentences:
+            audio_parts.append(self.__generate_sentence_audio(sentence))
+            audio_parts.append(silence)
+
+        if audio_parts:
+            audio_parts.pop()
+
+        audio_array = np.concatenate(audio_parts)
         sf.write(str(temp_path), audio_array, SAMPLE_RATE)
         return temp_path
 
@@ -134,13 +149,13 @@ class AudioService:
             "start": current_time,
             "end": current_time + duration,
             "duration": duration,
-            "pause": PAUSE,
+            "pause": CHUNK_PAUSE,
             "words": words,
         }
 
-        silence = AudioSegment.silent(duration=int(PAUSE * 1000))
+        silence = AudioSegment.silent(duration=int(CHUNK_PAUSE * 1000))
         combined = combined + segment + silence
-        return combined, timeline_entry, current_time + duration + PAUSE
+        return combined, timeline_entry, current_time + duration + CHUNK_PAUSE
 
     def run(self):
         combined = AudioSegment.empty()
