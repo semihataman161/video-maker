@@ -37,7 +37,7 @@ class AudioService:
         print("🗣️ Loading Qwen3-ForcedAligner...")
         self.alignment_model = load(ALIGNMENT_MODEL)
 
-    def __prepare_reference_audio(self) -> str:
+    def __prepare_reference_audio(self):
         ref_path = Path(self.speaker_wav)
         file_name = f"{ref_path.stem}_24k_mono.wav"
         converted_path = ref_path.parent / file_name
@@ -59,13 +59,14 @@ class AudioService:
             check=True,
         )
 
-        return str(converted_path)
+        return converted_path
 
     def __generate_sentence_audio(self, sentence: str) -> np.ndarray:
         results = list(self.tts_model.generate(
             text=sentence,
-            ref_audio=self.speaker_wav,
+            ref_audio=str(self.speaker_wav),
             ref_text=self.ref_text,
+            temperature=0.8,
         ))
 
         all_audio = [
@@ -79,7 +80,7 @@ class AudioService:
 
         return np.concatenate(all_audio) if len(all_audio) > 1 else all_audio[0]
 
-    def __generate_audio_file(self, index: int, text: str) -> Path:
+    def __generate_audio_file(self, index: int, text: str):
         temp_path = AUDIO_DIR / f"chunk_{index}.wav"
 
         sentences = split_sentences(text)
@@ -101,10 +102,10 @@ class AudioService:
         segment = AudioSegment.from_wav(path)
         return segment, len(segment) / 1000
 
-    def __reattach_punctuation(self, aligned_words: list[dict], original_text: str) -> list[dict]:
+    def __reattach_punctuation(self, aligned_words: list[dict], original_text: str):
         original_tokens = original_text.split()
 
-        def strip_punct(token: str) -> str:
+        def strip_punct(token: str):
             return re.sub(r"[^\w']", "", token).lower()
 
         stripped_originals = [strip_punct(t) for t in original_tokens]
