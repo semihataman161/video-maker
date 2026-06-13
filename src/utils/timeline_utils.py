@@ -31,3 +31,16 @@ def get_total_duration(timeline):
         float(scene["end"]) + float(scene["pause"])
         for scene in timeline
     )
+
+
+def chunk_timeline_words(chunk_size: int):
+    timeline = get_timeline()
+    all_chunks = []
+
+    for scene in timeline:
+        words = scene.get("words", [])
+        for i in range(0, len(words), chunk_size):
+            chunk = words[i:i + chunk_size]
+            if chunk:
+                all_chunks.append(chunk)
+    return all_chunks

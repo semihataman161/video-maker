@@ -7,18 +7,18 @@ from moviepy.audio.io.AudioFileClip import AudioFileClip
 from src.utils.timeline_utils import get_timeline, get_total_duration
 from src.utils.file_utils import validate_path
 from src.constants import TARGET_IMAGE_SIZE, CROPPED_IMAGES_DIR
+from ..subtitle_service.render import SubtitleRenderProtocol
 from ..effect_service import EffectProtocol
-from ..subtitle_service import SubtitleProtocol
 from .constants import FPS, AUDIO_PATH, OUTPUT_PATH
 
 
 class VideoService:
     def __init__(
             self,
-            subtitle_service: SubtitleProtocol | None = None,
+            subtitle_render_service: SubtitleRenderProtocol | None = None,
             effect_service: EffectProtocol | None = None,
     ):
-        self.subtitle_service = subtitle_service
+        self.subtitle_render_service = subtitle_render_service
         self.effect_service = effect_service
 
         # ✅ Validation
@@ -32,6 +32,7 @@ class VideoService:
             .with_duration(total_duration)
         )
 
+        # 💬 Optional effects
         if self.effect_service:
             return self.effect_service.get_clip(clip)
 
@@ -69,8 +70,8 @@ class VideoService:
         clips = [*image_clips]
 
         # 💬 Optional subtitles
-        if self.subtitle_service:
-            subtitle_clips = self.subtitle_service.get_clip()
+        if self.subtitle_render_service:
+            subtitle_clips = self.subtitle_render_service.get_clip()
             clips.extend(subtitle_clips)
 
         # 🎯 Duration

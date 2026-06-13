@@ -98,11 +98,13 @@ class AudioService:
         sf.write(str(temp_path), audio_array, SAMPLE_RATE)
         return temp_path
 
-    def __load_audio_segment(self, path: Path) -> tuple[AudioSegment, float]:
+    @staticmethod
+    def __load_audio_segment(path: Path) -> tuple[AudioSegment, float]:
         segment = AudioSegment.from_wav(path)
         return segment, len(segment) / 1000
 
-    def __reattach_punctuation(self, aligned_words: list[dict], original_text: str):
+    @staticmethod
+    def __reattach_punctuation(aligned_words: list[dict], original_text: str):
         original_tokens = original_text.split()
 
         def strip_punct(token: str):

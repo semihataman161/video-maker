@@ -28,14 +28,16 @@ class EffectService(EffectProtocol):
     def __init__(self, mode: EffectMode):
         self.mode = mode
 
-    def __get_resized_clip(self, clip: ImageClip, scale: float) -> ImageClip:
+    @staticmethod
+    def __get_resized_clip(clip: ImageClip, scale: float) -> ImageClip:
         new_size = (
             int(TARGET_IMAGE_SIZE[0] * scale),
             int(TARGET_IMAGE_SIZE[1] * scale),
         )
         return clip.resized(new_size=new_size)
 
-    def __linear_zoom_in(self, clip: ImageClip) -> ImageClip:
+    @staticmethod
+    def __linear_zoom_in(clip: ImageClip) -> ImageClip:
         duration = clip.duration
         final_scale = min(MAX_ZOOM, 1 + (ZOOM_IN_PER_SECOND * duration))
 
@@ -52,7 +54,8 @@ class EffectService(EffectProtocol):
             lambda t: max(1.0, start_scale - (ZOOM_OUT_PER_SECOND * t))
         )
 
-    def __oscillating_zoom_in(self, clip: ImageClip) -> ImageClip:
+    @staticmethod
+    def __oscillating_zoom_in(clip: ImageClip) -> ImageClip:
         base_scale = 1 + (MAX_ZOOM - 1) / 2
         amplitude = (MAX_ZOOM - 1) / 2
 
@@ -60,7 +63,8 @@ class EffectService(EffectProtocol):
             lambda t: base_scale + (math.sin(t * OSCILLATION_SPEED) * amplitude)
         )
 
-    def __oscillating_zoom_out(self, clip: ImageClip) -> ImageClip:
+    @staticmethod
+    def __oscillating_zoom_out(clip: ImageClip) -> ImageClip:
         base_scale = 1 + (MAX_ZOOM - 1) / 2
         amplitude = (MAX_ZOOM - 1) / 2
 
@@ -80,12 +84,14 @@ class EffectService(EffectProtocol):
 
         return self.__oscillating_zoom_out(clip)
 
-    def __calculate_pan_scale(self, duration: float):
+    @staticmethod
+    def __calculate_pan_scale(duration: float):
         required_extra_height = duration * PAN_SPEED
         required_scale = (TARGET_IMAGE_SIZE[1] + required_extra_height) / TARGET_IMAGE_SIZE[1]
         return min(MAX_DYNAMIC_SCALE, required_scale)
 
-    def __get_vertical_limit(self, clip: ImageClip) -> float:
+    @staticmethod
+    def __get_vertical_limit(clip: ImageClip) -> float:
         extra_height = clip.h - TARGET_IMAGE_SIZE[1]
         return max(0, extra_height)
 

@@ -1,27 +1,31 @@
-from src.services import AudioService, VideoService, TimerService, SubtitleService, SubtitleConfig, EffectService
+from src.services import (
+    TimerService, AudioService, SubtitleRenderConfig,
+    SubtitleRenderService, SubtitleSrtService, EffectService, VideoService
+)
 from src.utils.file_utils import create_directories
 from src.utils.chunk_utils import parse_chunks
 from src.utils.image_utils import crop_images
-from src.utils.timeline_utils import get_timeline
-from src.constants import CHUNKS, LANGUAGE, TARGET_IMAGE_SIZE, OUTPUT_DIR, AUDIO_DIR, ORIGINAL_IMAGES_DIR, \
-    CROPPED_IMAGES_DIR, \
-    FONTS_DIR
+from src.constants import (
+    CHUNKS, LANGUAGE, WORDS_PER_CAPTION, WORDS_PER_SCREEN,
+    TARGET_IMAGE_SIZE, OUTPUT_DIR, AUDIO_DIR,
+    ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR, FONTS_DIR
+)
 
 create_directories([AUDIO_DIR, ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR])
-
 timer = TimerService()
-# Creating Audio
-timer.measure(
-    "🎙 Creating Audio",
-    lambda: AudioService(
+
+
+@timer.track("🎙 Creating Audio")
+def step_create_audio():
+    AudioService(
         chunks=parse_chunks(CHUNKS),
         language=LANGUAGE
     ).run()
-)
-# Cropping Images
-timer.measure(
-    "✂️ Cropping Images",
-    lambda: crop_images(
+
+
+@timer.track("✂️ Cropping Images")
+def step_crop_images():
+    crop_images(
         input_dir=ORIGINAL_IMAGES_DIR,
         output_dir=CROPPED_IMAGES_DIR,
         left_pct=0,
@@ -29,31 +33,46 @@ timer.measure(
         right_pct=0.06,
         bottom_pct=0,
     )
-)
-# Creating Video
-subtitle_config = SubtitleConfig(
-    font=str(FONTS_DIR / "Montserrat-Bold.ttf"),
-    fontsize=55,
-    color="white",
-    active_color="yellow",
-    stroke_color="black",
-    stroke_width=3,
-    position="bottom",
-    vertical_margin=200,
-    words_per_chunk=4,
-    word_spacing=10
-)
-subtitle_service = SubtitleService(
-    timeline=get_timeline(),
-    video_size=TARGET_IMAGE_SIZE,
-    config=subtitle_config,
-)
-effect_service = EffectService(mode="random")
-video_service = VideoService(
-    subtitle_service=subtitle_service,
-    effect_service=effect_service
-)
-timer.measure("🎬 Creating Video", lambda: video_service.run())
-timer.summary()
 
-print(f"✅ DONE → {OUTPUT_DIR}/product.mp4")
+
+@timer.track("📝 Generating SRT")
+def step_generate_srt():
+    SubtitleSrtService(words_per_caption=WORDS_PER_CAPTION).run()
+
+
+@timer.track("🎬 Creating Video")
+def step_create_video():
+    subtitle_render_config = SubtitleRenderConfig(
+        font=str(FONTS_DIR / "Montserrat-Bold.ttf"),
+        fontsize=55,
+        color="white",
+        active_color="yellow",
+        stroke_color="black",
+        stroke_width=3,
+        position="bottom",
+        vertical_margin=200,
+        word_spacing=10
+    )
+
+    subtitle_render_service = SubtitleRenderService(
+        config=subtitle_render_config,
+        words_per_screen=WORDS_PER_SCREEN,
+        video_size=TARGET_IMAGE_SIZE,
+    )
+
+    effect_service = EffectService(mode="random")
+
+    VideoService(
+        subtitle_render_service=subtitle_render_service,
+        effect_service=effect_service
+    ).run()
+
+
+if __name__ == "__main__":
+    step_create_audio()
+    step_crop_images()
+    step_generate_srt()
+    step_create_video()
+
+    timer.summary()
+    print(f"✅ DONE → {OUTPUT_DIR}/product.mp4")

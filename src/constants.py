@@ -31,6 +31,8 @@ CHUNKS = """
 [30] And Liam did. Not because he could see the future. But because he finally understood. Growth happens in the doing. Not in the waiting.
 """
 
+WORDS_PER_CAPTION = 6
+WORDS_PER_SCREEN = 4
 TARGET_IMAGE_SIZE = (1920, 1080)
 LANGUAGE = "English"
 
