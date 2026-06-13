@@ -1,20 +1,16 @@
 from typing import Any
-from moviepy.video.VideoClip import TextClip
 
+from src.core import OverlayProtocol, BaseRenderer
 from src.utils.file_utils import validate_path
 from src.utils.timeline_utils import chunk_timeline_words
-from .protocol import SubtitleRenderProtocol
 from .config import SubtitleRenderConfig
 
 
-class SubtitleRenderService(SubtitleRenderProtocol):
+class SubtitleRenderService(BaseRenderer, OverlayProtocol):
     def __init__(self, config: SubtitleRenderConfig, words_per_screen: int, video_size: tuple[int, int]):
+        super().__init__(video_size)
         self.config = config
-        self.video_width = int(video_size[0])
-        self.video_height = int(video_size[1])
-
         self.chunks = chunk_timeline_words(words_per_screen)
-
         validate_path(self.config.font)
 
     def __get_y_position(self):
@@ -24,32 +20,17 @@ class SubtitleRenderService(SubtitleRenderProtocol):
             return int(self.config.vertical_margin)
         return int(self.video_height / 2)
 
-    def __create_text_clip(self, text: str, color: str):
-        return TextClip(
-            text=text,
-            font=self.config.font,
-            font_size=self.config.fontsize,
-            color=color,
-            stroke_color=self.config.stroke_color,
-            stroke_width=self.config.stroke_width,
-            transparent=True,
-        )
-
-    def __create_positioned_clip(self, text: str, color: str, start: float, duration: float, x: int, y: int):
-        return (
-            self.__create_text_clip(text=text, color=color)
-            .with_start(start)
-            .with_duration(duration)
-            .with_position((x, y))
-        )
-
     def __create_measurement_clips(self, chunk_words: list[dict[str, Any]]):
         return [
-            self.__create_text_clip(text=word_data["word"], color=self.config.color)
+            self.create_text_clip(
+                text=word_data["word"],
+                font=self.config.font,
+                fontsize=self.config.fontsize,
+                color=self.config.color)
             for word_data in chunk_words
         ]
 
-    def __calculate_total_width(self, measurement_clips: list[TextClip]):
+    def __calculate_total_width(self, measurement_clips: list):
         words_width = sum(clip.w for clip in measurement_clips)
         spacing_width = (len(measurement_clips) - 1) * self.config.word_spacing
         return words_width + spacing_width
@@ -58,13 +39,20 @@ class SubtitleRenderService(SubtitleRenderProtocol):
         return int((self.video_width - total_width) / 2)
 
     def __create_active_clip(self, word_data: dict[str, Any], x: int, y: int):
-        return self.__create_positioned_clip(
+        raw_clip = self.create_text_clip(
             text=word_data["word"],
+            font=self.config.font,
+            fontsize=self.config.fontsize,
             color=self.config.active_color,
-            start=float(word_data["start"]),
-            duration=float(word_data["end"]) - float(word_data["start"]),
+            stroke_color=self.config.stroke_color,
+            stroke_width=self.config.stroke_width
+        )
+        return self.place_clip(
+            clip=raw_clip,
             x=x,
             y=y,
+            start=float(word_data["start"]),
+            duration=float(word_data["end"]) - float(word_data["start"])
         )
 
     def __create_inactive_clip(self, word_data: dict[str, Any], chunk_end: float, x: int, y: int):
@@ -72,13 +60,20 @@ class SubtitleRenderService(SubtitleRenderProtocol):
         if remaining_duration <= 0:
             return None
 
-        return self.__create_positioned_clip(
+        raw_clip = self.create_text_clip(
             text=word_data["word"],
+            font=self.config.font,
+            fontsize=self.config.fontsize,
             color=self.config.color,
-            start=float(word_data["end"]),
-            duration=remaining_duration,
+            stroke_color=self.config.stroke_color,
+            stroke_width=self.config.stroke_width
+        )
+        return self.place_clip(
+            clip=raw_clip,
             x=x,
             y=y,
+            start=float(word_data["end"]),
+            duration=remaining_duration
         )
 
     def __build_word_clips(self, word_data: dict[str, Any], chunk_end: float, x: int, y: int):
@@ -114,7 +109,7 @@ class SubtitleRenderService(SubtitleRenderProtocol):
 
         return clips
 
-    def get_clip(self):
+    def get_clip(self, total_duration: float = 0.0):
         clips = []
         for chunk_words in self.chunks:
             chunk_clips = self.__build_chunk(chunk_words)

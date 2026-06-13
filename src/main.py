@@ -1,6 +1,8 @@
 from src.services import (
     TimerService, AudioService, SubtitleRenderConfig,
-    SubtitleRenderService, SubtitleSrtService, EffectService, VideoService
+    SubtitleRenderService, SubtitleSrtService,
+    WatermarkConfig, WatermarkService, EffectService,
+    VideoService
 )
 from src.utils.file_utils import create_directories
 from src.utils.chunk_utils import parse_chunks
@@ -8,7 +10,7 @@ from src.utils.image_utils import crop_images
 from src.constants import (
     CHUNKS, LANGUAGE, WORDS_PER_CAPTION, WORDS_PER_SCREEN,
     TARGET_IMAGE_SIZE, OUTPUT_DIR, AUDIO_DIR,
-    ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR, FONTS_DIR
+    ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR, FONTS_DIR, LOGO_DIR
 )
 
 create_directories([AUDIO_DIR, ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR])
@@ -42,6 +44,20 @@ def step_generate_srt():
 
 @timer.track("🎬 Creating Video")
 def step_create_video():
+    watermark_config = WatermarkConfig(
+        channel_name="@SeninKanalin",
+        font=str(FONTS_DIR / "Montserrat-Bold.ttf"),
+        fontsize=45,
+        logo_path=str(LOGO_DIR / "logo.png"),
+        color="white",
+        opacity=1,
+        margin=40
+    )
+    watermark_service = WatermarkService(
+        config=watermark_config,
+        video_size=TARGET_IMAGE_SIZE
+    )
+
     subtitle_render_config = SubtitleRenderConfig(
         font=str(FONTS_DIR / "Montserrat-Bold.ttf"),
         fontsize=55,
@@ -53,7 +69,6 @@ def step_create_video():
         vertical_margin=200,
         word_spacing=10
     )
-
     subtitle_render_service = SubtitleRenderService(
         config=subtitle_render_config,
         words_per_screen=WORDS_PER_SCREEN,
@@ -63,7 +78,7 @@ def step_create_video():
     effect_service = EffectService(mode="random")
 
     VideoService(
-        subtitle_render_service=subtitle_render_service,
+        overlays=[watermark_service, subtitle_render_service],
         effect_service=effect_service
     ).run()
 

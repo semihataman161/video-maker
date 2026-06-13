@@ -4,10 +4,10 @@ from moviepy.video.VideoClip import ImageClip
 from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
 from moviepy.audio.io.AudioFileClip import AudioFileClip
 
+from src.core import OverlayProtocol
 from src.utils.timeline_utils import get_timeline, get_total_duration
 from src.utils.file_utils import validate_path
 from src.constants import TARGET_IMAGE_SIZE, CROPPED_IMAGES_DIR
-from ..subtitle_service.render import SubtitleRenderProtocol
 from ..effect_service import EffectProtocol
 from .constants import FPS, AUDIO_PATH, OUTPUT_PATH
 
@@ -15,13 +15,12 @@ from .constants import FPS, AUDIO_PATH, OUTPUT_PATH
 class VideoService:
     def __init__(
             self,
-            subtitle_render_service: SubtitleRenderProtocol | None = None,
+            overlays: list[OverlayProtocol] = None,
             effect_service: EffectProtocol | None = None,
     ):
-        self.subtitle_render_service = subtitle_render_service
+        self.overlays = overlays or []
         self.effect_service = effect_service
 
-        # ✅ Validation
         validate_path(AUDIO_PATH)
 
     def __create_image_clip(self, img_path: Path, start: float, total_duration: float):
@@ -62,22 +61,17 @@ class VideoService:
     def run(self):
         # 📄 Timeline
         timeline = get_timeline()
+        total_duration = get_total_duration(timeline)
 
         # 🎬 Image Clips
         image_clips = self.__create_image_clips(timeline)
-
-        # 🎯 Base clips
         clips = [*image_clips]
 
-        # 💬 Optional subtitles
-        if self.subtitle_render_service:
-            subtitle_clips = self.subtitle_render_service.get_clip()
-            clips.extend(subtitle_clips)
+        # 💬 Optional overlays
+        for overlay in self.overlays:
+            overlay_clips = overlay.get_clip(total_duration=total_duration)
+            clips.extend(overlay_clips)
 
-        # 🎯 Duration
-        total_duration = get_total_duration(timeline)
-
-        # 🎥 Composite
         final_clip = (
             CompositeVideoClip(
                 clips,

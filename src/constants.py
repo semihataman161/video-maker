@@ -42,6 +42,7 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).resolve().parents[1]
 ASSETS_DIR = ROOT_DIR / "assets"
 FONTS_DIR = ASSETS_DIR / "fonts"
+LOGO_DIR = ASSETS_DIR / "logo"
 
 # OUTPUT DIRECTORIES
 OUTPUT_DIR = ROOT_DIR / "output"

@@ -1,3 +1,3 @@
-from .timer_service import TimerService
+from .service import TimerService
 
 __all__ = ["TimerService"]

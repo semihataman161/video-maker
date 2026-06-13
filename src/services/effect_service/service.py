@@ -4,7 +4,7 @@ from typing import Literal
 from moviepy.video.VideoClip import ImageClip
 
 from src.constants import TARGET_IMAGE_SIZE
-from .effect_protocol import EffectProtocol
+from .protocol import EffectProtocol
 from .constants import (
     LINEAR_MOTION_MAX_DURATION,
     OSCILLATION_SPEED,

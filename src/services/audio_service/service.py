@@ -125,7 +125,7 @@ class AudioService:
 
         return aligned_words
 
-    def __align_words(self, audio_path: Path, text: str, offset: float) -> list[dict]:
+    def __align_words(self, audio_path: Path, text: str, offset: float):
         words = []
 
         result = self.alignment_model.generate(str(audio_path), text=text, language=self.language)
