@@ -10,7 +10,8 @@ from src.utils.image_utils import crop_images
 from src.constants import (
     CHUNKS, LANGUAGE, WORDS_PER_CAPTION, WORDS_PER_SCREEN,
     TARGET_IMAGE_SIZE, OUTPUT_DIR, AUDIO_DIR,
-    ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR, FONTS_DIR, LOGO_DIR
+    ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR, FONTS_DIR, LOGO_DIR,
+    CHANNEL_NAME
 )
 
 create_directories([AUDIO_DIR, ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR])
@@ -45,7 +46,7 @@ def step_generate_srt():
 @timer.track("🎬 Creating Video")
 def step_create_video():
     watermark_config = WatermarkConfig(
-        channel_name="@SeninKanalin",
+        channel_name=CHANNEL_NAME,
         font=str(FONTS_DIR / "Montserrat-Bold.ttf"),
         fontsize=45,
         logo_path=str(LOGO_DIR / "logo.png"),
