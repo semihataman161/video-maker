@@ -1,12 +1,14 @@
 from src.core import OverlayProtocol, BaseRenderer
 from src.utils.file_utils import validate_path
+from src.constants import TARGET_IMAGE_SIZE
 from .config import WatermarkConfig
 
 
 class WatermarkService(BaseRenderer, OverlayProtocol):
-    def __init__(self, config: WatermarkConfig, video_size: tuple[int, int]):
-        super().__init__(video_size)
+    def __init__(self, config: WatermarkConfig):
+        super().__init__(TARGET_IMAGE_SIZE)
         self.config = config
+
         validate_path(self.config.font)
 
     def get_clip(self, total_duration: float = 0.0):

@@ -9,6 +9,7 @@ from src.utils.timeline_utils import get_timeline, get_total_duration
 from src.utils.file_utils import validate_path
 from src.constants import TARGET_IMAGE_SIZE, CROPPED_IMAGES_DIR
 from ..effect_service import EffectProtocol
+from ..outro_service import OutroProtocol
 from .constants import FPS, AUDIO_PATH, OUTPUT_PATH
 
 
@@ -17,9 +18,11 @@ class VideoService:
             self,
             overlays: list[OverlayProtocol] = None,
             effect_service: EffectProtocol | None = None,
+            outro_service: OutroProtocol = None,
     ):
         self.overlays = overlays or []
         self.effect_service = effect_service
+        self.outro_service = outro_service
 
         validate_path(AUDIO_PATH)
 
@@ -39,18 +42,26 @@ class VideoService:
 
     def __create_image_clips(self, timeline: list[dict[str, Any]]):
         clips = []
+        total_scenes = len(timeline)
 
-        for scene in timeline:
+        for index, scene in enumerate(timeline):
+            total_duration = float(scene["duration"]) + float(scene["pause"])
+            start_time = float(scene["start"])
+
+            if index == total_scenes - 1 and self.outro_service:
+                outro_clip = self.outro_service.get_clip(duration=total_duration)
+                outro_clip = outro_clip.with_start(start_time)
+                clips.append(outro_clip)
+                continue
+
             img_path = CROPPED_IMAGES_DIR / f"{scene['index']}.png"
 
             if not img_path.exists():
                 raise ValueError(f"Missing image: {img_path}")
 
-            total_duration = float(scene["duration"]) + float(scene["pause"])
-
             clip = self.__create_image_clip(
                 img_path=img_path,
-                start=float(scene["start"]),
+                start=start_time,
                 total_duration=total_duration,
             )
 

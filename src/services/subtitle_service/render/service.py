@@ -3,14 +3,16 @@ from typing import Any
 from src.core import OverlayProtocol, BaseRenderer
 from src.utils.file_utils import validate_path
 from src.utils.timeline_utils import chunk_timeline_words
+from src.constants import TARGET_IMAGE_SIZE
 from .config import SubtitleRenderConfig
 
 
 class SubtitleRenderService(BaseRenderer, OverlayProtocol):
-    def __init__(self, config: SubtitleRenderConfig, words_per_screen: int, video_size: tuple[int, int]):
-        super().__init__(video_size)
+    def __init__(self, config: SubtitleRenderConfig, words_per_screen: int):
+        super().__init__(TARGET_IMAGE_SIZE)
         self.config = config
         self.chunks = chunk_timeline_words(words_per_screen)
+
         validate_path(self.config.font)
 
     def __get_y_position(self):

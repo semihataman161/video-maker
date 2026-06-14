@@ -2,15 +2,15 @@ from src.services import (
     TimerService, AudioService, SubtitleRenderConfig,
     SubtitleRenderService, SubtitleSrtService,
     WatermarkConfig, WatermarkService, EffectService,
-    VideoService
+    OutroService, VideoService
 )
 from src.utils.file_utils import create_directories
 from src.utils.chunk_utils import parse_chunks
 from src.utils.image_utils import crop_images
 from src.constants import (
     CHUNKS, LANGUAGE, WORDS_PER_CAPTION, WORDS_PER_SCREEN,
-    TARGET_IMAGE_SIZE, OUTPUT_DIR, AUDIO_DIR,
-    ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR, FONTS_DIR, LOGO_DIR,
+    OUTPUT_DIR, AUDIO_DIR, ORIGINAL_IMAGES_DIR,
+    CROPPED_IMAGES_DIR, FONTS_DIR, LOGO_DIR,
     CHANNEL_NAME
 )
 
@@ -58,7 +58,6 @@ def step_create_video():
     )
     watermark_service = WatermarkService(
         config=watermark_config,
-        video_size=TARGET_IMAGE_SIZE
     )
 
     subtitle_render_config = SubtitleRenderConfig(
@@ -75,14 +74,20 @@ def step_create_video():
     subtitle_render_service = SubtitleRenderService(
         config=subtitle_render_config,
         words_per_screen=WORDS_PER_SCREEN,
-        video_size=TARGET_IMAGE_SIZE,
     )
 
     effect_service = EffectService(mode="random")
 
+    outro_service = OutroService(
+        image_path=str(LOGO_DIR / "logo.png"),
+        image_size=(250, 250),
+        bg_color=(15, 15, 15)
+    )
+
     VideoService(
         overlays=[watermark_service, subtitle_render_service],
-        effect_service=effect_service
+        effect_service=effect_service,
+        outro_service=outro_service
     ).run()
 
 

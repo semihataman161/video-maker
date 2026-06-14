@@ -4,8 +4,9 @@ from .subtitle_service.render import SubtitleRenderConfig, SubtitleRenderService
 from .subtitle_service.srt import SubtitleSrtService
 from .watermark_service import WatermarkConfig, WatermarkService
 from .effect_service import EffectProtocol, EffectService
+from .outro_service import OutroProtocol, OutroService
 from .video_service import VideoService
 
 __all__ = ["TimerService", "AudioService", "SubtitleRenderConfig", "SubtitleRenderService",
            "SubtitleSrtService", "WatermarkConfig", "WatermarkService", "EffectProtocol", "EffectService",
-           "VideoService"]
+           "OutroProtocol", "OutroService", "VideoService"]

@@ -98,6 +98,8 @@ CHUNKS = """
 [49] But he no longer saw that as a problem to be fixed. It was just part of being human, part of having a mind that thinks, the same way breathing is just part of having lungs.
 
 [50] And once Eli stopped fighting that simple fact, for the first time in his adult life, he finally felt at home inside his own head.
+
+[51] If you enjoyed this story, please subscribe for more content and click the bell icon to never miss an update.
 """
 
 WORDS_PER_CAPTION = 6
