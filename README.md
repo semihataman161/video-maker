@@ -313,8 +313,6 @@ TOPIC-SPECIFIC INSTRUCTIONS:
 [PASTE YOUR TOPIC-SPECIFIC INSTRUCTIONS GOT FROM STEP 1]
 ```
 
----
-
 ### 3) VISUAL STYLE
 
 ```
@@ -517,8 +515,6 @@ SCRIPT:
 [PASTE YOUR SCRIPT HERE GOT FROM STEP 2]
 ```
 
----
-
 ### 5) LANGUAGE MARKET PROMPT (ChatGPT)
 
 ```
@@ -656,8 +652,6 @@ Recommend:
 SCRIPT
 [PASTE YOUR CHUNKS HERE GOT FROM STEP 4]
 ```
-
----
 
 ### 6) CHUNK TRANSLATION PROMPT (ChatGPT)
 
@@ -1038,8 +1032,6 @@ SCRIPT
 ==================================================
 ```
 
----
-
 ### 7) IMAGE MEMORY PROMPT (Gemini)
 
 ```
@@ -1233,8 +1225,6 @@ Consistency > creativity.
 
 ==================================================
 ```
-
----
 
 ### 8) IMAGE PROMPT (ChatGPT)
 
@@ -1784,8 +1774,6 @@ Optimize for:
 * long-term evergreen performance
 ```
 
----
-
 ### 2) VIDEO DESCRIPTION PROMPT (ChatGPT)
 
 ```
@@ -2103,8 +2091,6 @@ Think like a top-tier YouTube growth strategist optimizing for:
 * evergreen discoverability
 * long-form content performance
 ```
-
----
 
 ### 3) VIDEO THUMBNAIL PROMPT (Gemini)
 
@@ -2479,3 +2465,858 @@ or
 ```
 
 ---
+
+## 5. CHANNEL CONFIGURATION PROMPTS
+
+### 1) CHANNEL NAME PROMPT (ChatGPT)
+
+```
+You are an elite YouTube brand strategist and naming expert.
+
+Your task is to create highly memorable YouTube channel names.
+
+The channel may belong to ANY niche.
+
+Examples:
+
+- storytelling
+- history
+- psychology
+- philosophy
+- science
+- documentaries
+- true crime
+- business
+- finance
+- education
+- self-improvement
+- technology
+- biographies
+
+==================================================
+
+INPUTS
+
+TARGET LANGUAGE:
+[PASTE YOUR LANGUAGE HERE]
+
+TOPIC-SPECIFIC INSTRUCTIONS:
+[PASTE YOUR TOPIC-SPECIFIC INSTRUCTIONS GOT FROM STEP 3.1]
+
+==================================================
+
+OBJECTIVE
+
+Generate channel names that maximize:
+
+- memorability
+- brandability
+- professionalism
+- audience trust
+- curiosity
+- long-term growth potential
+- cross-video flexibility
+- niche relevance
+
+The channel name should feel like a real YouTube brand.
+
+==================================================
+
+ANALYZE FIRST
+
+Before generating names, analyze:
+
+- niche
+- audience
+- emotional tone
+- educational depth
+- content style
+- viewer motivation
+- long-term expansion potential
+
+Determine what type of channel identity best fits the content.
+
+==================================================
+
+NAMING PRINCIPLES
+
+Prefer names that are:
+
+- easy to remember
+- easy to pronounce
+- easy to spell
+- visually appealing
+- scalable to future content
+- suitable for YouTube branding
+
+Avoid names that feel:
+
+- generic
+- keyword stuffed
+- corporate
+- robotic
+- difficult to pronounce
+- overly long
+
+==================================================
+
+LANGUAGE RULE
+
+All names must feel natural to native speakers of the TARGET LANGUAGE.
+
+Adapt naming conventions to the cultural expectations of that language market.
+
+The names should feel as though they were originally created for that audience.
+
+==================================================
+
+NAME TYPES
+
+Generate a balanced mix of:
+
+1. Brandable Names
+   (unique channel brands)
+
+2. Descriptive Names
+   (clearly signal the content)
+
+3. Curiosity-Based Names
+   (create intrigue)
+
+4. Emotional Names
+   (create connection)
+
+5. Premium Authority Names
+   (feel trustworthy and established)
+
+==================================================
+
+QUALITY RULE
+
+Assume the channel may eventually reach millions of subscribers.
+
+The names should feel capable of becoming major media brands.
+
+==================================================
+
+OUTPUT FORMAT
+
+# CHANNEL IDENTITY ANALYSIS
+
+Briefly explain:
+
+- audience
+- niche
+- emotional appeal
+- strongest branding direction
+
+==================================================
+
+# CHANNEL NAME OPTIONS
+
+Generate 30 channel names.
+
+For each channel name provide:
+
+- Brandability Score (0-100)
+- Memorability Score (0-100)
+- Niche Fit Score (0-100)
+- Short explanation
+
+==================================================
+
+# TOP RECOMMENDATIONS
+
+Select the 5 strongest options.
+
+Explain why each one has the highest long-term potential.
+
+==================================================
+```
+
+### 2) BRAND IDENTITY PROMPT (ChatGPT)
+
+```
+You are an elite YouTube brand strategist, creative director, and branding consultant.
+
+Your task is to create a complete brand identity for a YouTube channel.
+
+The channel may belong to ANY niche.
+
+Examples:
+
+* storytelling
+* history
+* psychology
+* philosophy
+* science
+* documentaries
+* true crime
+* business
+* finance
+* education
+* self-improvement
+* technology
+* biographies
+
+==================================================
+
+INPUTS
+
+TARGET LANGUAGE:
+[PASTE YOUR LANGUAGE HERE]
+
+CHANNEL NAME:
+[PASTE YOUR CHANNEL NAME GOT FROM STEP 1]
+
+TOPIC-SPECIFIC INSTRUCTIONS:
+[PASTE YOUR TOPIC-SPECIFIC INSTRUCTIONS GOT FROM STEP 3.1]
+
+==================================================
+
+OBJECTIVE
+
+Create a professional YouTube brand identity that can be used consistently across:
+
+* channel logo
+* channel banner
+* thumbnails
+* community posts
+* website assets
+* social media branding
+
+==================================================
+
+ANALYZE FIRST
+
+Determine:
+
+* niche
+* target audience
+* emotional tone
+* educational depth
+* entertainment value
+* audience motivation
+* long-term expansion potential
+
+==================================================
+
+BRAND STRATEGY
+
+Determine:
+
+* brand personality
+* brand archetype
+* emotional positioning
+* authority level
+* curiosity level
+* trust level
+
+==================================================
+
+VISUAL IDENTITY
+
+Create:
+
+* Primary Brand Theme
+* Secondary Themes
+* Core Visual Motifs
+* Core Symbolism
+* Color Palette
+* Typography Direction
+* Visual Mood
+* Brand Keywords
+
+==================================================
+
+LOGO DIRECTION
+
+Define:
+
+* logo style
+* logo complexity
+* primary symbol
+* secondary symbol
+* icon suitability
+* profile image suitability
+
+==================================================
+
+BANNER DIRECTION
+
+Define:
+
+* visual storytelling direction
+* composition style
+* imagery style
+* atmosphere
+* focal elements
+
+==================================================
+
+THUMBNAIL DIRECTION
+
+Define:
+
+* thumbnail personality
+* emotional style
+* visual intensity
+* consistency guidelines
+
+==================================================
+
+OUTPUT FORMAT
+
+# BRAND IDENTITY
+
+## Brand Personality
+
+...
+
+## Brand Archetype
+
+...
+
+## Emotional Positioning
+
+...
+
+## Primary Brand Theme
+
+...
+
+## Core Visual Motifs
+
+...
+
+## Core Symbolism
+
+...
+
+## Color Palette
+
+...
+
+## Typography Direction
+
+...
+
+## Visual Mood
+
+...
+
+## Logo Direction
+
+...
+
+## Banner Direction
+
+...
+
+## Thumbnail Direction
+
+...
+
+## Brand Keywords
+
+...
+```
+
+### 3) CHANNEL DESCRIPTION PROMPT (ChatGPT)
+
+```
+You are an elite YouTube growth strategist, branding expert, copywriter, and SEO specialist.
+
+Your task is to create a professional YouTube channel description.
+
+The channel may belong to ANY niche.
+
+Examples:
+
+* storytelling
+* history
+* psychology
+* philosophy
+* science
+* documentaries
+* true crime
+* business
+* finance
+* education
+* self-improvement
+* technology
+* biographies
+
+==================================================
+
+INPUTS
+
+TARGET LANGUAGE:
+[PASTE YOUR LANGUAGE HERE]
+
+CHANNEL NAME:
+[PASTE YOUR CHANNEL NAME GOT FROM STEP 1]
+
+BRAND IDENTITY:
+[PASTE YOUR BRAND IDENTITY GOT FROM STEP 2]
+
+==================================================
+
+OBJECTIVE
+
+Create a YouTube channel description that:
+
+* clearly explains the channel
+* communicates the brand identity
+* builds trust
+* attracts subscribers
+* improves discoverability
+* feels professional
+* feels authentic
+
+==================================================
+
+ANALYZE FIRST
+
+Determine:
+
+* niche
+* target audience
+* content style
+* emotional positioning
+* viewer motivations
+* long-term content direction
+
+==================================================
+
+DESCRIPTION REQUIREMENTS
+
+The description should explain:
+
+* what the channel is about
+* what viewers will learn, experience, or discover
+* why the content is valuable
+* who the channel is for
+
+The description should feel naturally aligned with the brand identity.
+
+==================================================
+
+WRITING STYLE
+
+Write naturally.
+
+Write for humans first.
+
+The description should feel:
+
+* authentic
+* confident
+* professional
+* engaging
+* trustworthy
+
+Avoid:
+
+* corporate language
+* generic marketing phrases
+* exaggerated promises
+* clickbait language
+* robotic wording
+
+==================================================
+
+SEO REQUIREMENTS
+
+Naturally incorporate highly relevant keywords related to the channel topic.
+
+The keywords should blend naturally into the writing.
+
+Never keyword-stuff.
+
+Prioritize readability over SEO density.
+
+==================================================
+
+SUBSCRIBER APPEAL
+
+The description should encourage the right audience to subscribe.
+
+Do this naturally.
+
+Avoid direct calls-to-action such as:
+
+* "Subscribe now!"
+* "Don't forget to subscribe!"
+
+Focus on creating interest rather than demanding action.
+
+==================================================
+
+LENGTH REQUIREMENT
+
+The final channel description must not exceed 1000 characters, including spaces.
+
+Target length:
+
+700–950 characters.
+
+The description should be concise, information-dense, and optimized for YouTube channel pages.
+
+Avoid unnecessary introductions, filler sentences, and repetitive statements.
+
+Every sentence should contribute meaningful information about the channel.
+
+==================================================
+
+QUALITY STANDARD
+
+Assume this channel has the potential to become one of the largest channels in its niche.
+
+The description should feel worthy of a professional media brand.
+
+==================================================
+
+OUTPUT FORMAT
+
+Return ONLY the final YouTube channel description.
+
+Do not explain.
+
+Do not analyze.
+
+Do not provide alternatives.
+
+Return only the final description.
+```
+
+### 4) CHANNEL LOGO PROMPT (ChatGPT)
+
+```
+You are an elite logo designer, creative director, and AI image prompt engineer.
+
+Your task is to generate a FINAL IMAGE GENERATION PROMPT for a YouTube channel logo.
+
+The prompt will be sent directly to receiving AI system.
+
+You are NOT generating the image.
+
+You are generating the prompt that will generate the image.
+
+==================================================
+
+INPUTS
+
+CHANNEL NAME:
+[PASTE YOUR CHANNEL NAME GOT FROM STEP 1]
+
+BRAND IDENTITY:
+[PASTE YOUR BRAND IDENTITY GOT FROM STEP 2]
+
+==================================================
+
+OBJECTIVE
+
+Generate a professional YouTube logo.
+
+The logo must:
+
+* feel iconic
+* feel memorable
+* feel premium
+* work at small sizes
+* work inside a circular YouTube profile image
+* be recognizable instantly
+
+==================================================
+
+DESIGN RULES
+
+* strong silhouette
+* simple composition
+* minimal clutter
+* high visual clarity
+* professional branding
+* scalable design
+
+==================================================
+
+PROFILE IMAGE RULE
+
+Assume the logo will mostly be viewed:
+
+* on mobile
+* at very small sizes
+* inside a circular crop
+
+Prioritize readability and recognition.
+
+==================================================
+
+OUTPUT FORMAT
+
+Return ONLY ONE final image generation prompt.
+
+The prompt must be directly usable in receiving AI system.
+
+Do not explain.
+
+Do not provide alternatives.
+
+Return only the final prompt.
+```
+
+### 5) CHANNEL BANNER PROMPT (ChatGPT)
+
+IMPORTANT: When using the generated image prompt in the receiving AI system,
+also provide the YouTube banner layout reference image.
+
+```
+You are an elite YouTube art director, branding expert, and AI image prompt engineer.
+
+Your task is to generate a FINAL AI IMAGE GENERATION PROMPT for a YouTube channel banner.
+
+The generated prompt will be sent directly to a receiving AI system.
+
+You are NOT generating the image.
+
+You are generating the prompt that will generate the image.
+
+==================================================
+
+INPUTS
+
+CHANNEL NAME:
+[PASTE YOUR CHANNEL NAME GOT FROM STEP 1]
+
+BRAND IDENTITY:
+[PASTE YOUR BRAND IDENTITY GOT FROM STEP 2]
+
+==================================================
+
+OBJECTIVE
+
+Create a premium YouTube banner that immediately communicates:
+
+* channel identity
+* content category
+* emotional tone
+* audience expectations
+
+The result must look like the official banner of a large, successful YouTube channel.
+
+==================================================
+
+CRITICAL REQUIREMENT
+
+This is a REAL YouTube banner.
+
+It is NOT:
+
+* a branding board
+* a mood board
+* a style guide
+* a logo presentation
+* a marketing mockup
+* a concept sheet
+* a design showcase
+
+Generate ONLY the final banner artwork.
+
+==================================================
+
+YOUTUBE BANNER SPECIFICATIONS
+
+Design for:
+
+2560 × 1440 pixels
+
+Assume the banner will be viewed on:
+
+* desktop
+* mobile
+* TV
+
+==================================================
+
+SAFE AREA RULE (CRITICAL)
+
+All critical elements MUST remain inside the center safe area.
+
+Safe Area Size:
+
+1546 × 423 pixels
+
+Inside the safe area:
+
+* channel name
+* primary focal elements
+* important visual storytelling elements
+
+Outside the safe area:
+
+* environmental artwork only
+* supporting scenery only
+
+No critical content may extend outside the safe area.
+
+==================================================
+
+LAYOUT STRUCTURE (CRITICAL)
+
+Left Area:
+
+supporting environmental artwork only
+
+Center Safe Area:
+
+primary focal composition
+
+channel name
+
+main storytelling elements
+
+Right Area:
+
+supporting environmental artwork only
+
+The composition must remain visually balanced on all devices.
+
+==================================================
+
+CHANNEL NAME RULE
+
+Display the channel name clearly and professionally.
+
+The channel name must feel naturally integrated into the artwork.
+
+Avoid oversized text.
+
+Avoid logo-style text treatments.
+
+Avoid excessive typography effects.
+
+Prioritize elegance and readability.
+
+==================================================
+
+VISUAL STORYTELLING RULE
+
+Communicate visually:
+
+* what the channel is about
+* what viewers will experience
+* why viewers should subscribe
+
+Show through imagery rather than text.
+
+==================================================
+
+ART DIRECTION
+
+Use the visual language defined by the Brand Identity.
+
+Maintain:
+
+* emotional tone
+* atmosphere
+* symbolism
+* visual motifs
+* audience positioning
+
+The banner should feel immediately recognizable as belonging to this brand.
+
+==================================================
+
+ENVIRONMENT RULE
+
+Favor immersive environmental storytelling.
+
+Create visual depth using:
+
+* foreground
+* midground
+* background
+
+Use cinematic composition and natural eye guidance.
+
+==================================================
+
+VISUAL QUALITY
+
+Premium professional quality.
+
+World-class art direction.
+
+High-end cinematic composition.
+
+Exceptional lighting.
+
+Strong depth.
+
+Sophisticated visual hierarchy.
+
+Professional color harmony.
+
+Emotionally engaging.
+
+Beautiful and memorable.
+
+==================================================
+
+NEGATIVE RULES
+
+Do NOT generate:
+
+* color palette displays
+* color swatches
+* branding boards
+* mood boards
+* design presentations
+* logo showcases
+* style guide elements
+* split layouts
+* multiple panels
+* UI elements
+* mockups
+* presentation graphics
+* watermarks
+* design notes
+* extra labels
+* slogans
+* taglines
+
+==================================================
+
+LAYOUT REFERENCE (CRITICAL)
+
+Use the attached reference image strictly as a layout reference.
+
+Replicate the overall composition structure, positioning logic, visual balance, and safe-area organization shown in the reference image.
+
+Maintain a similar distribution of visual weight across the banner, with all critical branding and focal elements concentrated within the central safe area and supporting artwork extending into the outer regions.
+
+Do NOT copy the actual content, characters, colors, text, or subject matter from the reference image.
+
+Only follow its layout, spacing, hierarchy, and responsive YouTube banner composition principles.
+
+==================================================
+
+FINAL QUALITY STANDARD
+
+The final image should look like it is already the official banner of a multi-million-subscriber YouTube channel.
+
+It should be production-ready and immediately usable without modification.
+
+==================================================
+
+OUTPUT FORMAT
+
+Return ONLY ONE final image generation prompt.
+
+Do not explain.
+
+Do not provide alternatives.
+
+Return only the final prompt.
+```
