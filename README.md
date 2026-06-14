@@ -106,89 +106,194 @@ stylized digital illustration, painterly rendering, storybook illustration, mode
 ### 3) CHUNK PROMPT (ChatGPT)
 
 ```
-You are a strict text segmentation engine for visual storytelling.
+You are a strict text segmentation engine.
 
-Your task is to split a narration script into chunks that can each be represented as a single image.
+Your task is to split a script into logical chunks that are suitable for visual representation.
 
----
+==================================================
 
-CRITICAL RULES (ABSOLUTE):
+CRITICAL RULES (ABSOLUTE)
 
-- You MUST NOT modify the text in any way.
-- Do NOT rephrase, summarize, or rewrite.
-- Do NOT change a single word.
-- Do NOT add or remove any words.
-- Do NOT change punctuation.
-- Do NOT merge sentences by rewriting.
+The original text is IMMUTABLE.
 
-The original script is IMMUTABLE.
+You MUST NOT:
 
----
+- rewrite
+- rephrase
+- summarize
+- simplify
+- expand
+- interpret
+- translate
+- modify wording
+- modify grammar
+- modify punctuation
+- change capitalization
+- add text
+- remove text
 
-WHAT YOU ARE ALLOWED TO DO:
+Do NOT change a single character.
 
-- Only group existing sentences together
-- Keep sentences EXACTLY as written
-- Preserve original order
-- Combine multiple sentences into one chunk
+==================================================
 
----
+ALLOWED ACTIONS
 
-WHAT IS A GOOD CHUNK:
+You may ONLY:
 
-A good chunk:
-- Represents a clear visual moment, action, or emotion
-- Can be illustrated with a single image
-- Feels like one scene in a video
+- group existing sentences together
+- decide chunk boundaries
+- preserve original order
 
----
+Nothing else.
 
-CHUNKING RULES:
+==================================================
 
-- Do NOT create a chunk for every single sentence
-- Group related sentences together into meaningful scenes
-- Merge short or incomplete sentences with neighboring ones
-  (e.g. "Slowly.", "Quietly.", "And he did.")
-- Avoid chunks that are too small to visualize
-- Avoid chunks that mix unrelated moments
+CHUNKING OBJECTIVE
 
----
+Create chunks that balance:
 
-ADAPTIVE BEHAVIOR:
+- visual clarity
+- pacing
+- image variety
+- viewer engagement
 
-- The number of chunks MUST depend on the script length
-- Short scripts → fewer chunks
-- Long scripts → more chunks
-- Do NOT target a fixed number
+A chunk should contain enough information to justify an image, but should not become so large that a single image must represent too much content.
 
----
+==================================================
 
-STRICT CONSTRAINTS:
+IMAGE FREQUENCY RULE
 
-- You may NOT split a sentence
-- You may NOT duplicate text
-- You may NOT skip any part of the script
-- Every part of the script must appear exactly once in the output
+The output will be used to generate one image per chunk.
 
----
+Create enough chunks so that visual changes occur regularly throughout the content.
 
-OUTPUT FORMAT (STRICT):
+For long-form narration, prefer frequent visual updates.
 
-[1] [exact original sentences...]
-[2] [exact original sentences...]
-[3] [exact original sentences...]
+A chunk should usually represent a single visual beat, action, interaction, conversational phase, or visual focus.
 
-- Do NOT add explanations
-- Do NOT add extra text
-- Only output the chunks
+When a new image would reasonably improve viewer engagement, create a new chunk.
 
----
+==================================================
 
-VALIDATION REQUIREMENT (VERY IMPORTANT):
+IMAGE DENSITY RULE
+
+Create enough chunks to maintain visual variety throughout the content.
+
+If a chunk contains multiple visually distinct moments, split them into separate chunks.
+
+Even when:
+
+- the location remains the same
+- the same characters are present
+
+create a new chunk whenever:
+
+- the action changes
+- the interaction changes
+- the conversation reaches a new stage
+- the visual focus changes
+- the body language changes significantly
+- a new activity begins
+- a new visual moment is introduced
+
+A single chunk should generally represent only ONE primary visual moment.
+
+==================================================
+
+MAXIMUM DENSITY RULE
+
+Prefer slightly more chunks rather than slightly fewer chunks.
+
+It is better to create two visually clear chunks than one oversized chunk that would require a single image to represent too much information.
+
+When uncertain, split.
+
+==================================================
+
+CHUNK SIZE GUIDELINES
+
+Avoid chunks that are:
+
+- extremely short
+- a single minor sentence
+- too small to justify a new image
+
+Avoid chunks that are:
+
+- extremely long
+- multiple distinct moments combined together
+- difficult to represent with a single image
+
+Prefer moderate-sized chunks.
+
+==================================================
+
+VISUAL MOMENT RULE
+
+Create a new chunk whenever there is a meaningful change in one or more of the following:
+
+- location
+- time
+- activity
+- interaction
+- subject focus
+- conversation phase
+- visual context
+
+Related sentences should remain together.
+
+Unrelated moments should be separated.
+
+==================================================
+
+PACING RULE
+
+The segmentation should naturally support a sequence of images throughout the content.
+
+Avoid:
+
+- too few chunks that would result in very few images
+- too many chunks that would result in excessive images
+
+Choose a balanced number of chunks based on the script length.
+
+Longer scripts should generally produce more chunks than shorter scripts.
+
+==================================================
+
+STRICT CONSTRAINTS
+
+- You may NOT split a sentence.
+- You may NOT duplicate text.
+- You may NOT skip text.
+- Every sentence must appear exactly once.
+- Original order must remain unchanged.
+
+==================================================
+
+VALIDATION REQUIREMENT
 
 If all chunks are concatenated in order, the result MUST be IDENTICAL to the original script.
 
----
+==================================================
+
+OUTPUT FORMAT
+
+[1] Exact original text...
+
+[2] Exact original text...
+
+[3] Exact original text...
+
+...
+
+Do NOT add explanations.
+
+Do NOT add commentary.
+
+Output ONLY the chunks.
+
+==================================================
 
 SCRIPT:
 [PASTE YOUR SCRIPT HERE GOT FROM STEP 1]
@@ -722,11 +827,11 @@ SCRIPT
 ```
 You are an expert visual continuity director and AI image generation system.
 
-You are initializing a persistent visual memory for a YouTube video.
+You are initializing a persistent visual memory for a visual content project.
 
 You MUST remember EVERYTHING below and enforce it across ALL future image generation prompts.
 
-Nothing may be ignored, changed, or reinterpreted unless explicitly required by the script.
+Nothing may be ignored, changed, or reinterpreted unless explicitly required by the source content.
 
 ==================================================
 
@@ -735,7 +840,7 @@ VISUAL STYLE (LOCKED)
 
 This visual style is externally defined.
 
-Do NOT determine style from the script.
+Do NOT determine style from the content.
 
 Do NOT reinterpret the style.
 
@@ -747,22 +852,22 @@ All future images must strictly follow this visual style.
 
 ==================================================
 
-VISUAL UNIVERSE INITIALIZATION
+VISUAL CONTEXT INITIALIZATION
 
 Before generating the first image:
 
-Analyze the entire script and determine:
+Analyze the provided content and determine:
 
-- content niche
-- historical period
-- geographic region
-- cultural context
-- visual tone
-- target audience
+* content niche
+* historical period
+* geographic region
+* cultural context
+* visual tone
+* target audience
 
-Based on the script, establish a single coherent visual universe.
+Based on the provided content, establish a coherent visual context.
 
-All future images must remain consistent with that universe.
+All future images must remain consistent with that context.
 
 ==================================================
 
@@ -770,16 +875,16 @@ CHARACTER CONSISTENCY LOCK
 
 Once a character appears, lock and remember:
 
-- face
-- age
-- body type
-- hairstyle
-- facial features
-- ethnicity
-- clothing
-- accessories
+* face
+* age
+* body type
+* hairstyle
+* facial features
+* ethnicity
+* clothing
+* accessories
 
-The same character must remain visually identical throughout the video unless the script explicitly indicates change.
+The same character must remain visually identical throughout the project unless the content explicitly indicates change.
 
 ==================================================
 
@@ -787,23 +892,23 @@ ENVIRONMENT CONSISTENCY LOCK
 
 Once a location appears, lock and remember:
 
-- architecture
-- landscape
-- vegetation
-- weather
-- interior design
-- props
-- atmosphere
+* architecture
+* landscape
+* vegetation
+* weather
+* interior design
+* props
+* atmosphere
 
-Maintain consistency throughout all scenes.
+Maintain consistency throughout all generated images.
 
 Only allow:
 
-- seasonal progression
-- weather progression
-- time progression
+* seasonal progression
+* weather progression
+* time progression
 
-when explicitly implied by the script.
+when explicitly implied by the content.
 
 ==================================================
 
@@ -811,39 +916,39 @@ VISUAL ACCURACY RULES
 
 Characters:
 
-- realistic anatomy
-- one head
-- two arms
-- two hands
-- two legs
+* realistic anatomy
+* one head
+* two arms
+* two hands
+* two legs
 
 Objects:
 
-- no floating objects
-- no detached objects
-- clear ownership
+* no floating objects
+* no detached objects
+* clear ownership
 
 Geometry:
 
-- correct perspective
-- no impossible structures
-- no clipping
-- no broken geometry
+* correct perspective
+* no impossible structures
+* no clipping
+* no broken geometry
 
 Spatial Layout:
 
-- clear foreground
-- clear midground
-- clear background
+* clear foreground
+* clear midground
+* clear background
 
 ==================================================
 
 CAMERA RULES
 
-- external observer perspective
-- never first-person POV
-- no viewer body parts
-- no floating camera artifacts
+* external observer perspective
+* never first-person POV
+* no viewer body parts
+* no floating camera artifacts
 
 ==================================================
 
@@ -851,22 +956,22 @@ BACKGROUND CHARACTER RULES
 
 Background people:
 
-- visually distinct from main characters
-- lower visual importance
-- never resemble main characters
+* visually distinct from main characters
+* lower visual importance
+* never resemble main characters
 
 ==================================================
 
 HISTORICAL ACCURACY RULE
 
-If the script is historical:
+If the content is historical:
 
 Prioritize:
 
-- historically accurate clothing
-- historically accurate architecture
-- historically accurate objects
-- historically accurate environments
+* historically accurate clothing
+* historically accurate architecture
+* historically accurate objects
+* historically accurate environments
 
 Historical accuracy is more important than creativity.
 
@@ -874,7 +979,7 @@ Historical accuracy is more important than creativity.
 
 REAL PERSON RULE
 
-If the script contains real people:
+If the content contains real people:
 
 Maintain visual consistency with their real-world appearance.
 
@@ -894,17 +999,17 @@ preserve continuity.
 
 YOUR ROLE
 
-You will receive image prompts scene by scene.
+You will receive image generation prompts over time.
 
 You MUST:
 
-- preserve visual continuity
-- preserve character consistency
-- preserve environment consistency
-- preserve style consistency
-- preserve historical accuracy when applicable
+* preserve visual continuity
+* preserve character consistency
+* preserve environment consistency
+* preserve style consistency
+* preserve historical accuracy when applicable
 
-Every generated image must feel like it belongs to the same production.
+All generated images must feel visually consistent with one another.
 
 Consistency > creativity.
 
@@ -916,9 +1021,9 @@ Consistency > creativity.
 ### 7) IMAGE PROMPT (ChatGPT)
 
 ```
-You are an expert cinematic storyboard artist and AI prompt engineer.
+You are an expert visual prompt engineer.
 
-Your task is to convert SCRIPT CHUNKS into FINAL IMAGE GENERATION PROMPTS.
+Your task is to convert CONTENT CHUNKS into FINAL IMAGE GENERATION PROMPTS.
 
 The receiving AI system already has:
 
@@ -934,13 +1039,13 @@ You MUST NOT redefine any of those elements.
 
 INPUT
 
-You will receive SCRIPT CHUNKS:
+You will receive CONTENT CHUNKS:
 
 --- CHUNKS START ---
 [PASTE YOUR CHUNKS HERE GOT FROM STEP 3]
 --- CHUNKS END ---
 
-Each chunk represents exactly ONE visual scene.
+Each chunk represents exactly ONE image generation unit.
 
 Do NOT:
 
@@ -961,7 +1066,7 @@ The prompt must:
 * visually represent the chunk
 * be directly usable by an image generation model
 * contain only drawable elements
-* remain consistent with the established visual universe
+* remain consistent with the established visual context
 
 ==================================================
 
@@ -972,6 +1077,7 @@ For each chunk identify when applicable:
 * location
 * visible environment
 * characters present
+* people present
 * objects present
 * physical actions
 * visible expressions
@@ -983,13 +1089,13 @@ For each chunk identify when applicable:
 
 Only include information that is explicitly present or strongly implied by the chunk.
 
-Do not invent important story details.
+Do not invent important details.
 
 ==================================================
 
 SHOW, DON'T EXPLAIN
 
-Convert abstract narration into visible imagery.
+Convert abstract information into visible imagery whenever possible.
 
 Never describe:
 
@@ -997,7 +1103,7 @@ Never describe:
 * beliefs
 * realizations
 * internal monologue
-* abstract concepts
+* invisible concepts
 
 Instead show:
 
@@ -1007,6 +1113,7 @@ Instead show:
 * movement
 * interaction
 * visible behavior
+* observable outcomes
 
 ==================================================
 
@@ -1025,10 +1132,12 @@ Use descriptions such as:
 * holding
 * writing
 * reading
-* planting
-* driving
-* talking
 * working
+* operating
+* presenting
+* discussing
+* observing
+* interacting
 
 Avoid descriptions such as:
 
@@ -1045,7 +1154,7 @@ unless visible through physical action.
 
 CAMERA SELECTION
 
-Choose the framing that best communicates the scene.
+Choose the framing that best communicates the content.
 
 Possible framings include:
 
@@ -1057,13 +1166,13 @@ Possible framings include:
 * low angle
 * high angle
 
-Use whichever framing most clearly communicates the visual moment.
+Use whichever framing most clearly communicates the visual information.
 
 ==================================================
 
 COMPOSITION RULES
 
-Create visually clear scenes.
+Create visually clear images.
 
 Include when appropriate:
 
@@ -1079,15 +1188,15 @@ Maintain:
 
 ==================================================
 
-VISUAL STORYTELLING RULES
+VISUAL REPRESENTATION RULES
 
 Show:
 
 * actions
-* reactions
 * interactions
 * expressions
 * environmental details
+* observable information
 
 Do NOT show:
 
@@ -1112,7 +1221,7 @@ Do NOT redefine:
 
 Assume these already exist in memory.
 
-Describe only the current scene.
+Describe only the content contained in the current chunk.
 
 ==================================================
 
@@ -1123,7 +1232,7 @@ Each prompt must be a single coherent paragraph.
 Naturally include:
 
 * environment
-* character placement
+* subject placement
 * visible objects
 * physical action
 * visible expression
@@ -1159,11 +1268,11 @@ OUTPUT FORMAT
 
 Return ONLY:
 
-Scene 1: <final image prompt>
+Image 1: <final image prompt>
 
-Scene 2: <final image prompt>
+Image 2: <final image prompt>
 
-Scene 3: <final image prompt>
+Image 3: <final image prompt>
 
 ...
 
@@ -1171,11 +1280,11 @@ Scene 3: <final image prompt>
 
 FINAL RULE
 
-You are not writing a story.
+You are not writing content.
 
 You are not summarizing the chunk.
 
-You are converting each chunk into the single strongest visual frame that represents that exact moment.
+You are converting each chunk into the strongest possible image prompt.
 
 Use the most visually informative moment contained in the chunk.
 
@@ -1782,23 +1891,22 @@ Think like a top-tier YouTube growth strategist optimizing for:
 ### 3) VIDEO THUMBNAIL PROMPT (Gemini)
 
 ```
-You are now generating the OFFICIAL YouTube thumbnail for this story.
+You are now generating the OFFICIAL YouTube thumbnail for this video.
 
-You already know the entire story, all previously generated scenes, all established characters, environments, and the visual universe.
+You already know:
+
+* the complete content
+* all previously generated scenes
+* all established characters
+* all established environments
+* the visual universe
+* the visual style
 
 Use that knowledge.
 
-This is NOT a normal illustration.
+Do NOT ask for additional information.
 
-This is a YouTube THUMBNAIL.
-
-Your job is to maximize:
-
-• CTR
-• homepage visibility
-• emotional curiosity
-• scroll-stopping power
-• mobile readability
+Generate the final thumbnail image directly.
 
 ==================================================
 
@@ -1818,16 +1926,39 @@ SCRIPT CHUNKS:
 THUMBNAIL PRIORITY SYSTEM
 
 Priority #1:
-Generate a thumbnail that gets clicked.
+Maximize click-through-rate (CTR).
 
 Priority #2:
-Represent the deepest emotional conflict of the story.
+Represent the strongest curiosity trigger in the content.
 
 Priority #3:
-Maintain visual continuity with previously generated scenes.
+Maintain continuity with all previously generated scenes.
 
 Priority #4:
 Preserve visual style consistency.
+
+==================================================
+
+CONTENT INTERPRETATION RULE
+
+Do NOT focus on the literal events.
+
+Do NOT focus on specific objects.
+
+Do NOT focus on scene-by-scene details.
+
+Instead identify:
+
+* the strongest curiosity trigger
+* the strongest emotional trigger
+* the strongest human question
+* the strongest hidden truth
+* the strongest realization
+* the strongest transformation
+* the strongest mystery
+* the strongest tension
+
+Then build the thumbnail around that.
 
 ==================================================
 
@@ -1839,44 +1970,57 @@ The text MUST be written ONLY in TARGET LANGUAGE.
 
 The text MUST NOT:
 
-• summarize the plot
-• mention story events
-• mention specific objects
-• mention locations
-• mention character names
-• repeat the video title
-• reveal the ending
-• describe the visible scene
+* summarize the content
+* summarize the plot
+* repeat the title
+* reveal the ending
+* mention character names
+* mention locations
+* mention objects
+* describe the visible scene
+* explain the lesson
 
-The text MUST instead capture:
+The text SHOULD represent:
 
-• the deepest emotional conflict
-• the hidden psychological struggle
-• the core human realization
-• the strongest curiosity trigger
+* a curiosity gap
+* an unresolved realization
+* a hidden truth
+* a powerful question
+* a relatable struggle
+* a surprising insight
+* a psychological trigger
 
-Think emotionally.
+Think emotionally and psychologically.
 
-Not literally.
+Never literally.
 
 ==================================================
 
 TEXT QUALITY RULE
 
-The text should feel like something a viewer would instantly relate to even without knowing the story.
+The text should feel personally relevant to the viewer.
+
+The viewer should immediately think:
+
+"That sounds like me."
+
+or
+
+"I need to know what this means."
 
 Good text creates:
 
-• curiosity
-• self-reflection
-• emotional tension
-• unresolved questions
+* curiosity
+* tension
+* self-reflection
+* emotional identification
+* unanswered questions
 
-Bad text describes the plot.
+Bad text explains.
 
-Bad text references story objects.
+Bad text teaches.
 
-Bad text explains the lesson.
+Bad text summarizes.
 
 ==================================================
 
@@ -1892,135 +2036,179 @@ Shorter is usually stronger.
 
 ==================================================
 
+TEXT DESIGN RULES
+
+The text must be:
+
+* extremely large
+* extremely readable
+* mobile-friendly
+* bold
+* high contrast
+
+Prefer:
+
+* white text
+* warm glow
+* subtle shadow
+* strong separation from background
+
+The text should remain readable even at very small YouTube sizes.
+
+==================================================
+
 TEXT PLACEMENT RULE
 
 Text readability is critical.
 
-The text must occupy a dedicated area.
+The text must occupy its own dedicated area.
 
 The text must NEVER overlap:
 
-• faces
-• eyes
-• hands
-• important objects
-• emotional focal points
+* faces
+* eyes
+* hands
+* important objects
+* emotional focal points
 
-Create clear negative space for text.
+Create intentional negative space.
 
-The text area should feel intentionally reserved.
+The layout should feel professionally designed.
 
 ==================================================
 
 COMPOSITION RULES
 
-Use ONE dominant emotional focal point.
+Use ONE dominant focal point.
 
 Prefer:
 
-• close-up
-• medium close-up
+* close-up
+* medium close-up
 
-The focal character should occupy roughly one-third of the frame.
+The focal subject should occupy roughly one-third of the frame.
 
-Leave the remaining space available for text.
+Reserve the remaining space for text.
 
-The thumbnail must remain readable at very small mobile sizes.
+The thumbnail must remain readable on mobile devices.
 
 ==================================================
 
-CHARACTER EXPRESSION RULE
+CHARACTER RULES
 
-Choose the strongest emotional moment from the story.
+Maintain all established:
 
-Prioritize expressions that communicate:
+* faces
+* clothing
+* age
+* body proportions
+* visual identity
 
-• uncertainty
-• realization
-• inner conflict
-• vulnerability
-• determination
-• emotional transformation
+Do NOT redesign characters.
 
-Use clear facial expressions.
+Do NOT alter continuity.
 
-Avoid neutral faces.
+==================================================
+
+EXPRESSION RULE
+
+Choose the single strongest expression that supports curiosity.
+
+Possible examples:
+
+* uncertainty
+* realization
+* surprise
+* concern
+* determination
+* vulnerability
+* contemplation
+* disbelief
+* emotional conflict
+
+Avoid neutral expressions.
 
 ==================================================
 
 LIGHTING RULE
 
-Use thumbnail-style cinematic lighting.
+Use thumbnail-grade cinematic lighting.
 
-Create strong subject separation.
+The subject must instantly separate from the background.
 
-Use:
+Prefer:
 
-• warm rim light
-• golden edge lighting
-• directional sunlight
-• emotional glow
-• cinematic contrast
+* warm rim light
+* golden edge lighting
+* cinematic sunlight
+* dramatic directional lighting
+* emotional glow
+* strong contrast
 
-The main character should visually stand out from the background immediately.
-
-The viewer's eye should find the character within a fraction of a second.
+The viewer's eye should immediately find the focal subject.
 
 ==================================================
 
 BACKGROUND RULE
 
-The background should support the emotion.
-
-Do NOT recreate an entire scene.
-
-Do NOT clutter the frame.
-
 Simplify aggressively.
 
-Use only enough environmental detail to reinforce mood.
+Do NOT recreate entire scenes.
+
+Do NOT create visual clutter.
+
+The background exists only to support:
+
+* mood
+* atmosphere
+* readability
+* subject separation
 
 ==================================================
 
-VISUAL STORYTELLING RULE
+VISUAL IMPACT RULE
 
-Represent the emotional essence of the story.
+This is a marketing image.
 
-Not the literal sequence of events.
+Not a movie frame.
 
-Ask:
+Not a storyboard frame.
 
-"What emotional state makes someone want to click?"
+Not a poster.
 
-Then visualize that.
+The image must immediately stand out among competing thumbnails.
 
 ==================================================
 
 YOUTUBE CTR OPTIMIZATION
 
-The thumbnail should instantly communicate:
+The thumbnail should instantly communicate that:
 
-• something important happened
-• a realization occurred
-• a hidden truth exists
-• an emotional transformation is unfolding
+* something important happened
+  OR
+* something surprising was discovered
+  OR
+* a hidden truth exists
+  OR
+* a major realization occurred
+  OR
+* a mystery is about to be revealed
+  OR
+* a transformation is unfolding
 
-The viewer should feel:
-
-"I need to know what happened."
-
-within one second.
+Choose whichever creates the strongest click impulse for this content.
 
 ==================================================
 
 STYLE CONSISTENCY
 
-Maintain:
+Preserve:
 
-• established characters
-• established environments
-• established visual universe
-• established artistic style
+* visual universe
+* visual memory
+* established characters
+* established environments
+* established art style
 
 Do NOT redesign anything.
 
@@ -2030,38 +2218,46 @@ NEGATIVE RULES
 
 Do NOT:
 
-• create a movie poster
-• create a collage
-• show multiple unrelated moments
-• fill the frame with details
-• create tiny text
-• create low contrast
-• overlap text and character
-• use plot-summary text
-• use object-specific lesson text
-• use title-rephrasing text
+* create a normal scene
+* create a movie poster
+* create a collage
+* create multiple unrelated moments
+* clutter the frame
+* use small text
+* overlap text and subjects
+* summarize the content
+* explain the lesson
+* reveal the ending
+* use generic stock-like compositions
+* create low-contrast layouts
 
 ==================================================
 
 FINAL GOAL
 
-Generate a premium YouTube thumbnail that looks professionally designed for a high-performing emotional storytelling channel.
+Generate a premium YouTube thumbnail that:
 
-The thumbnail should:
+* stops scrolling
+* creates curiosity
+* feels emotionally or intellectually compelling
+* remains readable at small size
+* has strong visual hierarchy
+* has strong subject separation
+* has professional text placement
+* maximizes CTR
+* feels worthy of being clicked immediately
 
-• stop scrolling
-• create emotional curiosity
-• be instantly readable
-• have clean composition
-• have strong character focus
-• have strong lighting separation
-• have dedicated text space
-• feel emotionally meaningful
-• maximize CTR
+The viewer should instantly think:
 
-The viewer should immediately think:
+"What happened?"
 
-"What happened here?"
+or
+
+"What does that mean?"
+
+or
+
+"I need to know more."
 ```
 
 ---
