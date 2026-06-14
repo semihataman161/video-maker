@@ -1193,258 +1193,268 @@ Consistency > creativity.
 ### 1) VIDEO TITLE PROMPT (ChatGPT)
 
 ```
-You are an elite YouTube title strategist specializing in viral long-form storytelling content.
+You are an elite YouTube title strategist.
 
-Your task is to generate highly optimized YouTube video titles for a faceless storytelling channel.
+Your task is to generate highly optimized YouTube video titles for long-form YouTube content.
 
-The channel focuses on:
+The content may belong to ANY niche.
 
-* emotional life stories
-* personal growth stories
-* calm reflective storytelling
-* emotional transformation
-* human psychology
-* life lessons
-* mentor/student narratives
-* quiet philosophical storytelling
+Examples:
 
-The videos are:
-
-* long-form
-* emotionally immersive
-* narrated slowly
-* designed for adults
-* voice-over based
-* intended to maximize curiosity, emotional engagement, and watch time
+* storytelling
+* history
+* science
+* psychology
+* philosophy
+* business
+* finance
+* biographies
+* documentaries
+* technology
+* geopolitics
+* education
+* self-improvement
+* true crime
 
 ==================================================
-YOUR OBJECTIVE
+
+OBJECTIVE
 
 Generate YouTube titles that maximize:
 
+* click-through rate (CTR)
 * curiosity
-* emotional pull
-* click-through-rate (CTR)
-* intrigue
+* retention-driving intrigue
+* emotional engagement
+* audience relevance
+* suggested-feed performance
+* homepage performance
+* evergreen discoverability
+
+==================================================
+
+LANGUAGE REQUIREMENT
+
+The SCRIPT CHUNKS are already written in the TARGET LANGUAGE.
+
+Generate ALL titles entirely in the TARGET LANGUAGE.
+
+The titles must feel:
+
+* natural
+* native
+* authentic
+* culturally appropriate
+* platform-optimized
+
+Adapt:
+
+* title phrasing
+* emotional triggers
+* curiosity patterns
+* title structures
+
+to the expectations of viewers who naturally consume content in the TARGET LANGUAGE.
+
+==================================================
+
+CONTENT ANALYSIS
+
+Before generating titles, analyze:
+
+* niche
+* topic
+* audience
+* emotional intensity
+* educational value
+* entertainment value
+* curiosity potential
+* transformation potential
+* controversy potential
+* surprise factor
+* psychological appeal
+
+Determine what makes people most likely to click.
+
+==================================================
+
+TITLE STRATEGY
+
+Choose the most appropriate strategy for the content.
+
+Possible strategies include:
+
+* curiosity gap
+* transformation
+* mystery
+* hidden truth
+* surprising discovery
 * emotional tension
-* viewer identification
-* binge-watch potential
+* unexpected outcome
+* conflict
+* revelation
+* lesson-implied
+* authority insight
+* historical intrigue
+* scientific curiosity
+* philosophical question
+* documentary intrigue
+* psychological insight
+* problem-solution
+* counterintuitive finding
 
-The titles should feel:
-
-* emotionally powerful
-* deeply human
-* mysterious enough to create curiosity
-* simple and easy to understand instantly
-* natural for YouTube
-* not overly clickbait
-* not corporate
-* not generic
-
-==================================================
-CRITICAL LANGUAGE REQUIREMENT
-
-The SCRIPT CHUNKS will already be written in the TARGET LANGUAGE.
-
-You MUST generate ALL titles entirely in the TARGET LANGUAGE.
-
-DO NOT:
-
-* translate English title structures literally
-* force English YouTube phrasing patterns into other languages
-* use unnatural localization
-* create titles that sound translated
-
-Instead:
-
-* optimize titles specifically for native speakers of the TARGET LANGUAGE
-* match the emotional rhythm of that language
-* match local YouTube browsing behavior
-* match cultural curiosity triggers
-* match the natural phrasing style of successful native YouTube titles
-
-The final titles should feel:
-
-* fully native
-* culturally natural
-* emotionally authentic
-* optimized for YouTube users in that language market
+Use whichever strategy best fits the script.
 
 ==================================================
+
 IMPORTANT RULES
 
 DO NOT:
 
-* summarize the story directly
 * spoil the ending
-* explain the lesson explicitly
-* use overly poetic language
-* sound like a book title
-* sound AI-generated
-* use generic motivational phrasing
-* use excessive punctuation
+* reveal the entire conclusion
+* explain the full lesson
+* use excessive clickbait
+* sound corporate
+* sound robotic
 * use emojis
 * use hashtags
+* use excessive punctuation
 
 DO:
 
-* create open loops
-* trigger emotional curiosity
-* imply transformation
-* imply hidden wisdom
-* imply emotional payoff
-* make viewers feel:
-  "I need to know what happened."
+* create curiosity
+* imply value
+* imply payoff
+* create intrigue
+* encourage clicking
+* stay faithful to the content
 
 ==================================================
-PSYCHOLOGICAL TRIGGERS TO USE
 
-Strongly prioritize:
-
-* curiosity gaps
-* emotional contrast
-* transformation
-* hidden truth
-* unexpected wisdom
-* quiet mystery
-* emotional struggle
-* relatable pain
-* delayed realization
-* human vulnerability
-* mentor dynamics
-* internal conflict
-* life-changing moments
-
-==================================================
-TITLE STYLES TO CONSIDER
-
-You may generate titles using styles such as:
-
-* transformation-based
-* mystery-based
-* emotional-conflict-based
-* lesson-implied
-* mentor-wisdom-based
-* regret-based
-* realization-based
-* philosophical curiosity
-* emotional suspense
-
-==================================================
-GOOD TITLE CHARACTERISTICS
+TITLE CHARACTERISTICS
 
 Titles should:
 
 * usually be under 70 characters
-* feel clean and readable
+* be easy to read
+* be easy to understand instantly
 * sound natural when spoken aloud
-* create emotional tension
-* feel authentic
-* work well for long-form storytelling
-* fit YouTube homepage browsing behavior
+* perform well on YouTube homepages
+* perform well in suggested feeds
 
 ==================================================
+
+PSYCHOLOGICAL TRIGGERS
+
+Use when appropriate:
+
+* curiosity gaps
+* hidden knowledge
+* emotional tension
+* transformation
+* mystery
+* surprise
+* vulnerability
+* conflict
+* uncertainty
+* anticipation
+* revelation
+* unexpected wisdom
+* fear of missing information
+* desire for understanding
+* desire for improvement
+
+Only use triggers that genuinely fit the content.
+
+==================================================
+
 ANALYZE BEFORE GENERATING
 
-Before generating titles:
+Identify:
 
-1. Analyze the emotional core of the story
-2. Analyze the psychological struggle
-3. Identify the transformation arc
-4. Identify the strongest emotional hook
-5. Identify the deepest curiosity trigger
-6. Determine what viewers would emotionally relate to most
-7. Analyze how emotional storytelling naturally works in the TARGET LANGUAGE
-
-Then generate titles based on those insights.
+1. Core topic
+2. Core audience
+3. Strongest emotional hook
+4. Strongest curiosity hook
+5. Most clickable angle
+6. Most relatable angle
+7. Most retention-driving angle
+8. Most effective title style for this audience
 
 ==================================================
+
 OUTPUT FORMAT
 
-# STORY ANALYSIS
+# CONTENT ANALYSIS
 
 Briefly explain:
 
-* emotional core
-* central struggle
-* transformation
-* strongest emotional hook
-* strongest curiosity hook
-* language-specific emotional strategy
+* niche
+* audience
+* emotional appeal
+* strongest hook
+* curiosity driver
+* title strategy
+
+==================================================
 
 # TITLE OPTIONS
 
 Generate:
 
-* 20 title options ranked from strongest to weakest
+20 title options ranked from strongest to weakest.
 
 For EACH title provide:
 
 * CTR Potential Score (0-100)
-* Emotional Curiosity Score (0-100)
-* Style Type
-* Short explanation of why it works
+* Curiosity Score (0-100)
+* Strategy Type
+* Short explanation
 
 ==================================================
-ADDITIONAL REQUIREMENTS
 
-Include a mix of:
+TITLE DISTRIBUTION
 
-* safer high-CTR titles
-* emotionally deep titles
-* curiosity-heavy titles
+Include a balanced mix of:
+
+* high CTR titles
+* curiosity-driven titles
+* evergreen titles
+* emotionally engaging titles
+* educational titles
+* authority-driven titles
 * viral-potential titles
-* minimalist titles
 
-At least:
-
-* 5 titles should feel highly viral
-* 5 titles should feel emotionally deep
-* 5 titles should feel extremely curiosity-driven
-* 5 titles should feel optimized for long-term evergreen performance
+Use whichever categories are appropriate for the content.
 
 ==================================================
-TARGET AUDIENCE
 
-Adults interested in:
-
-* life lessons
-* emotional healing
-* personal growth
-* human psychology
-* reflective storytelling
-* calm wisdom
-* meaningful stories
-
-==================================================
-INPUTS
-
-NARRATION STYLE:
-The overall narration style is defined by an atmospheric and introspective approach that 
-prioritizes emotional resonance over high-energy delivery. It utilizes a slow, deliberate pace 
-where strategic silence and pauses give every sentence a sense of weight and significance. 
-The narrator's voice is warm, resonant, and deep, providing a textured quality that suggests 
-maturity and quiet wisdom. Instead of a highly varied flow, the steady and consistent 
-cadence creates a meditative, cinematic quality, while nuanced shifts in inflection convey 
-a range of subtle emotions in an intimate and authentic manner.
-
-TARGET LANGUAGE:
+TARGET LANGUAGE
 [PASTE YOUR LANGUAGE HERE GOT FROM STEP 3.4]
 
-SCRIPT CHUNKS:
+==================================================
+
+SCRIPT CHUNKS
 [PASTE YOUR CHUNKS HERE GOT FROM STEP 3.5]
 
 ==================================================
-Think like a top-tier YouTube growth strategist competing for attention on the homepage and suggested feed.
+
+Think like a top-tier YouTube growth strategist competing for attention on:
+
+* homepage feeds
+* suggested videos
+* search results
+* recommendation systems
 
 Optimize for:
 
-* human curiosity
-* emotional resonance
-* retention-driving intrigue
-* long-form storytelling performance
-* binge-watch behavior
-* evergreen clickability
+* CTR
+* curiosity
+* watch time
+* retention
+* audience relevance
+* long-term evergreen performance
 ```
 
 ---
@@ -1452,290 +1462,319 @@ Optimize for:
 ### 2) VIDEO DESCRIPTION PROMPT (ChatGPT)
 
 ```
-You are an elite YouTube SEO strategist and emotional storytelling copywriter specializing in long-form storytelling channels.
+You are an elite YouTube SEO strategist and long-form content copywriter.
 
-Your task is to generate a highly optimized YouTube video description for a faceless emotional storytelling video.
+Your task is to generate a highly optimized YouTube video description.
 
-The description must maximize:
+The content may belong to ANY niche.
 
-* YouTube SEO relevance
-* semantic topic clarity
-* emotional engagement
-* audience retention
-* binge-watch behavior
+Examples:
+
+* storytelling
+* history
+* science
+* psychology
+* philosophy
+* business
+* finance
+* biographies
+* documentaries
+* technology
+* geopolitics
+* education
+* self-improvement
+* true crime
+
+==================================================
+
+OBJECTIVE
+
+Generate a YouTube description that maximizes:
+
+* semantic relevance
+* audience engagement
 * recommendation system understanding
-* Suggested Videos performance
-* Browse Features performance
+* browse feature performance
+* suggested video performance
+* watch time potential
+* topic authority
 * evergreen discoverability
 
 ==================================================
-IMPORTANT
 
-The video and SCRIPT CHUNKS are already written in the TARGET LANGUAGE.
+LANGUAGE REQUIREMENT
 
-You MUST generate the ENTIRE description in the TARGET LANGUAGE.
+The SCRIPT CHUNKS are already written in the TARGET LANGUAGE.
+
+Generate the ENTIRE description in the TARGET LANGUAGE.
 
 The description must feel:
 
-* native
 * natural
-* emotionally engaging
-* optimized for YouTube
+* native
+* authentic
+* culturally appropriate
 * human-written
-* psychologically compelling
-* not robotic
-* not keyword stuffed
+
+Adapt:
+
+* wording
+* tone
+* phrasing
+* audience expectations
+
+to viewers who naturally consume content in the TARGET LANGUAGE.
 
 ==================================================
-CHANNEL TYPE
 
-The channel focuses on:
+CONTENT ANALYSIS
 
-* emotional life stories
-* personal growth
-* calm storytelling
-* reflective narratives
-* emotional transformation
-* life lessons
-* human psychology
-* quiet philosophical storytelling
-* mentor/student wisdom stories
-* emotionally immersive cinematic narration
+Before writing the description, analyze:
 
-The videos are:
+* niche
+* topic
+* audience
+* emotional appeal
+* educational value
+* entertainment value
+* curiosity potential
+* authority potential
+* psychological appeal
+* semantic topic cluster
 
-* long-form
-* emotionally immersive
-* narrated slowly
-* cinematic
-* designed for adults
-* optimized for emotional connection and watch time
+Determine what viewers are most interested in learning, understanding, discovering, or experiencing.
 
 ==================================================
+
 PRIMARY GOAL
 
-Generate a description that helps YouTube clearly understand:
+Help YouTube clearly understand:
 
-* the emotional theme
-* the psychological themes
-* the storytelling category
-* the emotional audience profile
-* the semantic topic cluster
-* the broader niche positioning
+* the topic
+* the audience
+* the niche
+* the semantic category
+* the content intent
+* the viewer intent
 
-while ALSO emotionally engaging human viewers.
+while also engaging human viewers.
 
 ==================================================
-CRITICAL SEO STRATEGY
 
-The description must optimize for:
+MODERN YOUTUBE SEO
 
-* Suggested Videos
-* Browse Features
-* semantic recommendation systems
-* emotional storytelling topic clustering
+Optimize for:
+
+* semantic understanding
+* topic clustering
+* recommendation systems
+* browse features
+* suggested videos
 * transcript alignment
 * viewer intent matching
-* evergreen recommendation potential
+* long-term discoverability
 
-This is NOT old-style keyword stuffing SEO.
+This is NOT keyword stuffing SEO.
 
-This is MODERN semantic YouTube SEO.
+Use natural semantic reinforcement.
 
 ==================================================
+
 SEMANTIC REINFORCEMENT
 
-Naturally reinforce the video's core semantic themes throughout the description using varied but related phrasing.
+Naturally reinforce:
 
-The algorithm should strongly understand themes such as:
+* the core topic
+* related concepts
+* related themes
+* audience interests
+* semantic topic signals
 
-* emotional storytelling
-* life lessons
-* personal growth
-* emotional healing
-* human psychology
-* reflection
-* self-discovery
-* transformation
-* wisdom
-* emotional struggle
-* meaningful stories
-* reflective narration
-
-DO NOT:
+Do NOT:
 
 * repeat keywords unnaturally
 * spam phrases
-* force exact matches excessively
+* force exact-match keywords
 
-The SEO must feel invisible and natural.
+The SEO should feel invisible and natural.
 
 ==================================================
+
 TRANSCRIPT ALIGNMENT
-
-The wording in the description should naturally align with:
-
-* the spoken narration
-* emotional themes
-* psychological ideas
-* terminology used in the script
-* story atmosphere
 
 Maintain strong semantic consistency between:
 
-* title
+* VIDEO_TITLE
 * description
-* spoken script
-* emotional tone
-* storytelling themes
+* SCRIPT_CHUNKS
+* audience expectations
+
+The description should naturally align with:
+
+* terminology used in the script
+* concepts discussed
+* themes explored
+* questions raised
+* insights presented
 
 ==================================================
+
 HOOK OPTIMIZATION
 
-The FIRST 2 LINES are EXTREMELY IMPORTANT.
+The FIRST 2 LINES are critical.
 
-The opening must:
+The opening should:
 
-* emotionally hook viewers immediately
-* create curiosity
-* reinforce the video's emotional category
+* immediately create interest
 * encourage watch time
-* encourage clicks
-* create emotional identification
+* reinforce the video's category
+* create curiosity
+* motivate viewers to continue watching
 
-The hook should feel:
+Choose the most appropriate hook style based on the content.
 
-* deeply human
-* emotionally immersive
-* psychologically intriguing
-* reflective
-* emotionally unresolved
+Possible hook styles include:
 
-DO NOT:
+* mystery
+* discovery
+* insight
+* conflict
+* transformation
+* hidden truth
+* historical intrigue
+* scientific curiosity
+* psychological recognition
+* unexpected lesson
+* surprising revelation
 
-* spoil the story
-* summarize the ending
-* sound generic
-* sound corporate
-* sound overly clickbait
+Use whichever approach best fits the content.
 
 ==================================================
+
 DESCRIPTION STRUCTURE
 
-Generate the description using this optimized structure:
+Generate the description using:
 
-1. Emotional curiosity hook
-2. Emotional story setup without spoilers
-3. Psychological and life themes
-4. Semantic topic reinforcement
-5. Emotional audience connection
-6. Channel positioning for binge-watch behavior
-7. Evergreen emotional positioning
-8. Optimized hashtags
+1. Curiosity-driven opening
+2. Topic introduction
+3. Core themes and concepts
+4. Semantic reinforcement
+5. Audience connection
+6. Channel positioning
+7. Evergreen positioning
 
 ==================================================
+
+CHANNEL POSITIONING
+
+Subtly position the channel as a destination for viewers interested in similar content.
+
+Adapt this naturally to the niche.
+
+Examples:
+
+* history → historical exploration
+* psychology → human behavior insights
+* science → discovery and learning
+* business → strategic thinking
+* documentaries → deep exploration
+* storytelling → meaningful narratives
+
+Do not force storytelling language into non-storytelling content.
+
+==================================================
+
 STYLE REQUIREMENTS
 
 The description should feel:
 
-* emotionally intelligent
-* calm
-* cinematic
-* immersive
-* reflective
-* warm
-* human
-* emotionally authentic
+* engaging
+* informative
+* authentic
+* easy to read
+* audience-focused
 
-Avoid:
+Adapt the writing style to the content.
 
-* robotic SEO phrasing
-* spammy wording
-* aggressive marketing language
-* excessive capitalization
-* emoji overload
-* artificial keyword stuffing
+Examples:
+
+* documentaries → informative
+* storytelling → emotional
+* science → curiosity-driven
+* psychology → reflective
+* history → intriguing
+* business → insightful
+* education → explanatory
 
 ==================================================
-EVERGREEN OPTIMIZATION
 
-The description must remain relevant long-term.
+EVERGREEN OPTIMIZATION
 
 Avoid:
 
 * trends
 * memes
-* time-sensitive language
 * temporary internet slang
+* time-sensitive references
 
-The video should feel timeless and continuously recommendable by the algorithm.
-
-==================================================
-BINGE-WATCH OPTIMIZATION
-
-Encourage emotional continuity between videos.
-
-The description should subtly position the channel as:
-
-* a destination for meaningful emotional storytelling
-* reflective life lessons
-* psychological insight
-* calm wisdom narratives
-
-Encourage Suggested Video chaining naturally.
+The description should remain relevant long-term.
 
 ==================================================
-HASHTAGS
 
-Generate 3-5 optimized hashtags.
+LENGTH GUIDELINES
 
-The hashtags should:
+The description should typically be:
 
-* reinforce semantic categorization
-* support discoverability
-* align with the emotional niche
-* remain highly relevant to the video
+* 150 to 400 words
+* detailed enough for semantic understanding
+* concise enough to remain engaging
 
-Avoid:
-
-* generic viral hashtags
-* spam hashtags
-* unrelated hashtags
+Prioritize quality over length.
 
 ==================================================
+
 OUTPUT FORMAT
 
-Generate:
+Return ONLY the final YouTube description.
 
-1. Full optimized YouTube description
-2. Semantic SEO analysis
-3. Suggested hashtags
-4. Suggested semantic keywords naturally targeted by the description
+Do NOT provide:
+
+* SEO analysis
+* keyword analysis
+* hashtags
+* explanations
+* reasoning
+* notes
+* formatting labels
 
 ==================================================
-INPUTS
 
-TARGET LANGUAGE:
+TARGET LANGUAGE
 [PASTE YOUR LANGUAGE HERE GOT FROM STEP 3.4]
 
-SCRIPT CHUNKS:
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.5]
+==================================================
 
-VIDEO TITLE:
+VIDEO TITLE
 [PASTE YOUR TITLE HERE GOT FROM STEP 1]
 
 ==================================================
+
+SCRIPT CHUNKS
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.5]
+
+==================================================
+
 Think like a top-tier YouTube growth strategist optimizing for:
 
-* homepage recommendation systems
-* Suggested Videos
-* long-form retention
-* emotional engagement
-* semantic relevance
-* binge-watch behavior
-* evergreen discoverability
+* homepage recommendations
+* suggested videos
+* search relevance
+* watch time
 * audience satisfaction
-* psychological viewer connection
+* semantic authority
+* topic clustering
+* evergreen discoverability
+* long-form content performance
 ```
 
 ---
@@ -1745,307 +1784,284 @@ Think like a top-tier YouTube growth strategist optimizing for:
 ```
 You are now generating the OFFICIAL YouTube thumbnail for this story.
 
-This is NOT a normal cinematic frame.
+You already know the entire story, all previously generated scenes, all established characters, environments, and the visual universe.
 
-This image must be optimized specifically for:
+Use that knowledge.
 
-* YouTube CTR
-* homepage visibility
-* emotional curiosity
-* mobile readability
-* stopping scroll behavior
+This is NOT a normal illustration.
 
-This thumbnail should look like a highly clickable professional YouTube thumbnail for a viral emotional storytelling channel.
+This is a YouTube THUMBNAIL.
+
+Your job is to maximize:
+
+• CTR
+• homepage visibility
+• emotional curiosity
+• scroll-stopping power
+• mobile readability
 
 ==================================================
+
 INPUTS
 
 TARGET LANGUAGE:
 [PASTE YOUR LANGUAGE HERE GOT FROM STEP 3.4]
 
-SCRIPT CHUNKS:
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.5]
-
 VIDEO TITLE:
 [PASTE YOUR TITLE HERE GOT FROM STEP 1]
 
-IMPORTANT:
-
-The VIDEO TITLE and SCRIPT CHUNKS are provided ONLY to understand:
-
-* emotional tone
-* psychological tension
-* core emotional conflict
-* transformation arc
-* emotional atmosphere
-
-Do NOT literally summarize the script.
-
-Do NOT recreate the title directly.
-
-Do NOT create spoiler-heavy thumbnails.
+SCRIPT CHUNKS:
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.5]
 
 ==================================================
-LANGUAGE RULES (VERY IMPORTANT)
 
-ALL visible thumbnail text MUST be written ONLY in:
+THUMBNAIL PRIORITY SYSTEM
 
-[TARGET_LANGUAGE]
+Priority #1:
+Generate a thumbnail that gets clicked.
 
-The thumbnail text must sound:
+Priority #2:
+Represent the deepest emotional conflict of the story.
 
-* natural
-* emotionally impactful
-* native-level fluent
-* culturally appropriate
-* highly clickable for YouTube audiences using that language
+Priority #3:
+Maintain visual continuity with previously generated scenes.
 
-Avoid awkward direct translations.
-
-The wording should feel like a real viral YouTube thumbnail written by a native creator.
+Priority #4:
+Preserve visual style consistency.
 
 ==================================================
-CRITICAL THUMBNAIL DIFFERENCE
 
-Unlike normal story frames:
+TEXT GENERATION RULES
 
-* this image MUST feel more dramatic
-* more emotionally focused
-* more visually simplified
-* more contrast-heavy
-* more attention-grabbing
+The thumbnail MUST contain LARGE readable text.
 
-This is a MARKETING IMAGE.
+The text MUST be written ONLY in TARGET LANGUAGE.
 
-Not a movie scene.
+The text MUST NOT:
 
-==================================================
-THUMBNAIL DESIGN STYLE
+• summarize the plot
+• mention story events
+• mention specific objects
+• mention locations
+• mention character names
+• repeat the video title
+• reveal the ending
+• describe the visible scene
 
-Create a thumbnail style similar to:
+The text MUST instead capture:
 
-* high-performing emotional YouTube storytelling channels
-* viral life lesson videos
-* emotional animated story thumbnails
-* cinematic YouTube thumbnails
+• the deepest emotional conflict
+• the hidden psychological struggle
+• the core human realization
+• the strongest curiosity trigger
 
-The image should feel:
+Think emotionally.
 
-* emotionally intense
-* psychologically intriguing
-* visually bold
-* instantly readable
+Not literally.
 
 ==================================================
-TEXT REQUIREMENT (VERY IMPORTANT)
 
-The thumbnail MUST include LARGE readable text integrated naturally into the composition.
+TEXT QUALITY RULE
 
-HOWEVER:
+The text should feel like something a viewer would instantly relate to even without knowing the story.
 
-Do NOT use story-specific phrases.
+Good text creates:
 
-Do NOT directly summarize the story.
+• curiosity
+• self-reflection
+• emotional tension
+• unresolved questions
 
-Do NOT reference exact events from the script.
+Bad text describes the plot.
 
-Do NOT simply repeat the VIDEO TITLE.
+Bad text references story objects.
 
-Instead, generate UNIVERSAL emotional curiosity text inspired by:
-
-* the emotional tone
-* the psychological conflict
-* the emotional transformation
-* the underlying human struggle
-
-The text should feel:
-
-* emotionally powerful
-* psychologically intriguing
-* highly relatable
-* curiosity-driven
-* universally human
-
-The text should create:
-
-* emotional tension
-* curiosity
-* self-reflection
-* unresolved feeling
-
-Use ONLY 2-5 words maximum.
+Bad text explains the lesson.
 
 ==================================================
-GOOD TEXT STYLE EXAMPLES
 
-Use styles similar to:
+TEXT LENGTH
 
-* "Too Late To Change?"
-* "Nobody Talks About This"
-* "The Hardest Lesson"
-* "Everything Felt Wrong"
-* "This Changed Me"
-* "Why Do We Wait?"
-* "It Finally Made Sense"
-* "Nothing Changed Until..."
-* "The Truth Hurt"
-* "I Didn't Understand"
-* "This Was The Problem"
-* "He Realized Too Late"
-* "It Was Never About..."
-* "People Ignore This"
-* "The Real Reason"
+Use ONLY:
 
-These are ONLY style references.
+2–5 words.
 
-Generate NEW text naturally based on:
+Maximum 5 words.
 
-* VIDEO TITLE
-* SCRIPT CHUNKS
-* emotional tone
-* TARGET LANGUAGE
+Shorter is usually stronger.
 
 ==================================================
-TEXT DESIGN RULES
 
-* large bold cinematic text
-* extremely readable
-* high contrast
-* clean typography
-* text should occupy significant visual space
-* text must remain readable at very small mobile size
+TEXT PLACEMENT RULE
+
+Text readability is critical.
+
+The text must occupy a dedicated area.
+
+The text must NEVER overlap:
+
+• faces
+• eyes
+• hands
+• important objects
+• emotional focal points
+
+Create clear negative space for text.
+
+The text area should feel intentionally reserved.
+
+==================================================
+
+COMPOSITION RULES
+
+Use ONE dominant emotional focal point.
 
 Prefer:
 
-* white text
-* warm glow
-* soft shadow
-* cinematic placement
+• close-up
+• medium close-up
 
-DO NOT:
+The focal character should occupy roughly one-third of the frame.
 
-* use tiny text
-* use paragraphs
-* clutter the image
-* place text over busy areas
+Leave the remaining space available for text.
+
+The thumbnail must remain readable at very small mobile sizes.
 
 ==================================================
-VISUAL COMPOSITION
+
+CHARACTER EXPRESSION RULE
+
+Choose the strongest emotional moment from the story.
+
+Prioritize expressions that communicate:
+
+• uncertainty
+• realization
+• inner conflict
+• vulnerability
+• determination
+• emotional transformation
+
+Use clear facial expressions.
+
+Avoid neutral faces.
+
+==================================================
+
+LIGHTING RULE
+
+Use thumbnail-style cinematic lighting.
+
+Create strong subject separation.
 
 Use:
 
-* one strong emotional focal point
-* close-up or medium-close shot preferred
-* strong emotional face visibility
-* cinematic lighting
-* emotional contrast
-* simplified background
-* strong separation between character and background
+• warm rim light
+• golden edge lighting
+• directional sunlight
+• emotional glow
+• cinematic contrast
+
+The main character should visually stand out from the background immediately.
+
+The viewer's eye should find the character within a fraction of a second.
+
+==================================================
+
+BACKGROUND RULE
+
+The background should support the emotion.
+
+Do NOT recreate an entire scene.
+
+Do NOT clutter the frame.
+
+Simplify aggressively.
+
+Use only enough environmental detail to reinforce mood.
+
+==================================================
+
+VISUAL STORYTELLING RULE
+
+Represent the emotional essence of the story.
+
+Not the literal sequence of events.
+
+Ask:
+
+"What emotional state makes someone want to click?"
+
+Then visualize that.
+
+==================================================
+
+YOUTUBE CTR OPTIMIZATION
 
 The thumbnail should instantly communicate:
 
-* emotional struggle
-* transformation
-* mystery
-* emotional tension
+• something important happened
+• a realization occurred
+• a hidden truth exists
+• an emotional transformation is unfolding
+
+The viewer should feel:
+
+"I need to know what happened."
+
+within one second.
 
 ==================================================
-EMOTIONAL STYLE
 
-The image should emotionally feel:
+STYLE CONSISTENCY
 
-* deeply human
-* unresolved
-* emotionally heavy
-* reflective
-* quietly dramatic
-* psychologically intriguing
+Maintain:
 
-==================================================
-CHARACTER RULES
+• established characters
+• established environments
+• established visual universe
+• established artistic style
 
-Maintain ALL previously established:
-
-* character appearance
-* clothing
-* world consistency
-* art style consistency
-
-DO NOT redesign characters.
+Do NOT redesign anything.
 
 ==================================================
-BACKGROUND RULES
 
-Background should be:
-
-* simplified
-* atmospheric
-* cinematic
-* non-distracting
-
-Use background only to support emotional mood.
-
-==================================================
-YOUTUBE OPTIMIZATION
-
-This image MUST:
-
-* stand out on crowded YouTube homepage
-* remain readable at small size
-* create instant curiosity
-* feel emotionally clickable
-* visually outperform normal cinematic scenes
-
-==================================================
-STYLE LOCK
-
-Keep EXACTLY the same visual universe:
-
-* stylized digital illustration
-* painterly style
-* soft brush strokes
-* storybook illustration
-* cinematic animated film style
-* warm color grading
-* soft lighting
-* matte painting aesthetic
-* 16:9
-
-==================================================
 NEGATIVE RULES
 
-DO NOT:
+Do NOT:
 
-* create a normal movie frame
-* create subtle composition only
-* hide the emotional focus
-* create visual clutter
-* create tiny unreadable text
-* create weak emotional contrast
-* create generic poster layout
-* create low-energy composition
+• create a movie poster
+• create a collage
+• show multiple unrelated moments
+• fill the frame with details
+• create tiny text
+• create low contrast
+• overlap text and character
+• use plot-summary text
+• use object-specific lesson text
+• use title-rephrasing text
 
 ==================================================
+
 FINAL GOAL
 
-Create a HIGH-CTR emotionally irresistible YouTube thumbnail that feels:
+Generate a premium YouTube thumbnail that looks professionally designed for a high-performing emotional storytelling channel.
 
-* cinematic
-* dramatic
-* highly clickable
-* emotionally intriguing
-* visually bold
-* optimized for viral storytelling content
-* optimized for YouTube homepage performance
+The thumbnail should:
 
-The final thumbnail text MUST be:
+• stop scrolling
+• create emotional curiosity
+• be instantly readable
+• have clean composition
+• have strong character focus
+• have strong lighting separation
+• have dedicated text space
+• feel emotionally meaningful
+• maximize CTR
 
-* written ONLY in [TARGET_LANGUAGE]
-* emotionally compelling
-* extremely readable
-* curiosity-driven
-* short and impactful
-* optimized for CTR
+The viewer should immediately think:
+
+"What happened here?"
 ```
 
 ---
