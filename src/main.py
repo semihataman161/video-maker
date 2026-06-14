@@ -50,6 +50,8 @@ def step_create_video():
         font=str(FONTS_DIR / "Montserrat-Bold.ttf"),
         fontsize=45,
         logo_path=str(LOGO_DIR / "logo.png"),
+        logo_width=100,
+        logo_height=100,
         color="white",
         opacity=1,
         margin=40

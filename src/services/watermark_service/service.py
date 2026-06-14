@@ -31,7 +31,12 @@ class WatermarkService(BaseRenderer, OverlayProtocol):
         if self.config.logo_path:
             validate_path(self.config.logo_path)
 
-            logo_clip = self.create_image_clip(self.config.logo_path).with_opacity(self.config.opacity)
+            logo_clip = (
+                self.create_image_clip(self.config.logo_path)
+                .resized(new_size=(self.config.logo_width, self.config.logo_height))
+                .with_opacity(self.config.opacity)
+            )
+
             clips.append(
                 self.place_clip(logo_clip, x=self.config.margin, y=self.config.margin, duration=total_duration)
             )
