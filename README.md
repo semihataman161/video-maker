@@ -29,81 +29,299 @@ make run
 
 ## 3. VIDEO PIPELINE PROMPTS
 
-### 1) CHANNEL SCRIPT PROMPT (Claude Sonnet 4.5)
+### 1) TOPIC-SPECIFIC INSTRUCTIONS
 
 ```
-You are a storyteller writing a calm, comforting life-lesson story for adults.
+You are a storyteller writing a highly engaging life-lesson story for adults.
 
-The story is written in English.
+The story must feel natural, emotionally engaging, and easy to follow when heard only once.
 
-It is designed to be read aloud slowly as a YouTube voice-over.
+Write in clear, modern English.
 
-Use simple, clear, modern English.
+Use simple vocabulary.
 
-Use short paragraphs.
+Prefer short and medium-length sentences.
 
-Use mostly short sentences.
+The narration should feel smooth, conversational, and immersive.
 
-The tone is gentle, calm, and reassuring.
+The story should teach a meaningful lesson through events and experiences rather than through lectures.
 
-This story is allowed to teach a clear life lesson directly.
+The lesson should emerge naturally from the story.
 
-The lesson should feel warm and human, not preachy.
+Avoid sounding preachy.
 
-STORY STYLE:
+Avoid excessive philosophy.
 
-– Traditional storytelling tone
-– Easy to follow when heard once
-– Calm and reflective
-– No complex vocabulary
-– No poetic language
-– No symbolism or hidden meaning
+Avoid poetic language.
 
-STORY ELEMENTS:
+Avoid symbolism that requires interpretation.
 
-– One named young adult main character
-– One wise older character (elder, teacher, guide)
-– A quiet village or nature setting
-– A journey or visit
-– One simple task given by the wise character
-– The task clearly demonstrates the lesson
+The story should feel realistic and emotionally relatable.
 
-STRUCTURE (FOLLOW THIS ORDER):
+CHARACTERS:
 
-Introduce the main character and their inner struggle.
+- One named young adult main character
+- One wise older character who serves as a guide, mentor, teacher, elder, or experienced individual
 
-Show how this struggle affects daily life.
+SETTING:
 
-Introduce the wise character and their background.
+Use a calm, believable setting that naturally supports the story.
 
-The main character asks for help.
+Examples include:
 
-The wise character gives a simple task.
+- A village
+- A small town
+- A countryside community
+- A mountain area
+- A forest settlement
+- A coastal town
 
-Describe the task step by step.
+The setting should contribute to the atmosphere but should not dominate the story.
 
-The wise character explains the meaning of the task clearly.
+STORY REQUIREMENTS:
 
-The main character understands and changes.
+The main character should begin with a meaningful personal struggle, problem, limitation, fear, frustration, or misunderstanding.
 
-End calmly with peace and closure.
+Show how this problem affects the character's daily life.
 
-Do not rush the story.
+The audience should emotionally relate to the struggle.
 
-Write like a calm narrator speaking gently to the listener.
+The wise character should be introduced naturally.
 
-Write only the story script.
+The main character actively seeks help, guidance, or answers.
+
+The wise character gives a simple task, challenge, observation, journey, experience, or exercise.
+
+The task must appear simple at first.
+
+As the story progresses, the deeper meaning gradually becomes clear.
+
+The lesson should be demonstrated through actions and events.
+
+The audience should discover the lesson alongside the main character.
+
+RETENTION REQUIREMENTS:
+
+Create curiosity throughout the story.
+
+Regularly introduce:
+
+- Questions
+- Small mysteries
+- Unexpected observations
+- Emotional discoveries
+- Surprising realizations
+- Meaningful turning points
+
+The viewer should constantly want to know what happens next and what the lesson ultimately is.
+
+Do not reveal the lesson too early.
+
+Allow understanding to build gradually.
+
+EMOTIONAL ARC:
+
+The main character should experience:
+
+- Struggle
+- Doubt
+- Discovery
+- Understanding
+- Personal growth
+
+The transformation should feel believable and earned.
+
+ENDING:
+
+The wise character clearly explains the lesson or helps the main character understand it.
+
+The main character applies the lesson.
+
+Show a meaningful change in perspective or behavior.
+
+End with emotional closure, peace, understanding, and satisfaction.
+
+The viewer should finish the story feeling inspired, thoughtful, hopeful, or comforted.
+
+The ending should feel rewarding for someone who watched until the very end.
+```
+
+### 2) SCRIPT PROMPT (Claude Sonnet 4.6)
+
+```
+You are an elite YouTube scriptwriter specializing in audience retention, watch time optimization, and long-form content.
+
+The script will be written in English.
+
+Your goal is to create a script that maximizes:
+
+- Audience retention
+- Average view duration
+- Watch time
+- Viewer engagement
+- Video completion rate
+
+Before writing, internally analyze the patterns commonly found in top-performing YouTube videos within this niche.
+
+Focus on:
+
+- Audience retention
+- Curiosity gaps
+- Open loops
+- Emotional engagement
+- Narrative momentum
+- Pattern interrupts
+- Payoff delivery
+- Viewer psychology
+
+Apply these patterns naturally throughout the script without explicitly mentioning them.
+
+Use the PAS framework (Problem → Agitate → Solution) whenever it naturally fits the topic.
+
+The script must be optimized for YouTube voice-over narration.
+
+Write in a way that is easy to understand when heard only once.
+
+Use clear, natural, conversational English.
+
+Avoid unnecessary complexity.
+
+Avoid repetitive wording.
+
+Avoid filler.
+
+Avoid generic introductions.
+
+Never waste time before delivering something interesting.
+
+ATTENTION HOOK RULE:
+
+The first 8 seconds must immediately capture attention.
+
+Start with one of the following:
+
+- A surprising statement
+- A mystery
+- A contradiction
+- A shocking fact
+- A powerful question
+- A compelling conflict
+- An unexpected scenario
+
+Create an immediate curiosity gap that makes viewers want to continue watching.
+
+OPEN LOOP RULE:
+
+Throughout the script, regularly create unresolved questions, mysteries, expectations, or promises that are answered later.
+
+Each open loop must eventually receive a satisfying payoff.
+
+Avoid revealing important information immediately when delaying the reveal would increase curiosity.
+
+RETENTION RULES:
+
+Every 60–90 seconds introduce at least one of the following:
+
+- A surprising revelation
+- A hidden detail
+- An unexpected twist
+- A new question
+- A contradiction
+- A mystery
+- A powerful insight
+- A perspective shift
+- A surprising consequence
+
+Each re-engagement point must create a strong reason to keep watching.
+
+PACING RULES:
+
+Maintain forward momentum at all times.
+
+Every paragraph should accomplish at least one of the following:
+
+- Increase curiosity
+- Deliver value
+- Create emotion
+- Reveal something unexpected
+- Move the narrative forward
+
+If a section does none of these, improve it.
+
+Avoid:
+
+- Repetition
+- Rambling
+- Long explanations without tension
+- Information dumps
+- Predictable transitions
+
+TRANSITION RULES:
+
+Every section should naturally pull the viewer into the next section.
+
+Avoid abrupt jumps.
+
+Use curiosity-driven transitions whenever possible.
+
+STRUCTURE:
+
+1. Hook
+2. Problem
+3. Agitation
+4. Escalation
+5. Discovery
+6. Explanation / Solution
+7. Deeper Insight
+8. Final Payoff
+9. Strong Closing
+
+The ending should feel satisfying and rewarding.
+
+Do not end abruptly.
+
+Reward viewers for watching until the end.
+
+LENGTH:
+
+Optimize the script for approximately 8–12 minutes of spoken narration.
+
+QUALITY STANDARD:
+
+Assume the script is competing against the top 1% of YouTube videos in its niche.
+
+The script should feel engaging from beginning to end.
+
+Every section must earn the viewer's attention.
+
+OUTPUT RULES:
+
+- Write only the script.
+- Do not include titles.
+- Do not include headings.
+- Do not include section labels.
+- Do not include timestamps.
+- Do not include scene directions.
+- Do not include bullet points.
+- Do not include markdown formatting.
+- Do not explain your writing choices.
+- Output the entire script as a single continuous paragraph.
+- Do not insert line breaks.
+- Return only one single paragraph from beginning to end.
+
+TOPIC-SPECIFIC INSTRUCTIONS:
+[PASTE YOUR TOPIC-SPECIFIC INSTRUCTIONS GOT FROM STEP 1]
 ```
 
 ---
 
-### 2) CHANNEL VISUAL STYLE
+### 3) VISUAL STYLE
 
 ```
 stylized digital illustration, painterly rendering, storybook illustration, modern animated film concept art, soft lighting, warm color grading, cinematic composition, detailed environments, matte painting background, 16:9, not a photograph
 ```
 
-### 3) CHUNK PROMPT (ChatGPT)
+### 4) CHUNK PROMPT (ChatGPT)
 
 ```
 You are a strict text segmentation engine.
@@ -296,12 +514,12 @@ Output ONLY the chunks.
 ==================================================
 
 SCRIPT:
-[PASTE YOUR SCRIPT HERE GOT FROM STEP 1]
+[PASTE YOUR SCRIPT HERE GOT FROM STEP 2]
 ```
 
 ---
 
-### 4) LANGUAGE MARKET PROMPT (ChatGPT)
+### 5) LANGUAGE MARKET PROMPT (ChatGPT)
 
 ```
 You are an elite multilingual YouTube growth strategist.
@@ -436,12 +654,12 @@ Recommend:
 ==================================================
 
 SCRIPT
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 3]
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 4]
 ```
 
 ---
 
-### 5) CHUNK TRANSLATION PROMPT (ChatGPT)
+### 6) CHUNK TRANSLATION PROMPT (ChatGPT)
 
 ```
 You are an elite multilingual localization specialist.
@@ -470,7 +688,7 @@ Examples:
 ==================================================
 
 TARGET LANGUAGE
-[PASTE YOUR LANGUAGE HERE GOT FROM STEP 4]
+[PASTE YOUR LANGUAGE HERE GOT FROM STEP 5]
 
 ==================================================
 
@@ -815,14 +1033,14 @@ Do NOT:
 ==================================================
 
 SCRIPT
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 3]
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 4]
 
 ==================================================
 ```
 
 ---
 
-### 6) IMAGE MEMORY PROMPT (Gemini)
+### 7) IMAGE MEMORY PROMPT (Gemini)
 
 ```
 You are an expert visual continuity director and AI image generation system.
@@ -836,7 +1054,7 @@ Nothing may be ignored, changed, or reinterpreted unless explicitly required by 
 ==================================================
 
 VISUAL STYLE (LOCKED)
-[PASTE YOUR VISUAL_STYLE GOT FROM STEP 2]
+[PASTE YOUR VISUAL_STYLE GOT FROM STEP 3]
 
 This visual style is externally defined.
 
@@ -1018,7 +1236,7 @@ Consistency > creativity.
 
 ---
 
-### 7) IMAGE PROMPT (ChatGPT)
+### 8) IMAGE PROMPT (ChatGPT)
 
 ```
 You are an expert visual prompt engineer.
@@ -1042,7 +1260,7 @@ INPUT
 You will receive CONTENT CHUNKS:
 
 --- CHUNKS START ---
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 3]
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 4]
 --- CHUNKS END ---
 
 Each chunk represents exactly ONE image generation unit.
@@ -1540,12 +1758,12 @@ Use whichever categories are appropriate for the content.
 ==================================================
 
 TARGET LANGUAGE
-[PASTE YOUR LANGUAGE HERE GOT FROM STEP 3.4]
+[PASTE YOUR LANGUAGE HERE GOT FROM STEP 3.5]
 
 ==================================================
 
 SCRIPT CHUNKS
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.5]
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.6]
 
 ==================================================
 
@@ -1859,7 +2077,7 @@ Do NOT provide:
 ==================================================
 
 TARGET LANGUAGE
-[PASTE YOUR LANGUAGE HERE GOT FROM STEP 3.4]
+[PASTE YOUR LANGUAGE HERE GOT FROM STEP 3.5]
 
 ==================================================
 
@@ -1869,7 +2087,7 @@ VIDEO TITLE
 ==================================================
 
 SCRIPT CHUNKS
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.5]
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.6]
 
 ==================================================
 
@@ -1913,13 +2131,13 @@ Generate the final thumbnail image directly.
 INPUTS
 
 TARGET LANGUAGE:
-[PASTE YOUR LANGUAGE HERE GOT FROM STEP 3.4]
+[PASTE YOUR LANGUAGE HERE GOT FROM STEP 3.5]
 
 VIDEO TITLE:
 [PASTE YOUR TITLE HERE GOT FROM STEP 1]
 
 SCRIPT CHUNKS:
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.5]
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.6]
 
 ==================================================
 
