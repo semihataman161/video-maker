@@ -3,6 +3,7 @@ ALIGNMENT_MODEL = "mlx-community/Qwen3-ForcedAligner-0.6B-8bit"
 
 CHUNK_PAUSE = 0.4
 SENTENCE_PAUSE = 0.3
+OUTRO_PAUSE = 1.0
 SAMPLE_RATE = 24000
 
 from pathlib import Path

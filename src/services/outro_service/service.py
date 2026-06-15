@@ -1,5 +1,6 @@
 from moviepy.video.VideoClip import ColorClip, ImageClip
 from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
+from moviepy.video.fx.FadeIn import FadeIn
 
 from src.constants import TARGET_IMAGE_SIZE
 from src.utils.file_utils import validate_path
@@ -24,4 +25,5 @@ class OutroService(OutroProtocol):
             .with_position(("center", "center"))
         )
 
-        return CompositeVideoClip([bg_clip, image_clip], size=TARGET_IMAGE_SIZE)
+        composite = CompositeVideoClip([bg_clip, image_clip], size=TARGET_IMAGE_SIZE)
+        return composite.with_effects([FadeIn(duration=1.0)])

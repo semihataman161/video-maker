@@ -12,7 +12,7 @@ from src.utils.file_utils import validate_path, validate_paths
 from src.utils.timeline_utils import save_timeline
 from src.utils.chunk_utils import split_sentences
 from src.constants import AUDIO_DIR, MUSICS_DIR
-from .constants import TTS_MODEL, ALIGNMENT_MODEL, CHUNK_PAUSE, SENTENCE_PAUSE, SAMPLE_RATE, SPEAKERS_DIR
+from .constants import TTS_MODEL, ALIGNMENT_MODEL, CHUNK_PAUSE, SENTENCE_PAUSE, OUTRO_PAUSE, SAMPLE_RATE, SPEAKERS_DIR
 
 os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
 
@@ -144,11 +144,16 @@ class AudioService:
         words = self.__reattach_punctuation(words, text)
         return words
 
-    def __process_chunk(self, index: int, chunk: str, combined: AudioSegment, current_time: float):
+    def __process_chunk(self, index: int, chunk: str, combined: AudioSegment, current_time: float, total_chunks: int):
         temp_path = self.__generate_audio_file(index, chunk)
         segment, duration = self.__load_audio_segment(temp_path)
 
         words = self.__align_words(temp_path, chunk, current_time)
+
+        current_pause = CHUNK_PAUSE
+
+        if index == total_chunks - 1 and OUTRO_PAUSE > 0:
+            current_pause = OUTRO_PAUSE
 
         timeline_entry = {
             "index": index,
@@ -156,13 +161,13 @@ class AudioService:
             "start": current_time,
             "end": current_time + duration,
             "duration": duration,
-            "pause": CHUNK_PAUSE,
+            "pause": current_pause,
             "words": words,
         }
 
-        silence = AudioSegment.silent(duration=int(CHUNK_PAUSE * 1000))
+        silence = AudioSegment.silent(duration=int(current_pause * 1000))
         combined = combined + segment + silence
-        return combined, timeline_entry, current_time + duration + CHUNK_PAUSE
+        return combined, timeline_entry, current_time + duration + current_pause
 
     def __build_dynamic_playlist(self, total_chunks: int) -> list[dict]:
         p1 = max(1, int(total_chunks * 0.10))
@@ -258,7 +263,7 @@ class AudioService:
         total = len(self.chunks)
         for i, chunk in enumerate(self.chunks, start=1):
             print(f"   ⏳ Chunk {i}/{total}: {chunk[:50]}...")
-            combined, entry, current_time = self.__process_chunk(i, chunk, combined, current_time)
+            combined, entry, current_time = self.__process_chunk(i, chunk, combined, current_time, total)
             timeline.append(entry)
             print(f"   ✅ Chunk {i}/{total} done")
 

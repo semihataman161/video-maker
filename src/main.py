@@ -10,7 +10,7 @@ from src.utils.image_utils import crop_images
 from src.constants import (
     CHUNKS, LANGUAGE, WORDS_PER_CAPTION, WORDS_PER_SCREEN,
     OUTPUT_DIR, AUDIO_DIR, ORIGINAL_IMAGES_DIR,
-    CROPPED_IMAGES_DIR, FONTS_DIR, LOGO_DIR,
+    CROPPED_IMAGES_DIR, FONTS_DIR, ASSETS_IMAGES_DIR,
     CHANNEL_NAME
 )
 
@@ -50,7 +50,7 @@ def step_create_video():
         channel_name=CHANNEL_NAME,
         font=str(FONTS_DIR / "Montserrat-Bold.ttf"),
         fontsize=45,
-        logo_path=str(LOGO_DIR / "logo.png"),
+        logo_path=str(ASSETS_IMAGES_DIR / "logo.png"),
         logo_width=100,
         logo_height=100,
         color="white",
@@ -80,8 +80,8 @@ def step_create_video():
     effect_service = EffectService(mode="random")
 
     outro_service = OutroService(
-        image_path=str(LOGO_DIR / "logo.png"),
-        image_size=(250, 250),
+        image_path=str(ASSETS_IMAGES_DIR / "outro.png"),
+        image_size=(599, 417),
         bg_color=(15, 15, 15)
     )
 
