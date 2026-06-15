@@ -8,19 +8,23 @@ from mlx_audio.stt import load
 from pydub import AudioSegment
 from pathlib import Path
 
-from src.utils.file_utils import validate_paths
+from src.utils.file_utils import validate_path, validate_paths
 from src.utils.timeline_utils import save_timeline
 from src.utils.chunk_utils import split_sentences
-from src.constants import AUDIO_DIR
+from src.constants import AUDIO_DIR, MUSICS_DIR
 from .constants import TTS_MODEL, ALIGNMENT_MODEL, CHUNK_PAUSE, SENTENCE_PAUSE, SAMPLE_RATE, SPEAKERS_DIR
 
 os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
 
 
 class AudioService:
-    def __init__(self, chunks: list[str], language: str):
+    def __init__(self, chunks: list[str], language: str, should_include_music: bool):
         self.chunks = chunks
         self.language = language
+        self.should_include_music = should_include_music
+
+        if should_include_music:
+            validate_path(MUSICS_DIR)
 
         speaker_dir = SPEAKERS_DIR / language
         self.speaker_wav = speaker_dir / "index.wav"
@@ -160,6 +164,92 @@ class AudioService:
         combined = combined + segment + silence
         return combined, timeline_entry, current_time + duration + CHUNK_PAUSE
 
+    def __build_dynamic_playlist(self, total_chunks: int) -> list[dict]:
+        p1 = max(1, int(total_chunks * 0.10))
+        p2 = max(p1 + 1, int(total_chunks * 0.35))
+        p3 = max(p2 + 1, int(total_chunks * 0.60))
+        p4 = max(p3 + 1, int(total_chunks * 0.85))
+
+        return [
+            {
+                "path": MUSICS_DIR / "1.wav",
+                "start_chunk": 1,
+                "end_chunk": p1,
+                "gain": -14
+            },
+            {
+                "path": MUSICS_DIR / "2.wav",
+                "start_chunk": p1 + 1,
+                "end_chunk": p2,
+                "gain": -12
+            },
+            {
+                "path": MUSICS_DIR / "3.wav",
+                "start_chunk": p2 + 1,
+                "end_chunk": p3,
+                "gain": -26
+            },
+            {
+                "path": MUSICS_DIR / "4.wav",
+                "start_chunk": p3 + 1,
+                "end_chunk": p4,
+                "gain": -18
+            },
+            {
+                "path": MUSICS_DIR / "5.wav",
+                "start_chunk": p4 + 1,
+                "end_chunk": total_chunks,
+                "gain": -16
+            }
+        ]
+
+    def __apply_background_music(self, voiceover: AudioSegment, timeline: list[dict]):
+        total_chunks = len(self.chunks)
+        playlist = self.__build_dynamic_playlist(total_chunks)
+
+        if not playlist or not timeline:
+            return voiceover
+
+        music_bed = AudioSegment.silent(duration=len(voiceover))
+        timeline_map = {entry["index"]: entry for entry in timeline}
+
+        for music_info in playlist:
+            music_path = Path(music_info["path"])
+            validate_path(str(music_path))
+
+            start_chunk = music_info["start_chunk"]
+            end_chunk = music_info["end_chunk"]
+
+            if start_chunk not in timeline_map:
+                raise ValueError(f"Target start_chunk '{start_chunk}' does not exist in the timeline mapping.")
+
+            start_ms = int(timeline_map[start_chunk]["start"] * 1000)
+
+            if end_chunk in timeline_map:
+                end_ms = int(timeline_map[end_chunk]["end"] * 1000)
+            else:
+                max_chunk = max(timeline_map.keys())
+                end_ms = int(timeline_map[max_chunk]["end"] * 1000)
+
+            duration_needed = end_ms - start_ms
+
+            if start_ms + duration_needed > len(voiceover):
+                duration_needed = len(voiceover) - start_ms
+
+            track = AudioSegment.from_file(music_path)
+            track = track + music_info.get("gain", -22)
+
+            if len(track) < duration_needed:
+                loop_count = int(duration_needed / len(track)) + 1
+                track = track * loop_count
+
+            track = track[:duration_needed]
+            track = track.fade_in(1500).fade_out(1500)
+            music_bed = music_bed.overlay(track, position=start_ms)
+
+        music_bed = music_bed.fade_out(2000)
+        return voiceover.overlay(music_bed)
+
     def run(self):
         combined = AudioSegment.empty()
         timeline = []
@@ -172,6 +262,13 @@ class AudioService:
             timeline.append(entry)
             print(f"   ✅ Chunk {i}/{total} done")
 
+        if self.should_include_music:
+            print("\n   🎵 Applying background music to the final audio...")
+            final_audio = self.__apply_background_music(combined, timeline)
+            print("   ✅ Background music has been applied to the final audio.")
+        else:
+            final_audio = combined
+
         final_path = AUDIO_DIR / "merged.wav"
-        combined.export(final_path, format="wav")
+        final_audio.export(final_path, format="wav")
         save_timeline(timeline)

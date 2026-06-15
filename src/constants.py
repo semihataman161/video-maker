@@ -113,6 +113,7 @@ from pathlib import Path
 # ASSETS DIRECTORIES
 ROOT_DIR = Path(__file__).resolve().parents[1]
 ASSETS_DIR = ROOT_DIR / "assets"
+MUSICS_DIR = ASSETS_DIR / "background_musics"
 FONTS_DIR = ASSETS_DIR / "fonts"
 LOGO_DIR = ASSETS_DIR / "logo"
 

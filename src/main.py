@@ -22,7 +22,8 @@ timer = TimerService()
 def step_create_audio():
     AudioService(
         chunks=parse_chunks(CHUNKS),
-        language=LANGUAGE
+        language=LANGUAGE,
+        should_include_music=True
     ).run()
 
 
