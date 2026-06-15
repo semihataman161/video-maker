@@ -99,7 +99,7 @@ CHUNKS = """
 
 [50] And once Eli stopped fighting that simple fact, for the first time in his adult life, he finally felt at home inside his own head.
 
-[51] If you enjoyed this story, please subscribe for more content and click the bell icon to never miss an update.
+[51] If you enjoyed this story, let me know by leaving a like and sharing your thoughts in the comments. Share this video with others who might enjoy it, and subscribe with notifications turned on so you never miss a new story.
 """
 
 WORDS_PER_CAPTION = 6
