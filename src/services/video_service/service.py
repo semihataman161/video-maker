@@ -3,6 +3,7 @@ from typing import Any
 from moviepy.video.VideoClip import ImageClip
 from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
 from moviepy.audio.io.AudioFileClip import AudioFileClip
+from moviepy.video.fx.CrossFadeIn import CrossFadeIn
 
 from src.core import OverlayProtocol
 from src.utils.timeline_utils import get_timeline, get_total_duration
@@ -44,6 +45,9 @@ class VideoService:
         clips = []
         total_scenes = len(timeline)
 
+        TRANSITION_INTERVAL = 6
+        CROSSFADE_DURATION = 0.5
+
         for index, scene in enumerate(timeline):
             total_duration = float(scene["duration"]) + float(scene["pause"])
             start_time = float(scene["start"])
@@ -59,11 +63,21 @@ class VideoService:
             if not img_path.exists():
                 raise ValueError(f"Missing image: {img_path}")
 
+            # 🌟 Eğer indeks hedef aralıktaysa ve ilk resim değilse zamanı üst üste bindir
+            is_transition_scene = (index > 0) and (index % TRANSITION_INTERVAL == 0)
+
+            if is_transition_scene:
+                start_time = max(0.0, start_time - CROSSFADE_DURATION)
+                total_duration += CROSSFADE_DURATION
+
             clip = self.__create_image_clip(
                 img_path=img_path,
                 start=start_time,
                 total_duration=total_duration,
             )
+
+            if is_transition_scene:
+                clip = clip.with_effects([CrossFadeIn(duration=CROSSFADE_DURATION)])
 
             clips.append(clip)
 
