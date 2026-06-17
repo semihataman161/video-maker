@@ -9,9 +9,8 @@ from src.utils.chunk_utils import parse_chunks
 from src.utils.image_utils import crop_images
 from src.constants import (
     CHUNKS, LANGUAGE, WORDS_PER_CAPTION, WORDS_PER_SCREEN,
-    OUTPUT_DIR, AUDIO_DIR, ORIGINAL_IMAGES_DIR,
-    CROPPED_IMAGES_DIR, FONTS_DIR, ASSETS_IMAGES_DIR,
-    CHANNEL_NAME
+    AUDIO_DIR, ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR,
+    FONTS_DIR, ASSETS_IMAGES_DIR, CHANNEL_NAME
 )
 
 create_directories([AUDIO_DIR, ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR])
@@ -99,4 +98,3 @@ if __name__ == "__main__":
     step_create_video()
 
     timer.summary()
-    print(f"✅ DONE → {OUTPUT_DIR}/product.mp4")

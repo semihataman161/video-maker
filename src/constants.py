@@ -104,7 +104,16 @@ CHUNKS = """
 
 WORDS_PER_CAPTION = 6
 WORDS_PER_SCREEN = 4
-TARGET_IMAGE_SIZE = (1920, 1080)
+
+RESOLUTIONS = {
+    "360p": (640, 360),
+    "480p": (854, 480),
+    "720p": (1280, 720),
+    "1080p": (1920, 1080),
+    "1440p": (2560, 1440),
+    "2160p": (3840, 2160),
+}
+RESOLUTION = "2160p"
 LANGUAGE = "English"
 CHANNEL_NAME = "@Wisevia"
 

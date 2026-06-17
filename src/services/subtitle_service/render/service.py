@@ -3,23 +3,33 @@ from typing import Any
 from src.core import OverlayProtocol, BaseRenderer
 from src.utils.file_utils import validate_path
 from src.utils.timeline_utils import chunk_timeline_words
-from src.constants import TARGET_IMAGE_SIZE
+from src.utils.resolution_utils import get_resolution
+from src.constants import RESOLUTION
 from .config import SubtitleRenderConfig
 
 
 class SubtitleRenderService(BaseRenderer, OverlayProtocol):
     def __init__(self, config: SubtitleRenderConfig, words_per_screen: int):
-        super().__init__(TARGET_IMAGE_SIZE)
+        resolution = get_resolution(RESOLUTION)
+        super().__init__(resolution)
+
         self.config = config
         self.chunks = chunk_timeline_words(words_per_screen)
+
+        self.scale_factor = self.video_height / 1080.0
+
+        self.dynamic_fontsize = int(self.config.fontsize * self.scale_factor)
+        self.dynamic_word_spacing = int(self.config.word_spacing * self.scale_factor)
+        self.dynamic_stroke_width = int(self.config.stroke_width * self.scale_factor)
+        self.dynamic_vertical_margin = int(self.config.vertical_margin * self.scale_factor)
 
         validate_path(self.config.font)
 
     def __get_y_position(self):
         if self.config.position == "bottom":
-            return int(self.video_height - self.config.vertical_margin)
+            return int(self.video_height - self.dynamic_vertical_margin)
         if self.config.position == "top":
-            return int(self.config.vertical_margin)
+            return int(self.dynamic_vertical_margin)
         return int(self.video_height / 2)
 
     def __create_measurement_clips(self, chunk_words: list[dict[str, Any]]):
@@ -27,14 +37,15 @@ class SubtitleRenderService(BaseRenderer, OverlayProtocol):
             self.create_text_clip(
                 text=word_data["word"],
                 font=self.config.font,
-                fontsize=self.config.fontsize,
-                color=self.config.color)
+                fontsize=self.dynamic_fontsize,
+                color=self.config.color
+            )
             for word_data in chunk_words
         ]
 
     def __calculate_total_width(self, measurement_clips: list):
         words_width = sum(clip.w for clip in measurement_clips)
-        spacing_width = (len(measurement_clips) - 1) * self.config.word_spacing
+        spacing_width = (len(measurement_clips) - 1) * self.dynamic_word_spacing
         return words_width + spacing_width
 
     def __calculate_start_x(self, total_width: int):
@@ -44,10 +55,10 @@ class SubtitleRenderService(BaseRenderer, OverlayProtocol):
         raw_clip = self.create_text_clip(
             text=word_data["word"],
             font=self.config.font,
-            fontsize=self.config.fontsize,
+            fontsize=self.dynamic_fontsize,
             color=self.config.active_color,
             stroke_color=self.config.stroke_color,
-            stroke_width=self.config.stroke_width
+            stroke_width=self.dynamic_stroke_width
         )
         return self.place_clip(
             clip=raw_clip,
@@ -65,10 +76,10 @@ class SubtitleRenderService(BaseRenderer, OverlayProtocol):
         raw_clip = self.create_text_clip(
             text=word_data["word"],
             font=self.config.font,
-            fontsize=self.config.fontsize,
+            fontsize=self.dynamic_fontsize,
             color=self.config.color,
             stroke_color=self.config.stroke_color,
-            stroke_width=self.config.stroke_width
+            stroke_width=self.dynamic_stroke_width
         )
         return self.place_clip(
             clip=raw_clip,
@@ -107,7 +118,7 @@ class SubtitleRenderService(BaseRenderer, OverlayProtocol):
                 y=y,
             )
             clips.extend(word_clips)
-            current_x += word_width + self.config.word_spacing
+            current_x += word_width + self.dynamic_word_spacing
 
         return clips
 

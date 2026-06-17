@@ -8,10 +8,11 @@ from moviepy.video.fx.CrossFadeIn import CrossFadeIn
 from src.core import OverlayProtocol
 from src.utils.timeline_utils import get_timeline, get_total_duration
 from src.utils.file_utils import validate_path
-from src.constants import TARGET_IMAGE_SIZE, CROPPED_IMAGES_DIR
+from src.utils.resolution_utils import get_resolution
+from src.constants import RESOLUTION, CROPPED_IMAGES_DIR, OUTPUT_DIR
 from ..effect_service import EffectProtocol
 from ..outro_service import OutroProtocol
-from .constants import FPS, AUDIO_PATH, OUTPUT_PATH
+from .constants import FPS, AUDIO_PATH
 
 
 class VideoService:
@@ -25,12 +26,14 @@ class VideoService:
         self.effect_service = effect_service
         self.outro_service = outro_service
 
+        self.resolution = get_resolution(RESOLUTION)
+
         validate_path(AUDIO_PATH)
 
     def __create_image_clip(self, img_path: Path, start: float, total_duration: float):
         clip = (
             ImageClip(str(img_path))
-            .resized(new_size=TARGET_IMAGE_SIZE)
+            .resized(new_size=self.resolution)
             .with_start(start)
             .with_duration(total_duration)
         )
@@ -63,7 +66,6 @@ class VideoService:
             if not img_path.exists():
                 raise ValueError(f"Missing image: {img_path}")
 
-            # 🌟 Eğer indeks hedef aralıktaysa ve ilk resim değilse zamanı üst üste bindir
             is_transition_scene = (index > 0) and (index % TRANSITION_INTERVAL == 0)
 
             if is_transition_scene:
@@ -100,7 +102,7 @@ class VideoService:
         final_clip = (
             CompositeVideoClip(
                 clips,
-                size=TARGET_IMAGE_SIZE,
+                size=self.resolution,
             )
             .with_duration(total_duration)
         )
@@ -109,10 +111,14 @@ class VideoService:
         audio = AudioFileClip(str(AUDIO_PATH))
         final_clip = final_clip.with_audio(audio)
 
+        output_path = OUTPUT_DIR / f"product_{RESOLUTION}.mp4"
+
         # 🎞️ Render
         final_clip.write_videofile(
-            str(OUTPUT_PATH),
+            str(output_path),
             fps=FPS,
             codec="libx264",
             audio_codec="aac",
         )
+
+        print(f"✅ DONE → {output_path}")

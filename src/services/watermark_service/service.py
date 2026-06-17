@@ -1,13 +1,23 @@
 from src.core import OverlayProtocol, BaseRenderer
 from src.utils.file_utils import validate_path
-from src.constants import TARGET_IMAGE_SIZE
+from src.utils.resolution_utils import get_resolution
+from src.constants import RESOLUTION
 from .config import WatermarkConfig
 
 
 class WatermarkService(BaseRenderer, OverlayProtocol):
     def __init__(self, config: WatermarkConfig):
-        super().__init__(TARGET_IMAGE_SIZE)
+        resolution = get_resolution(RESOLUTION)
+        super().__init__(resolution)
+
         self.config = config
+
+        self.scale_factor = self.video_height / 1080.0
+
+        self.dynamic_fontsize = int(self.config.fontsize * self.scale_factor)
+        self.dynamic_margin = int(self.config.margin * self.scale_factor)
+        self.dynamic_logo_width = int(self.config.logo_width * self.scale_factor)
+        self.dynamic_logo_height = int(self.config.logo_height * self.scale_factor)
 
         validate_path(self.config.font)
 
@@ -18,12 +28,12 @@ class WatermarkService(BaseRenderer, OverlayProtocol):
         text_clip = self.create_text_clip(
             text=self.config.channel_name,
             font=self.config.font,
-            fontsize=self.config.fontsize,
+            fontsize=self.dynamic_fontsize,
             color=self.config.color
         ).with_opacity(self.config.opacity)
 
-        x_text = self.video_width - text_clip.w - self.config.margin
-        y_text = self.video_height - text_clip.h - self.config.margin
+        x_text = self.video_width - text_clip.w - self.dynamic_margin
+        y_text = self.video_height - text_clip.h - self.dynamic_margin
 
         clips.append(
             self.place_clip(text_clip, x=x_text, y=y_text, duration=total_duration)
@@ -35,12 +45,17 @@ class WatermarkService(BaseRenderer, OverlayProtocol):
 
             logo_clip = (
                 self.create_image_clip(self.config.logo_path)
-                .resized(new_size=(self.config.logo_width, self.config.logo_height))
+                .resized(new_size=(self.dynamic_logo_width, self.dynamic_logo_height))
                 .with_opacity(self.config.opacity)
             )
 
             clips.append(
-                self.place_clip(logo_clip, x=self.config.margin, y=self.config.margin, duration=total_duration)
+                self.place_clip(
+                    logo_clip,
+                    x=self.dynamic_margin,
+                    y=self.dynamic_margin,
+                    duration=total_duration
+                )
             )
 
         return clips

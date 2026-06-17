@@ -3,7 +3,8 @@ import random
 from typing import Literal
 from moviepy.video.VideoClip import ImageClip
 
-from src.constants import TARGET_IMAGE_SIZE
+from src.utils.resolution_utils import get_resolution
+from src.constants import RESOLUTION
 from .protocol import EffectProtocol
 from .constants import (
     LINEAR_MOTION_MAX_DURATION,
@@ -28,11 +29,12 @@ class EffectService(EffectProtocol):
     def __init__(self, mode: EffectMode):
         self.mode = mode
 
-    @staticmethod
-    def __get_resized_clip(clip: ImageClip, scale: float) -> ImageClip:
+        self.resolution = get_resolution(RESOLUTION)
+
+    def __get_resized_clip(self, clip: ImageClip, scale: float) -> ImageClip:
         new_size = (
-            int(TARGET_IMAGE_SIZE[0] * scale),
-            int(TARGET_IMAGE_SIZE[1] * scale),
+            int(self.resolution[0] * scale),
+            int(self.resolution[1] * scale),
         )
         return clip.resized(new_size=new_size)
 
@@ -84,15 +86,13 @@ class EffectService(EffectProtocol):
 
         return self.__oscillating_zoom_out(clip)
 
-    @staticmethod
-    def __calculate_pan_scale(duration: float):
+    def __calculate_pan_scale(self, duration: float):
         required_extra_height = duration * PAN_SPEED
-        required_scale = (TARGET_IMAGE_SIZE[1] + required_extra_height) / TARGET_IMAGE_SIZE[1]
+        required_scale = (self.resolution[1] + required_extra_height) / self.resolution[1]
         return min(MAX_DYNAMIC_SCALE, required_scale)
 
-    @staticmethod
-    def __get_vertical_limit(clip: ImageClip) -> float:
-        extra_height = clip.h - TARGET_IMAGE_SIZE[1]
+    def __get_vertical_limit(self, clip: ImageClip) -> float:
+        extra_height = clip.h - self.resolution[1]
         return max(0, extra_height)
 
     def __linear_pan_up(self, clip: ImageClip) -> ImageClip:
