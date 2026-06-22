@@ -46,9 +46,9 @@ class AudioService:
         file_name = f"{ref_path.stem}_24k_mono.wav"
         converted_path = ref_path.parent / file_name
 
-        if converted_path.exists():
+        if validate_path(converted_path):
             print(f"[{converted_path}] is already in the required format. Skipping conversion.")
-            return str(converted_path)
+            return converted_path
 
         subprocess.run(
             [
@@ -220,7 +220,7 @@ class AudioService:
 
         for music_info in playlist:
             music_path = Path(music_info["path"])
-            validate_path(str(music_path))
+            validate_path(music_path)
 
             start_chunk = music_info["start_chunk"]
             end_chunk = music_info["end_chunk"]

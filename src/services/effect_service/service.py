@@ -4,7 +4,7 @@ from typing import Literal
 from moviepy.video.VideoClip import ImageClip
 
 from src.utils.resolution_utils import get_resolution
-from src.constants import RESOLUTION
+from src.constants import VIDEO_RESOLUTION
 from .protocol import EffectProtocol
 from .constants import (
     LINEAR_MOTION_MAX_DURATION,
@@ -29,7 +29,7 @@ class EffectService(EffectProtocol):
     def __init__(self, mode: EffectMode):
         self.mode = mode
 
-        self.resolution = get_resolution(RESOLUTION)
+        self.resolution = get_resolution(VIDEO_RESOLUTION)
 
     def __get_resized_clip(self, clip: ImageClip, scale: float) -> ImageClip:
         new_size = (

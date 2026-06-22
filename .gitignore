@@ -138,11 +138,17 @@ celerybeat.pid
 .env
 .envrc
 .venv
+.venv-main
+.venv-image
 env/
 venv/
+venv-main/
+venv-image/
 ENV/
 env.bak/
 venv.bak/
+venv-main.bak/
+venv-image.bak/
 
 # Spyder project settings
 .spyderproject

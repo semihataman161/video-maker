@@ -9,7 +9,7 @@ from src.core import OverlayProtocol
 from src.utils.timeline_utils import get_timeline, get_total_duration
 from src.utils.file_utils import validate_path
 from src.utils.resolution_utils import get_resolution
-from src.constants import RESOLUTION, CROPPED_IMAGES_DIR, OUTPUT_DIR
+from src.constants import VIDEO_RESOLUTION, ORIGINAL_IMAGES_DIR, OUTPUT_DIR
 from ..effect_service import EffectProtocol
 from ..outro_service import OutroProtocol
 from .constants import FPS, AUDIO_PATH
@@ -26,7 +26,7 @@ class VideoService:
         self.effect_service = effect_service
         self.outro_service = outro_service
 
-        self.resolution = get_resolution(RESOLUTION)
+        self.resolution = get_resolution(VIDEO_RESOLUTION)
 
         validate_path(AUDIO_PATH)
 
@@ -61,10 +61,8 @@ class VideoService:
                 clips.append(outro_clip)
                 continue
 
-            img_path = CROPPED_IMAGES_DIR / f"{scene['index']}.png"
-
-            if not img_path.exists():
-                raise ValueError(f"Missing image: {img_path}")
+            img_path = ORIGINAL_IMAGES_DIR / f"{scene['index']}.png"
+            validate_path(img_path)
 
             is_transition_scene = (index > 0) and (index % TRANSITION_INTERVAL == 0)
 
@@ -111,7 +109,7 @@ class VideoService:
         audio = AudioFileClip(str(AUDIO_PATH))
         final_clip = final_clip.with_audio(audio)
 
-        output_path = OUTPUT_DIR / f"product_{RESOLUTION}.mp4"
+        output_path = OUTPUT_DIR / f"product_{VIDEO_RESOLUTION}.mp4"
 
         # 🎞️ Render
         final_clip.write_videofile(

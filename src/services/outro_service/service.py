@@ -4,14 +4,14 @@ from moviepy.video.fx.FadeIn import FadeIn
 
 from src.utils.file_utils import validate_path
 from src.utils.resolution_utils import get_resolution
-from src.constants import RESOLUTION
+from src.constants import VIDEO_RESOLUTION
 from .protocol import OutroProtocol
 
 
 class OutroService(OutroProtocol):
     def __init__(self, image_path: str, image_size: tuple[int, int], bg_color: tuple[int, int, int] = (0, 0, 0)):
         self.image_path = image_path
-        self.resolution = get_resolution(RESOLUTION)
+        self.resolution = get_resolution(VIDEO_RESOLUTION)
         self.bg_color = bg_color
 
         scale_factor = self.resolution[1] / 1080.0

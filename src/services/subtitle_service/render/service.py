@@ -4,13 +4,13 @@ from src.core import OverlayProtocol, BaseRenderer
 from src.utils.file_utils import validate_path
 from src.utils.timeline_utils import chunk_timeline_words
 from src.utils.resolution_utils import get_resolution
-from src.constants import RESOLUTION
+from src.constants import VIDEO_RESOLUTION
 from .config import SubtitleRenderConfig
 
 
 class SubtitleRenderService(BaseRenderer, OverlayProtocol):
     def __init__(self, config: SubtitleRenderConfig, words_per_screen: int):
-        resolution = get_resolution(RESOLUTION)
+        resolution = get_resolution(VIDEO_RESOLUTION)
         super().__init__(resolution)
 
         self.config = config

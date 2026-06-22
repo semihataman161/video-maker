@@ -1,24 +1,22 @@
-from src.services import (
-    TimerService, AudioService, SubtitleRenderConfig,
-    SubtitleRenderService, SubtitleSrtService,
-    WatermarkConfig, WatermarkService, EffectService,
-    OutroService, VideoService
-)
+import sys
+
+from src.services.timer_service_cache import TimerServiceCache
 from src.utils.file_utils import create_directories
 from src.utils.chunk_utils import parse_chunks
-from src.utils.image_utils import crop_images
 from src.constants import (
     CHUNKS, LANGUAGE, WORDS_PER_CAPTION, WORDS_PER_SCREEN,
-    AUDIO_DIR, ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR,
-    FONTS_DIR, ASSETS_IMAGES_DIR, CHANNEL_NAME
+    AUDIO_DIR, ORIGINAL_IMAGES_DIR, FONTS_DIR,
+    ASSETS_IMAGES_DIR, CHANNEL_NAME
 )
 
-create_directories([AUDIO_DIR, ORIGINAL_IMAGES_DIR, CROPPED_IMAGES_DIR])
-timer = TimerService()
+create_directories([AUDIO_DIR, ORIGINAL_IMAGES_DIR])
+timer_cache = TimerServiceCache()
 
 
-@timer.track("🎙 Creating Audio")
+@timer_cache.track("🎙 Creating Audio")
 def step_create_audio():
+    from src.services.audio_service import AudioService
+
     AudioService(
         chunks=parse_chunks(CHUNKS),
         language=LANGUAGE,
@@ -26,25 +24,42 @@ def step_create_audio():
     ).run()
 
 
-@timer.track("✂️ Cropping Images")
-def step_crop_images():
-    crop_images(
-        input_dir=ORIGINAL_IMAGES_DIR,
-        output_dir=CROPPED_IMAGES_DIR,
-        left_pct=0,
-        top_pct=0,
-        right_pct=0.06,
-        bottom_pct=0,
-    )
-
-
-@timer.track("📝 Generating SRT")
+@timer_cache.track("📝 Generating SRT")
 def step_generate_srt():
+    from src.services.subtitle_service.srt import SubtitleSrtService
+
     SubtitleSrtService(words_per_caption=WORDS_PER_CAPTION).run()
 
 
-@timer.track("🎬 Creating Video")
+@timer_cache.track("🎨 Creating Images")
+def step_create_images():
+    from src.services.image_service import ImageService
+
+    prompt = '''
+    A cinematic illustrated storyboard frame.
+
+    Daniel, a 30-year-old man with medium-length dark brown wavy hair, light stubble, expressive brown eyes, wearing a navy blue henley sweater over a light gray undershirt, sits at a wooden table inside a small coastal cottage.
+
+    He carefully pours fine sand into a large transparent glass jar. Small stones are scattered on the table beside a cloth pouch. Behind him, a bright harbor window reveals calm water, fishing boats, stone docks and distant seaside buildings.
+
+    Warm natural daylight enters through the window and softly illuminates the scene.
+
+    Style: premium storybook illustration, painterly digital art, subtle brushwork, clean contours, realistic anatomy, emotional facial expression, cinematic lighting, animated feature film concept art, visual novel illustration, high-end editorial artwork, cozy atmosphere, soft shadows, detailed glass reflections, narrative-focused composition.
+
+    Medium shot, eye-level camera, shallow depth of field, highly consistent character design, professional storyboard quality, beautiful environmental storytelling.
+    '''
+
+    ImageService().generate_batch(prompts=[prompt] * 5)
+
+
+@timer_cache.track("🎬 Creating Video")
 def step_create_video():
+    from src.services.watermark_service import WatermarkConfig, WatermarkService
+    from src.services.subtitle_service.render import SubtitleRenderConfig, SubtitleRenderService
+    from src.services.effect_service import EffectService
+    from src.services.outro_service import OutroService
+    from src.services.video_service import VideoService
+
     watermark_config = WatermarkConfig(
         channel_name=CHANNEL_NAME,
         font=str(FONTS_DIR / "Montserrat-Bold.ttf"),
@@ -92,9 +107,23 @@ def step_create_video():
 
 
 if __name__ == "__main__":
-    step_create_audio()
-    step_crop_images()
-    step_generate_srt()
-    step_create_video()
+    if len(sys.argv) > 1:
+        task = sys.argv[1]
 
-    timer.summary()
+        if task == "audio":
+            step_create_audio()
+
+        elif task == "srt":
+            step_generate_srt()
+
+        elif task == "images":
+            step_create_images()
+
+        elif task == "video":
+            step_create_video()
+            timer_cache.summary()
+
+        else:
+            print(f"❌ Unknown command: {task}")
+    else:
+        print("❌ Please specify a task: 'audio', 'srt', 'images' or 'video'")

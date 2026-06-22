@@ -1,6 +1,7 @@
 import json
 from typing import Any
 
+from .file_utils import validate_path
 from src.constants import AUDIO_DIR
 
 timeline_path = AUDIO_DIR / "timeline.json"
@@ -14,8 +15,7 @@ def save_timeline(timeline: list[dict]):
 
 
 def get_timeline() -> list[dict[str, Any]]:
-    if not timeline_path.exists():
-        raise ValueError(f"Timeline file not found: {timeline_path}")
+    validate_path(timeline_path)
 
     with open(timeline_path) as file:
         timeline = json.load(file)
