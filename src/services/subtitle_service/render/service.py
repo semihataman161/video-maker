@@ -1,7 +1,7 @@
 from typing import Any
 
 from src.core import OverlayProtocol, BaseRenderer
-from src.utils.file_utils import validate_path
+from src.utils.file_utils import try_validate_path
 from src.utils.timeline_utils import chunk_timeline_words
 from src.utils.resolution_utils import get_resolution
 from src.constants import VIDEO_RESOLUTION
@@ -23,7 +23,7 @@ class SubtitleRenderService(BaseRenderer, OverlayProtocol):
         self.dynamic_stroke_width = int(self.config.stroke_width * self.scale_factor)
         self.dynamic_vertical_margin = int(self.config.vertical_margin * self.scale_factor)
 
-        validate_path(self.config.font)
+        try_validate_path(self.config.font)
 
     def __get_y_position(self):
         if self.config.position == "bottom":

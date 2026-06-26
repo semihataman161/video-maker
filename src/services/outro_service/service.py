@@ -2,7 +2,7 @@ from moviepy.video.VideoClip import ColorClip, ImageClip
 from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
 from moviepy.video.fx.FadeIn import FadeIn
 
-from src.utils.file_utils import validate_path
+from src.utils.file_utils import try_validate_path
 from src.utils.resolution_utils import get_resolution
 from src.constants import VIDEO_RESOLUTION
 from .protocol import OutroProtocol
@@ -21,7 +21,7 @@ class OutroService(OutroProtocol):
             int(image_size[1] * scale_factor)
         )
 
-        validate_path(self.image_path)
+        try_validate_path(self.image_path)
 
     def get_clip(self, duration):
         bg_clip = ColorClip(size=self.resolution, color=self.bg_color).with_duration(duration)

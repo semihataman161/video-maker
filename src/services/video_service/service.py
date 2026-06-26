@@ -7,7 +7,7 @@ from moviepy.video.fx.CrossFadeIn import CrossFadeIn
 
 from src.core import OverlayProtocol
 from src.utils.timeline_utils import get_timeline, get_total_duration
-from src.utils.file_utils import validate_path
+from src.utils.file_utils import try_validate_path
 from src.utils.resolution_utils import get_resolution
 from src.constants import VIDEO_RESOLUTION, ORIGINAL_IMAGES_DIR, OUTPUT_DIR
 from ..effect_service import EffectProtocol
@@ -28,7 +28,7 @@ class VideoService:
 
         self.resolution = get_resolution(VIDEO_RESOLUTION)
 
-        validate_path(AUDIO_PATH)
+        try_validate_path(AUDIO_PATH)
 
     def __create_image_clip(self, img_path: Path, start: float, total_duration: float):
         clip = (
@@ -62,7 +62,7 @@ class VideoService:
                 continue
 
             img_path = ORIGINAL_IMAGES_DIR / f"{scene['index']}.png"
-            validate_path(img_path)
+            try_validate_path(img_path)
 
             is_transition_scene = (index > 0) and (index % TRANSITION_INTERVAL == 0)
 

@@ -1,24 +1,16 @@
-import json
-from typing import Any
-
-from .file_utils import validate_path
 from src.constants import AUDIO_DIR
+from .file_utils import try_read_json, save_json
 
 timeline_path = AUDIO_DIR / "timeline.json"
 
 
-def save_timeline(timeline: list[dict]):
-    with open(timeline_path, "w") as file:
-        json.dump(timeline, file, indent=2)
-
+def save_timeline(timeline: dict | list):
+    save_json(timeline_path, timeline)
     print(f"📝 Timeline saved → {timeline_path}")
 
 
-def get_timeline() -> list[dict[str, Any]]:
-    validate_path(timeline_path)
-
-    with open(timeline_path) as file:
-        timeline = json.load(file)
+def get_timeline():
+    timeline = try_read_json(timeline_path)
 
     if not timeline:
         raise RuntimeError("Timeline is empty!")

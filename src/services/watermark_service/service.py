@@ -1,5 +1,5 @@
 from src.core import OverlayProtocol, BaseRenderer
-from src.utils.file_utils import validate_path
+from src.utils.file_utils import try_validate_path
 from src.utils.resolution_utils import get_resolution
 from src.constants import VIDEO_RESOLUTION
 from .config import WatermarkConfig
@@ -19,7 +19,7 @@ class WatermarkService(BaseRenderer, OverlayProtocol):
         self.dynamic_logo_width = int(self.config.logo_width * self.scale_factor)
         self.dynamic_logo_height = int(self.config.logo_height * self.scale_factor)
 
-        validate_path(self.config.font)
+        try_validate_path(self.config.font)
 
     def get_clip(self, total_duration: float = 0.0):
         clips = []
@@ -41,7 +41,7 @@ class WatermarkService(BaseRenderer, OverlayProtocol):
 
         # Logo Watermark (Top Left)
         if self.config.logo_path:
-            validate_path(self.config.logo_path)
+            try_validate_path(self.config.logo_path)
 
             logo_clip = (
                 self.create_image_clip(self.config.logo_path)

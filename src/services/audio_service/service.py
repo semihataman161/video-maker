@@ -8,7 +8,7 @@ from mlx_audio.stt import load
 from pydub import AudioSegment
 from pathlib import Path
 
-from src.utils.file_utils import validate_path, validate_paths
+from src.utils.file_utils import try_validate_path, validate_paths
 from src.utils.timeline_utils import save_timeline
 from src.utils.chunk_utils import split_sentences
 from src.constants import AUDIO_DIR, MUSICS_DIR
@@ -24,7 +24,7 @@ class AudioService:
         self.should_include_music = should_include_music
 
         if should_include_music:
-            validate_path(MUSICS_DIR)
+            try_validate_path(MUSICS_DIR)
 
         speaker_dir = SPEAKERS_DIR / language
         self.speaker_wav = speaker_dir / "index.wav"
@@ -46,7 +46,7 @@ class AudioService:
         file_name = f"{ref_path.stem}_24k_mono.wav"
         converted_path = ref_path.parent / file_name
 
-        if validate_path(converted_path):
+        if try_validate_path(converted_path):
             print(f"[{converted_path}] is already in the required format. Skipping conversion.")
             return converted_path
 
@@ -220,7 +220,7 @@ class AudioService:
 
         for music_info in playlist:
             music_path = Path(music_info["path"])
-            validate_path(music_path)
+            try_validate_path(music_path)
 
             start_chunk = music_info["start_chunk"]
             end_chunk = music_info["end_chunk"]

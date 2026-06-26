@@ -34,22 +34,12 @@ def step_generate_srt():
 @timer_cache.track("🎨 Creating Images")
 def step_create_images():
     from src.services.image_service import ImageService
+    from src.services.image_service.prompt import PromptService
 
-    prompt = '''
-    A cinematic illustrated storyboard frame.
+    prompt_service = PromptService()
+    prompts = prompt_service.build_all()
 
-    Daniel, a 30-year-old man with medium-length dark brown wavy hair, light stubble, expressive brown eyes, wearing a navy blue henley sweater over a light gray undershirt, sits at a wooden table inside a small coastal cottage.
-
-    He carefully pours fine sand into a large transparent glass jar. Small stones are scattered on the table beside a cloth pouch. Behind him, a bright harbor window reveals calm water, fishing boats, stone docks and distant seaside buildings.
-
-    Warm natural daylight enters through the window and softly illuminates the scene.
-
-    Style: premium storybook illustration, painterly digital art, subtle brushwork, clean contours, realistic anatomy, emotional facial expression, cinematic lighting, animated feature film concept art, visual novel illustration, high-end editorial artwork, cozy atmosphere, soft shadows, detailed glass reflections, narrative-focused composition.
-
-    Medium shot, eye-level camera, shallow depth of field, highly consistent character design, professional storyboard quality, beautiful environmental storytelling.
-    '''
-
-    ImageService().generate_batch(prompts=[prompt] * 5)
+    ImageService().generate_batch(prompts=prompts)
 
 
 @timer_cache.track("🎬 Creating Video")

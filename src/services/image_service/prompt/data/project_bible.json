@@ -1,0 +1,185 @@
+{
+  "visual_style": "stylized digital illustration, painterly rendering, storybook illustration, modern animated film concept art, soft lighting, warm color grading, cinematic composition, detailed environments, matte painting background, 16:9, not a photograph",
+  "characters": {
+    "char_eli": {
+      "id": "char_eli",
+      "name": "Eli",
+      "appearance": {
+        "age": "26",
+        "gender": "male",
+        "ethnicity": "Caucasian",
+        "height": "average",
+        "build": "slim",
+        "skin": "light",
+        "face_shape": "oval",
+        "eyes": "brown",
+        "hair": "short dark brown slightly wavy",
+        "facial_hair": "clean-shaven",
+        "posture": "slightly rounded shoulders",
+        "distinctive_features": [
+          "prominent eyebrows",
+          "straight nose"
+        ]
+      },
+      "default_clothing": {
+        "upper": "olive green henley shirt",
+        "lower": "dark blue jeans",
+        "footwear": "brown leather work boots",
+        "outerwear": "charcoal gray hooded jacket",
+        "accessories": [
+          "brown leather belt",
+          "analog wristwatch"
+        ]
+      }
+    },
+    "char_thomas": {
+      "id": "char_thomas",
+      "name": "Thomas",
+      "appearance": {
+        "age": "elderly",
+        "gender": "male",
+        "ethnicity": "Caucasian",
+        "height": "average",
+        "build": "lean",
+        "skin": "weathered light skin",
+        "face_shape": "long",
+        "eyes": "gray",
+        "hair": "medium-length white hair",
+        "facial_hair": "full white beard and mustache",
+        "posture": "slightly stooped",
+        "distinctive_features": [
+          "deep forehead lines",
+          "rough calloused hands"
+        ]
+      },
+      "default_clothing": {
+        "upper": "beige linen shirt",
+        "lower": "dark brown wool trousers",
+        "footwear": "worn leather boots",
+        "outerwear": "olive wool vest",
+        "accessories": [
+          "wide leather belt"
+        ]
+      }
+    }
+  },
+  "locations": {
+    "loc_town": {
+      "id": "loc_town",
+      "name": "Mountain Town",
+      "overview": "A small town at the base of a mountain range.",
+      "visual_identity": "Compact streets with modest buildings beneath mist-covered mountains.",
+      "architecture": "Small apartments, local storefronts, traditional wooden houses, hardware store.",
+      "terrain": "Gentle valley floor at the mountain base.",
+      "vegetation": "Scattered deciduous trees, shrubs, grass.",
+      "lighting": "Soft diffused daylight with frequent morning mist.",
+      "color_palette": "gray, muted green, brown, slate blue",
+      "background_elements": [
+        "mountain slopes",
+        "mist",
+        "rooftops"
+      ],
+      "common_scene_settings": [
+        "street level",
+        "apartment exterior",
+        "town overview"
+      ]
+    },
+    "loc_trail": {
+      "id": "loc_trail",
+      "name": "Mountain Trail",
+      "overview": "An old walking trail ascending through the mountainside.",
+      "visual_identity": "Narrow dirt path winding through mature forest.",
+      "architecture": "Simple wooden trail markers.",
+      "terrain": "Packed earth, rocks, gentle slopes.",
+      "vegetation": "Tall pines, deciduous trees, moss, ferns.",
+      "lighting": "Filtered daylight through tree canopy.",
+      "color_palette": "forest green, earthy brown, gray",
+      "background_elements": [
+        "tree trunks",
+        "distant hills"
+      ],
+      "common_scene_settings": [
+        "along the trail",
+        "path curves",
+        "walking perspective"
+      ]
+    },
+    "loc_clearing": {
+      "id": "loc_clearing",
+      "name": "Mountain Clearing",
+      "overview": "A quiet opening in the forest overlooking a wide valley.",
+      "visual_identity": "Flat stone surrounded by trees with an expansive valley view.",
+      "architecture": "None.",
+      "terrain": "Rocky clearing with uneven ground.",
+      "vegetation": "Pine trees, wild grass, low shrubs.",
+      "lighting": "Open natural daylight.",
+      "color_palette": "green, gray stone, soft blue",
+      "background_elements": [
+        "valley",
+        "rolling mist",
+        "mountain ridges"
+      ],
+      "common_scene_settings": [
+        "seated on the stone",
+        "overlooking the valley",
+        "wide establishing shot"
+      ]
+    },
+    "loc_workshop": {
+      "id": "loc_workshop",
+      "name": "Woodworking Workshop",
+      "overview": "A modest mountain woodworking space.",
+      "visual_identity": "Rustic interior filled with timber and carved wood.",
+      "architecture": "Small wooden cabin with exposed beams.",
+      "terrain": "Wood plank floor.",
+      "vegetation": "None indoors.",
+      "lighting": "Natural window light.",
+      "color_palette": "warm brown, beige, muted gray",
+      "background_elements": [
+        "wood shelves",
+        "hand tools",
+        "wood shavings"
+      ],
+      "common_scene_settings": [
+        "workbench view",
+        "interior wide shot",
+        "close-up carving area"
+      ]
+    }
+  },
+  "objects": {
+    "obj_flat_stone": {
+      "id": "obj_flat_stone",
+      "name": "Flat Stone",
+      "appearance": "Broad flat weathered sitting stone with rounded edges.",
+      "material": "granite",
+      "color": "light gray",
+      "size": "large"
+    },
+    "obj_old_watch": {
+      "id": "obj_old_watch",
+      "name": "Old Watch",
+      "appearance": "Round analog wristwatch with simple dial and worn leather strap.",
+      "material": "metal and leather",
+      "color": "silver and brown",
+      "size": "small"
+    },
+    "obj_carving_wood": {
+      "id": "obj_carving_wood",
+      "name": "Wood Carving",
+      "appearance": "Partially carved wooden piece with smooth cut surfaces.",
+      "material": "wood",
+      "color": "light tan",
+      "size": "small"
+    },
+    "obj_carving_knife": {
+      "id": "obj_carving_knife",
+      "name": "Carving Knife",
+      "appearance": "Short narrow blade with a rounded wooden handle.",
+      "material": "steel and wood",
+      "color": "silver and brown",
+      "size": "small"
+    }
+  }
+}
