@@ -6,7 +6,7 @@ from src.utils.chunk_utils import parse_chunks
 from src.constants import (
     CHUNKS, LANGUAGE, WORDS_PER_CAPTION, WORDS_PER_SCREEN,
     AUDIO_DIR, ORIGINAL_IMAGES_DIR, FONTS_DIR,
-    ASSETS_IMAGES_DIR, CHANNEL_NAME
+    ASSETS_IMAGES_DIR, ASSETS_VIDEOS_DIR, CHANNEL_NAME
 )
 
 create_directories([AUDIO_DIR, ORIGINAL_IMAGES_DIR])
@@ -47,8 +47,14 @@ def step_create_video():
     from src.services.watermark_service import WatermarkConfig, WatermarkService
     from src.services.subtitle_service.render import SubtitleRenderConfig, SubtitleRenderService
     from src.services.effect_service import EffectService
+    from src.services.overlay_video_service import OverlayVideoService
     from src.services.outro_service import OutroService
     from src.services.video_service import VideoService
+
+    overlay_video_service = OverlayVideoService(
+        video_path=str(ASSETS_VIDEOS_DIR / "overlay.mp4"),
+        mode="dark_overlay"
+    )
 
     watermark_config = WatermarkConfig(
         channel_name=CHANNEL_NAME,
@@ -92,7 +98,8 @@ def step_create_video():
     VideoService(
         overlays=[watermark_service, subtitle_render_service],
         effect_service=effect_service,
-        outro_service=outro_service
+        outro_service=outro_service,
+        overlay_video_service=overlay_video_service,
     ).run()
 
 

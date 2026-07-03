@@ -34,7 +34,7 @@ create_venvs: create_venv_main create_venv_image
 delete_venvs:
 	rm -rf $(VENV_MAIN) $(VENV_IMAGE)
 	pip cache purge
-	@echo "🗑️ Virtual environment deleted."
+	@echo "🗑️ Virtual environments deleted."
 
 run-audio:
 	PYTHONPATH=. $(VENV_MAIN)/bin/python -m src.main audio

@@ -21,10 +21,12 @@ class VideoService:
             overlays: list[OverlayProtocol] = None,
             effect_service: EffectProtocol | None = None,
             outro_service: OutroProtocol = None,
+            overlay_video_service: OverlayProtocol | None = None,
     ):
         self.overlays = overlays or []
         self.effect_service = effect_service
         self.outro_service = outro_service
+        self.overlay_video_service = overlay_video_service
 
         self.resolution = get_resolution(VIDEO_RESOLUTION)
 
@@ -83,6 +85,11 @@ class VideoService:
 
         return clips
 
+    def __get_overlay_end(self, timeline: list[dict[str, Any]], total_duration: float) -> float:
+        if self.outro_service and timeline:
+            return float(timeline[-1]["start"])
+        return total_duration
+
     def run(self):
         # 📄 Timeline
         timeline = get_timeline()
@@ -92,7 +99,12 @@ class VideoService:
         image_clips = self.__create_image_clips(timeline)
         clips = [*image_clips]
 
-        # 💬 Optional overlays
+        if self.overlay_video_service:
+            overlay_end = self.__get_overlay_end(timeline, total_duration)
+            clips.extend(
+                self.overlay_video_service.get_clip(total_duration=overlay_end)
+            )
+
         for overlay in self.overlays:
             overlay_clips = overlay.get_clip(total_duration=total_duration)
             clips.extend(overlay_clips)
