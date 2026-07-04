@@ -129,6 +129,7 @@ class VideoService:
             fps=FPS,
             codec="libx264",
             audio_codec="aac",
+            threads=8,
         )
 
         print(f"✅ DONE → {output_path}")

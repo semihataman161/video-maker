@@ -71,10 +71,10 @@ class ImageService:
             seed = seeds[i] if seeds and i < len(seeds) else None
             self.generate(prompt=prompt, seed=seed)
 
-            gc.collect()
-            mx.clear_cache()
-
             if (i + 1) % CHUNK_SIZE == 0 and (i + 1) != len(prompts):
+                gc.collect()
+                mx.clear_cache()
+
                 print(f"\n🔥 Protecting thermal limits... Cooling down M4 chip.")
                 print(f"⏳ Waiting for {COOLDOWN_SECONDS} seconds...\n")
                 time.sleep(COOLDOWN_SECONDS)
