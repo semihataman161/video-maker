@@ -1034,42 +1034,47 @@ SCRIPT
 
 <!-- FLUX2 KLEIN 4B SETUP -->
 
-### 6) PROJECT BIBLE PROMPT (ChatGPT)
+### 7) PROJECT BIBLE PROMPT (ChatGPT)
 
 ```
 ==================================================
 EXECUTION MODE
 
-Return ONLY valid JSON. No explanations.
+Return ONLY valid JSON.
+
+No explanations.
 
 ==================================================
 
 You are a deterministic Visual Bible generator.
 
-Your ONLY purpose is to generate a reusable visual reference for image
-generation.
+Your ONLY purpose is to generate a reusable visual reference for image generation.
 
-The output will later be consumed by an automated prompt builder.
+The output will later be consumed directly by an automated prompt builder.
 
-Every field must therefore contain ONLY visual information.
+Every field must therefore contain ONLY permanent visual information.
 
-Never describe story, personality, symbolism, emotions or narrative
-meaning unless explicitly requested.
+Never describe story, personality, symbolism, motivations, relationships, psychology, emotions or narrative meaning.
 
 ==================================================
 INPUT
 
-The story is supplied together with this request.
+The complete story is supplied together with this request.
 
-Always analyze every story segment supplied with this request.
+Always analyze every supplied story segment.
 
-Never expect the story to appear inside a predefined placeholder.
+Never expect predefined placeholders.
 
-If multiple story copies exist, use the most complete version.
+If multiple versions exist, use the most complete version.
 
 If no story is supplied, return
 
-{ "visual_style":"","characters":{}, "locations":{}, "objects":{} }
+{
+  "visual_style":"",
+  "characters":{},
+  "locations":{},
+  "objects":{}
+}
 
 ==================================================
 VISUAL STYLE
@@ -1078,65 +1083,106 @@ The visual style is supplied together with the story.
 
 Store it EXACTLY as provided.
 
-Do not rewrite.
+Never rewrite.
 
-Do not summarize.
+Never summarize.
 
 ==================================================
 OUTPUT
 
-{ "visual_style":"","characters":{}, "locations":{}, "objects":{} }
+{
+  "visual_style":"",
+  "characters":{},
+  "locations":{},
+  "objects":{}
+}
 
 ==================================================
 GENERAL RULES
 
-The Project Bible must contain ONLY stable visual information.
+The Project Bible contains ONLY permanent visual information.
 
-Everything should help an image generation model render consistent
-images.
+Everything should directly improve image generation consistency.
 
-Never include: - personality - emotions - thoughts - motivations -
-beliefs - symbolism - relationships - story summary - character
-development - temporary states - temporary injuries - temporary
-clothing - temporary lighting - temporary weather
+Never include:
 
-Everything must describe something a camera could permanently observe.
+- personality
+- emotions
+- psychology
+- motivations
+- beliefs
+- symbolism
+- narration
+- story summary
+- temporary expressions
+- temporary poses
+- temporary clothing
+- temporary injuries
+- temporary lighting
+- temporary weather
 
 ==================================================
 CHARACTERS
 
 Store characters as a dictionary.
 
-Dictionary key MUST equal the character id.
+Dictionary keys MUST equal character ids.
 
-Never use character names as keys.
+Never use character names as dictionary keys.
 
 ==================================================
 CHARACTER STRUCTURE
 
-{ "id":"","name":"","appearance":{
-"age":"","gender":"","ethnicity":"","height":"","build":"","skin":"","face_shape":"","eyes":"","hair":"","
-facial_hair":"","posture":"","distinctive_features":\[\]
-}, "default_clothing":{
-"upper":"","lower":"","footwear":"","outerwear":"","accessories":\[\] }
+{
+  "id":"",
+  "name":"",
+  "identity_blend":"",
+  "default_clothing":{
+    "upper":"",
+    "lower":"",
+    "footwear":"",
+    "outerwear":"",
+    "accessories":[]
+  }
 }
 
 ==================================================
-CHARACTER RULES
+IDENTITY BLEND RULE
 
-Appearance must contain ONLY permanent physical traits.
+The identity_blend field is the MOST IMPORTANT field for diffusion model consistency.
 
-Never include: - expressions - emotions - personality - psychology -
-behavior - story progression
+Instead of describing anatomical details, you MUST act as a Casting Director.
 
-Distinctive features should contain only visible physical details.
+Analyze the character's physical traits from the story.
+
+Select TWO real-world famous actors/celebrities that perfectly match this specific look.
+
+Assign a percentage to each (e.g., 60% and 40%).
+
+Write exactly ONE short sentence using this exact formula:
+
+"a [Age]-year-old [Body Build] [Gender], perfect facial blend of [Celebrity A] ([X]%) and [Celebrity B] ([Y]%), [Hair style and color], [Eye color], [One distinctive permanent feature if necessary]."
+
+Example:
+
+"a 26-year-old lean man, perfect facial blend of Henry Cavill (60%) and Ryan Gosling (40%), short messy dark brown hair, green eyes, clean-shaven."
+
+NEGATIVE RULES FOR IDENTITY:
+
+Never describe bone structure, facial proportions, or forensic anatomy.
+
+Never write more than 50 words.
+
+Never split into categories or bullet points.
+
+Never use subjective words such as handsome, beautiful, attractive, or ugly.
 
 ==================================================
 DEFAULT CLOTHING RULES
 
 Describe only the outfit most commonly worn.
 
-Do not include handheld props.
+Do not include handheld objects.
 
 Accessories must be wearable.
 
@@ -1145,85 +1191,103 @@ LOCATIONS
 
 Store locations as a dictionary.
 
-Dictionary key MUST equal the location id.
+Dictionary keys MUST equal location ids.
 
 ==================================================
 LOCATION STRUCTURE
 
 {
-"id":"","name":"","overview":"","visual_identity":"","architecture":"","terrain":"","vegetation":"","lighting":"","
-color_palette":"","background_elements":\[\],
-"common_scene_settings":\[\] }
+  "id":"",
+  "name":"",
+  "overview":"",
+  "visual_identity":"",
+  "architecture":"",
+  "terrain":"",
+  "vegetation":"",
+  "lighting":"",
+  "color_palette":"",
+  "background_elements":[],
+  "common_scene_settings":[]
+}
 
 ==================================================
 LOCATION RULES
 
-overview: One sentence describing the place.
+overview
+One concise sentence describing the place.
 
-visual_identity: Only stable visual characteristics.
+visual_identity
+Only permanent visual characteristics.
 
-architecture: Only built structures.
+architecture
+Only permanent built structures.
 
-terrain: Ground, rivers, cliffs, mountains etc.
+terrain
+Ground, rivers, mountains, paths, cliffs etc.
 
-vegetation: Trees, flowers, grass etc.
+vegetation
+Only permanent vegetation.
 
-lighting: Only stable lighting characteristics.
+lighting
+Only naturally recurring lighting.
 
-color_palette: Dominant colors.
+color_palette
+Dominant permanent colors.
 
-background_elements: Frequently visible distant elements.
+background_elements
+Frequently visible distant elements.
 
-common_scene_settings: Possible camera positions.
+common_scene_settings
+Typical camera positions.
 
 ==================================================
 OBJECTS
 
 Store objects as a dictionary.
 
-Dictionary key MUST equal the object id.
+Dictionary keys MUST equal object ids.
 
 ==================================================
 OBJECT STRUCTURE
 
-{ "id":"","name":"","appearance":"","material":"","color":"","size":"" }
+{
+  "id":"",
+  "name":"",
+  "appearance":"",
+  "material":"",
+  "color":"",
+  "size":""
+}
 
 ==================================================
 OBJECT RULES
 
-Describe only visual properties.
+Describe only permanent visual properties.
 
-Never describe symbolism, purpose or narrative meaning.
+Never describe purpose or symbolism.
 
 ==================================================
 INFERENCE RULE
 
-If visual information is missing,
+If visual information is missing, infer the most visually plausible solution.
 
-infer the most visually plausible solution.
-
-Once inferred,
-
-keep it consistent.
+Once inferred, reuse it consistently.
 
 ==================================================
 CONSISTENCY RULE
 
-Every recurring character, location and object must always map to the
-same id.
+Every recurring character, location and object must always reuse the same id.
 
 Never duplicate entities.
 
 ==================================================
 IMAGE GENERATION OPTIMIZATION
 
-Write concise objective visual descriptions.
+Assume this Project Bible will be reused hundreds of times to generate independent images.
 
-Avoid literary writing.
+Optimize every field for maximum visual consistency.
 
-Avoid storytelling.
-
-Every sentence should directly improve image generation quality.
+Prioritize identity over every other visual attribute.
 
 ==================================================
 FINAL OUTPUT RULE
@@ -1238,37 +1302,36 @@ No explanations.
 
 ==================================================
 
+VISUAL STYLE:
 [PASTE YOUR VISUAL_STYLE GOT FROM STEP 3]
+
+CHUNKS:
 [PASTE YOUR CHUNKS HERE GOT FROM STEP 4]
 ```
 
-### 7) SCENE METADATA PROMPT (ChatGPT)
+### 8) SCENE METADATA PROMPT (ChatGPT)
 
 ```
 ==================================================
 EXECUTION MODE
 
 Return ONLY valid JSON.
+
 No explanations.
 
 ==================================================
 
 You are a deterministic Scene Metadata generator.
 
-The Project Bible is the single source of truth.
+The previously generated Project Bible is the single source of truth.
 
-Your job is to convert every supplied story chunk into exactly one visually observable scene.
+The complete story already exists in this conversation.
 
-The output will later be consumed directly by an automated image prompt builder.
+Use both as your only sources of information.
 
-==================================================
-INPUT
+Do NOT ask for them again.
 
-The Project Bible and the story are supplied together with this request.
-
-Never expect either inside predefined placeholders.
-
-Always use the supplied Project Bible and story.
+Generate Scene Metadata for the entire story.
 
 ==================================================
 OUTPUT
@@ -1288,9 +1351,9 @@ SCENE STRUCTURE
   "time_of_day":"",
   "weather":"",
   "camera":{
-      "shot_size":"",
-      "angle":"",
-      "focus":""
+    "shot_size":"",
+    "angle":"",
+    "focus":""
   },
   "characters":[],
   "objects":[]
@@ -1309,6 +1372,24 @@ CHARACTER STRUCTURE
 }
 
 ==================================================
+PROJECT BIBLE RULE
+
+Use the previously generated Project Bible as the ONLY source of truth.
+
+Reuse all existing:
+
+- character ids
+- location ids
+- object ids
+- locations
+- objects
+- visual continuity
+
+Never invent new ids.
+
+Never rename existing ids.
+
+==================================================
 GENERAL RULE
 
 Describe ONLY what a camera could capture.
@@ -1319,17 +1400,17 @@ Never describe:
 - personality
 - motivations
 - symbolism
-- emotions that are not visually observable
 - memories
 - narration
 - future events
+- invisible emotions
 
 ==================================================
 CURRENT MOMENT RULE
 
-Every scene must depict ONLY the current moment of the story.
+Every scene must depict ONLY the current observable moment.
 
-Do not visualize information that belongs to another point in time.
+Never visualize information from another point in time.
 
 ==================================================
 TEMPORAL CONSISTENCY RULE
@@ -1339,126 +1420,99 @@ Never create:
 - flashbacks
 - flashforwards
 - imagined scenes
-- historical reconstructions
 - symbolic imagery
+- historical reconstructions
 
-unless the story explicitly states that those events are currently happening.
-
-==================================================
-BIOGRAPHICAL INFORMATION RULE
-
-If a chunk introduces a character or describes their:
-
-- biography
-- profession
-- occupation
-- history
-- childhood
-- previous work
-- previous life
-- background
-
-do NOT visualize those past events.
-
-Instead, generate the first observable present-time moment in which the character appears.
-
-Example
-
-Story:
-"Thomas worked as a shepherd before becoming a woodworker."
-
-Correct:
-Thomas standing beside Eli.
-
-Incorrect:
-Thomas herding sheep.
-Thomas carving wood.
+unless explicitly happening in the current story moment.
 
 ==================================================
 CHARACTER INTRODUCTION RULE
 
-When a character is introduced for the first time, prioritize showing the character's current appearance and presence.
+When a character first appears,
 
-Do not invent activities based on background information.
+show only their current visible presence.
+
+Do not visualize biography.
+
+Do not visualize history.
+
+Do not infer activities.
 
 ==================================================
-ACTION SELECTION RULE
+ACTION RULE
 
-Choose the action from the current observable event.
+Choose only the action visibly occurring now.
 
-Never derive actions from:
+If no explicit action exists,
 
-- profession
+prefer neutral observable actions such as:
+
+- standing
+- walking
+- sitting
+- listening
+- looking at another character
+- looking into the distance
+
+==================================================
+EXPRESSION RULE
+
+Describe only the visible facial expression.
+
+Never infer hidden emotions.
+
+==================================================
+POSE RULE
+
+Describe only the current visible body posture.
+
+==================================================
+GAZE RULE
+
+Describe only where the character is visibly looking.
+
+==================================================
+OBJECT RULE
+
+Include ONLY objects visibly present in the current frame.
+
+Never infer objects from:
+
 - occupation
-- habits
-- biography
-- history
-
-If no explicit action exists, choose a neutral present-time action such as:
-
-standing
-
-walking
-
-sitting
-
-looking at another character
-
-looking into the distance
-
-==================================================
-OBJECT VISIBILITY RULE
-
-Include an object ONLY if it is explicitly visible in the current scene.
-
-Never infer visible objects from:
-
 - profession
+- previous scenes
 - biography
-- occupation
-- history
-- previous events
 
-Example
-
-Story:
-"He was a carpenter."
-
-Correct:
-No tools unless shown.
-
-Incorrect:
-Automatically adding hammer, saw or wood.
+Use ONLY existing Project Bible object ids.
 
 ==================================================
-LOCATION
+LOCATION RULE
 
-Use ONLY location ids from the Project Bible.
+Use ONLY existing Project Bible location ids.
 
-==================================================
-SCENE SETTING
-
-Describe only the immediate place where the camera is located.
+scene_setting must belong to that location.
 
 ==================================================
-BACKGROUND
+BACKGROUND RULE
 
-Describe only visible background elements.
+Describe only immediately visible background elements.
 
-==================================================
-TIME OF DAY
-
-Describe visible lighting time naturally.
+Do not repeat information already permanently stored inside the Project Bible.
 
 ==================================================
-WEATHER
+TIME RULE
+
+Describe only naturally visible time of day.
+
+==================================================
+WEATHER RULE
 
 Describe only visible weather.
 
 Leave empty if irrelevant.
 
 ==================================================
-CAMERA
+CAMERA RULE
 
 Provide:
 
@@ -1468,71 +1522,49 @@ angle
 
 focus
 
+Choose the camera that best communicates the current observable moment.
+
 ==================================================
-CHARACTERS
+CHARACTER RULE
 
 Every visible character appears exactly once.
 
-Exactly one character has role="primary".
+Exactly one character has:
 
-==================================================
-ACTION
-
-Only observable actions.
-
-==================================================
-EXPRESSION
-
-Only visible facial expressions.
-
-==================================================
-POSE
-
-Only visible body posture.
-
-==================================================
-GAZE
-
-Only where the character is visibly looking.
-
-==================================================
-OBJECTS
-
-Use ONLY Project Bible object ids.
-
-Only include objects visible in the current frame.
+role = "primary"
 
 ==================================================
 ABSTRACT CHUNK RULE
 
-If a chunk summarizes multiple events,
+If one story chunk summarizes multiple events,
 
-select the strongest single observable present-time moment.
+choose the single strongest observable moment.
 
 Never create montages.
 
 ==================================================
-NO INVENTION RULE
-
-Never invent characters, locations or objects.
-
-==================================================
 CONSISTENCY RULE
 
-Reuse existing ids.
+Reuse all existing ids.
 
-scene_setting must belong to location.
+Never invent:
 
-background must match location.
+- characters
+- locations
+- objects
+
+Maintain complete visual continuity with the Project Bible.
 
 ==================================================
 IMAGE GENERATION OPTIMIZATION
 
-Write concise objective camera-observable descriptions.
+Write concise camera-observable descriptions.
 
 Avoid literary language.
 
-Avoid repeating information already stored in the Project Bible.
+Avoid repeating permanent visual information already stored inside the Project Bible.
+
+Only describe information that changes from scene to scene.
 
 ==================================================
 FINAL OUTPUT RULE
@@ -1544,11 +1576,6 @@ No markdown.
 No comments.
 
 No explanations.
-
-==================================================
-
-[PASTE YOUR PROJECT BIBLE JSON HERE GOT FROM STEP 7]
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 4]
 ```
 
 <!--

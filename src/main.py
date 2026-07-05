@@ -37,17 +37,19 @@ def step_create_images():
     from src.services.image_service.prompt import PromptService
 
     prompt_service = PromptService()
-    prompts = prompt_service.build_all()
+    prompts = prompt_service.build_scenes()
+    seeds = [3887616371] * len(prompts)
 
-    ImageService().generate_batch(prompts=prompts)
+    image_service = ImageService()
+    image_service.generate_batch(prompts=prompts, seeds=seeds)
 
 
 @timer_cache.track("🎬 Creating Video")
 def step_create_video():
+    from src.services.overlay_video_service import OverlayVideoService
     from src.services.watermark_service import WatermarkConfig, WatermarkService
     from src.services.subtitle_service.render import SubtitleRenderConfig, SubtitleRenderService
     from src.services.effect_service import EffectService
-    from src.services.overlay_video_service import OverlayVideoService
     from src.services.outro_service import OutroService
     from src.services.video_service import VideoService
 

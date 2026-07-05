@@ -35,23 +35,38 @@ def safe_validate_path(path: Path | str):
         return False
 
 
-def get_next_file_path(directory: str, extension: str = ".png", prefix: str = ""):
+def __get_max_file_number(directory: Path | str, extension: str = ".png", prefix: str = ""):
     try_validate_path(directory)
 
     dir_path = Path(directory)
+    max_num: int | None = None
 
-    max_num = 0
-    existing_files = dir_path.glob(f"{prefix}*{extension}")
+    for file in dir_path.glob(f"{prefix}*{extension}"):
+        number = file.stem[len(prefix):]
 
-    for f in existing_files:
-        name_without_prefix = f.stem
-        if prefix and name_without_prefix.startswith(prefix):
-            name_without_prefix = name_without_prefix[len(prefix):]
+        if number.isdigit():
+            number = int(number)
 
-        if name_without_prefix.isdigit():
-            max_num = max(max_num, int(name_without_prefix))
+            if max_num is None or number > max_num:
+                max_num = number
 
-    return str(dir_path / f"{prefix}{max_num + 1}{extension}")
+    return max_num
+
+
+def get_next_file_path(directory: str, extension: str = ".png", prefix: str = ""):
+    max_num = __get_max_file_number(directory, extension, prefix)
+    next_num = 1 if max_num is None else max_num + 1
+
+    return str(Path(directory) / f"{prefix}{next_num}{extension}")
+
+
+def get_last_file_path(directory: str, extension: str = ".png", prefix: str = ""):
+    max_num = __get_max_file_number(directory, extension, prefix)
+
+    if max_num is None:
+        return None
+
+    return str(Path(directory) / f"{prefix}{max_num}{extension}")
 
 
 def get_filename(file_path: Path | str):

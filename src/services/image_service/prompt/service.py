@@ -5,214 +5,127 @@ from .constants import DATA_DIR
 class PromptService:
     def __init__(self):
         self.bible = try_read_json(DATA_DIR / "project_bible.json")
-        self.scenes = try_read_json(DATA_DIR / "scene_metadata.json")["scenes"]
+        self.scenes = try_read_json(DATA_DIR / "scene_metadata.json").get("scenes", [])
 
-    def build(self, scene: dict) -> str:
-        # ======================================================
-        # VISUAL STYLE
-        # ======================================================
-        parts = [self.bible["visual_style"]]
+    def __build_scene(self, scene: dict) -> str:
+        parts = []
 
         # ======================================================
-        # SCENE
+        # 1. VISUAL STYLE
         # ======================================================
+        visual_style = self.bible.get("visual_style")
 
-        if scene.get("scene_setting"):
-            parts.append(f"{scene['scene_setting'].capitalize()}.")
-
-        if scene.get("time_of_day"):
-            parts.append(f"{scene['time_of_day'].capitalize()}.")
-
-        if scene.get("weather"):
-            parts.append(f"Visible weather: {scene['weather']}.")
+        if visual_style:
+            parts.append(f"{visual_style.strip('.')}.")
 
         # ======================================================
-        # CHARACTERS
+        # 2. CAMERA
         # ======================================================
-
-        characters = sorted(
-            scene.get("characters") or [],
-            key=lambda c: c["role"] != "primary"
-        )
-
-        for character_scene in characters:
-            character = self.bible["characters"][character_scene["id"]]
-
-            appearance = character["appearance"]
-            clothing = character["default_clothing"]
-
-            sentence = []
-
-            sentence.append(
-                f"{character['name']} is a "
-                f"{appearance['age']} "
-                f"{appearance['gender']}"
-            )
-
-            if appearance.get("ethnicity"):
-                sentence.append(appearance["ethnicity"])
-
-            if appearance.get("height"):
-                sentence.append(appearance["height"])
-
-            if appearance.get("build"):
-                sentence.append(appearance["build"])
-
-            visual = []
-
-            if appearance.get("skin"):
-                visual.append(f"{appearance['skin']} skin")
-
-            if appearance.get("face_shape"):
-                visual.append(f"{appearance['face_shape']} face")
-
-            if appearance.get("eyes"):
-                visual.append(appearance["eyes"])
-
-            if appearance.get("hair"):
-                visual.append(appearance["hair"])
-
-            if appearance.get("facial_hair"):
-                visual.append(appearance["facial_hair"])
-
-            if visual:
-                sentence.append("with " + ", ".join(visual))
-
-            if appearance.get("posture"):
-                sentence.append(
-                    f"and a {appearance['posture']} posture"
-                )
-
-            sentence.append(".")
-
-            clothing_parts = [
-                clothing.get("upper"),
-                clothing.get("lower"),
-                clothing.get("footwear"),
-            ]
-
-            clothing_parts = [
-                item for item in clothing_parts if item
-            ]
-
-            if clothing_parts:
-                sentence.append(
-                    "Wearing " +
-                    ", ".join(clothing_parts) +
-                    "."
-                )
-
-            if clothing.get("outerwear"):
-                sentence.append(
-                    f"Outerwear: {clothing['outerwear']}."
-                )
-
-            accessories = clothing.get("accessories") or []
-
-            if accessories:
-                sentence.append(
-                    "Accessories: "
-                    + ", ".join(accessories)
-                    + "."
-                )
-
-            sentence.append(
-                f"{character['name']} is {character_scene['action']}."
-            )
-
-            if character_scene.get("pose"):
-                sentence.append(
-                    f"Body posture: {character_scene['pose']}."
-                )
-
-            if character_scene.get("gaze"):
-                sentence.append(
-                    f"Gaze: {character_scene['gaze']}."
-                )
-
-            if character_scene.get("expression"):
-                sentence.append(
-                    f"Facial expression: {character_scene['expression']}."
-                )
-
-            parts.append(" ".join(sentence))
-
-        # ======================================================
-        # OBJECTS
-        # ======================================================
-
-        for object_id in scene.get("objects") or []:
-
-            obj = self.bible["objects"][object_id]
-
-            appearance = obj.get("appearance")
-
-            if appearance:
-                parts.append(
-                    f"Visible object: {appearance}."
-                )
-
-        # ======================================================
-        # BACKGROUND
-        # ======================================================
-
-        if scene.get("background"):
-            parts.append(
-                f"Background: {scene['background']}."
-            )
-
-        # ======================================================
-        # LOCATION
-        # ======================================================
-
-        location = self.bible["locations"][scene["location"]]
-
-        if location.get("visual_identity"):
-            parts.append(location["visual_identity"] + ".")
-
-        background_elements = location.get("background_elements") or []
-
-        if background_elements:
-            parts.append(
-                "Background elements: "
-                + ", ".join(background_elements)
-                + "."
-            )
-
-        # ======================================================
-        # CAMERA
-        # ======================================================
-
         camera = scene.get("camera", {})
-
-        camera_parts = []
-
-        if camera.get("shot_size"):
-            camera_parts.append(camera["shot_size"])
-
-        if camera.get("angle"):
-            camera_parts.append(camera["angle"])
+        cam_parts = [c for c in [camera.get("shot_size"), camera.get("angle")] if c]
 
         if camera.get("focus"):
-            camera_parts.append(
-                f"focused on {camera['focus']}"
-            )
+            cam_parts.append(f"focused on {camera['focus']}")
 
-        if camera_parts:
-            parts.append(
-                "Camera: " +
-                ", ".join(camera_parts) +
-                "."
-            )
+        if cam_parts:
+            parts.append(f"Camera: {', '.join(cam_parts)}.")
 
-        return " ".join(
-            part.strip()
-            for part in parts
-            if part
-        )
+        # ======================================================
+        # 3. SETTING & ENVIRONMENT
+        # ======================================================
+        env_parts = []
 
-    def build_all(self):
+        if scene.get("scene_setting"):
+            env_parts.append(scene["scene_setting"])
+
+        if scene.get("time_of_day"):
+            env_parts.append(scene["time_of_day"])
+
+        if scene.get("weather"):
+            env_parts.append(f"{scene['weather']} weather")
+
+        if env_parts:
+            parts.append(f"Setting is a {', '.join(env_parts).lower()}.")
+
+        location_id = scene.get("location")
+
+        if location_id and location_id in self.bible.get("locations", {}):
+            location = self.bible["locations"][location_id]
+
+            if location.get("visual_identity"):
+                parts.append(f"{location['visual_identity'].strip('.')}.")
+
+            if location.get("background_elements"):
+                parts.append(f"Background features {', '.join(location['background_elements'])}.")
+
+        if scene.get("background"):
+            parts.append(f"The scene takes place with {scene['background'].lower().strip('.')}.")
+
+        # ======================================================
+        # 4. CHARACTERS
+        # ======================================================
+        characters = sorted(scene.get("characters", []), key=lambda c: c.get("role") != "primary")
+
+        # Spatial anchors to prevent concept bleeding between multiple characters
+        default_positions = ["On the left", "On the right", "In the center"]
+
+        for idx, character_scene in enumerate(characters):
+            character = self.bible["characters"][character_scene["id"]]
+            char_sentence = []
+
+            # A. Spatial Anchoring
+            pos = character_scene.get("position")
+
+            if not pos and len(characters) > 1:
+                pos = default_positions[idx % len(default_positions)]
+
+            if pos:
+                char_sentence.append(f"{pos},")
+
+            # B. Identity Blend
+            char_name = character.get("name", "The character")
+            char_sentence.append(f"{char_name}, {character['identity_blend']},")
+
+            # C. Clothing & Accessories
+            clothing = character.get("default_clothing", {})
+            clothes = [clothing.get("upper"), clothing.get("lower"), clothing.get("footwear"),
+                       clothing.get("outerwear")]
+            clothes = [c for c in clothes if c]
+
+            if clothes:
+                acc = clothing.get("accessories", [])
+                acc_str = f", accessorized with {', '.join(acc)}" if acc else ""
+                char_sentence.append(f"wearing {', '.join(clothes)}{acc_str}.")
+
+            # D. Action, Pose, Expression and Gaze
+            action = character_scene.get("action", "standing")
+            pose = character_scene.get("pose", "relaxed")
+            expr = character_scene.get("expression", "neutral")
+            gaze = character_scene.get("gaze", "forward")
+
+            action_str = f"He is {action} in a {pose} posture, showing a {expr} expression and looking {gaze}."
+            char_sentence.append(action_str)
+
+            # Combine character sentences and clean up formatting
+            parts.append(" ".join(char_sentence).replace(" ,", ","))
+
+        # ======================================================
+        # 5. OBJECTS
+        # ======================================================
+        for object_id in scene.get("objects", []):
+            obj = self.bible["objects"].get(object_id)
+
+            if obj and obj.get("appearance"):
+                parts.append(f"Nearby object: {obj['appearance'].strip('.')}.")
+
+        # Join all parts smoothly
+        final_prompt = " ".join(part.strip() for part in parts if part)
+        final_prompt = final_prompt.replace(".,", ",").replace("..", ".")
+
+        return final_prompt
+
+    def build_scenes(self):
         return [
-            self.build(scene)
+            self.__build_scene(scene)
             for scene in self.scenes
         ]
