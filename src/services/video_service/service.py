@@ -35,7 +35,6 @@ class VideoService:
     def __create_image_clip(self, img_path: Path, start: float, total_duration: float):
         clip = (
             ImageClip(str(img_path))
-            .resized(new_size=self.size)
             .with_start(start)
             .with_duration(total_duration)
         )
@@ -44,7 +43,7 @@ class VideoService:
         if self.effect_service:
             return self.effect_service.get_clip(clip)
 
-        return clip
+        return clip.resized(new_size=self.size)
 
     def __create_image_clips(self, timeline: list[dict[str, Any]]):
         clips = []
