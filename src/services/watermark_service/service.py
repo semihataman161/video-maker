@@ -1,14 +1,14 @@
 from src.core import OverlayProtocol, BaseRenderer
 from src.utils.file_utils import try_validate_path
-from src.utils.resolution_utils import get_resolution
+from src.utils.resolution_utils import get_size_by_resolution
 from src.constants import VIDEO_RESOLUTION
 from .config import WatermarkConfig
 
 
 class WatermarkService(BaseRenderer, OverlayProtocol):
     def __init__(self, config: WatermarkConfig):
-        resolution = get_resolution(VIDEO_RESOLUTION)
-        super().__init__(resolution)
+        size = get_size_by_resolution(VIDEO_RESOLUTION)
+        super().__init__(size)
 
         self.config = config
 

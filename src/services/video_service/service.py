@@ -8,7 +8,7 @@ from moviepy.video.fx.CrossFadeIn import CrossFadeIn
 from src.core import OverlayProtocol
 from src.utils.timeline_utils import get_timeline, get_total_duration
 from src.utils.file_utils import try_validate_path
-from src.utils.resolution_utils import get_resolution
+from src.utils.resolution_utils import get_size_by_resolution
 from src.constants import VIDEO_RESOLUTION, ORIGINAL_IMAGES_DIR, OUTPUT_DIR
 from ..effect_service import EffectProtocol
 from ..outro_service import OutroProtocol
@@ -28,14 +28,14 @@ class VideoService:
         self.outro_service = outro_service
         self.overlay_video_service = overlay_video_service
 
-        self.resolution = get_resolution(VIDEO_RESOLUTION)
+        self.size = get_size_by_resolution(VIDEO_RESOLUTION)
 
         try_validate_path(AUDIO_PATH)
 
     def __create_image_clip(self, img_path: Path, start: float, total_duration: float):
         clip = (
             ImageClip(str(img_path))
-            .resized(new_size=self.resolution)
+            .resized(new_size=self.size)
             .with_start(start)
             .with_duration(total_duration)
         )
@@ -112,7 +112,7 @@ class VideoService:
         final_clip = (
             CompositeVideoClip(
                 clips,
-                size=self.resolution,
+                size=self.size,
             )
             .with_duration(total_duration)
         )

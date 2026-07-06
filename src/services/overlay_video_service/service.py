@@ -3,7 +3,7 @@ from typing import Literal
 from moviepy import VideoFileClip, VideoClip, ColorClip, vfx
 
 from src.core import OverlayProtocol
-from src.utils.resolution_utils import get_resolution
+from src.utils.resolution_utils import get_size_by_resolution
 from src.constants import VIDEO_RESOLUTION
 
 
@@ -41,18 +41,19 @@ class OverlayVideoService(OverlayProtocol):
         self.video_path = str(video_path)
         self.mode = mode
         self.opacity = opacity
-        self.resolution = get_resolution(VIDEO_RESOLUTION)
+
+        self.size = get_size_by_resolution(VIDEO_RESOLUTION)
 
     @staticmethod
     def __luma(frame: np.ndarray) -> np.ndarray:
         f = frame.astype("float32") / 255.0
         return 0.2126 * f[:, :, 0] + 0.7152 * f[:, :, 1] + 0.0722 * f[:, :, 2]
 
-    def get_clip(self, total_duration: float) -> list:
+    def get_clip(self, total_duration: float):
         has_mask = (self.mode == "transparent")
         clip = (
             VideoFileClip(self.video_path, has_mask=has_mask)
-            .resized(self.resolution)
+            .resized(self.size)
             .with_effects([vfx.Loop(duration=total_duration)])
             .with_duration(total_duration)
         )
@@ -78,5 +79,5 @@ class OverlayVideoService(OverlayProtocol):
                 duration=total_duration,
                 is_mask=True,
             )
-            black = ColorClip(self.resolution, color=(0, 0, 0)).with_duration(total_duration)
+            black = ColorClip(self.size, color=(0, 0, 0)).with_duration(total_duration)
             return [black.with_mask(mask)]

@@ -3,7 +3,7 @@ import random
 from typing import Literal
 from moviepy.video.VideoClip import ImageClip
 
-from src.utils.resolution_utils import get_resolution
+from src.utils.resolution_utils import get_size_by_resolution
 from src.constants import VIDEO_RESOLUTION
 from .protocol import EffectProtocol
 from .constants import (
@@ -29,12 +29,12 @@ class EffectService(EffectProtocol):
     def __init__(self, mode: EffectMode):
         self.mode = mode
 
-        self.resolution = get_resolution(VIDEO_RESOLUTION)
+        self.size = get_size_by_resolution(VIDEO_RESOLUTION)
 
     def __get_resized_clip(self, clip: ImageClip, scale: float) -> ImageClip:
         new_size = (
-            int(self.resolution[0] * scale),
-            int(self.resolution[1] * scale),
+            int(self.size[0] * scale),
+            int(self.size[1] * scale),
         )
         return clip.resized(new_size=new_size)
 
@@ -88,11 +88,11 @@ class EffectService(EffectProtocol):
 
     def __calculate_pan_scale(self, duration: float):
         required_extra_height = duration * PAN_SPEED
-        required_scale = (self.resolution[1] + required_extra_height) / self.resolution[1]
+        required_scale = (self.size[1] + required_extra_height) / self.size[1]
         return min(MAX_DYNAMIC_SCALE, required_scale)
 
     def __get_vertical_limit(self, clip: ImageClip) -> float:
-        extra_height = clip.h - self.resolution[1]
+        extra_height = clip.h - self.size[1]
         return max(0, extra_height)
 
     def __linear_pan_up(self, clip: ImageClip) -> ImageClip:

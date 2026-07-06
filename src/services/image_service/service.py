@@ -9,7 +9,7 @@ from src.utils.file_utils import (
     try_validate_path, get_next_file_path,
     get_filename, safe_read_json, save_json
 )
-from src.utils.resolution_utils import get_resolution
+from src.utils.resolution_utils import get_size_by_resolution
 from src.constants import IMAGE_RESOLUTION, ORIGINAL_IMAGES_DIR
 from .constants import STEPS, GUIDANCE, QUANTIZE, CHUNK_SIZE, COOLDOWN_SECONDS
 
@@ -18,9 +18,9 @@ class ImageService:
     def __init__(self):
         try_validate_path(ORIGINAL_IMAGES_DIR)
 
-        self.resolution = get_resolution(IMAGE_RESOLUTION)
-        self.width = self.resolution[0]
-        self.height = self.resolution[1]
+        self.size = get_size_by_resolution(IMAGE_RESOLUTION)
+        self.width = self.size[0]
+        self.height = self.size[1]
 
         self.json_path = ORIGINAL_IMAGES_DIR / "image_data.json"
 
