@@ -57,7 +57,7 @@ def step_create_video():
 
     overlay_video_service = OverlayVideoService(
         video_path=str(ASSETS_VIDEOS_DIR / "overlay.mp4"),
-        mode="dark_overlay"
+        mode="light_overlay"
     )
 
     watermark_config = WatermarkConfig(

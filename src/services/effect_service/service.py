@@ -31,13 +31,6 @@ class EffectService(EffectProtocol):
 
         self.size = get_size_by_resolution(VIDEO_RESOLUTION)
 
-    def __get_resized_clip(self, clip: ImageClip, scale: float) -> ImageClip:
-        new_size = (
-            int(self.size[0] * scale),
-            int(self.size[1] * scale),
-        )
-        return clip.resized(new_size=new_size)
-
     @staticmethod
     def __linear_zoom_in(clip: ImageClip) -> ImageClip:
         duration = clip.duration
@@ -47,12 +40,12 @@ class EffectService(EffectProtocol):
             lambda t: min(final_scale, 1 + (ZOOM_IN_PER_SECOND * t))
         )
 
-    def __linear_zoom_out(self, clip: ImageClip) -> ImageClip:
+    @staticmethod
+    def __linear_zoom_out(clip: ImageClip) -> ImageClip:
         duration = clip.duration
         start_scale = min(MAX_ZOOM, 1 + (ZOOM_OUT_PER_SECOND * duration))
-        resized_clip = self.__get_resized_clip(clip, start_scale)
 
-        return resized_clip.resized(
+        return clip.resized(
             lambda t: max(1.0, start_scale - (ZOOM_OUT_PER_SECOND * t))
         )
 
@@ -76,15 +69,19 @@ class EffectService(EffectProtocol):
 
     def __zoom_in(self, clip: ImageClip) -> ImageClip:
         if clip.duration <= LINEAR_MOTION_MAX_DURATION:
-            return self.__linear_zoom_in(clip)
+            clip = self.__linear_zoom_in(clip)
+        else:
+            clip = self.__oscillating_zoom_in(clip)
 
-        return self.__oscillating_zoom_in(clip)
+        return clip.with_position("center")
 
     def __zoom_out(self, clip: ImageClip) -> ImageClip:
         if clip.duration <= LINEAR_MOTION_MAX_DURATION:
-            return self.__linear_zoom_out(clip)
+            clip = self.__linear_zoom_out(clip)
+        else:
+            clip = self.__oscillating_zoom_out(clip)
 
-        return self.__oscillating_zoom_out(clip)
+        return clip.with_position("center")
 
     def __calculate_pan_scale(self, duration: float):
         required_extra_height = duration * PAN_SPEED
@@ -96,9 +93,8 @@ class EffectService(EffectProtocol):
         return max(0, extra_height)
 
     def __linear_pan_up(self, clip: ImageClip) -> ImageClip:
-        duration = clip.duration
-        scale = self.__calculate_pan_scale(duration)
-        resized_clip = self.__get_resized_clip(clip, scale)
+        scale = self.__calculate_pan_scale(clip.duration)
+        resized_clip = clip.resized(scale)
         limit = self.__get_vertical_limit(resized_clip)
 
         return resized_clip.with_position(
@@ -106,9 +102,8 @@ class EffectService(EffectProtocol):
         )
 
     def __linear_pan_down(self, clip: ImageClip) -> ImageClip:
-        duration = clip.duration
-        scale = self.__calculate_pan_scale(duration)
-        resized_clip = self.__get_resized_clip(clip, scale)
+        scale = self.__calculate_pan_scale(clip.duration)
+        resized_clip = clip.resized(scale)
         limit = self.__get_vertical_limit(resized_clip)
 
         return resized_clip.with_position(
@@ -116,7 +111,7 @@ class EffectService(EffectProtocol):
         )
 
     def __oscillating_pan_up(self, clip: ImageClip) -> ImageClip:
-        resized_clip = self.__get_resized_clip(clip, MAX_DYNAMIC_SCALE)
+        resized_clip = clip.resized(MAX_DYNAMIC_SCALE)
         limit = self.__get_vertical_limit(resized_clip)
         amplitude = limit / 2
 
@@ -125,7 +120,7 @@ class EffectService(EffectProtocol):
         )
 
     def __oscillating_pan_down(self, clip: ImageClip) -> ImageClip:
-        resized_clip = self.__get_resized_clip(clip, MAX_DYNAMIC_SCALE)
+        resized_clip = clip.resized(MAX_DYNAMIC_SCALE)
         limit = self.__get_vertical_limit(resized_clip)
         amplitude = limit / 2
 
@@ -146,6 +141,8 @@ class EffectService(EffectProtocol):
         return self.__oscillating_pan_down(clip)
 
     def get_clip(self, clip: ImageClip):
+        clip = clip.resized(self.size)
+
         effects = {
             "zoom_in": self.__zoom_in,
             "zoom_out": self.__zoom_out,
