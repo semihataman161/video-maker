@@ -1,44 +1,44 @@
 {
   "scenes": [
     {
-      "scene_id": "scene_01",
-      "location": "eli_apartment",
-      "scene_setting": "bedroom",
-      "background": "Simple bedroom with a window and minimal furnishings.",
+      "scene_id": "scene_001",
+      "location": "loc_apartment",
+      "scene_setting": "Bedroom",
+      "background": "Bed, window and simple apartment furnishings.",
       "time_of_day": "morning",
       "weather": "",
       "camera": {
         "shot_size": "medium shot",
         "angle": "eye level",
-        "focus": "Eli sitting upright on the bed"
+        "focus": "Eli sitting on the edge of the bed"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
-          "action": "sitting on the bed",
+          "action": "sitting",
           "expression": "tired",
-          "pose": "slightly hunched",
+          "pose": "leaning forward",
           "gaze": "downward"
         }
       ],
       "objects": []
     },
     {
-      "scene_id": "scene_02",
-      "location": "small_town",
-      "scene_setting": "residential street",
-      "background": "Residential buildings along a quiet street.",
+      "scene_id": "scene_002",
+      "location": "loc_small_town",
+      "scene_setting": "Residential street",
+      "background": "Mist drifting across rooftops.",
       "time_of_day": "morning",
-      "weather": "light mist",
+      "weather": "misty",
       "camera": {
         "shot_size": "wide shot",
-        "angle": "eye level",
+        "angle": "slightly elevated",
         "focus": "Eli walking through town"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
           "action": "walking",
           "expression": "neutral",
@@ -49,898 +49,205 @@
       "objects": []
     },
     {
-      "scene_id": "scene_03",
-      "location": "eli_apartment",
-      "scene_setting": "kitchen",
-      "background": "Simple apartment interior.",
-      "time_of_day": "morning",
+      "scene_id": "scene_003",
+      "location": "loc_hardware_store",
+      "scene_setting": "Store aisle",
+      "background": "Shelves stocked with hardware supplies.",
+      "time_of_day": "day",
       "weather": "",
       "camera": {
         "shot_size": "medium shot",
         "angle": "eye level",
-        "focus": "Eli standing near the kitchen counter"
+        "focus": "Eli standing in the aisle"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
           "action": "standing",
           "expression": "neutral",
-          "pose": "upright",
-          "gaze": "downward"
+          "pose": "relaxed standing",
+          "gaze": "toward the shelves"
         }
       ],
       "objects": []
     },
     {
-      "scene_id": "scene_04",
-      "location": "mountain_trail",
-      "scene_setting": "forest trail",
-      "background": "Trees lining the dirt path.",
+      "scene_id": "scene_004",
+      "location": "loc_mountain_trail",
+      "scene_setting": "Forest trail",
+      "background": "Trees lining both sides of the path.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
         "shot_size": "wide shot",
-        "angle": "behind",
-        "focus": "Eli walking up the trail"
+        "angle": "behind subject",
+        "focus": "Eli walking uphill"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
           "action": "walking",
           "expression": "neutral",
-          "pose": "mid-stride",
-          "gaze": "forward"
+          "pose": "walking uphill",
+          "gaze": "along the trail"
         }
       ],
       "objects": []
     },
     {
-      "scene_id": "scene_05",
-      "location": "stone_clearing",
-      "scene_setting": "valley overlook",
-      "background": "Open valley beyond the clearing.",
+      "scene_id": "scene_005",
+      "location": "loc_clearing",
+      "scene_setting": "Overlook beside the flat stone",
+      "background": "Open valley visible beyond the clearing.",
       "time_of_day": "afternoon",
       "weather": "clear",
       "camera": {
         "shot_size": "wide shot",
-        "angle": "slightly elevated",
-        "focus": "Thomas seated on the flat stone"
+        "angle": "eye level",
+        "focus": "Thomas sitting on the flat stone"
       },
       "characters": [
         {
-          "id": "thomas",
+          "id": "char_thomas",
           "role": "primary",
           "action": "sitting",
           "expression": "neutral",
-          "pose": "upright",
+          "pose": "upright seated",
           "gaze": "toward the valley"
-        },
-        {
-          "id": "eli",
-          "role": "secondary",
-          "action": "standing",
-          "expression": "neutral",
-          "pose": "paused on the trail",
-          "gaze": "toward Thomas"
         }
       ],
       "objects": [
-        "flat_stone"
+        "obj_flat_stone"
       ]
     },
     {
-      "scene_id": "scene_06",
-      "location": "stone_clearing",
-      "scene_setting": "edge of the clearing",
-      "background": "Forest bordering the overlook.",
+      "scene_id": "scene_006",
+      "location": "loc_clearing",
+      "scene_setting": "Edge of the clearing",
+      "background": "Valley and surrounding trees.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
-        "shot_size": "medium shot",
+        "shot_size": "medium wide shot",
         "angle": "eye level",
         "focus": "Eli stopping near Thomas"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
           "action": "standing",
-          "expression": "curious",
-          "pose": "relaxed",
+          "expression": "neutral",
+          "pose": "paused mid-step",
           "gaze": "toward Thomas"
         },
         {
-          "id": "thomas",
-          "role": "secondary",
+          "id": "char_thomas",
+          "role": "supporting",
           "action": "sitting",
           "expression": "neutral",
-          "pose": "upright",
-          "gaze": "toward Eli"
+          "pose": "upright seated",
+          "gaze": "toward the valley"
         }
       ],
       "objects": [
-        "flat_stone"
+        "obj_flat_stone"
       ]
     },
     {
-      "scene_id": "scene_07",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Valley visible beyond the clearing.",
+      "scene_id": "scene_007",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Open overlook behind both characters.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
-        "shot_size": "medium two-shot",
+        "shot_size": "medium shot",
         "angle": "eye level",
-        "focus": "Conversation between Eli and Thomas"
+        "focus": "Thomas responding to Eli"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_thomas",
           "role": "primary",
-          "action": "standing",
-          "expression": "slight smile",
-          "pose": "relaxed",
-          "gaze": "toward Thomas"
-        },
-        {
-          "id": "thomas",
-          "role": "secondary",
-          "action": "turning toward Eli",
+          "action": "looking at Eli",
           "expression": "neutral",
           "pose": "seated",
           "gaze": "toward Eli"
+        },
+        {
+          "id": "char_eli",
+          "role": "supporting",
+          "action": "standing",
+          "expression": "slight smile",
+          "pose": "relaxed standing",
+          "gaze": "toward Thomas"
         }
       ],
       "objects": [
-        "flat_stone"
+        "obj_flat_stone"
       ]
     },
     {
-      "scene_id": "scene_08",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Forest edge and distant valley.",
+      "scene_id": "scene_008",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Mountain valley beyond the clearing.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
         "shot_size": "medium wide shot",
         "angle": "eye level",
-        "focus": "Eli and Thomas sitting together"
+        "focus": "Eli sitting beside Thomas"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
           "action": "sitting",
           "expression": "neutral",
-          "pose": "relaxed",
+          "pose": "relaxed seated",
           "gaze": "toward Thomas"
         },
         {
-          "id": "thomas",
-          "role": "secondary",
+          "id": "char_thomas",
+          "role": "supporting",
           "action": "sitting",
           "expression": "neutral",
-          "pose": "upright",
+          "pose": "upright seated",
           "gaze": "toward Eli"
         }
       ],
       "objects": [
-        "flat_stone"
+        "obj_flat_stone"
       ]
     },
     {
-      "scene_id": "scene_09",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Open overlook with surrounding trees.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium close-up",
-        "angle": "eye level",
-        "focus": "Thomas speaking"
-      },
-      "characters": [
-        {
-          "id": "thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "eli",
-          "role": "secondary",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_10",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
+      "scene_id": "scene_009",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
       "background": "Trees framing the overlook.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
         "shot_size": "medium shot",
         "angle": "eye level",
-        "focus": "Eli talking while seated"
+        "focus": "Thomas speaking while seated"
       },
       "characters": [
         {
-          "id": "eli",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "serious",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        },
-        {
-          "id": "thomas",
-          "role": "secondary",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_11",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Open overlook beyond the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium two-shot",
-        "angle": "eye level",
-        "focus": "Thomas asking Eli a question"
-      },
-      "characters": [
-        {
-          "id": "thomas",
+          "id": "char_thomas",
           "role": "primary",
           "action": "speaking",
           "expression": "neutral",
-          "pose": "seated",
+          "pose": "upright seated",
           "gaze": "toward Eli"
         },
         {
-          "id": "eli",
-          "role": "secondary",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_12",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Trees surrounding the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium close-up",
-        "angle": "eye level",
-        "focus": "Eli pausing before answering"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "sitting silently",
-          "expression": "thoughtful",
-          "pose": "slightly leaned forward",
-          "gaze": "downward"
-        },
-        {
-          "id": "thomas",
-          "role": "secondary",
-          "action": "watching",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_13",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Forest edge visible behind Eli.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "close-up",
-        "angle": "eye level",
-        "focus": "Eli remaining still"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "serious",
-          "pose": "motionless",
-          "gaze": "downward"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_14",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Valley overlook beyond the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium two-shot",
-        "angle": "eye level",
-        "focus": "Thomas giving instructions"
-      },
-      "characters": [
-        {
-          "id": "thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "eli",
-          "role": "secondary",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_15",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Trees and open valley.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Eli facing Thomas"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "standing",
-          "expression": "uncertain",
-          "pose": "relaxed",
-          "gaze": "toward Thomas"
-        },
-        {
-          "id": "thomas",
-          "role": "secondary",
-          "action": "sitting",
-          "expression": "neutral",
-          "pose": "upright",
-          "gaze": "toward Eli"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_16",
-      "location": "stone_clearing",
-      "scene_setting": "flat stone overlook",
-      "background": "Open valley framed by trees.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "wide shot",
-        "angle": "slightly elevated",
-        "focus": "Eli sitting alone on the flat stone"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "neutral",
-          "pose": "upright",
-          "gaze": "toward the valley"
-        }
-      ],
-      "objects": [
-        "flat_stone",
-        "old_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_17",
-      "location": "stone_clearing",
-      "scene_setting": "flat stone overlook",
-      "background": "Quiet forest clearing.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium close-up",
-        "angle": "eye level",
-        "focus": "Eli remaining seated"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "tense",
-          "pose": "upright with hands resting on knees",
-          "gaze": "downward"
-        }
-      ],
-      "objects": [
-        "flat_stone",
-        "old_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_18",
-      "location": "stone_clearing",
-      "scene_setting": "flat stone overlook",
-      "background": "Trees around the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Eli staying seated"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "remaining seated",
-          "expression": "strained",
-          "pose": "leaning slightly forward",
-          "gaze": "toward the ground"
-        }
-      ],
-      "objects": [
-        "flat_stone",
-        "old_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_19",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Valley overlook behind both characters.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium two-shot",
-        "angle": "eye level",
-        "focus": "Thomas speaking to Eli after the timer"
-      },
-      "characters": [
-        {
-          "id": "thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "eli",
-          "role": "secondary",
-          "action": "turning toward Thomas",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "flat_stone",
-        "old_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_20",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Forest edge and distant valley.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Eli responding to Thomas"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "serious",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        },
-        {
-          "id": "thomas",
-          "role": "secondary",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        }
-      ],
-      "objects": [
-        "flat_stone",
-        "old_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_21",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Forest clearing opening toward the valley.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium two-shot",
-        "angle": "eye level",
-        "focus": "Thomas speaking while Eli listens"
-      },
-      "characters": [
-        {
-          "id": "thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "eli",
-          "role": "secondary",
-          "action": "listening",
-          "expression": "serious",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_22",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Open overlook beyond the trees.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium close-up",
-        "angle": "eye level",
-        "focus": "Eli sitting quietly"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "neutral",
-          "pose": "slightly leaned forward",
-          "gaze": "toward the ground"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_23",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Valley visible beyond the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium two-shot",
-        "angle": "eye level",
-        "focus": "Thomas inviting Eli to return"
-      },
-      "characters": [
-        {
-          "id": "thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "eli",
-          "role": "secondary",
-          "action": "standing",
-          "expression": "neutral",
-          "pose": "relaxed",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_24",
-      "location": "stone_clearing",
-      "scene_setting": "flat stone overlook",
-      "background": "Trees surrounding the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Eli seated alone"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "tense",
-          "pose": "upright",
-          "gaze": "downward"
-        }
-      ],
-      "objects": [
-        "flat_stone",
-        "old_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_25",
-      "location": "stone_clearing",
-      "scene_setting": "flat stone overlook",
-      "background": "Quiet valley beyond the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium close-up",
-        "angle": "eye level",
-        "focus": "Eli remaining still during the session"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "neutral",
-          "pose": "upright",
-          "gaze": "forward"
-        }
-      ],
-      "objects": [
-        "flat_stone",
-        "old_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_26",
-      "location": "stone_clearing",
-      "scene_setting": "flat stone overlook",
-      "background": "Trees and distant mountains.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "close-up",
-        "angle": "eye level",
-        "focus": "Eli sitting calmly"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "remaining seated",
-          "expression": "calm",
-          "pose": "relaxed",
-          "gaze": "forward"
-        }
-      ],
-      "objects": [
-        "flat_stone",
-        "old_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_27",
-      "location": "stone_clearing",
-      "scene_setting": "flat stone overlook",
-      "background": "Open valley and forest edge.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Eli after the timer"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "relaxed",
-          "pose": "upright",
-          "gaze": "toward the valley"
-        }
-      ],
-      "objects": [
-        "flat_stone",
-        "old_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_28",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Forest clearing overlooking the valley.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium two-shot",
-        "angle": "eye level",
-        "focus": "Thomas smiling while speaking"
-      },
-      "characters": [
-        {
-          "id": "thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "slight smile",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "eli",
-          "role": "secondary",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_29",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Trees framing the overlook.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas continuing to explain"
-      },
-      "characters": [
-        {
-          "id": "thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "eli",
-          "role": "secondary",
-          "action": "listening",
-          "expression": "serious",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_30",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Valley overlook beyond both characters.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium two-shot",
-        "angle": "eye level",
-        "focus": "Eli asking a question"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "questioning",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        },
-        {
-          "id": "thomas",
-          "role": "secondary",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_31",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Forest clearing with valley beyond.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas holding a carved piece of wood while speaking"
-      },
-      "characters": [
-        {
-          "id": "thomas",
-          "role": "primary",
-          "action": "holding up a carved wood block",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "eli",
-          "role": "secondary",
+          "id": "char_eli",
+          "role": "supporting",
           "action": "listening",
           "expression": "attentive",
           "pose": "seated",
@@ -948,87 +255,760 @@
         }
       ],
       "objects": [
-        "flat_stone",
-        "carving_wood"
+        "obj_flat_stone"
       ]
     },
     {
-      "scene_id": "scene_32",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Trees surrounding the overlook.",
+      "scene_id": "scene_010",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Valley overlook in the distance.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
-        "shot_size": "medium close-up",
+        "shot_size": "close-up",
         "angle": "eye level",
-        "focus": "Thomas displaying the carving"
+        "focus": "Eli speaking to Thomas"
       },
       "characters": [
         {
-          "id": "thomas",
+          "id": "char_eli",
           "role": "primary",
-          "action": "holding the carving",
+          "action": "speaking",
+          "expression": "serious",
+          "pose": "seated",
+          "gaze": "toward Thomas"
+        },
+        {
+          "id": "char_thomas",
+          "role": "supporting",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward Eli"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone"
+      ]
+    },
+    {
+      "scene_id": "scene_011",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Open valley beyond the clearing.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium shot",
+        "angle": "eye level",
+        "focus": "Thomas asking Eli a question"
+      },
+      "characters": [
+        {
+          "id": "char_thomas",
+          "role": "primary",
+          "action": "speaking",
           "expression": "neutral",
           "pose": "seated",
           "gaze": "toward Eli"
         },
         {
-          "id": "eli",
-          "role": "secondary",
-          "action": "watching",
+          "id": "char_eli",
+          "role": "supporting",
+          "action": "listening",
           "expression": "neutral",
           "pose": "seated",
-          "gaze": "toward the carving"
+          "gaze": "toward Thomas"
         }
       ],
       "objects": [
-        "flat_stone",
-        "carving_wood"
+        "obj_flat_stone"
       ]
     },
     {
-      "scene_id": "scene_33",
-      "location": "stone_clearing",
-      "scene_setting": "flat stone overlook",
-      "background": "Open valley and forest edge.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
+      "scene_id": "scene_012",
+      "location": "loc_apartment",
+      "scene_setting": "Bedroom",
+      "background": "Bed and window visible.",
+      "time_of_day": "night",
+      "weather": "",
       "camera": {
-        "shot_size": "wide shot",
-        "angle": "slightly elevated",
-        "focus": "Eli sitting alone during another session"
+        "shot_size": "medium shot",
+        "angle": "slightly above eye level",
+        "focus": "Eli using his phone in bed"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
+          "role": "primary",
+          "action": "holding a phone",
+          "expression": "neutral",
+          "pose": "lying on the bed",
+          "gaze": "toward the phone"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_013",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Trees surrounding the clearing.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "close-up",
+        "angle": "eye level",
+        "focus": "Eli sitting quietly"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
           "role": "primary",
           "action": "sitting",
-          "expression": "relaxed",
+          "expression": "thoughtful",
+          "pose": "still seated",
+          "gaze": "downward"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone"
+      ]
+    },
+    {
+      "scene_id": "scene_014",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Mountain overlook.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium shot",
+        "angle": "eye level",
+        "focus": "Thomas giving instructions"
+      },
+      "characters": [
+        {
+          "id": "char_thomas",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Eli"
+        },
+        {
+          "id": "char_eli",
+          "role": "supporting",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Thomas"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone"
+      ]
+    },
+    {
+      "scene_id": "scene_015",
+      "location": "loc_clearing",
+      "scene_setting": "Near the overlook",
+      "background": "Valley extending behind Thomas.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium close-up",
+        "angle": "eye level",
+        "focus": "Thomas calmly facing Eli"
+      },
+      "characters": [
+        {
+          "id": "char_thomas",
+          "role": "primary",
+          "action": "standing",
+          "expression": "calm",
+          "pose": "relaxed standing",
+          "gaze": "toward Eli"
+        },
+        {
+          "id": "char_eli",
+          "role": "supporting",
+          "action": "standing",
+          "expression": "neutral",
           "pose": "upright",
+          "gaze": "toward Thomas"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_016",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Trees and distant valley.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "wide shot",
+        "angle": "eye level",
+        "focus": "Eli sitting alone on the stone"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
+          "role": "primary",
+          "action": "sitting",
+          "expression": "neutral",
+          "pose": "upright seated",
+          "gaze": "forward"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone",
+        "obj_watch"
+      ]
+    },
+    {
+      "scene_id": "scene_017",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Forest edge around the clearing.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "close-up",
+        "angle": "eye level",
+        "focus": "Eli waiting while seated"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
+          "role": "primary",
+          "action": "sitting",
+          "expression": "tense",
+          "pose": "hands resting on knees",
+          "gaze": "downward"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone",
+        "obj_watch"
+      ]
+    },
+    {
+      "scene_id": "scene_018",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Open valley behind Eli.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium shot",
+        "angle": "side view",
+        "focus": "Eli remaining seated"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
+          "role": "primary",
+          "action": "sitting",
+          "expression": "strained",
+          "pose": "leaning forward",
+          "gaze": "toward the ground"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone",
+        "obj_watch"
+      ]
+    },
+    {
+      "scene_id": "scene_019",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Mountain overlook.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium wide shot",
+        "angle": "eye level",
+        "focus": "Thomas approaching Eli after the timer"
+      },
+      "characters": [
+        {
+          "id": "char_thomas",
+          "role": "primary",
+          "action": "standing",
+          "expression": "neutral",
+          "pose": "relaxed standing",
+          "gaze": "toward Eli"
+        },
+        {
+          "id": "char_eli",
+          "role": "supporting",
+          "action": "looking at Thomas",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward Thomas"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone",
+        "obj_watch"
+      ]
+    },
+    {
+      "scene_id": "scene_020",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Trees bordering the overlook.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium shot",
+        "angle": "eye level",
+        "focus": "Eli answering Thomas"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "serious",
+          "pose": "seated",
+          "gaze": "toward Thomas"
+        },
+        {
+          "id": "char_thomas",
+          "role": "supporting",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Eli"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone",
+        "obj_watch"
+      ]
+    },
+    {
+      "scene_id": "scene_021",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Mountain overlook behind both characters.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium shot",
+        "angle": "eye level",
+        "focus": "Thomas speaking while Eli listens"
+      },
+      "characters": [
+        {
+          "id": "char_thomas",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Eli"
+        },
+        {
+          "id": "char_eli",
+          "role": "supporting",
+          "action": "listening",
+          "expression": "serious",
+          "pose": "seated",
+          "gaze": "toward Thomas"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone"
+      ]
+    },
+    {
+      "scene_id": "scene_022",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Trees and valley visible.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "close-up",
+        "angle": "eye level",
+        "focus": "Eli sitting quietly"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
+          "role": "primary",
+          "action": "sitting",
+          "expression": "thoughtful",
+          "pose": "upright seated",
+          "gaze": "downward"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone"
+      ]
+    },
+    {
+      "scene_id": "scene_023",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Mountain clearing and distant valley.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium shot",
+        "angle": "eye level",
+        "focus": "Thomas inviting Eli to return"
+      },
+      "characters": [
+        {
+          "id": "char_thomas",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Eli"
+        },
+        {
+          "id": "char_eli",
+          "role": "supporting",
+          "action": "standing",
+          "expression": "neutral",
+          "pose": "upright",
+          "gaze": "toward Thomas"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone"
+      ]
+    },
+    {
+      "scene_id": "scene_024",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Forest edge surrounding the clearing.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium shot",
+        "angle": "front view",
+        "focus": "Eli seated during another session"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
+          "role": "primary",
+          "action": "sitting",
+          "expression": "tense",
+          "pose": "upright seated",
+          "gaze": "toward the ground"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone",
+        "obj_watch"
+      ]
+    },
+    {
+      "scene_id": "scene_025",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Trees and open sky.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "close-up",
+        "angle": "eye level",
+        "focus": "Eli remaining still"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
+          "role": "primary",
+          "action": "sitting",
+          "expression": "neutral",
+          "pose": "relaxed seated",
+          "gaze": "forward"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone",
+        "obj_watch"
+      ]
+    },
+    {
+      "scene_id": "scene_026",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Quiet overlook and trees.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium close-up",
+        "angle": "side view",
+        "focus": "Eli sitting without moving"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
+          "role": "primary",
+          "action": "sitting",
+          "expression": "calm",
+          "pose": "upright seated",
+          "gaze": "forward"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone",
+        "obj_watch"
+      ]
+    },
+    {
+      "scene_id": "scene_027",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Mountain valley beyond the clearing.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium shot",
+        "angle": "three-quarter view",
+        "focus": "Eli after the timer finishes"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
+          "role": "primary",
+          "action": "looking into the distance",
+          "expression": "relaxed",
+          "pose": "seated",
           "gaze": "toward the valley"
         }
       ],
       "objects": [
-        "flat_stone",
-        "old_watch"
+        "obj_flat_stone",
+        "obj_watch"
       ]
     },
     {
-      "scene_id": "scene_34",
-      "location": "small_town",
-      "scene_setting": "hardware store interior",
-      "background": "Shelves stocked with hardware supplies.",
+      "scene_id": "scene_028",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Trees framing the overlook.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium shot",
+        "angle": "eye level",
+        "focus": "Thomas smiling while speaking"
+      },
+      "characters": [
+        {
+          "id": "char_thomas",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "slight smile",
+          "pose": "standing",
+          "gaze": "toward Eli"
+        },
+        {
+          "id": "char_eli",
+          "role": "supporting",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward Thomas"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone"
+      ]
+    },
+    {
+      "scene_id": "scene_029",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Open valley visible behind Thomas.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium shot",
+        "angle": "eye level",
+        "focus": "Thomas explaining with hand gestures"
+      },
+      "characters": [
+        {
+          "id": "char_thomas",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Eli"
+        },
+        {
+          "id": "char_eli",
+          "role": "supporting",
+          "action": "listening",
+          "expression": "attentive",
+          "pose": "seated",
+          "gaze": "toward Thomas"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone"
+      ]
+    },
+    {
+      "scene_id": "scene_030",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Mountain landscape in the distance.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium shot",
+        "angle": "eye level",
+        "focus": "Eli asking Thomas a question"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "curious",
+          "pose": "seated",
+          "gaze": "toward Thomas"
+        },
+        {
+          "id": "char_thomas",
+          "role": "supporting",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Eli"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone"
+      ]
+    },
+    {
+      "scene_id": "scene_031",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Mountain overlook beyond the clearing.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium shot",
+        "angle": "eye level",
+        "focus": "Thomas holding a carved piece of wood"
+      },
+      "characters": [
+        {
+          "id": "char_thomas",
+          "role": "primary",
+          "action": "holding a carved wood block",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward the wood"
+        },
+        {
+          "id": "char_eli",
+          "role": "supporting",
+          "action": "watching",
+          "expression": "attentive",
+          "pose": "standing",
+          "gaze": "toward the wood"
+        }
+      ],
+      "objects": [
+        "obj_carving_wood",
+        "obj_carving_knife"
+      ]
+    },
+    {
+      "scene_id": "scene_032",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Trees surrounding the clearing.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "medium close-up",
+        "angle": "eye level",
+        "focus": "Thomas carving wood while speaking"
+      },
+      "characters": [
+        {
+          "id": "char_thomas",
+          "role": "primary",
+          "action": "carving wood",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward the carving"
+        },
+        {
+          "id": "char_eli",
+          "role": "supporting",
+          "action": "observing",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Thomas"
+        }
+      ],
+      "objects": [
+        "obj_carving_wood",
+        "obj_carving_knife"
+      ]
+    },
+    {
+      "scene_id": "scene_033",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Valley and trees visible.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "wide shot",
+        "angle": "eye level",
+        "focus": "Eli sitting on the flat stone"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
+          "role": "primary",
+          "action": "sitting",
+          "expression": "calm",
+          "pose": "upright seated",
+          "gaze": "toward the valley"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone",
+        "obj_watch"
+      ]
+    },
+    {
+      "scene_id": "scene_034",
+      "location": "loc_hardware_store",
+      "scene_setting": "Store aisle",
+      "background": "Shelves filled with hardware supplies.",
       "time_of_day": "day",
       "weather": "",
       "camera": {
         "shot_size": "medium shot",
         "angle": "eye level",
-        "focus": "Eli standing while his unseen boss speaks off-camera"
+        "focus": "Eli facing someone off-camera"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
           "action": "standing",
           "expression": "neutral",
@@ -1039,44 +1019,44 @@
       "objects": []
     },
     {
-      "scene_id": "scene_35",
-      "location": "small_town",
-      "scene_setting": "street",
-      "background": "Quiet town street with storefronts.",
+      "scene_id": "scene_035",
+      "location": "loc_hardware_store",
+      "scene_setting": "Store aisle",
+      "background": "Checkout area partially visible.",
       "time_of_day": "day",
-      "weather": "clear",
+      "weather": "",
       "camera": {
-        "shot_size": "medium shot",
+        "shot_size": "close-up",
         "angle": "eye level",
-        "focus": "Eli continuing to walk"
+        "focus": "Eli standing calmly"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
-          "action": "walking",
-          "expression": "calm",
-          "pose": "mid-stride",
+          "action": "standing",
+          "expression": "relaxed",
+          "pose": "upright",
           "gaze": "forward"
         }
       ],
       "objects": []
     },
     {
-      "scene_id": "scene_36",
-      "location": "eli_apartment",
-      "scene_setting": "kitchen",
-      "background": "Simple apartment kitchen.",
+      "scene_id": "scene_036",
+      "location": "loc_apartment",
+      "scene_setting": "Dining area",
+      "background": "Small dining table and apartment interior.",
       "time_of_day": "evening",
       "weather": "",
       "camera": {
         "shot_size": "medium shot",
         "angle": "eye level",
-        "focus": "Eli eating dinner at the table"
+        "focus": "Eli eating dinner"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
           "action": "eating",
           "expression": "relaxed",
@@ -1087,88 +1067,78 @@
       "objects": []
     },
     {
-      "scene_id": "scene_37",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Forest clearing overlooking the valley.",
+      "scene_id": "scene_037",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Mountain overlook.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
-        "shot_size": "medium two-shot",
+        "shot_size": "medium shot",
         "angle": "eye level",
         "focus": "Thomas asking Eli a question"
       },
       "characters": [
         {
-          "id": "thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "eli",
-          "role": "secondary",
-          "action": "standing",
-          "expression": "neutral",
-          "pose": "relaxed",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_38",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Trees and valley beyond.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "medium close-up",
-        "angle": "eye level",
-        "focus": "Eli answering"
-      },
-      "characters": [
-        {
-          "id": "eli",
+          "id": "char_thomas",
           "role": "primary",
           "action": "speaking",
           "expression": "neutral",
           "pose": "standing",
-          "gaze": "toward Thomas"
+          "gaze": "toward Eli"
         },
         {
-          "id": "thomas",
-          "role": "secondary",
+          "id": "char_eli",
+          "role": "supporting",
           "action": "listening",
           "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
+          "pose": "standing",
+          "gaze": "toward Thomas"
         }
       ],
       "objects": [
-        "flat_stone"
+        "obj_flat_stone"
       ]
     },
     {
-      "scene_id": "scene_39",
-      "location": "stone_clearing",
-      "scene_setting": "valley overlook",
-      "background": "Distant mountains and open sky.",
+      "scene_id": "scene_038",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Trees and distant valley.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
-        "shot_size": "medium shot",
-        "angle": "over-the-shoulder",
+        "shot_size": "medium close-up",
+        "angle": "eye level",
+        "focus": "Eli listening quietly"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
+          "role": "primary",
+          "action": "standing",
+          "expression": "neutral",
+          "pose": "upright",
+          "gaze": "toward Thomas"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_039",
+      "location": "loc_clearing",
+      "scene_setting": "Mountain overlook",
+      "background": "Open valley stretching into the distance.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "wide shot",
+        "angle": "behind Eli",
         "focus": "Eli looking across the valley"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
           "action": "standing",
           "expression": "calm",
@@ -1176,25 +1146,23 @@
           "gaze": "toward the valley"
         }
       ],
-      "objects": [
-        "flat_stone"
-      ]
+      "objects": []
     },
     {
-      "scene_id": "scene_40",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Forest clearing with valley beyond.",
+      "scene_id": "scene_040",
+      "location": "loc_clearing",
+      "scene_setting": "Mountain overlook",
+      "background": "Valley and mountain landscape.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
-        "shot_size": "medium two-shot",
+        "shot_size": "medium shot",
         "angle": "eye level",
-        "focus": "Eli responding to Thomas"
+        "focus": "Eli answering Thomas"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
           "action": "speaking",
           "expression": "slight smile",
@@ -1202,59 +1170,55 @@
           "gaze": "toward Thomas"
         },
         {
-          "id": "thomas",
-          "role": "secondary",
+          "id": "char_thomas",
+          "role": "supporting",
           "action": "listening",
           "expression": "neutral",
-          "pose": "seated",
+          "pose": "standing",
           "gaze": "toward Eli"
         }
       ],
-      "objects": [
-        "flat_stone"
-      ]
+      "objects": []
     },
     {
-      "scene_id": "scene_41",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Forest clearing overlooking the valley.",
+      "scene_id": "scene_041",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Mountain overlook and surrounding trees.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
         "shot_size": "medium shot",
         "angle": "eye level",
-        "focus": "Thomas nodding toward Eli"
+        "focus": "Thomas watching Eli"
       },
       "characters": [
         {
-          "id": "thomas",
+          "id": "char_thomas",
           "role": "primary",
-          "action": "nodding",
+          "action": "standing",
           "expression": "slight smile",
-          "pose": "seated",
+          "pose": "relaxed standing",
           "gaze": "toward Eli"
         },
         {
-          "id": "eli",
-          "role": "secondary",
+          "id": "char_eli",
+          "role": "supporting",
           "action": "standing",
           "expression": "neutral",
-          "pose": "relaxed",
+          "pose": "upright",
           "gaze": "toward Thomas"
         }
       ],
-      "objects": [
-        "flat_stone"
-      ]
+      "objects": []
     },
     {
-      "scene_id": "scene_42",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Open valley and tree line.",
+      "scene_id": "scene_042",
+      "location": "loc_clearing",
+      "scene_setting": "Mountain overlook",
+      "background": "Valley extending beneath the mountains.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
         "shot_size": "medium shot",
         "angle": "eye level",
@@ -1262,144 +1226,125 @@
       },
       "characters": [
         {
-          "id": "thomas",
+          "id": "char_thomas",
           "role": "primary",
           "action": "speaking",
           "expression": "neutral",
-          "pose": "seated",
+          "pose": "standing",
           "gaze": "toward Eli"
         },
         {
-          "id": "eli",
-          "role": "secondary",
+          "id": "char_eli",
+          "role": "supporting",
           "action": "listening",
           "expression": "neutral",
           "pose": "standing",
           "gaze": "toward Thomas"
         }
       ],
-      "objects": [
-        "flat_stone"
-      ]
+      "objects": []
     },
     {
-      "scene_id": "scene_43",
-      "location": "stone_clearing",
-      "scene_setting": "beside the flat stone",
-      "background": "Valley visible beyond the overlook.",
+      "scene_id": "scene_043",
+      "location": "loc_clearing",
+      "scene_setting": "Mountain overlook",
+      "background": "Open valley and distant mountains.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
-        "shot_size": "medium two-shot",
+        "shot_size": "medium close-up",
         "angle": "eye level",
         "focus": "Thomas continuing to speak"
       },
       "characters": [
         {
-          "id": "thomas",
+          "id": "char_thomas",
           "role": "primary",
           "action": "speaking",
-          "expression": "neutral",
-          "pose": "seated",
+          "expression": "calm",
+          "pose": "standing",
           "gaze": "toward Eli"
         },
         {
-          "id": "eli",
-          "role": "secondary",
-          "action": "watching",
-          "expression": "neutral",
+          "id": "char_eli",
+          "role": "supporting",
+          "action": "listening",
+          "expression": "attentive",
           "pose": "standing",
           "gaze": "toward Thomas"
         }
       ],
-      "objects": [
-        "flat_stone"
-      ]
+      "objects": []
     },
     {
-      "scene_id": "scene_44",
-      "location": "stone_clearing",
-      "scene_setting": "valley overlook",
-      "background": "Wide valley stretching into distant mountains.",
+      "scene_id": "scene_044",
+      "location": "loc_clearing",
+      "scene_setting": "Mountain overlook",
+      "background": "Wide valley beyond the clearing.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
-        "shot_size": "over-the-shoulder",
+        "shot_size": "wide shot",
         "angle": "behind Eli",
         "focus": "Eli looking across the valley"
       },
       "characters": [
         {
-          "id": "eli",
-          "role": "primary",
-          "action": "looking across the valley",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward the valley"
-        }
-      ],
-      "objects": [
-        "flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_45",
-      "location": "stone_clearing",
-      "scene_setting": "valley overlook",
-      "background": "Rolling mountains beneath drifting mist.",
-      "time_of_day": "morning",
-      "weather": "light mist",
-      "camera": {
-        "shot_size": "wide landscape shot",
-        "angle": "eye level",
-        "focus": "The valley with Eli visible at the overlook"
-      },
-      "characters": [
-        {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
           "action": "standing",
           "expression": "neutral",
-          "pose": "still",
-          "gaze": "toward the landscape"
+          "pose": "upright",
+          "gaze": "toward the valley"
         }
       ],
-      "objects": [
-        "flat_stone"
-      ]
+      "objects": []
     },
     {
-      "scene_id": "scene_46",
-      "location": "stone_clearing",
-      "scene_setting": "valley overlook",
-      "background": "Mist moving slowly across the distant valley.",
+      "scene_id": "scene_045",
+      "location": "loc_clearing",
+      "scene_setting": "Mountain overlook",
+      "background": "Valley partially covered by rolling mist.",
       "time_of_day": "morning",
-      "weather": "light mist",
+      "weather": "misty",
       "camera": {
-        "shot_size": "medium close-up",
-        "angle": "profile",
-        "focus": "Eli observing the scenery"
+        "shot_size": "wide shot",
+        "angle": "landscape view",
+        "focus": "Mist moving across the valley"
+      },
+      "characters": [],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_046",
+      "location": "loc_clearing",
+      "scene_setting": "Mountain overlook",
+      "background": "Mist drifting through the valley.",
+      "time_of_day": "morning",
+      "weather": "misty",
+      "camera": {
+        "shot_size": "medium shot",
+        "angle": "side view",
+        "focus": "Eli watching the landscape"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
           "action": "standing",
           "expression": "calm",
-          "pose": "relaxed",
+          "pose": "upright",
           "gaze": "toward the valley"
         }
       ],
-      "objects": [
-        "flat_stone"
-      ]
+      "objects": []
     },
     {
-      "scene_id": "scene_47",
-      "location": "woodworking_shop",
-      "scene_setting": "workbench",
-      "background": "Wood shavings and stacked lumber around the workshop.",
-      "time_of_day": "day",
+      "scene_id": "scene_047",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Trees surrounding the clearing.",
+      "time_of_day": "afternoon",
       "weather": "",
       "camera": {
         "shot_size": "medium shot",
@@ -1408,105 +1353,106 @@
       },
       "characters": [
         {
-          "id": "thomas",
+          "id": "char_thomas",
           "role": "primary",
           "action": "carving wood",
           "expression": "neutral",
-          "pose": "standing at the workbench",
+          "pose": "standing",
           "gaze": "toward the carving"
         },
         {
-          "id": "eli",
-          "role": "secondary",
+          "id": "char_eli",
+          "role": "supporting",
           "action": "watching",
           "expression": "neutral",
           "pose": "standing",
-          "gaze": "toward the carving"
+          "gaze": "toward Thomas"
         }
       ],
       "objects": [
-        "carving_wood",
-        "carving_knife"
+        "obj_carving_wood",
+        "obj_carving_knife",
+        "obj_flat_stone"
       ]
     },
     {
-      "scene_id": "scene_48",
-      "location": "stone_clearing",
-      "scene_setting": "flat stone overlook",
-      "background": "Quiet forest clearing.",
+      "scene_id": "scene_048",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Mountain valley beyond the clearing.",
       "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "wide shot",
-        "angle": "eye level",
-        "focus": "Eli sitting alone on the flat stone"
-      },
-      "characters": [
-        {
-          "id": "eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "neutral",
-          "pose": "upright",
-          "gaze": "toward the valley"
-        }
-      ],
-      "objects": [
-        "flat_stone",
-        "old_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_49",
-      "location": "stone_clearing",
-      "scene_setting": "flat stone overlook",
-      "background": "Open valley beyond the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
         "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Eli remaining seated"
+        "angle": "front view",
+        "focus": "Eli sitting during another session"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
           "action": "sitting",
           "expression": "neutral",
-          "pose": "relaxed",
+          "pose": "upright seated",
           "gaze": "forward"
         }
       ],
       "objects": [
-        "flat_stone",
-        "old_watch"
+        "obj_flat_stone",
+        "obj_watch"
       ]
     },
     {
-      "scene_id": "scene_50",
-      "location": "stone_clearing",
-      "scene_setting": "valley overlook",
-      "background": "Forest clearing opening toward the mountains.",
+      "scene_id": "scene_049",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Trees and valley overlook.",
       "time_of_day": "afternoon",
-      "weather": "clear",
+      "weather": "",
       "camera": {
-        "shot_size": "wide shot",
-        "angle": "behind",
-        "focus": "Eli seated on the flat stone facing the valley"
+        "shot_size": "medium shot",
+        "angle": "side view",
+        "focus": "Eli sitting quietly"
       },
       "characters": [
         {
-          "id": "eli",
+          "id": "char_eli",
           "role": "primary",
           "action": "sitting",
-          "expression": "neutral",
-          "pose": "upright",
+          "expression": "relaxed",
+          "pose": "upright seated",
           "gaze": "toward the valley"
         }
       ],
       "objects": [
-        "flat_stone"
+        "obj_flat_stone",
+        "obj_watch"
+      ]
+    },
+    {
+      "scene_id": "scene_050",
+      "location": "loc_clearing",
+      "scene_setting": "Beside the flat stone",
+      "background": "Mountain overlook under soft daylight.",
+      "time_of_day": "afternoon",
+      "weather": "",
+      "camera": {
+        "shot_size": "wide shot",
+        "angle": "behind Eli",
+        "focus": "Eli seated alone overlooking the valley"
+      },
+      "characters": [
+        {
+          "id": "char_eli",
+          "role": "primary",
+          "action": "sitting",
+          "expression": "calm",
+          "pose": "relaxed seated",
+          "gaze": "toward the valley"
+        }
+      ],
+      "objects": [
+        "obj_flat_stone"
       ]
     }
   ]

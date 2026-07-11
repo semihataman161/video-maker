@@ -1,0 +1,168 @@
+{
+  "thumbnails": [
+    {
+      "id": "thumbnail_1",
+      "visual_concept": "A close-up of Eli holding an analog wristwatch near his chest while looking directly at the viewer against a softly blurred mountain clearing.",
+      "title_text": "STOP CHASING PEACE",
+      "location": "loc_clearing",
+      "primary_character": {
+        "id": "char_eli",
+        "action": "holding the analog wristwatch near his chest",
+        "expression": "furrowed brows, eyes fixed forward, lips slightly parted",
+        "pose": "chest up, shoulders slightly turned",
+        "gaze": "toward the viewer"
+      },
+      "secondary_characters": [],
+      "objects": [
+        "obj_watch"
+      ],
+      "camera": {
+        "shot_size": "medium close-up",
+        "angle": "slightly low angle",
+        "focus": "the primary character's face"
+      },
+      "composition": {
+        "primary_subject_position": "right half",
+        "primary_subject_depth": "foreground",
+        "text_safe_area": "left half",
+        "subject_scale": "very large",
+        "background_complexity": "low"
+      },
+      "lighting": {
+        "style": "cinematic soft light",
+        "direction": "front-left",
+        "contrast": "high",
+        "rim_light": "warm golden rim light"
+      },
+      "color_scheme": {
+        "dominant_colors": [
+          "warm skin tones",
+          "deep forest green",
+          "dark gray"
+        ],
+        "accent_colors": [
+          "gold",
+          "soft orange"
+        ],
+        "contrast": "high"
+      },
+      "effects": {
+        "subject_separation": "very strong",
+        "background_blur": "strong",
+        "volumetric_light": "subtle"
+      }
+    },
+    {
+      "id": "thumbnail_2",
+      "visual_concept": "A close-up of Thomas holding a carved wood block near his face with Eli as a blurred silhouette behind him in the mountain clearing.",
+      "title_text": "THE SIMPLE HABIT",
+      "location": "loc_clearing",
+      "primary_character": {
+        "id": "char_thomas",
+        "action": "holding the carved wood block near his face",
+        "expression": "slight smile, relaxed eyes, closed lips",
+        "pose": "chest up",
+        "gaze": "toward the viewer"
+      },
+      "secondary_characters": [
+        {
+          "id": "char_eli",
+          "action": "standing",
+          "expression": "neutral",
+          "pose": "visible from the waist up",
+          "gaze": "toward Thomas"
+        }
+      ],
+      "objects": [
+        "obj_carving_wood"
+      ],
+      "camera": {
+        "shot_size": "medium close-up",
+        "angle": "eye level",
+        "focus": "the primary character's face"
+      },
+      "composition": {
+        "primary_subject_position": "left half",
+        "secondary_subject_position": "lower left behind primary character",
+        "primary_subject_depth": "foreground",
+        "secondary_subject_depth": "background",
+        "text_safe_area": "right half",
+        "subject_scale": "very large",
+        "background_complexity": "low"
+      },
+      "lighting": {
+        "style": "cinematic directional light",
+        "direction": "front-right",
+        "contrast": "high",
+        "rim_light": "warm amber rim light"
+      },
+      "color_scheme": {
+        "dominant_colors": [
+          "warm beige",
+          "forest green",
+          "dark blue"
+        ],
+        "accent_colors": [
+          "gold",
+          "light brown"
+        ],
+        "contrast": "high"
+      },
+      "effects": {
+        "subject_separation": "very strong",
+        "background_blur": "strong",
+        "volumetric_light": "soft"
+      }
+    },
+    {
+      "id": "thumbnail_3",
+      "visual_concept": "A close-up of Eli in front of the softly blurred mountain overlook with no objects, making direct eye contact with the viewer.",
+      "title_text": "TRY THIS FIRST",
+      "location": "loc_clearing",
+      "primary_character": {
+        "id": "char_eli",
+        "action": "standing still",
+        "expression": "raised eyebrows, relaxed mouth, steady eyes",
+        "pose": "head and shoulders facing forward",
+        "gaze": "toward the viewer"
+      },
+      "secondary_characters": [],
+      "objects": [],
+      "camera": {
+        "shot_size": "close-up portrait",
+        "angle": "eye level",
+        "focus": "the primary character's face"
+      },
+      "composition": {
+        "primary_subject_position": "left half",
+        "primary_subject_depth": "foreground",
+        "text_safe_area": "right half",
+        "subject_scale": "very large",
+        "background_complexity": "low"
+      },
+      "lighting": {
+        "style": "cinematic soft light",
+        "direction": "front",
+        "contrast": "high",
+        "rim_light": "warm golden rim light"
+      },
+      "color_scheme": {
+        "dominant_colors": [
+          "warm skin tones",
+          "cool blue",
+          "forest green"
+        ],
+        "accent_colors": [
+          "gold",
+          "orange"
+        ],
+        "contrast": "high"
+      },
+      "effects": {
+        "subject_separation": "very strong",
+        "background_blur": "strong",
+        "volumetric_light": "moderate"
+      }
+    }
+  ]
+}

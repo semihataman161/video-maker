@@ -1,15 +1,15 @@
 import sys
 
 from src.services.timer_service_cache import TimerServiceCache
-from src.utils.file_utils import create_directories
+from src.utils.file_utils import create_directories, reserve_next_file_paths
 from src.utils.chunk_utils import parse_chunks
 from src.constants import (
     CHUNKS, LANGUAGE, WORDS_PER_CAPTION, WORDS_PER_SCREEN,
-    AUDIO_DIR, ORIGINAL_IMAGES_DIR, FONTS_DIR,
+    AUDIO_DIR, SCENES_DIR, THUMBNAILS_DIR, FONTS_DIR,
     ASSETS_IMAGES_DIR, ASSETS_VIDEOS_DIR, CHANNEL_NAME
 )
 
-create_directories([AUDIO_DIR, ORIGINAL_IMAGES_DIR])
+create_directories([AUDIO_DIR, SCENES_DIR, THUMBNAILS_DIR])
 timer_cache = TimerServiceCache()
 
 
@@ -37,11 +37,13 @@ def step_create_images():
     from src.services.image_service.prompt import PromptService
 
     prompt_service = PromptService()
-    prompts = prompt_service.build_scenes()
-    seeds = [3887616371] * len(prompts)
-
     image_service = ImageService()
-    image_service.generate_batch(prompts=prompts, seeds=seeds)
+
+    prompts = prompt_service.build_scene_prompts()
+    prompt_count = len(prompts)
+    output_paths = reserve_next_file_paths(SCENES_DIR, prompt_count)
+    seeds = [3887616371] * prompt_count
+    image_service.generate_batch(prompts=prompts, output_paths=output_paths, seeds=seeds)
 
 
 @timer_cache.track("🎬 Creating Video")
@@ -105,6 +107,21 @@ def step_create_video():
     ).run()
 
 
+@timer_cache.track("✨ Creating Thumbnails")
+def step_create_thumbnails():
+    from src.services.image_service import ImageService
+    from src.services.image_service.prompt import PromptService
+
+    prompt_service = PromptService()
+    image_service = ImageService()
+
+    prompts = prompt_service.build_thumbnail_prompts()
+    prompt_count = len(prompts)
+    output_paths = [THUMBNAILS_DIR / f"thumbnail_{i + 1}.png" for i in range(prompt_count)]
+    seeds = [3887616371] * prompt_count
+    image_service.generate_batch(prompts=prompts, output_paths=output_paths, seeds=seeds)
+
+
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         task = sys.argv[1]
@@ -121,6 +138,9 @@ if __name__ == "__main__":
         elif task == "video":
             step_create_video()
             timer_cache.summary()
+
+        elif task == "thumbnails":
+            step_create_thumbnails()
 
         else:
             print(f"❌ Unknown command: {task}")

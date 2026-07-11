@@ -8,7 +8,7 @@ from mlx_audio.stt import load
 from pydub import AudioSegment
 from pathlib import Path
 
-from src.utils.file_utils import try_validate_path, validate_paths
+from src.utils.file_utils import try_validate_path, validate_paths, get_parent_directory
 from src.utils.timeline_utils import save_timeline
 from src.utils.chunk_utils import split_sentences
 from src.constants import AUDIO_DIR, MUSICS_DIR
@@ -44,7 +44,7 @@ class AudioService:
     def __prepare_reference_audio(self):
         ref_path = Path(self.speaker_wav)
         file_name = f"{ref_path.stem}_24k_mono.wav"
-        converted_path = ref_path.parent / file_name
+        converted_path = get_parent_directory(ref_path) / file_name
 
         if try_validate_path(converted_path):
             print(f"[{converted_path}] is already in the required format. Skipping conversion.")

@@ -9,7 +9,7 @@ from src.core import OverlayProtocol
 from src.utils.timeline_utils import get_timeline, get_total_duration
 from src.utils.file_utils import try_validate_path
 from src.utils.resolution_utils import get_size_by_resolution
-from src.constants import VIDEO_RESOLUTION, ORIGINAL_IMAGES_DIR, OUTPUT_DIR
+from src.constants import VIDEO_RESOLUTION, SCENES_DIR, OUTPUT_DIR
 from ..effect_service import EffectProtocol
 from ..outro_service import OutroProtocol
 from .constants import FPS, AUDIO_PATH
@@ -62,7 +62,7 @@ class VideoService:
                 clips.append(outro_clip)
                 continue
 
-            img_path = ORIGINAL_IMAGES_DIR / f"{scene['index']}.png"
+            img_path = SCENES_DIR / f"{scene['index']}.png"
             try_validate_path(img_path)
 
             is_transition_scene = (index > 0) and (index % TRANSITION_INTERVAL == 0)

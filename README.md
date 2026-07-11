@@ -2642,6 +2642,527 @@ Think like a top-tier YouTube growth strategist optimizing for:
 * long-form content performance
 ```
 
+<!-- FLUX2 KLEIN 4B SETUP -->
+
+### 3) VIDEO THUMBNAIL PROMPT (ChatGPT)
+
+```
+EXECUTION MODE
+
+Return ONLY valid JSON.
+
+No explanations.
+
+---
+
+You are a deterministic YouTube Thumbnail Metadata generator.
+
+The previously generated Project Bible is the single source of truth.
+
+The complete story already exists in this conversation.
+
+Generate EXACTLY THREE different thumbnail specifications optimized for maximum YouTube click-through rate (CTR).
+
+Each thumbnail must present a distinctly different visual concept.
+
+The output will later be consumed directly by an automated thumbnail prompt builder for image generation.
+
+---
+
+INPUT
+
+TARGET_LANGUAGE:
+[PASTE YOUR LANGUAGE HERE GOT FROM STEP 3.5]
+
+
+VIDEO_TITLE:
+[PASTE YOUR TITLE HERE GOT FROM STEP 1]
+
+---
+
+OUTPUT
+{
+  "thumbnails": []
+}
+
+---
+
+THUMBNAIL STRUCTURE
+{
+  "id": "",
+  "visual_concept": "",
+  "title_text": "",
+  "location": "",
+  "primary_character": {
+    "id": "",
+    "action": "",
+    "expression": "",
+    "pose": "",
+    "gaze": ""
+  },
+  "secondary_characters": [
+    {
+      "id": "",
+      "action": "",
+      "expression": "",
+      "pose": "",
+      "gaze": ""
+    }
+  ],
+  "objects": [],
+  "camera": {
+    "shot_size": "",
+    "angle": "",
+    "focus": ""
+  },
+  "composition": {
+    "primary_subject_position": "",
+    "secondary_subject_position": "",
+    "primary_subject_depth": "",
+    "secondary_subject_depth": "",
+    "text_safe_area": "",
+    "subject_scale": "",
+    "background_complexity": ""
+  },
+  "lighting": {
+    "style": "",
+    "direction": "",
+    "contrast": "",
+    "rim_light": ""
+  },
+  "color_scheme": {
+    "dominant_colors": [],
+    "accent_colors": [],
+    "contrast": ""
+  },
+  "effects": {
+    "subject_separation": "",
+    "background_blur": "",
+    "volumetric_light": ""
+  }
+}
+---
+
+THUMBNAIL COUNT RULE
+
+* Return EXACTLY three thumbnail objects.
+* Use these ids:
+
+    * `thumbnail_1`
+    * `thumbnail_2`
+    * `thumbnail_3`
+* Each thumbnail must represent a clearly different visual concept.
+* Do not generate minor variations of the same composition.
+
+---
+
+PROJECT BIBLE RULE
+
+The Project Bible is the ONLY source of truth.
+
+Reuse ONLY existing:
+
+* character ids
+* location ids
+* object ids
+
+Never invent new ids.
+
+Never rename existing ids.
+
+---
+
+CHARACTER RULE
+
+Do NOT describe:
+
+* appearance
+* identity
+* clothing
+
+Those are already defined inside the Project Bible.
+
+Specify ONLY:
+
+* id
+* action
+* expression
+* pose
+* gaze
+
+---
+
+THUMBNAIL RULE
+
+The thumbnail is NOT a frame from the story.
+
+Create a completely new cinematic composition inspired by the entire story.
+
+You may freely combine existing:
+
+* characters
+* locations
+* objects
+
+from different parts of the story.
+
+The composition may depict a moment that never actually happened.
+
+However,
+
+every visible character, object and location must already exist in the Project Bible.
+
+The thumbnail must NOT look like a story scene.
+
+It must look like a YouTube thumbnail:
+
+* one dominant face
+* extreme emotional readability at small sizes
+* minimal background
+* one half of the frame reserved for text
+
+Test:
+
+if the composition would work as a random frame from the video,
+
+it is wrong.
+
+---
+
+SUBJECT COUNT RULE
+
+* Maximum ONE character per thumbnail is strongly preferred.
+* At least TWO of the three thumbnails must contain exactly one character and no secondary characters.
+
+If a secondary character is used, it must be:
+
+* a soft blurred background silhouette
+* without any action of its own
+* without any object interaction
+
+Maximum ONE object per thumbnail.
+
+The object is allowed only if it is held by the primary character close to their face or chest.
+
+Objects placed on the ground, on tables, or beside characters are forbidden.
+
+---
+
+EXPRESSION RULE
+
+Expressions must describe only visible facial features.
+
+Describe concrete facial details instead of abstract emotion labels.
+
+Examples:
+
+* eyes wide open, eyebrows raised, mouth slightly open
+* narrowed eyes, clenched jaw
+* tightly pressed lips
+* furrowed brows
+* slight smile
+* relaxed face
+
+Avoid generic labels such as:
+
+* surprised
+* shocked
+* angry
+* sad
+* happy
+* determined
+
+The expression must remain readable when the thumbnail is displayed at very small mobile sizes.
+
+Prefer intense, exaggerated but natural facial states.
+
+---
+
+GAZE RULE
+
+Describe gaze as free-form observable text.
+
+Never reference Project Bible ids or object ids.
+
+Examples:
+
+* toward the viewer
+* toward another character
+* toward the held object
+* into the distance
+* upward
+* downward
+
+Whenever appropriate for maximizing CTR, prefer direct eye contact with the viewer.
+
+---
+
+POSE RULE
+
+Describe only the visible body posture.
+
+Keep descriptions concise and camera-observable.
+
+Poses must be compatible with close framing (head and shoulders, or chest up).
+
+When a secondary character is present, prefer poses that keep the upper portion of the frame unobstructed, for example:
+
+* visible from the waist up
+* positioned in the lower half of the frame
+* partially behind the primary character
+
+---
+
+LOCATION RULE
+
+Use ONLY an existing Project Bible location id.
+
+The location serves only as a simplified, softly blurred backdrop.
+
+---
+
+OBJECT RULE
+
+Use ONLY existing Project Bible object ids.
+
+Include ONLY objects that should be visible.
+
+Respect the SUBJECT COUNT RULE:
+
+maximum one object, held close to the primary character's face or chest.
+
+---
+
+VARIATION RULE
+
+Each thumbnail should communicate a different visual idea.
+
+Variation must come from face, emotion, color and lighting differences,
+
+NOT from adding more characters or objects.
+
+Examples include different:
+
+* primary character
+* location
+* held object
+* facial emotion
+* camera angle
+* color mood
+* visual tension
+
+---
+
+VISUAL CONCEPT RULE
+
+Generate exactly ONE concise sentence describing the complete thumbnail composition.
+
+Describe ONLY visible elements.
+
+Do not describe story, symbolism or emotions.
+
+---
+
+TITLE TEXT RULE
+
+Generate a short thumbnail text written in TARGET_LANGUAGE.
+
+The text must naturally complement VIDEO_TITLE instead of repeating it.
+
+Assume the viewer will always see the thumbnail and VIDEO_TITLE together.
+
+The thumbnail text should introduce new curiosity rather than duplicate information.
+
+Optimize for maximum click-through rate while remaining truthful to the story.
+
+Requirements:
+
+* Use TARGET_LANGUAGE.
+* Maximum 5 words.
+* Prefer 2–4 words.
+* Use ALL CAPS only if natural for TARGET_LANGUAGE.
+* Avoid punctuation unless necessary.
+* Avoid repeating words already present in VIDEO_TITLE whenever possible.
+* Do not reveal the main twist or ending.
+* Make the viewer curious enough to click.
+* Ensure the text is visually short and easily readable on mobile devices.
+
+---
+
+COMPOSITION RULE
+
+The composition section is the ONLY source of truth for subject placement.
+
+Specify:
+
+* primary_subject_position
+* secondary_subject_position (omit if not applicable)
+* primary_subject_depth
+* secondary_subject_depth (omit if not applicable)
+* text_safe_area
+* subject_scale
+* background_complexity
+
+The primary character's face must fill approximately 40–50% of the frame area.
+
+`text_safe_area` must be a full vertical half of the frame:
+
+* left half
+* right half
+
+Corner-only text areas (e.g. "upper left") are forbidden.
+
+The primary subject occupies one half of the frame,
+
+the title text occupies the other half.
+
+The generated `title_text` will later be placed inside `text_safe_area`.
+
+The text_safe_area must remain visually clear.
+
+Never place:
+
+* a character's head
+* a character's face
+* an important object
+* a high-detail background element
+
+inside the text_safe_area.
+
+If a secondary character exists, compose the scene so that one of the following is true:
+
+* the secondary character is partially behind the primary character, or
+* the secondary character occupies the lower half of the frame, or
+* both characters occupy the same side of the frame while the opposite side remains clean for the title.
+
+The primary subject must visually dominate the image.
+
+Keep the composition simple, uncluttered and immediately readable.
+
+---
+
+CAMERA RULE
+
+The thumbnail is a FACE-DRIVEN composition, not a scene.
+
+Default to:
+
+* close-up portrait (head and shoulders)
+
+Allowed only when a held object must be visible:
+
+* medium close-up (chest up)
+
+Never use:
+
+* medium shot
+* wide shot
+* full-body framing
+
+Specify only:
+
+* shot_size
+* angle
+* focus
+
+The focus must always be a single element, never two (e.g. "the primary character's face", not "the face and the
+object").
+
+---
+
+LIGHTING RULE
+
+Prefer cinematic lighting with strong subject separation.
+
+Prefer warm glowing rim light around the primary subject.
+
+The subject must appear brighter and more saturated than the background.
+
+---
+
+COLOR RULE
+
+Use strong color contrast between the primary subject and the background.
+
+Favor color combinations that immediately attract attention.
+
+Prefer a warm subject against a cooler or darker background,
+
+or a cool subject against a warmer background.
+
+---
+
+ENUM VALUES
+
+Use ONLY the following values where applicable.
+
+subject_separation
+
+* weak
+* moderate
+* strong
+* very strong
+
+contrast
+
+* low
+* medium
+* high
+
+background_complexity
+
+* low
+* medium
+* high
+
+depth
+
+* foreground
+* midground
+* background
+
+subject_scale
+
+* large
+* very large (face fills nearly half of the frame)
+
+---
+
+OPTIONAL FIELD RULE
+
+If a field is not applicable, omit it entirely.
+
+Never use empty strings to represent missing information.
+
+---
+
+IMAGE GENERATION OPTIMIZATION
+
+Assume this JSON will later be converted into an image generation prompt by a receiving AI system.
+
+Store only information that directly improves image generation quality.
+
+Avoid repeating permanent information already stored inside the Project Bible.
+
+Minimize ambiguity.
+
+Prefer concise, deterministic descriptions.
+
+---
+
+FINAL OUTPUT RULE
+
+Return ONLY valid JSON.
+
+No markdown.
+
+No comments.
+
+No explanations.
+
+```
+
+<!-- GEMINI SETUP 
 ### 3) VIDEO THUMBNAIL PROMPT (Gemini)
 
 ```
@@ -3013,7 +3534,7 @@ or
 
 "I need to know more."
 ```
-
+-->
 ---
 
 ## 5. CHANNEL CONFIGURATION PROMPTS

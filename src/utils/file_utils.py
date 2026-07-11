@@ -60,6 +60,21 @@ def get_next_file_path(directory: str, extension: str = ".png", prefix: str = ""
     return str(Path(directory) / f"{prefix}{next_num}{extension}")
 
 
+def reserve_next_file_paths(
+        directory: str,
+        count: int,
+        extension: str = ".png",
+        prefix: str = "",
+):
+    max_num = __get_max_file_number(directory, extension, prefix)
+    start = 1 if max_num is None else max_num + 1
+
+    return [
+        str(Path(directory) / f"{prefix}{start + i}{extension}")
+        for i in range(count)
+    ]
+
+
 def get_last_file_path(directory: str, extension: str = ".png", prefix: str = ""):
     max_num = __get_max_file_number(directory, extension, prefix)
 
@@ -67,6 +82,10 @@ def get_last_file_path(directory: str, extension: str = ".png", prefix: str = ""
         return None
 
     return str(Path(directory) / f"{prefix}{max_num}{extension}")
+
+
+def get_parent_directory(file_path: Path | str):
+    return Path(file_path).parent
 
 
 def get_filename(file_path: Path | str):
@@ -106,7 +125,7 @@ def try_read_json(file_path: Path | str, encoding: str = "utf-8"):
 
 
 def save_file(file_path: Path | str, content: str, encoding: str = "utf-8"):
-    parent_dir = Path(file_path).parent
+    parent_dir = get_parent_directory(file_path)
     try_validate_path(parent_dir)
 
     with open(file_path, "w", encoding=encoding) as file:

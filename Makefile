@@ -48,6 +48,9 @@ run-images:
 run-video:
 	PYTHONPATH=. $(VENV_MAIN)/bin/python -m src.main video
 
+run-thumbnails:
+	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main thumbnails
+
 run:
 	$(MAKE) run-audio
 	$(MAKE) run-srt

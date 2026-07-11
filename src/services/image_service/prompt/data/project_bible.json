@@ -1,174 +1,175 @@
 {
   "visual_style": "stylized digital illustration, painterly rendering, storybook illustration, modern animated film concept art, soft lighting, warm color grading, cinematic composition, detailed environments, matte painting background, 16:9, not a photograph",
   "characters": {
-    "eli": {
-      "id": "eli",
+    "char_eli": {
+      "id": "char_eli",
       "name": "Eli",
       "identity_blend": "a 26-year-old lean man, perfect facial blend of Logan Lerman (60%) and Andrew Garfield (40%), short slightly messy dark brown hair, hazel eyes, clean-shaven.",
       "default_clothing": {
-        "upper": "olive green henley shirt",
-        "lower": "dark blue denim jeans",
+        "upper": "olive green long-sleeve henley shirt",
+        "lower": "dark blue straight-fit jeans",
         "footwear": "brown leather hiking boots",
-        "outerwear": "charcoal gray zip-up jacket",
+        "outerwear": "charcoal zip-up jacket",
         "accessories": [
-          "brown leather belt",
-          "analog wristwatch"
+          "old analog wristwatch"
         ]
       }
     },
-    "thomas": {
-      "id": "thomas",
+    "char_thomas": {
+      "id": "char_thomas",
       "name": "Thomas",
-      "identity_blend": "a 72-year-old average-build man, perfect facial blend of Sam Elliott (60%) and Tommy Lee Jones (40%), medium-length gray hair combed back, blue eyes, full gray beard.",
+      "identity_blend": "a 72-year-old average-build man, perfect facial blend of Sam Elliott (55%) and Liam Neeson (45%), medium-length gray hair, blue eyes, full gray beard.",
       "default_clothing": {
-        "upper": "light beige linen shirt",
-        "lower": "dark brown work trousers",
-        "footwear": "worn brown leather boots",
-        "outerwear": "olive wool vest",
+        "upper": "light beige flannel shirt",
+        "lower": "brown work trousers",
+        "footwear": "weathered leather work boots",
+        "outerwear": "dark wool vest",
         "accessories": [
-          "wide-brimmed brown felt hat"
+          "wide-brim felt hat"
         ]
       }
     }
   },
   "locations": {
-    "eli_apartment": {
-      "id": "eli_apartment",
-      "name": "Eli's Apartment",
-      "overview": "A modest apartment overlooking a small mountain town.",
-      "visual_identity": "Compact interior with simple furnishings, wooden floors, neutral walls, and practical decor.",
-      "architecture": "Small modern apartment building with rectangular rooms and large windows.",
-      "terrain": "Paved residential streets surrounding the building.",
-      "vegetation": "Scattered street trees and small shrubs.",
-      "lighting": "Soft daylight through windows and warm indoor ambient light.",
-      "color_palette": "Warm beige, gray, brown, muted green.",
-      "background_elements": [
-        "mountain slopes",
-        "town rooftops"
-      ],
-      "common_scene_settings": [
-        "living room",
-        "bedroom",
-        "window view"
-      ]
-    },
-    "small_town": {
-      "id": "small_town",
+    "loc_small_town": {
+      "id": "loc_small_town",
       "name": "Mountain Town",
-      "overview": "A quiet town at the base of a mountain.",
-      "visual_identity": "Compact streets lined with modest homes beneath misty mountains.",
-      "architecture": "Small houses, local shops, narrow roads, utility poles.",
-      "terrain": "Gentle valley with paved streets and nearby hills.",
-      "vegetation": "Street trees, gardens, mountain forest edge.",
-      "lighting": "Soft morning mist and natural daylight.",
-      "color_palette": "Gray, green, brown, muted blue.",
+      "overview": "A small town resting at the foot of a mountain range.",
+      "visual_identity": "Compact residential streets beneath mist-covered mountains.",
+      "architecture": "Small apartments, detached houses, local storefronts, hardware store.",
+      "terrain": "Gentle slopes, paved roads, foothills.",
+      "vegetation": "Evergreen trees, shrubs, roadside grass.",
+      "lighting": "Frequent soft overcast mornings with natural daylight.",
+      "color_palette": "Muted gray, forest green, brown, soft blue.",
       "background_elements": [
         "mountain ridge",
-        "mist",
-        "rooftops"
-      ],
-      "common_scene_settings": [
-        "street level",
-        "wide town view",
-        "hardware store exterior"
-      ]
-    },
-    "mountain_trail": {
-      "id": "mountain_trail",
-      "name": "Mountain Trail",
-      "overview": "An old hiking path leading through forest toward a scenic clearing.",
-      "visual_identity": "Narrow dirt trail winding beneath tall trees.",
-      "architecture": "Occasional rustic wooden trail markers.",
-      "terrain": "Packed earth path with rocks and gentle elevation.",
-      "vegetation": "Pine trees, deciduous trees, ferns, moss.",
-      "lighting": "Filtered daylight through tree canopy.",
-      "color_palette": "Forest green, brown, gray.",
-      "background_elements": [
-        "distant valley",
-        "tree-covered slopes"
-      ],
-      "common_scene_settings": [
-        "walking path",
-        "trail bend",
-        "forest perspective"
-      ]
-    },
-    "stone_clearing": {
-      "id": "stone_clearing",
-      "name": "Stone Clearing",
-      "overview": "A peaceful forest clearing overlooking a broad valley.",
-      "visual_identity": "Large flat stone positioned at the edge of an open overlook.",
-      "architecture": "No permanent buildings.",
-      "terrain": "Rocky clearing bordered by forest with valley overlook.",
-      "vegetation": "Tall pines, wild grasses, low shrubs.",
-      "lighting": "Soft daylight with recurring morning mist and golden-hour sunlight.",
-      "color_palette": "Gray stone, green forest, soft blue, warm gold.",
-      "background_elements": [
-        "wide valley",
-        "rolling mountains",
         "morning mist",
-        "distant forests"
+        "tree-covered hills"
       ],
       "common_scene_settings": [
-        "seated on flat stone",
-        "wide overlook",
-        "side profile toward valley"
+        "street-level",
+        "wide establishing shot",
+        "medium exterior"
       ]
     },
-    "woodworking_shop": {
-      "id": "woodworking_shop",
-      "name": "Thomas's Woodworking Shop",
-      "overview": "A small rustic woodworking workshop.",
-      "visual_identity": "Simple timber workspace filled with wood surfaces and hand tools.",
-      "architecture": "Weathered wooden cabin with exposed beams and workbenches.",
-      "terrain": "Packed dirt surrounding the structure.",
-      "vegetation": "Forest edge with scattered grass.",
-      "lighting": "Natural daylight through windows.",
-      "color_palette": "Warm brown, tan, muted gray.",
+    "loc_mountain_trail": {
+      "id": "loc_mountain_trail",
+      "name": "Mountain Trail",
+      "overview": "An old hiking path winding through the mountain forest.",
+      "visual_identity": "Narrow dirt path surrounded by tall evergreen trees.",
+      "architecture": "Rustic wooden trail markers.",
+      "terrain": "Packed earth trail with rocks and gentle elevation.",
+      "vegetation": "Pine trees, moss, ferns, wild grasses.",
+      "lighting": "Filtered sunlight through tree canopy.",
+      "color_palette": "Deep green, earthy brown, gray stone.",
       "background_elements": [
-        "stacked lumber",
-        "wood shavings",
-        "forest"
+        "forest",
+        "mountain slopes",
+        "distant valley"
       ],
       "common_scene_settings": [
-        "workbench",
-        "doorway",
-        "interior wide shot"
+        "walking perspective",
+        "wide trail view",
+        "over-the-shoulder"
+      ]
+    },
+    "loc_clearing": {
+      "id": "loc_clearing",
+      "name": "Mountain Clearing",
+      "overview": "A quiet open space overlooking a broad valley.",
+      "visual_identity": "Flat stone in an open clearing with panoramic mountain views.",
+      "architecture": "None.",
+      "terrain": "Rocky clearing with short grass and exposed stone.",
+      "vegetation": "Pine trees bordering the clearing, scattered wildflowers.",
+      "lighting": "Soft daylight with recurring mountain mist.",
+      "color_palette": "Soft green, gray stone, pale blue, muted gold.",
+      "background_elements": [
+        "rolling valley",
+        "distant mountains",
+        "low clouds",
+        "morning mist"
+      ],
+      "common_scene_settings": [
+        "wide landscape",
+        "side profile near stone",
+        "overlook composition"
+      ]
+    },
+    "loc_apartment": {
+      "id": "loc_apartment",
+      "name": "Eli's Apartment",
+      "overview": "A modest apartment with simple furnishings.",
+      "visual_identity": "Compact modern living space with neutral décor.",
+      "architecture": "Small apartment interior with living room, kitchen and bedroom.",
+      "terrain": "Indoor wooden flooring.",
+      "vegetation": "Small potted houseplants.",
+      "lighting": "Natural window light.",
+      "color_palette": "Light gray, beige, warm wood.",
+      "background_elements": [
+        "bookshelf",
+        "dining table",
+        "windows"
+      ],
+      "common_scene_settings": [
+        "interior medium shot",
+        "bedroom angle",
+        "living room"
+      ]
+    },
+    "loc_hardware_store": {
+      "id": "loc_hardware_store",
+      "name": "Hardware Store",
+      "overview": "A neighborhood hardware shop with organized aisles.",
+      "visual_identity": "Shelves filled with tools and supplies.",
+      "architecture": "Single-story commercial interior.",
+      "terrain": "Concrete flooring.",
+      "vegetation": "None.",
+      "lighting": "Bright overhead indoor lighting.",
+      "color_palette": "Gray, red, metallic silver, wood.",
+      "background_elements": [
+        "tool racks",
+        "paint shelves",
+        "checkout counter"
+      ],
+      "common_scene_settings": [
+        "aisle view",
+        "checkout perspective",
+        "wide interior"
       ]
     }
   },
   "objects": {
-    "flat_stone": {
-      "id": "flat_stone",
+    "obj_flat_stone": {
+      "id": "obj_flat_stone",
       "name": "Flat Stone",
-      "appearance": "Large smooth naturally flattened boulder with weathered surface.",
+      "appearance": "Large naturally flat weathered stone with smooth sitting surface.",
       "material": "Granite",
       "color": "Light gray",
-      "size": "Approximately 2 meters wide"
+      "size": "Approximately 1.5 meters wide"
     },
-    "old_watch": {
-      "id": "old_watch",
-      "name": "Old Watch",
-      "appearance": "Round analog wristwatch with simple numbered dial and leather strap.",
-      "material": "Stainless steel and leather",
-      "color": "Silver and brown",
-      "size": "Small wristwatch"
+    "obj_watch": {
+      "id": "obj_watch",
+      "name": "Analog Wristwatch",
+      "appearance": "Simple round analog watch with worn leather strap.",
+      "material": "Metal and leather",
+      "color": "Silver with brown strap",
+      "size": "Small wrist-sized"
     },
-    "carving_wood": {
-      "id": "carving_wood",
+    "obj_carving_wood": {
+      "id": "obj_carving_wood",
       "name": "Wood Carving Block",
-      "appearance": "Small partially carved block with visible knife marks.",
-      "material": "Hardwood",
+      "appearance": "Partially carved rectangular block with visible shaving marks.",
+      "material": "Wood",
       "color": "Light brown",
-      "size": "Fits in one hand"
+      "size": "Handheld"
     },
-    "carving_knife": {
-      "id": "carving_knife",
-      "name": "Carving Knife",
-      "appearance": "Short straight blade with smooth wooden handle.",
+    "obj_carving_knife": {
+      "id": "obj_carving_knife",
+      "name": "Wood Carving Knife",
+      "appearance": "Short straight carving blade with rounded wooden handle.",
       "material": "Steel and wood",
-      "color": "Silver and brown",
-      "size": "Approximately 20 centimeters long"
+      "color": "Silver blade with brown handle",
+      "size": "Handheld"
     }
   }
 }

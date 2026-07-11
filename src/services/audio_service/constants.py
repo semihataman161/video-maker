@@ -6,6 +6,6 @@ SENTENCE_PAUSE = 0.3
 OUTRO_PAUSE = 1.0
 SAMPLE_RATE = 24000
 
-from pathlib import Path
+from src.utils.file_utils import get_parent_directory
 
-SPEAKERS_DIR = Path(__file__).parent / "speakers"
+SPEAKERS_DIR = get_parent_directory(__file__) / "speakers"
