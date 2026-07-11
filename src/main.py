@@ -109,17 +109,39 @@ def step_create_video():
 
 @timer_cache.track("✨ Creating Thumbnails")
 def step_create_thumbnails():
-    from src.services.image_service import ImageService
     from src.services.image_service.prompt import PromptService
+    from src.services.image_service import ImageService
 
     prompt_service = PromptService()
+    thumbnails = prompt_service.get_thumbnails()
+
     image_service = ImageService()
 
     prompts = prompt_service.build_thumbnail_prompts()
     prompt_count = len(prompts)
-    output_paths = [THUMBNAILS_DIR / f"thumbnail_{i + 1}.png" for i in range(prompt_count)]
+    output_paths = [THUMBNAILS_DIR / f"{thumbnail['id']}.png" for thumbnail in thumbnails]
     seeds = [3887616371] * prompt_count
     image_service.generate_batch(prompts=prompts, output_paths=output_paths, seeds=seeds)
+
+
+@timer_cache.track("✍️ Creating Text on Thumbnails")
+def step_create_text_on_thumbnails():
+    from src.services.image_service.prompt import PromptService
+    from src.services.image_text_overlay_service import ImageTextOverlayConfig, ImageTextOverlayService
+
+    prompt_service = PromptService()
+    thumbnails = prompt_service.get_thumbnails()
+
+    text_overlay_config = ImageTextOverlayConfig(font_path=FONTS_DIR / "Anton-Regular.ttf")
+    text_overlay_service = ImageTextOverlayService(text_overlay_config)
+
+    for thumbnail in thumbnails:
+        text_overlay_service.run(
+            image_path=THUMBNAILS_DIR / f"{thumbnail['id']}.png",
+            text=thumbnail["title_text"],
+            output_path=THUMBNAILS_DIR / f"{thumbnail['id']}_final.png",
+            area=thumbnail.get("composition", {}).get("text_safe_area", "left half"),
+        )
 
 
 if __name__ == "__main__":
@@ -141,6 +163,9 @@ if __name__ == "__main__":
 
         elif task == "thumbnails":
             step_create_thumbnails()
+
+        elif task == "text-on-thumbnails":
+            step_create_text_on_thumbnails()
 
         else:
             print(f"❌ Unknown command: {task}")

@@ -8,6 +8,15 @@ class PromptService:
         self.scenes = try_read_json(DATA_DIR / "scene_metadata.json").get("scenes", [])
         self.thumbnails = try_read_json(DATA_DIR / "thumbnail_metadata.json").get("thumbnails", [])
 
+    def get_bible(self):
+        return self.bible
+
+    def get_scenes(self):
+        return self.scenes
+
+    def get_thumbnails(self):
+        return self.thumbnails
+
     def __build_scene_prompt(self, scene: dict) -> str:
         parts = []
 
