@@ -36,26 +36,26 @@ delete_venvs:
 	pip cache purge
 	@echo "🗑️ Virtual environments deleted."
 
-run-audio:
-	PYTHONPATH=. $(VENV_MAIN)/bin/python -m src.main audio
+create-audio:
+	PYTHONPATH=. $(VENV_MAIN)/bin/python -m src.main create-audio
 
-run-srt:
-	PYTHONPATH=. $(VENV_MAIN)/bin/python -m src.main srt
+create-srt:
+	PYTHONPATH=. $(VENV_MAIN)/bin/python -m src.main create-srt
 
-run-images:
-	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main images
+create-characters:
+	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main create-characters
 
-run-video:
-	PYTHONPATH=. $(VENV_MAIN)/bin/python -m src.main video
+create-scenes:
+	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main create-scenes
 
-run-thumbnails:
-	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main thumbnails
+edit-scene:
+	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main edit-scene
 
-run-text-on-thumbnails:
-	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main text-on-thumbnails
+create-video:
+	PYTHONPATH=. $(VENV_MAIN)/bin/python -m src.main create-video
 
-run:
-	$(MAKE) run-audio
-	$(MAKE) run-srt
-	$(MAKE) run-images
-	$(MAKE) run-video
+create-thumbnails:
+	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main create-thumbnails
+
+create-text-on-thumbnails:
+	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main create-text-on-thumbnails

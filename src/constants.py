@@ -1,105 +1,93 @@
 CHUNKS = """
-[1] A young man named Eli woke up every morning already exhausted, because his mind never stopped racing through everything that could go wrong that day, and by the time he was twenty-six, he had quit four jobs, ended two relationships, and convinced himself that something inside him was simply broken beyond repair, but what happened next on a quiet mountain path would completely change how he saw his own mind forever.
+[1] There was a young man who had everything he thought he needed — a job, a small apartment, people who liked him — and yet every single morning, he woke up feeling like he was running out of time. His name was John, and he was twenty-six years old, and he had no idea why his life felt like it was slipping through his fingers. Not dramatically. Not in a way anyone else could see. Just quietly, steadily, like sand through a fist he kept tightening.
 
-[2] Eli lived in a small town nestled at the base of a mountain, where the mist rolled down every morning and settled over the rooftops like a soft gray blanket. From the outside, his life looked fine. He had a small apartment, a job at the local hardware store, and a few friends who waved at him on the street.
+[2] He would finish a day and lie in bed trying to count what he had actually accomplished, and the answer always came back too small. He worked harder than most people he knew. He planned. He made lists. He set his alarm earlier than he needed to. And still, by the end of every week, he felt like he had somehow missed something important — like he had been sprinting toward a finish line that kept moving.
 
-[3] But inside his head, it was a different story. Every conversation replayed in his mind for hours afterward. Did that sound rude? Did I say something stupid? Every decision, even something as small as choosing what to eat for lunch, turned into a mental tug of war that left him drained before the day even started. He told himself it was just how his brain worked, and that everyone probably felt this way, but deep down, he knew something wasn't right.
+[3] His friends thought he was fine. His boss thought he was doing well. But John knew the truth, and the truth was that he was exhausted in a way that sleep could not fix. And what scared him most was that he could not explain why.
 
-[4] One afternoon, after another sleepless night spent replaying an awkward exchange with his boss, Eli decided to take a walk up the old trail behind his apartment, just to clear his head.
+[4] That was the question eating at him the summer he moved to a small mountain town called Harrow's Bend, a place with one main road, a bakery that opened at five in the morning, and a river that ran cold and clear even in August. He had taken a remote job and told himself it was a fresh start. But the feeling followed him there too.
 
-[5] He had walked that trail dozens of times before, but this time, near a bend where the trees opened up to a small clearing, he saw someone he had never seen before. An old man sat on a flat stone, completely still, watching the valley below. He wasn't doing anything. Just sitting. And somehow, that stillness felt strange to Eli, almost unsettling, because he couldn't remember the last time he had sat anywhere without his mind spinning.
+[5] It followed him on his first morning walk. It followed him into the little cafe where he sat with his laptop and his untouched coffee, staring at nothing. And it was there, in that cafe, three days after he arrived, that he first saw the old man.
 
-[6] Eli almost walked past without saying anything, but something made him stop. Maybe it was curiosity. Maybe it was exhaustion.
+[6] He was sitting in the corner, alone, reading a newspaper the way people used to read newspapers — slowly, without checking his phone between paragraphs. He had white hair, work-worn hands, and a calm about him that John could not quite name. The kind of calm that does not come from having nothing to worry about, but from something else entirely.
 
-[7] He asked the old man, almost as a joke, "Aren't you bored just sitting here?" The old man turned slowly, looked at him for a long moment, and said, "Bored is a strange word for a man who is finally quiet."
+[7] John noticed him the way you notice something that doesn't quite fit, a bird that doesn't startle when you walk past, a candle that doesn't flicker in a draft. He noticed him again the next morning, and the morning after that. Always the same corner. Always that same unhurried stillness.
 
-[8] Eli laughed nervously, but the words stuck with him. He sat down nearby, not really planning to stay, but ended up talking with the old man for nearly an hour.
+[8] On the fourth morning, almost without deciding to, John sat down at the table next to him and said, I hope this doesn't sound strange, but you seem like someone who has figured something out.
 
-[9] His name was Thomas, and he had lived in the mountains his whole life, working as a shepherd before his knees gave out and he switched to woodworking.
+[9] The old man looked up from his paper. He smiled, not quickly, but genuinely, the way people smile when they are not performing anything. My name is Edmund, he said. And what I have figured out, as you put it, has taken me a very long time. What was it you were hoping to understand?
 
-[10] As they talked, Eli found himself opening up in a way he never had with anyone before. He admitted that his mind never stopped, that even good moments felt tense, like he was waiting for something to go wrong.
+[10] John almost laughed. He said, I don't know how to stop feeling like I'm wasting my life even when I'm not wasting it.
 
-[11] Thomas listened without interrupting, and when Eli finished, Thomas asked a question that caught him completely off guard. "Tell me," Thomas said, "when was the last time you were truly alone with your thoughts, with nothing to distract you, not even for five minutes?"
+[11] Edmund studied him for a moment. Then he said something that John did not expect. He said, Come and help me with something tomorrow morning. I'll meet you by the river at six. That was it. No advice. No explanation. Just a task.
 
-[12] Eli opened his mouth to answer, and then realized he couldn't think of a single time. Even in the shower, he had music playing. Even lying in bed, he scrolled through his phone until his eyes closed.
+[12] And here is where something interesting happens — because that task, when John showed up the next morning and discovered what it was, seemed almost pointlessly simple. Almost embarrassingly small.
 
-[13] The realization hit him harder than he expected. He had spent years feeling overwhelmed by his thoughts, yet he had never actually sat with them, not once.
+[13] Edmund was standing at the edge of the river with two pairs of rubber boots, a bucket, and a long-handled net. He handed one pair of boots to John and stepped into the water without a word. He moved through the shallows slowly, deliberately, reaching the net into the current, pulling it up, looking at whatever he had caught, and then lowering it back down. John stood beside him and did the same.
 
-[14] Thomas seemed to notice the shift in Eli's expression, and he offered something simple. "Come back tomorrow, same time, same spot," he said. "Bring nothing with you. No phone, no music, no book. Just sit here, on this same stone, for fifteen minutes. Don't try to think. Don't try to stop thinking either. Just sit."
+[14] For the first twenty minutes, almost nothing happened. They caught small fish and let them go. They caught leaves and river grass. John started to feel slightly ridiculous. He glanced at his phone. He thought about his inbox. He felt the familiar itch to be somewhere else, doing something more measurable.
 
-[15] It sounded almost too simple, and honestly, a little pointless. Eli had expected some kind of advice, maybe a technique, maybe a story with a clear moral, not an assignment to do absolutely nothing. But there was something about the way Thomas said it, calm and certain, like he already knew something Eli didn't.
+[15] And then Edmund said, quietly, without looking up: you keep lifting the net before the current has a chance to bring anything into it.
 
-[16] So the next day, feeling slightly ridiculous, Eli went back. He sat on the stone, set a timer on an old watch he found in a drawer, since Thomas told him to leave his phone at home, and he waited.
+[16] John looked down. He realized Edmund was right. Every time he dropped the net, he was pulling it up almost immediately — checking it, assessing it, moving to a new spot. He had been doing it without even noticing.
 
-[17] The first minute felt fine. The second minute, his mind started listing things he needed to do. By the fifth minute, his thoughts turned to that awkward conversation with his boss again, and he felt his chest tighten.
+[17] He forced himself to wait. To hold the net still and let the water move around it. It felt uncomfortable. It felt wasteful. It felt like doing nothing.
 
-[18] By the tenth minute, he was convinced this was the most uncomfortable fifteen minutes of his life, and he almost got up and left. But he didn't.
+[18] But then, slowly, something shifted. A small silver fish drifted into the net and held there, suspended. Then another. Then a cluster of tiny stones caught the morning light. Then something larger bumped against the mesh. He waited another moment and lifted — and there was a catch worth keeping.
 
-[19] When the timer finally went off, Thomas was sitting a few feet away, like he had been there the whole time, though Eli hadn't noticed him arrive. "How was it?" Thomas asked.
+[19] He looked at Edmund. Edmund just nodded.
 
-[20] Eli admitted it was awful. His mind wouldn't stop. Every uncomfortable thought he had been avoiding came rushing in at once.
+[20] They stayed in the river for another hour. When they climbed out and set the bucket down on the bank, John felt something he had not felt in a long time. He felt present. Not because anything special had happened, but because he had been nowhere else.
 
-[21] Thomas nodded slowly, like this was exactly what he expected, and said something that Eli would think about for days afterward. "You didn't create those thoughts just now," Thomas said. "You've been carrying them the whole time. You just never stopped moving long enough to notice the weight."
+[21] And yet something about the morning still puzzled him, because it had been a good hour, but he did not understand how catching fish in a mountain river was supposed to fix a feeling that had been following him for years. So he asked Edmund, and Edmund sat down on a flat rock near the water and was quiet for a moment before he answered.
 
-[22] Eli sat with that for a moment, and something about it felt true in a way he couldn't quite explain. He had always assumed his mind was loud because something was wrong with him, but what if it was loud because he had never given it a chance to speak, and instead kept drowning it out with noise, distraction, and busyness?
+[22] He said: when you first came into that cafe, what did you see in me that made you want to talk to me?
 
-[23] Thomas asked him to come back again the next day, and the day after that, same time, same stone, fifteen minutes, nothing more. Eli agreed, though he wasn't sure why. Maybe it was curiosity about what Thomas knew that he didn't. Maybe it was the strange relief of finally talking to someone who didn't try to fix him or give him advice he'd heard a hundred times before.
+[23] John thought about it. He said: stillness, I suppose. Like you weren't in a rush to get to the next thing.
 
-[24] The second day wasn't much easier than the first. His thoughts were just as loud, jumping from worry to worry, replaying conversations, imagining future arguments that hadn't even happened yet.
+[24] Edmund nodded. He said: I spent most of my life the way you are spending yours. I was very good at motion. I was always ahead of where I stood. Planning the next hour while I was inside this one, reviewing the last hour while I was already past it. I lived most of my days in time that did not actually exist yet, or in time that was already gone. I was rarely here.
 
-[25] But on the third day, something small shifted. Around the eighth minute, Eli noticed his mind drift to a memory of his father, who had passed away when Eli was nineteen. It was a memory he usually avoided, because it brought up a lot of guilt about things left unsaid.
+[25] John was quiet.
 
-[26] But this time, instead of immediately pushing the memory away like he always did, he just let it sit there. He didn't analyze it. He didn't spiral into self-blame like usual. He just noticed it, the way you'd notice a cloud passing overhead, and then it slowly drifted away on its own.
+[26] Edmund continued. He said: a friend took me fishing once, a long time ago. And he noticed the same thing you were doing in the river today. He told me: the fish do not come to the man who is already lifting the net. They come to the man who is willing to wait inside the moment he is already standing in.
 
-[27] When the timer went off, Eli felt something he hadn't felt in years. Not happiness exactly, but a strange kind of lightness, like he had been holding his breath without realizing it, and had just exhaled for the first time.
+[27] John turned that over in his mind. He said, but it's not just about slowing down, is it? Because I've tried slowing down and it doesn't change the feeling.
 
-[28] He told Thomas what happened, and Thomas smiled for the first time since they'd met. "That," Thomas said, "is the part most people never discover, because they give up before the third day, or they never start at all.
+[28] Edmund looked at him. He said: it is not about slowing down. Slowing down is still about speed. This is about something else. This is about being so fully in the place you already are that there is no part of you wishing you were ahead of it.
 
-[29] Your thoughts aren't the enemy, Eli. The real problem is that you've spent your whole life either obeying every thought your mind produces, or fighting against it. Both of those keep you trapped, because both of them treat your thoughts as something you have to react to immediately."
+[29] He paused. Then he said: you feel like your life is slipping away not because you are doing too little, but because you are almost never fully inside what you are doing. You are always arriving and always already leaving. And so every day finishes and it did not feel like yours, because in a real sense, you were not there for it.
 
-[30] Eli frowned, trying to understand. "So what am I supposed to do instead?" he asked.
+[30] That landed somewhere deep in John's chest. Not like a lesson, but like a recognition of something he already knew and had been afraid to look at directly. He sat with it. Edmund let him.
 
-[31] Thomas picked up a small piece of wood he had been carving and held it up. "When I carve," he said, "pieces of wood fall away. I don't fight them. I don't follow them around the workshop. I just let them fall, and I keep working on what matters.
+[31] After a while, John said: so how do you stop? How do you actually stay?
 
-[32] Your thoughts are the same. Some of them are useful, like the wood that becomes part of the final shape. Others are just things that need to fall away so you can see what you're actually working with."
+[32] Edmund smiled. He said: the same way you finally caught fish this morning. You stop lifting the net before the moment has had a chance to arrive. You stay in the water a little longer than feels comfortable. And you trust that if you are actually present, what you need will find its way to you.
 
-[33] Over the following weeks, Eli kept returning to that stone, and slowly, the fifteen minutes stopped feeling like punishment and started feeling like the calmest part of his day.
+[33] It sounds simple. And that is the strange thing about it — it is simple. But simple is not the same as easy, and knowing is not the same as doing.
 
-[34] He noticed something interesting happening in the rest of his life too. When his boss made an offhand comment that used to send him into hours of anxious replaying, Eli noticed the old familiar spiral start to begin, but this time, he recognized it.
+[34] Over the weeks that followed, John kept meeting Edmund at the river. Not every morning, but enough. And he practiced what was, in truth, one of the hardest things he had ever tried to do: he practiced being where he was.
 
-[35] It was just a thought, a piece of wood falling away, not something he had to pick up and carry around all day. He let it pass.
+[35] When he was working, he worked without rehearsing the next task. When he walked, he noticed what was around him instead of narrating it in his head. When he ate dinner, he sat at the table and ate, rather than eating in front of something else.
 
-[36] For the first time in years, he went home that evening and actually enjoyed his dinner, instead of eating while mentally rehearsing arguments that would never happen.
+[36] It felt slow at first. It felt slightly unsettling, the way being still feels when you have been moving fast for a very long time. But gradually, something began to shift. Not in what he was doing, but in how the days felt when they ended. They started to feel finished. Complete. Like something had actually happened in them. And the exhaustion — that strange, sourceless exhaustion that no amount of sleep had been able to touch — began, slowly, to lift.
 
-[37] One afternoon, about two months after their first meeting, Eli arrived at the clearing and found Thomas waiting with a different question. "Do you still think something is broken inside you?" he asked.
+[37] One afternoon in early October, John sat at the same table in the cafe where he had first spoken to Edmund. Edmund was in his usual corner. The mountain outside the window had started to turn, its edges going gold and amber in the early cold.
 
-[38] Eli thought about it honestly. His mind still got loud sometimes. He still had anxious thoughts, still worried about things, still occasionally replayed conversations late at night.
+[38] John opened his laptop and then closed it again. He looked out the window. He did not feel behind. He did not feel like something was being wasted. He just felt here. Like the morning was a place he was actually inside, not a corridor he was walking through to reach something better.
 
-[39] But something had changed. Those thoughts no longer felt like floods that swept him away. They felt more like weather, sometimes calm, sometimes stormy, but always passing through, never staying forever.
+[39] And that, he understood now, was what he had been searching for without knowing what to call it. Not more hours. Not more accomplishments. Not a better plan. Just this — the simple, difficult, completely ordinary experience of being somewhere with all of himself.
 
-[40] "No," Eli said slowly. "I don't think it's broken. I think I just never learned how to sit with it."
+[40] He looked over at Edmund, who glanced up from his paper and gave him a quiet nod, and John smiled back, not because everything was solved, not because life had become easy, but because he had discovered something real.
 
-[41] Thomas nodded, satisfied, like a teacher watching a student finally solve a problem they'd been working on for a long time.
+[41] That the life you keep trying to get to is made entirely of the moments you are standing in right now. That the only time that is ever actually yours is the one you are willing to fully show up for. And that the man with the stillest net is always the one who catches the most.
 
-[42] "Most people spend their entire lives running from their own minds," Thomas said, "filling every silence with noise, every pause with a screen, every uncomfortable feeling with distraction. And then they wonder why they feel exhausted, why they feel disconnected from themselves, why peace always seems to be somewhere else, some other time, some other place.
+[42] If you are watching this and you have felt what John felt — that quiet, grinding sense that time is running away from you even when you are working hard — then you already understand the lesson this story is pointing toward.
 
-[43] But peace was never somewhere else, Eli. It was always right here, underneath all that noise, waiting for you to stop running long enough to notice it."
+[43] The river is always moving. The question is not whether you can keep up with it. The question is whether you are willing to stand still inside it long enough to let it come to you.
 
-[44] Eli sat with that for a long moment, looking out at the valley below, the same view he had been too distracted to really see the first day they met.
+[44] And if you found something worth keeping in this story, carry it with you. Not as a reminder to slow down, but as a reminder to arrive — fully, completely, without one part of you already walking out the door.
 
-[45] The mist was rolling in slowly, soft and unhurried, the way it did every morning, the way it probably had for hundreds of years before he was born, and would for hundreds of years after he was gone.
-
-[46] And for the first time in his life, instead of feeling small or anxious in the face of that thought, Eli felt strangely calm.
-
-[47] He still went back to that stone, even after he and Thomas became close friends, even after Thomas eventually taught him to carve wood too.
-
-[48] Some days the fifteen minutes were peaceful. Other days his mind was as loud as ever.
-
-[49] But he no longer saw that as a problem to be fixed. It was just part of being human, part of having a mind that thinks, the same way breathing is just part of having lungs.
-
-[50] And once Eli stopped fighting that simple fact, for the first time in his adult life, he finally felt at home inside his own head.
-
-[51] If you enjoyed this story, let me know by leaving a like and sharing your thoughts in the comments. Share this video with others who might enjoy it, and subscribe with notifications turned on so you never miss a new story.
+[45] If you enjoyed this story, let me know by leaving a like and sharing your thoughts in the comments. Share this video with others who might enjoy it, and subscribe with notifications turned on so you never miss a new story.
 """
 
 WORDS_PER_CAPTION = 6
@@ -132,6 +120,7 @@ ASSETS_VIDEOS_DIR = ASSETS_DIR / "videos"
 OUTPUT_DIR = ROOT_DIR / "output"
 AUDIO_DIR = OUTPUT_DIR / "audio"
 OUTPUT_IMAGES_DIR = OUTPUT_DIR / "images"
+CHARACTERS_DIR = OUTPUT_IMAGES_DIR / "characters"
 SCENES_DIR = OUTPUT_IMAGES_DIR / "scenes"
 THUMBNAILS_DIR = OUTPUT_IMAGES_DIR / "thumbnails"
 ORIGINAL_IMAGES_DIR = OUTPUT_IMAGES_DIR / "original"

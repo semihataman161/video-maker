@@ -1,16 +1,85 @@
 import sys
+from pathlib import Path
 
 from src.services.timer_service_cache import TimerServiceCache
-from src.utils.file_utils import create_directories, reserve_next_file_paths
+from src.utils.file_utils import (
+    create_directories, reserve_next_file_paths, create_directory,
+    is_path_exist, try_validate_path, try_read_json, save_json
+)
 from src.utils.chunk_utils import parse_chunks
+from src.utils.image_utils import get_image_prompt
 from src.constants import (
     CHUNKS, LANGUAGE, WORDS_PER_CAPTION, WORDS_PER_SCREEN,
-    AUDIO_DIR, SCENES_DIR, THUMBNAILS_DIR, FONTS_DIR,
-    ASSETS_IMAGES_DIR, ASSETS_VIDEOS_DIR, CHANNEL_NAME
+    AUDIO_DIR, CHARACTERS_DIR, SCENES_DIR, THUMBNAILS_DIR,
+    FONTS_DIR, ASSETS_IMAGES_DIR, ASSETS_VIDEOS_DIR, CHANNEL_NAME
 )
 
-create_directories([AUDIO_DIR, SCENES_DIR, THUMBNAILS_DIR])
+create_directories([AUDIO_DIR, CHARACTERS_DIR, SCENES_DIR, THUMBNAILS_DIR])
+CASTING_JSON = CHARACTERS_DIR / "casting.json"
+
 timer_cache = TimerServiceCache()
+
+
+def load_characters() -> dict[str, Path]:
+    casting = try_read_json(CASTING_JSON)
+    characters: dict[str, Path] = {}
+
+    for character_id, chosen in casting.items():
+        if not chosen:
+            raise ValueError(
+                f"No selection has been made for '{character_id}'. Please fill out the {CASTING_JSON} file."
+            )
+
+        path = CHARACTERS_DIR / character_id / chosen
+        try_validate_path(path)
+        characters[character_id] = path
+
+    return characters
+
+
+def print_characters(characters: dict[str, Path]):
+    print("🎭 Characters:")
+
+    for character_id, path in characters.items():
+        print(f"   {character_id:12} -> {path.name}")
+
+
+@timer_cache.track("🎭 Creating Characters")
+def step_create_characters():
+    from src.services.image_service import ImageService
+    from src.services.image_service.prompt import PromptService
+
+    with_reference = False
+    prompt_service = PromptService(with_reference=with_reference)
+    image_service = ImageService(with_reference=with_reference)
+
+    characters = prompt_service.build_character_prompts()
+    character_count = 6
+
+    for character_id, prompt in characters.items():
+        out_dir = CHARACTERS_DIR / character_id
+        create_directory(out_dir)
+
+        print(f"\n=== Creating: {character_id} ===")
+
+        image_service.generate_variations(
+            prompt=prompt,
+            output_paths=[out_dir / f"{i + 1}.png" for i in range(character_count)],
+            count=character_count,
+        )
+
+    if not is_path_exist(CASTING_JSON):
+        save_json(CASTING_JSON, {cid: None for cid in characters})
+
+    print("\n" + "=" * 60)
+    print("⏸  YOUR TURN")
+    print(f"   1. Open: {CHARACTERS_DIR}")
+    print("   2. For each character, choose the most NEUTRAL and CLEAREST portrait")
+    print("      (not the best-looking one — this will anchor all scenes)")
+    print(f"   3. Update {CASTING_JSON} with:")
+    print('        { "john": "1.png", "edmund": "2.png" }')
+    print("   4. Then run: make create-scenes")
+    print("=" * 60)
 
 
 @timer_cache.track("🎙 Creating Audio")
@@ -24,26 +93,111 @@ def step_create_audio():
     ).run()
 
 
-@timer_cache.track("📝 Generating SRT")
-def step_generate_srt():
+@timer_cache.track("📝 Creating SRT")
+def step_create_srt():
     from src.services.subtitle_service.srt import SubtitleSrtService
 
     SubtitleSrtService(words_per_caption=WORDS_PER_CAPTION).run()
 
 
-@timer_cache.track("🎨 Creating Images")
-def step_create_images():
+@timer_cache.track("🎨 Creating Scenes")
+def step_create_scenes():
     from src.services.image_service import ImageService
     from src.services.image_service.prompt import PromptService
 
-    prompt_service = PromptService()
-    image_service = ImageService()
+    characters = load_characters()
+    print_characters(characters)
+    with_reference = bool(characters)
+
+    prompt_service = PromptService(with_reference=with_reference)
+    image_service = ImageService(with_reference=with_reference)
 
     prompts = prompt_service.build_scene_prompts()
-    prompt_count = len(prompts)
-    output_paths = reserve_next_file_paths(SCENES_DIR, prompt_count)
-    seeds = [3887616371] * prompt_count
-    image_service.generate_batch(prompts=prompts, output_paths=output_paths, seeds=seeds)
+    references = prompt_service.build_scene_references(characters)
+    output_paths = reserve_next_file_paths(SCENES_DIR, len(prompts))
+
+    image_service.generate_batch(
+        prompts=prompts,
+        output_paths=output_paths,
+        references=references,
+    )
+
+
+@timer_cache.track("🛠️ Editing Scene")
+def step_edit_scene():
+    from src.services.image_service import ImageService
+    from src.services.image_service.prompt import PromptService
+
+    characters = load_characters()
+    print_characters(characters)
+    with_reference = bool(characters)
+
+    prompt_service = PromptService(with_reference=with_reference)
+    image_service = ImageService(with_reference=with_reference)
+
+    scene_index = 7
+    count = 1
+
+    scene = prompt_service.get_scenes()[scene_index]
+
+    character_ids = prompt_service.get_scene_character_ids(scene)
+    references = [characters[cid] for cid in character_ids]
+
+    prompt = get_image_prompt(scene_index)
+
+    output_paths = reserve_next_file_paths(SCENES_DIR, count)
+
+    image_service.generate_variations(
+        prompt=prompt,
+        output_paths=output_paths,
+        count=count,
+        ref_image_paths=references or None,
+    )
+
+
+@timer_cache.track("✨ Creating Thumbnails")
+def step_create_thumbnails():
+    from src.services.image_service import ImageService
+    from src.services.image_service.prompt import PromptService
+
+    characters = load_characters()
+    print_characters(characters)
+    with_reference = bool(characters)
+
+    prompt_service = PromptService(with_reference=with_reference)
+    image_service = ImageService(with_reference=with_reference)
+
+    thumbnails = prompt_service.get_thumbnails()
+
+    prompts = prompt_service.build_thumbnail_prompts()
+    references = prompt_service.build_thumbnail_references(characters)
+    output_paths = [THUMBNAILS_DIR / f"{thumbnail['id']}.png" for thumbnail in thumbnails]
+
+    image_service.generate_batch(
+        prompts=prompts,
+        output_paths=output_paths,
+        references=references,
+    )
+
+
+@timer_cache.track("✍️ Creating Text on Thumbnails")
+def step_create_text_on_thumbnails():
+    from src.services.image_service.prompt import PromptService
+    from src.services.image_text_overlay_service import ImageTextOverlayConfig, ImageTextOverlayService
+
+    prompt_service = PromptService(with_reference=False)
+    thumbnails = prompt_service.get_thumbnails()
+
+    text_overlay_config = ImageTextOverlayConfig(font_path=FONTS_DIR / "Anton-Regular.ttf")
+    text_overlay_service = ImageTextOverlayService(text_overlay_config)
+
+    for thumbnail in thumbnails:
+        text_overlay_service.run(
+            image_path=THUMBNAILS_DIR / f"{thumbnail['id']}.png",
+            text=thumbnail["title_text"],
+            output_path=THUMBNAILS_DIR / f"{thumbnail['id']}_final.png",
+            area=thumbnail.get("composition", {}).get("text_safe_area", "left half"),
+        )
 
 
 @timer_cache.track("🎬 Creating Video")
@@ -107,67 +261,31 @@ def step_create_video():
     ).run()
 
 
-@timer_cache.track("✨ Creating Thumbnails")
-def step_create_thumbnails():
-    from src.services.image_service.prompt import PromptService
-    from src.services.image_service import ImageService
-
-    prompt_service = PromptService()
-    thumbnails = prompt_service.get_thumbnails()
-
-    image_service = ImageService()
-
-    prompts = prompt_service.build_thumbnail_prompts()
-    prompt_count = len(prompts)
-    output_paths = [THUMBNAILS_DIR / f"{thumbnail['id']}.png" for thumbnail in thumbnails]
-    seeds = [3887616371] * prompt_count
-    image_service.generate_batch(prompts=prompts, output_paths=output_paths, seeds=seeds)
-
-
-@timer_cache.track("✍️ Creating Text on Thumbnails")
-def step_create_text_on_thumbnails():
-    from src.services.image_service.prompt import PromptService
-    from src.services.image_text_overlay_service import ImageTextOverlayConfig, ImageTextOverlayService
-
-    prompt_service = PromptService()
-    thumbnails = prompt_service.get_thumbnails()
-
-    text_overlay_config = ImageTextOverlayConfig(font_path=FONTS_DIR / "Anton-Regular.ttf")
-    text_overlay_service = ImageTextOverlayService(text_overlay_config)
-
-    for thumbnail in thumbnails:
-        text_overlay_service.run(
-            image_path=THUMBNAILS_DIR / f"{thumbnail['id']}.png",
-            text=thumbnail["title_text"],
-            output_path=THUMBNAILS_DIR / f"{thumbnail['id']}_final.png",
-            area=thumbnail.get("composition", {}).get("text_safe_area", "left half"),
-        )
-
+TASKS = {
+    "create-audio": step_create_audio,
+    "create-srt": step_create_srt,
+    "create-characters": step_create_characters,
+    "create-scenes": step_create_scenes,
+    "edit-scene": step_edit_scene,
+    "create-video": step_create_video,
+    "create-thumbnails": step_create_thumbnails,
+    "create-text-on-thumbnails": step_create_text_on_thumbnails,
+}
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        task = sys.argv[1]
+    if len(sys.argv) < 2:
+        print("❌ No task specified.")
+        print(f"Available tasks: {' | '.join(TASKS)}")
+        sys.exit(1)
 
-        if task == "audio":
-            step_create_audio()
+    task = sys.argv[1]
 
-        elif task == "srt":
-            step_generate_srt()
+    if task not in TASKS:
+        print(f"❌ Invalid task: {task}")
+        print(f"Available tasks: {' | '.join(TASKS)}")
+        sys.exit(1)
 
-        elif task == "images":
-            step_create_images()
+    TASKS[task]()
 
-        elif task == "video":
-            step_create_video()
-            timer_cache.summary()
-
-        elif task == "thumbnails":
-            step_create_thumbnails()
-
-        elif task == "text-on-thumbnails":
-            step_create_text_on_thumbnails()
-
-        else:
-            print(f"❌ Unknown command: {task}")
-    else:
-        print("❌ Please specify a task: 'audio', 'srt', 'images' or 'video'")
+    if task == "create-video":
+        timer_cache.summary()

@@ -1,1458 +1,1317 @@
 {
   "scenes": [
     {
-      "scene_id": "scene_001",
-      "location": "loc_apartment",
-      "scene_setting": "Bedroom",
-      "background": "Bed, window and simple apartment furnishings.",
+      "scene_id": "scene_01",
+      "location": "harrows_bend",
+      "scene_setting": "town street near apartment",
+      "background": "quiet roadside with a few storefronts",
       "time_of_day": "morning",
-      "weather": "",
+      "weather": "clear",
       "camera": {
-        "shot_size": "medium shot",
+        "shot_size": "medium",
         "angle": "eye level",
-        "focus": "Eli sitting on the edge of the bed"
+        "focus": "John walking alone"
       },
       "characters": [
         {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "tired",
-          "pose": "leaning forward",
-          "gaze": "downward"
-        }
-      ],
-      "objects": []
-    },
-    {
-      "scene_id": "scene_002",
-      "location": "loc_small_town",
-      "scene_setting": "Residential street",
-      "background": "Mist drifting across rooftops.",
-      "time_of_day": "morning",
-      "weather": "misty",
-      "camera": {
-        "shot_size": "wide shot",
-        "angle": "slightly elevated",
-        "focus": "Eli walking through town"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
+          "id": "john",
           "role": "primary",
           "action": "walking",
           "expression": "neutral",
-          "pose": "upright",
+          "pose": "upright stride",
           "gaze": "forward"
         }
       ],
       "objects": []
     },
     {
-      "scene_id": "scene_003",
-      "location": "loc_hardware_store",
-      "scene_setting": "Store aisle",
-      "background": "Shelves stocked with hardware supplies.",
-      "time_of_day": "day",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Eli standing in the aisle"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "standing",
-          "expression": "neutral",
-          "pose": "relaxed standing",
-          "gaze": "toward the shelves"
-        }
-      ],
-      "objects": []
-    },
-    {
-      "scene_id": "scene_004",
-      "location": "loc_mountain_trail",
-      "scene_setting": "Forest trail",
-      "background": "Trees lining both sides of the path.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "wide shot",
-        "angle": "behind subject",
-        "focus": "Eli walking uphill"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "walking",
-          "expression": "neutral",
-          "pose": "walking uphill",
-          "gaze": "along the trail"
-        }
-      ],
-      "objects": []
-    },
-    {
-      "scene_id": "scene_005",
-      "location": "loc_clearing",
-      "scene_setting": "Overlook beside the flat stone",
-      "background": "Open valley visible beyond the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "clear",
-      "camera": {
-        "shot_size": "wide shot",
-        "angle": "eye level",
-        "focus": "Thomas sitting on the flat stone"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "neutral",
-          "pose": "upright seated",
-          "gaze": "toward the valley"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_006",
-      "location": "loc_clearing",
-      "scene_setting": "Edge of the clearing",
-      "background": "Valley and surrounding trees.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium wide shot",
-        "angle": "eye level",
-        "focus": "Eli stopping near Thomas"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "standing",
-          "expression": "neutral",
-          "pose": "paused mid-step",
-          "gaze": "toward Thomas"
-        },
-        {
-          "id": "char_thomas",
-          "role": "supporting",
-          "action": "sitting",
-          "expression": "neutral",
-          "pose": "upright seated",
-          "gaze": "toward the valley"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_007",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Open overlook behind both characters.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas responding to Eli"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "looking at Eli",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "standing",
-          "expression": "slight smile",
-          "pose": "relaxed standing",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_008",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Mountain valley beyond the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium wide shot",
-        "angle": "eye level",
-        "focus": "Eli sitting beside Thomas"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "neutral",
-          "pose": "relaxed seated",
-          "gaze": "toward Thomas"
-        },
-        {
-          "id": "char_thomas",
-          "role": "supporting",
-          "action": "sitting",
-          "expression": "neutral",
-          "pose": "upright seated",
-          "gaze": "toward Eli"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_009",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Trees framing the overlook.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas speaking while seated"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "upright seated",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "listening",
-          "expression": "attentive",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_010",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Valley overlook in the distance.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "close-up",
-        "angle": "eye level",
-        "focus": "Eli speaking to Thomas"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "serious",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        },
-        {
-          "id": "char_thomas",
-          "role": "supporting",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_011",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Open valley beyond the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas asking Eli a question"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_012",
-      "location": "loc_apartment",
-      "scene_setting": "Bedroom",
-      "background": "Bed and window visible.",
+      "scene_id": "scene_02",
+      "location": "harrows_bend",
+      "scene_setting": "small apartment bedroom",
+      "background": "plain interior wall and window",
       "time_of_day": "night",
       "weather": "",
       "camera": {
-        "shot_size": "medium shot",
-        "angle": "slightly above eye level",
-        "focus": "Eli using his phone in bed"
+        "shot_size": "medium",
+        "angle": "slightly high",
+        "focus": "John lying on bed"
       },
       "characters": [
         {
-          "id": "char_eli",
+          "id": "john",
           "role": "primary",
-          "action": "holding a phone",
+          "action": "lying on bed",
           "expression": "neutral",
-          "pose": "lying on the bed",
-          "gaze": "toward the phone"
+          "pose": "lying on his back",
+          "gaze": "toward the ceiling"
         }
       ],
       "objects": []
     },
     {
-      "scene_id": "scene_013",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Trees surrounding the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "close-up",
-        "angle": "eye level",
-        "focus": "Eli sitting quietly"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "thoughtful",
-          "pose": "still seated",
-          "gaze": "downward"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_014",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Mountain overlook.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas giving instructions"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_015",
-      "location": "loc_clearing",
-      "scene_setting": "Near the overlook",
-      "background": "Valley extending behind Thomas.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium close-up",
-        "angle": "eye level",
-        "focus": "Thomas calmly facing Eli"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "standing",
-          "expression": "calm",
-          "pose": "relaxed standing",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "standing",
-          "expression": "neutral",
-          "pose": "upright",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": []
-    },
-    {
-      "scene_id": "scene_016",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Trees and distant valley.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "wide shot",
-        "angle": "eye level",
-        "focus": "Eli sitting alone on the stone"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "neutral",
-          "pose": "upright seated",
-          "gaze": "forward"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone",
-        "obj_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_017",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Forest edge around the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "close-up",
-        "angle": "eye level",
-        "focus": "Eli waiting while seated"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "tense",
-          "pose": "hands resting on knees",
-          "gaze": "downward"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone",
-        "obj_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_018",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Open valley behind Eli.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "side view",
-        "focus": "Eli remaining seated"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "strained",
-          "pose": "leaning forward",
-          "gaze": "toward the ground"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone",
-        "obj_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_019",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Mountain overlook.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium wide shot",
-        "angle": "eye level",
-        "focus": "Thomas approaching Eli after the timer"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "standing",
-          "expression": "neutral",
-          "pose": "relaxed standing",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "looking at Thomas",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone",
-        "obj_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_020",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Trees bordering the overlook.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Eli answering Thomas"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "serious",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        },
-        {
-          "id": "char_thomas",
-          "role": "supporting",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Eli"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone",
-        "obj_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_021",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Mountain overlook behind both characters.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas speaking while Eli listens"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "listening",
-          "expression": "serious",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_022",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Trees and valley visible.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "close-up",
-        "angle": "eye level",
-        "focus": "Eli sitting quietly"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "thoughtful",
-          "pose": "upright seated",
-          "gaze": "downward"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_023",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Mountain clearing and distant valley.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas inviting Eli to return"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "standing",
-          "expression": "neutral",
-          "pose": "upright",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_024",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Forest edge surrounding the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "front view",
-        "focus": "Eli seated during another session"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "tense",
-          "pose": "upright seated",
-          "gaze": "toward the ground"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone",
-        "obj_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_025",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Trees and open sky.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "close-up",
-        "angle": "eye level",
-        "focus": "Eli remaining still"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "neutral",
-          "pose": "relaxed seated",
-          "gaze": "forward"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone",
-        "obj_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_026",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Quiet overlook and trees.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium close-up",
-        "angle": "side view",
-        "focus": "Eli sitting without moving"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "calm",
-          "pose": "upright seated",
-          "gaze": "forward"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone",
-        "obj_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_027",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Mountain valley beyond the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "three-quarter view",
-        "focus": "Eli after the timer finishes"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "looking into the distance",
-          "expression": "relaxed",
-          "pose": "seated",
-          "gaze": "toward the valley"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone",
-        "obj_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_028",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Trees framing the overlook.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas smiling while speaking"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "slight smile",
-          "pose": "standing",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_029",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Open valley visible behind Thomas.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas explaining with hand gestures"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "listening",
-          "expression": "attentive",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_030",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Mountain landscape in the distance.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Eli asking Thomas a question"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "curious",
-          "pose": "seated",
-          "gaze": "toward Thomas"
-        },
-        {
-          "id": "char_thomas",
-          "role": "supporting",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Eli"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone"
-      ]
-    },
-    {
-      "scene_id": "scene_031",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Mountain overlook beyond the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas holding a carved piece of wood"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "holding a carved wood block",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward the wood"
-        },
-        {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "watching",
-          "expression": "attentive",
-          "pose": "standing",
-          "gaze": "toward the wood"
-        }
-      ],
-      "objects": [
-        "obj_carving_wood",
-        "obj_carving_knife"
-      ]
-    },
-    {
-      "scene_id": "scene_032",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Trees surrounding the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium close-up",
-        "angle": "eye level",
-        "focus": "Thomas carving wood while speaking"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "carving wood",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward the carving"
-        },
-        {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "observing",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": [
-        "obj_carving_wood",
-        "obj_carving_knife"
-      ]
-    },
-    {
-      "scene_id": "scene_033",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Valley and trees visible.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "wide shot",
-        "angle": "eye level",
-        "focus": "Eli sitting on the flat stone"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "sitting",
-          "expression": "calm",
-          "pose": "upright seated",
-          "gaze": "toward the valley"
-        }
-      ],
-      "objects": [
-        "obj_flat_stone",
-        "obj_watch"
-      ]
-    },
-    {
-      "scene_id": "scene_034",
-      "location": "loc_hardware_store",
-      "scene_setting": "Store aisle",
-      "background": "Shelves filled with hardware supplies.",
+      "scene_id": "scene_03",
+      "location": "harrows_bend",
+      "scene_setting": "town street",
+      "background": "quiet buildings along the road",
       "time_of_day": "day",
-      "weather": "",
+      "weather": "clear",
       "camera": {
-        "shot_size": "medium shot",
+        "shot_size": "full",
         "angle": "eye level",
-        "focus": "Eli facing someone off-camera"
+        "focus": "John walking"
       },
       "characters": [
         {
-          "id": "char_eli",
+          "id": "john",
           "role": "primary",
-          "action": "standing",
+          "action": "walking",
           "expression": "neutral",
           "pose": "upright",
-          "gaze": "toward someone off-camera"
+          "gaze": "ahead"
         }
       ],
       "objects": []
     },
     {
-      "scene_id": "scene_035",
-      "location": "loc_hardware_store",
-      "scene_setting": "Store aisle",
-      "background": "Checkout area partially visible.",
+      "scene_id": "scene_04",
+      "location": "harrows_bend",
+      "scene_setting": "main road entering town",
+      "background": "mountains surrounding the town",
       "time_of_day": "day",
-      "weather": "",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "wide",
+        "angle": "eye level",
+        "focus": "John arriving in town"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "standing",
+          "expression": "neutral",
+          "pose": "upright",
+          "gaze": "toward the town"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_05",
+      "location": "cafe",
+      "scene_setting": "window table",
+      "background": "front window overlooking the street",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "John seated with laptop"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "sitting",
+          "expression": "neutral",
+          "pose": "seated at table",
+          "gaze": "toward the window"
+        }
+      ],
+      "objects": [
+        "laptop",
+        "coffee_cup"
+      ]
+    },
+    {
+      "scene_id": "scene_06",
+      "location": "cafe",
+      "scene_setting": "corner table",
+      "background": "wooden cafe interior",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "Edmund reading"
+      },
+      "characters": [
+        {
+          "id": "edmund",
+          "role": "primary",
+          "action": "reading newspaper",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "at the newspaper"
+        }
+      ],
+      "objects": [
+        "newspaper"
+      ]
+    },
+    {
+      "scene_id": "scene_07",
+      "location": "cafe",
+      "scene_setting": "corner seating area",
+      "background": "wooden walls and nearby tables",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "over the shoulder",
+        "focus": "John observing Edmund"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "standing",
+          "expression": "neutral",
+          "pose": "upright",
+          "gaze": "toward Edmund"
+        },
+        {
+          "id": "edmund",
+          "role": "secondary",
+          "action": "reading newspaper",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "at the newspaper"
+        }
+      ],
+      "objects": [
+        "newspaper"
+      ]
+    },
+    {
+      "scene_id": "scene_08",
+      "location": "cafe",
+      "scene_setting": "adjacent tables",
+      "background": "quiet cafe interior",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "John speaking to Edmund"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "sitting",
+          "expression": "neutral",
+          "pose": "leaning slightly forward",
+          "gaze": "toward Edmund"
+        },
+        {
+          "id": "edmund",
+          "role": "secondary",
+          "action": "looking up",
+          "expression": "slight smile",
+          "pose": "seated",
+          "gaze": "toward John"
+        }
+      ],
+      "objects": [
+        "newspaper"
+      ]
+    },
+    {
+      "scene_id": "scene_09",
+      "location": "cafe",
+      "scene_setting": "corner table",
+      "background": "window and wooden furniture",
+      "time_of_day": "morning",
+      "weather": "clear",
       "camera": {
         "shot_size": "close-up",
         "angle": "eye level",
-        "focus": "Eli standing calmly"
+        "focus": "Edmund speaking"
       },
       "characters": [
         {
-          "id": "char_eli",
+          "id": "edmund",
           "role": "primary",
-          "action": "standing",
-          "expression": "relaxed",
-          "pose": "upright",
-          "gaze": "forward"
-        }
-      ],
-      "objects": []
-    },
-    {
-      "scene_id": "scene_036",
-      "location": "loc_apartment",
-      "scene_setting": "Dining area",
-      "background": "Small dining table and apartment interior.",
-      "time_of_day": "evening",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Eli eating dinner"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "eating",
-          "expression": "relaxed",
+          "action": "speaking",
+          "expression": "slight smile",
           "pose": "seated",
-          "gaze": "toward the meal"
-        }
-      ],
-      "objects": []
-    },
-    {
-      "scene_id": "scene_037",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Mountain overlook.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas asking Eli a question"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Eli"
+          "gaze": "toward John"
         },
         {
-          "id": "char_eli",
-          "role": "supporting",
+          "id": "john",
+          "role": "secondary",
           "action": "listening",
           "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Thomas"
+          "pose": "seated",
+          "gaze": "toward Edmund"
         }
       ],
       "objects": [
-        "obj_flat_stone"
+        "newspaper"
       ]
     },
     {
-      "scene_id": "scene_038",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Trees and distant valley.",
-      "time_of_day": "afternoon",
-      "weather": "",
+      "scene_id": "scene_10",
+      "location": "cafe",
+      "scene_setting": "adjacent tables",
+      "background": "quiet cafe",
+      "time_of_day": "morning",
+      "weather": "clear",
       "camera": {
         "shot_size": "medium close-up",
         "angle": "eye level",
-        "focus": "Eli listening quietly"
+        "focus": "John speaking"
       },
       "characters": [
         {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "standing",
-          "expression": "neutral",
-          "pose": "upright",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": []
-    },
-    {
-      "scene_id": "scene_039",
-      "location": "loc_clearing",
-      "scene_setting": "Mountain overlook",
-      "background": "Open valley stretching into the distance.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "wide shot",
-        "angle": "behind Eli",
-        "focus": "Eli looking across the valley"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "standing",
-          "expression": "calm",
-          "pose": "upright",
-          "gaze": "toward the valley"
-        }
-      ],
-      "objects": []
-    },
-    {
-      "scene_id": "scene_040",
-      "location": "loc_clearing",
-      "scene_setting": "Mountain overlook",
-      "background": "Valley and mountain landscape.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Eli answering Thomas"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "speaking",
-          "expression": "slight smile",
-          "pose": "standing",
-          "gaze": "toward Thomas"
-        },
-        {
-          "id": "char_thomas",
-          "role": "supporting",
-          "action": "listening",
-          "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Eli"
-        }
-      ],
-      "objects": []
-    },
-    {
-      "scene_id": "scene_041",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Mountain overlook and surrounding trees.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas watching Eli"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
-          "role": "primary",
-          "action": "standing",
-          "expression": "slight smile",
-          "pose": "relaxed standing",
-          "gaze": "toward Eli"
-        },
-        {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "standing",
-          "expression": "neutral",
-          "pose": "upright",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": []
-    },
-    {
-      "scene_id": "scene_042",
-      "location": "loc_clearing",
-      "scene_setting": "Mountain overlook",
-      "background": "Valley extending beneath the mountains.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "eye level",
-        "focus": "Thomas speaking"
-      },
-      "characters": [
-        {
-          "id": "char_thomas",
+          "id": "john",
           "role": "primary",
           "action": "speaking",
           "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Eli"
+          "pose": "seated",
+          "gaze": "toward Edmund"
         },
         {
-          "id": "char_eli",
-          "role": "supporting",
+          "id": "edmund",
+          "role": "secondary",
           "action": "listening",
           "expression": "neutral",
-          "pose": "standing",
-          "gaze": "toward Thomas"
+          "pose": "seated",
+          "gaze": "toward John"
         }
       ],
       "objects": []
     },
     {
-      "scene_id": "scene_043",
-      "location": "loc_clearing",
-      "scene_setting": "Mountain overlook",
-      "background": "Open valley and distant mountains.",
-      "time_of_day": "afternoon",
-      "weather": "",
+      "scene_id": "scene_11",
+      "location": "cafe",
+      "scene_setting": "corner table",
+      "background": "cafe interior",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "Edmund inviting John"
+      },
+      "characters": [
+        {
+          "id": "edmund",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward John"
+        },
+        {
+          "id": "john",
+          "role": "secondary",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward Edmund"
+        }
+      ],
+      "objects": [
+        "newspaper"
+      ]
+    },
+    {
+      "scene_id": "scene_12",
+      "location": "mountain_river",
+      "scene_setting": "riverbank",
+      "background": "clear flowing river",
+      "time_of_day": "early morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "wide",
+        "angle": "eye level",
+        "focus": "John arriving"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "standing",
+          "expression": "neutral",
+          "pose": "upright",
+          "gaze": "toward the river"
+        },
+        {
+          "id": "edmund",
+          "role": "secondary",
+          "action": "standing",
+          "expression": "neutral",
+          "pose": "upright",
+          "gaze": "toward John"
+        }
+      ],
+      "objects": [
+        "rubber_boots",
+        "bucket",
+        "long_handled_net"
+      ]
+    },
+    {
+      "scene_id": "scene_13",
+      "location": "mountain_river",
+      "scene_setting": "shallow river",
+      "background": "rocky riverbed",
+      "time_of_day": "early morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "wide",
+        "angle": "low",
+        "focus": "both characters using nets"
+      },
+      "characters": [
+        {
+          "id": "edmund",
+          "role": "primary",
+          "action": "holding net in water",
+          "expression": "neutral",
+          "pose": "standing in river",
+          "gaze": "toward the water"
+        },
+        {
+          "id": "john",
+          "role": "secondary",
+          "action": "holding net in water",
+          "expression": "neutral",
+          "pose": "standing in river",
+          "gaze": "toward the water"
+        }
+      ],
+      "objects": [
+        "rubber_boots",
+        "bucket",
+        "long_handled_net"
+      ]
+    },
+    {
+      "scene_id": "scene_14",
+      "location": "mountain_river",
+      "scene_setting": "shallow river",
+      "background": "flowing water",
+      "time_of_day": "early morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "John checking his phone"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "looking at phone",
+          "expression": "neutral",
+          "pose": "standing in river",
+          "gaze": "at his phone"
+        },
+        {
+          "id": "edmund",
+          "role": "secondary",
+          "action": "holding net in water",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward the water"
+        }
+      ],
+      "objects": [
+        "long_handled_net",
+        "bucket"
+      ]
+    },
+    {
+      "scene_id": "scene_15",
+      "location": "mountain_river",
+      "scene_setting": "river current",
+      "background": "clear water",
+      "time_of_day": "early morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "Edmund speaking"
+      },
+      "characters": [
+        {
+          "id": "edmund",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward John"
+        },
+        {
+          "id": "john",
+          "role": "secondary",
+          "action": "holding net",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward the net"
+        }
+      ],
+      "objects": [
+        "long_handled_net"
+      ]
+    },
+    {
+      "scene_id": "scene_16",
+      "location": "mountain_river",
+      "scene_setting": "shallow river",
+      "background": "stones beneath clear water",
+      "time_of_day": "early morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "close-up",
+        "angle": "slightly high",
+        "focus": "John looking at the net"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "looking down",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward the net"
+        }
+      ],
+      "objects": [
+        "long_handled_net"
+      ]
+    },
+    {
+      "scene_id": "scene_17",
+      "location": "mountain_river",
+      "scene_setting": "river current",
+      "background": "moving water",
+      "time_of_day": "early morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "John holding the net still"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "holding net still",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward the water"
+        }
+      ],
+      "objects": [
+        "long_handled_net"
+      ]
+    },
+    {
+      "scene_id": "scene_18",
+      "location": "mountain_river",
+      "scene_setting": "shallow river",
+      "background": "water flowing over stones",
+      "time_of_day": "early morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "close-up",
+        "angle": "low",
+        "focus": "fish inside the net"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "lifting the net",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward the net"
+        }
+      ],
+      "objects": [
+        "long_handled_net"
+      ]
+    },
+    {
+      "scene_id": "scene_19",
+      "location": "mountain_river",
+      "scene_setting": "river",
+      "background": "forest beyond the bank",
+      "time_of_day": "early morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "Edmund nodding"
+      },
+      "characters": [
+        {
+          "id": "edmund",
+          "role": "primary",
+          "action": "nodding",
+          "expression": "slight smile",
+          "pose": "standing",
+          "gaze": "toward John"
+        },
+        {
+          "id": "john",
+          "role": "secondary",
+          "action": "holding the net",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Edmund"
+        }
+      ],
+      "objects": [
+        "long_handled_net"
+      ]
+    },
+    {
+      "scene_id": "scene_20",
+      "location": "mountain_river",
+      "scene_setting": "riverbank",
+      "background": "gravel shore",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "wide",
+        "angle": "eye level",
+        "focus": "both characters beside the bucket"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "standing",
+          "expression": "neutral",
+          "pose": "upright",
+          "gaze": "toward the bucket"
+        },
+        {
+          "id": "edmund",
+          "role": "secondary",
+          "action": "standing",
+          "expression": "neutral",
+          "pose": "upright",
+          "gaze": "toward the bucket"
+        }
+      ],
+      "objects": [
+        "bucket",
+        "long_handled_net"
+      ]
+    },
+    {
+      "scene_id": "scene_21",
+      "location": "mountain_river",
+      "scene_setting": "flat riverside rock",
+      "background": "river behind them",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "conversation beside the river"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Edmund"
+        },
+        {
+          "id": "edmund",
+          "role": "secondary",
+          "action": "sitting",
+          "expression": "neutral",
+          "pose": "seated on rock",
+          "gaze": "toward John"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_22",
+      "location": "mountain_river",
+      "scene_setting": "flat riverside rock",
+      "background": "flowing river",
+      "time_of_day": "morning",
+      "weather": "clear",
       "camera": {
         "shot_size": "medium close-up",
         "angle": "eye level",
-        "focus": "Thomas continuing to speak"
+        "focus": "Edmund asking a question"
       },
       "characters": [
         {
-          "id": "char_thomas",
+          "id": "edmund",
           "role": "primary",
           "action": "speaking",
-          "expression": "calm",
-          "pose": "standing",
-          "gaze": "toward Eli"
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward John"
         },
         {
-          "id": "char_eli",
-          "role": "supporting",
+          "id": "john",
+          "role": "secondary",
           "action": "listening",
-          "expression": "attentive",
-          "pose": "standing",
-          "gaze": "toward Thomas"
-        }
-      ],
-      "objects": []
-    },
-    {
-      "scene_id": "scene_044",
-      "location": "loc_clearing",
-      "scene_setting": "Mountain overlook",
-      "background": "Wide valley beyond the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "wide shot",
-        "angle": "behind Eli",
-        "focus": "Eli looking across the valley"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "standing",
           "expression": "neutral",
-          "pose": "upright",
-          "gaze": "toward the valley"
+          "pose": "standing",
+          "gaze": "toward Edmund"
         }
       ],
       "objects": []
     },
     {
-      "scene_id": "scene_045",
-      "location": "loc_clearing",
-      "scene_setting": "Mountain overlook",
-      "background": "Valley partially covered by rolling mist.",
+      "scene_id": "scene_23",
+      "location": "mountain_river",
+      "scene_setting": "riverbank",
+      "background": "trees across the river",
       "time_of_day": "morning",
-      "weather": "misty",
+      "weather": "clear",
       "camera": {
-        "shot_size": "wide shot",
-        "angle": "landscape view",
-        "focus": "Mist moving across the valley"
-      },
-      "characters": [],
-      "objects": []
-    },
-    {
-      "scene_id": "scene_046",
-      "location": "loc_clearing",
-      "scene_setting": "Mountain overlook",
-      "background": "Mist drifting through the valley.",
-      "time_of_day": "morning",
-      "weather": "misty",
-      "camera": {
-        "shot_size": "medium shot",
-        "angle": "side view",
-        "focus": "Eli watching the landscape"
-      },
-      "characters": [
-        {
-          "id": "char_eli",
-          "role": "primary",
-          "action": "standing",
-          "expression": "calm",
-          "pose": "upright",
-          "gaze": "toward the valley"
-        }
-      ],
-      "objects": []
-    },
-    {
-      "scene_id": "scene_047",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Trees surrounding the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "",
-      "camera": {
-        "shot_size": "medium shot",
+        "shot_size": "medium close-up",
         "angle": "eye level",
-        "focus": "Thomas demonstrating wood carving beside Eli"
+        "focus": "John answering"
       },
       "characters": [
         {
-          "id": "char_thomas",
+          "id": "john",
           "role": "primary",
-          "action": "carving wood",
+          "action": "speaking",
           "expression": "neutral",
           "pose": "standing",
-          "gaze": "toward the carving"
+          "gaze": "toward Edmund"
         },
         {
-          "id": "char_eli",
-          "role": "supporting",
-          "action": "watching",
+          "id": "edmund",
+          "role": "secondary",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward John"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_24",
+      "location": "mountain_river",
+      "scene_setting": "flat riverside rock",
+      "background": "river",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "Edmund talking"
+      },
+      "characters": [
+        {
+          "id": "edmund",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward John"
+        },
+        {
+          "id": "john",
+          "role": "secondary",
+          "action": "listening",
           "expression": "neutral",
           "pose": "standing",
-          "gaze": "toward Thomas"
+          "gaze": "toward Edmund"
         }
       ],
-      "objects": [
-        "obj_carving_wood",
-        "obj_carving_knife",
-        "obj_flat_stone"
-      ]
+      "objects": []
     },
     {
-      "scene_id": "scene_048",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Mountain valley beyond the clearing.",
-      "time_of_day": "afternoon",
-      "weather": "",
+      "scene_id": "scene_25",
+      "location": "mountain_river",
+      "scene_setting": "riverbank",
+      "background": "forest edge",
+      "time_of_day": "morning",
+      "weather": "clear",
       "camera": {
-        "shot_size": "medium shot",
-        "angle": "front view",
-        "focus": "Eli sitting during another session"
+        "shot_size": "close-up",
+        "angle": "eye level",
+        "focus": "John listening"
       },
       "characters": [
         {
-          "id": "char_eli",
+          "id": "john",
+          "role": "primary",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Edmund"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_26",
+      "location": "mountain_river",
+      "scene_setting": "flat riverside rock",
+      "background": "river",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "Edmund continuing to speak"
+      },
+      "characters": [
+        {
+          "id": "edmund",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward John"
+        },
+        {
+          "id": "john",
+          "role": "secondary",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Edmund"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_27",
+      "location": "mountain_river",
+      "scene_setting": "riverbank",
+      "background": "clear river",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "John speaking"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Edmund"
+        },
+        {
+          "id": "edmund",
+          "role": "secondary",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward John"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_28",
+      "location": "mountain_river",
+      "scene_setting": "flat riverside rock",
+      "background": "trees and river",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "Edmund answering"
+      },
+      "characters": [
+        {
+          "id": "edmund",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward John"
+        },
+        {
+          "id": "john",
+          "role": "secondary",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Edmund"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_29",
+      "location": "mountain_river",
+      "scene_setting": "riverbank",
+      "background": "flowing water",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "Edmund speaking"
+      },
+      "characters": [
+        {
+          "id": "edmund",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward John"
+        },
+        {
+          "id": "john",
+          "role": "secondary",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Edmund"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_30",
+      "location": "mountain_river",
+      "scene_setting": "riverbank",
+      "background": "river",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "close-up",
+        "angle": "eye level",
+        "focus": "John"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Edmund"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_31",
+      "location": "mountain_river",
+      "scene_setting": "riverbank",
+      "background": "forest",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "John asking a question"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Edmund"
+        },
+        {
+          "id": "edmund",
+          "role": "secondary",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward John"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_32",
+      "location": "mountain_river",
+      "scene_setting": "flat riverside rock",
+      "background": "river",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "Edmund smiling"
+      },
+      "characters": [
+        {
+          "id": "edmund",
+          "role": "primary",
+          "action": "speaking",
+          "expression": "slight smile",
+          "pose": "seated",
+          "gaze": "toward John"
+        },
+        {
+          "id": "john",
+          "role": "secondary",
+          "action": "listening",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward Edmund"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_33",
+      "location": "mountain_river",
+      "scene_setting": "riverbank",
+      "background": "flowing river",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "wide",
+        "angle": "eye level",
+        "focus": "both characters by the river"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "standing",
+          "expression": "neutral",
+          "pose": "upright",
+          "gaze": "toward Edmund"
+        },
+        {
+          "id": "edmund",
+          "role": "secondary",
+          "action": "standing",
+          "expression": "neutral",
+          "pose": "upright",
+          "gaze": "toward John"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_34",
+      "location": "mountain_river",
+      "scene_setting": "shallow river",
+      "background": "river and trees",
+      "time_of_day": "early morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "wide",
+        "angle": "eye level",
+        "focus": "John and Edmund practicing with the nets"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "holding net in water",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward the water"
+        },
+        {
+          "id": "edmund",
+          "role": "secondary",
+          "action": "holding net in water",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward the water"
+        }
+      ],
+      "objects": [
+        "long_handled_net",
+        "bucket"
+      ]
+    },
+    {
+      "scene_id": "scene_35",
+      "location": "cafe",
+      "scene_setting": "window table",
+      "background": "large front window",
+      "time_of_day": "day",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "John working"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "using laptop",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "at the laptop"
+        }
+      ],
+      "objects": [
+        "laptop",
+        "coffee_cup"
+      ]
+    },
+    {
+      "scene_id": "scene_36",
+      "location": "harrows_bend",
+      "scene_setting": "quiet town street",
+      "background": "trees with autumn colors",
+      "time_of_day": "afternoon",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "wide",
+        "angle": "eye level",
+        "focus": "John walking"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "walking",
+          "expression": "neutral",
+          "pose": "upright",
+          "gaze": "ahead"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_37",
+      "location": "cafe",
+      "scene_setting": "window table",
+      "background": "gold and amber mountains visible through the window",
+      "time_of_day": "afternoon",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "wide",
+        "angle": "eye level",
+        "focus": "John seated while Edmund sits in the corner"
+      },
+      "characters": [
+        {
+          "id": "john",
           "role": "primary",
           "action": "sitting",
           "expression": "neutral",
-          "pose": "upright seated",
-          "gaze": "forward"
+          "pose": "seated",
+          "gaze": "toward the window"
+        },
+        {
+          "id": "edmund",
+          "role": "secondary",
+          "action": "reading newspaper",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "at the newspaper"
         }
       ],
       "objects": [
-        "obj_flat_stone",
-        "obj_watch"
+        "laptop",
+        "newspaper"
       ]
     },
     {
-      "scene_id": "scene_049",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Trees and valley overlook.",
+      "scene_id": "scene_38",
+      "location": "cafe",
+      "scene_setting": "window table",
+      "background": "autumn mountain view",
       "time_of_day": "afternoon",
-      "weather": "",
+      "weather": "clear",
       "camera": {
-        "shot_size": "medium shot",
-        "angle": "side view",
-        "focus": "Eli sitting quietly"
+        "shot_size": "medium",
+        "angle": "over the shoulder",
+        "focus": "John closing his laptop"
       },
       "characters": [
         {
-          "id": "char_eli",
+          "id": "john",
           "role": "primary",
-          "action": "sitting",
-          "expression": "relaxed",
-          "pose": "upright seated",
-          "gaze": "toward the valley"
+          "action": "closing laptop",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "toward the window"
         }
       ],
       "objects": [
-        "obj_flat_stone",
-        "obj_watch"
+        "laptop"
       ]
     },
     {
-      "scene_id": "scene_050",
-      "location": "loc_clearing",
-      "scene_setting": "Beside the flat stone",
-      "background": "Mountain overlook under soft daylight.",
+      "scene_id": "scene_39",
+      "location": "cafe",
+      "scene_setting": "window table",
+      "background": "mountain visible through glass",
       "time_of_day": "afternoon",
-      "weather": "",
+      "weather": "clear",
       "camera": {
-        "shot_size": "wide shot",
-        "angle": "behind Eli",
-        "focus": "Eli seated alone overlooking the valley"
+        "shot_size": "medium close-up",
+        "angle": "eye level",
+        "focus": "John looking outside"
       },
       "characters": [
         {
-          "id": "char_eli",
+          "id": "john",
           "role": "primary",
-          "action": "sitting",
-          "expression": "calm",
-          "pose": "relaxed seated",
-          "gaze": "toward the valley"
+          "action": "looking out the window",
+          "expression": "neutral",
+          "pose": "seated",
+          "gaze": "through the window"
+        }
+      ],
+      "objects": []
+    },
+    {
+      "scene_id": "scene_40",
+      "location": "cafe",
+      "scene_setting": "corner seating area",
+      "background": "wooden interior",
+      "time_of_day": "afternoon",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "John and Edmund exchanging a nod"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "smiling",
+          "expression": "slight smile",
+          "pose": "seated",
+          "gaze": "toward Edmund"
+        },
+        {
+          "id": "edmund",
+          "role": "secondary",
+          "action": "nodding",
+          "expression": "slight smile",
+          "pose": "seated",
+          "gaze": "toward John"
         }
       ],
       "objects": [
-        "obj_flat_stone"
+        "newspaper"
+      ]
+    },
+    {
+      "scene_id": "scene_41",
+      "location": "mountain_river",
+      "scene_setting": "shallow river",
+      "background": "moving water over stones",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "wide",
+        "angle": "low",
+        "focus": "John standing still with the net in the current"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "holding net in water",
+          "expression": "neutral",
+          "pose": "standing",
+          "gaze": "toward the current"
+        }
+      ],
+      "objects": [
+        "long_handled_net"
+      ]
+    },
+    {
+      "scene_id": "scene_42",
+      "location": "mountain_river",
+      "scene_setting": "shallow section of the river",
+      "background": "gentle current flowing between smooth stones",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "wide",
+        "angle": "eye level",
+        "focus": "John standing still in the river with the net"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "holding the net steady in the water",
+          "expression": "neutral",
+          "pose": "standing upright",
+          "gaze": "toward the current"
+        }
+      ],
+      "objects": [
+        "long_handled_net"
+      ]
+    },
+    {
+      "scene_id": "scene_43",
+      "location": "mountain_river",
+      "scene_setting": "riverbank beside the flowing water",
+      "background": "clear river moving past the rocky shore",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "wide",
+        "angle": "low",
+        "focus": "the flowing river with John standing motionless near the water"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "standing beside the river",
+          "expression": "neutral",
+          "pose": "upright",
+          "gaze": "toward the flowing water"
+        }
+      ],
+      "objects": [
+        "long_handled_net"
+      ]
+    },
+    {
+      "scene_id": "scene_44",
+      "location": "mountain_river",
+      "scene_setting": "shallow river",
+      "background": "clear water over rounded stones",
+      "time_of_day": "morning",
+      "weather": "clear",
+      "camera": {
+        "shot_size": "medium",
+        "angle": "eye level",
+        "focus": "John remaining still with the net in the current"
+      },
+      "characters": [
+        {
+          "id": "john",
+          "role": "primary",
+          "action": "holding the net in the water",
+          "expression": "slight smile",
+          "pose": "standing",
+          "gaze": "toward the net"
+        }
+      ],
+      "objects": [
+        "long_handled_net"
       ]
     }
   ]

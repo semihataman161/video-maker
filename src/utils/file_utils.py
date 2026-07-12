@@ -20,7 +20,7 @@ def try_validate_path(path: Path | str):
     if is_path_exist(path):
         return path
     else:
-        raise ValueError(f"File not found: {path}")
+        raise FileNotFoundError(f"File not found: {path}")
 
 
 def validate_paths(paths: list[str]):

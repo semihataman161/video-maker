@@ -1,6 +1,9 @@
 import os
 from PIL import Image
 
+from src.utils.file_utils import try_read_json
+from src.constants import SCENES_DIR
+
 
 def crop_image(
         image_path: str,
@@ -45,3 +48,12 @@ def crop_images(
                 right_pct,
                 bottom_pct
             )
+
+
+def get_image_prompt(index: int) -> str:
+    prompts = try_read_json(SCENES_DIR / "data.json")
+
+    if not (1 <= index <= len(prompts)):
+        raise IndexError(f"Index {index} not found.")
+
+    return prompts[index - 1]["prompt"]

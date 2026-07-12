@@ -1,175 +1,154 @@
 {
   "visual_style": "stylized digital illustration, painterly rendering, storybook illustration, modern animated film concept art, soft lighting, warm color grading, cinematic composition, detailed environments, matte painting background, 16:9, not a photograph",
   "characters": {
-    "char_eli": {
-      "id": "char_eli",
-      "name": "Eli",
-      "identity_blend": "a 26-year-old lean man, perfect facial blend of Logan Lerman (60%) and Andrew Garfield (40%), short slightly messy dark brown hair, hazel eyes, clean-shaven.",
+    "john": {
+      "id": "john",
+      "name": "John",
+      "identity_blend": "a 26-year-old lean man, perfect facial blend of Andrew Garfield (60%) and Logan Lerman (40%), short slightly messy dark brown hair, hazel eyes, clean-shaven.",
       "default_clothing": {
-        "upper": "olive green long-sleeve henley shirt",
+        "upper": "charcoal long-sleeve henley shirt",
         "lower": "dark blue straight-fit jeans",
         "footwear": "brown leather hiking boots",
-        "outerwear": "charcoal zip-up jacket",
+        "outerwear": "olive green lightweight field jacket",
         "accessories": [
-          "old analog wristwatch"
+          "black wristwatch"
         ]
       }
     },
-    "char_thomas": {
-      "id": "char_thomas",
-      "name": "Thomas",
-      "identity_blend": "a 72-year-old average-build man, perfect facial blend of Sam Elliott (55%) and Liam Neeson (45%), medium-length gray hair, blue eyes, full gray beard.",
+    "edmund": {
+      "id": "edmund",
+      "name": "Edmund",
+      "identity_blend": "a 72-year-old average-build man, perfect facial blend of Sam Elliott (55%) and Ian McKellen (45%), neatly combed white hair, blue-gray eyes, full white mustache and short beard.",
       "default_clothing": {
-        "upper": "light beige flannel shirt",
-        "lower": "brown work trousers",
-        "footwear": "weathered leather work boots",
-        "outerwear": "dark wool vest",
+        "upper": "light beige button-up work shirt",
+        "lower": "dark olive work trousers",
+        "footwear": "green rubber boots",
+        "outerwear": "brown canvas work vest",
         "accessories": [
-          "wide-brim felt hat"
+          "wire-rim reading glasses"
         ]
       }
     }
   },
   "locations": {
-    "loc_small_town": {
-      "id": "loc_small_town",
-      "name": "Mountain Town",
-      "overview": "A small town resting at the foot of a mountain range.",
-      "visual_identity": "Compact residential streets beneath mist-covered mountains.",
-      "architecture": "Small apartments, detached houses, local storefronts, hardware store.",
-      "terrain": "Gentle slopes, paved roads, foothills.",
-      "vegetation": "Evergreen trees, shrubs, roadside grass.",
-      "lighting": "Frequent soft overcast mornings with natural daylight.",
-      "color_palette": "Muted gray, forest green, brown, soft blue.",
+    "harrows_bend": {
+      "id": "harrows_bend",
+      "name": "Harrow's Bend",
+      "overview": "A small mountain town centered around a single main road beside a clear river.",
+      "visual_identity": "Compact mountain settlement with quiet streets, rustic storefronts, surrounding forested hills and visible river.",
+      "architecture": "Wooden cottages, stone buildings, small bakery, cozy cafe, narrow sidewalks and modest storefronts.",
+      "terrain": "Mountain valley with a cold river, gravel banks, gentle slopes and winding roads.",
+      "vegetation": "Evergreen forests, deciduous trees, riverside grasses and wild shrubs.",
+      "lighting": "Soft mountain daylight with frequent golden morning light and crisp autumn sunlight.",
+      "color_palette": "Forest green, slate gray, warm brown, muted beige, river blue, amber.",
       "background_elements": [
-        "mountain ridge",
-        "morning mist",
-        "tree-covered hills"
-      ],
-      "common_scene_settings": [
-        "street-level",
-        "wide establishing shot",
-        "medium exterior"
-      ]
-    },
-    "loc_mountain_trail": {
-      "id": "loc_mountain_trail",
-      "name": "Mountain Trail",
-      "overview": "An old hiking path winding through the mountain forest.",
-      "visual_identity": "Narrow dirt path surrounded by tall evergreen trees.",
-      "architecture": "Rustic wooden trail markers.",
-      "terrain": "Packed earth trail with rocks and gentle elevation.",
-      "vegetation": "Pine trees, moss, ferns, wild grasses.",
-      "lighting": "Filtered sunlight through tree canopy.",
-      "color_palette": "Deep green, earthy brown, gray stone.",
-      "background_elements": [
-        "forest",
-        "mountain slopes",
-        "distant valley"
-      ],
-      "common_scene_settings": [
-        "walking perspective",
-        "wide trail view",
-        "over-the-shoulder"
-      ]
-    },
-    "loc_clearing": {
-      "id": "loc_clearing",
-      "name": "Mountain Clearing",
-      "overview": "A quiet open space overlooking a broad valley.",
-      "visual_identity": "Flat stone in an open clearing with panoramic mountain views.",
-      "architecture": "None.",
-      "terrain": "Rocky clearing with short grass and exposed stone.",
-      "vegetation": "Pine trees bordering the clearing, scattered wildflowers.",
-      "lighting": "Soft daylight with recurring mountain mist.",
-      "color_palette": "Soft green, gray stone, pale blue, muted gold.",
-      "background_elements": [
-        "rolling valley",
         "distant mountains",
-        "low clouds",
-        "morning mist"
+        "river",
+        "wooden fences",
+        "telephone poles",
+        "small bridges"
       ],
       "common_scene_settings": [
+        "street-level wide shot",
+        "riverbank medium shot",
+        "cafe window interior",
+        "elevated town overview"
+      ]
+    },
+    "mountain_river": {
+      "id": "mountain_river",
+      "name": "Mountain River",
+      "overview": "A shallow, clear mountain river bordered by smooth stones and forest.",
+      "visual_identity": "Transparent flowing water over rounded stones with gentle current and broad shallow sections.",
+      "architecture": "Natural riverbank with occasional wooden footbridge.",
+      "terrain": "Rocky riverbed, gravel shore, flat boulders and shallow channels.",
+      "vegetation": "River grass, moss, evergreen trees and deciduous woodland.",
+      "lighting": "Cool morning sunlight with soft reflections on the water.",
+      "color_palette": "Clear blue, silver, gray stone, deep green.",
+      "background_elements": [
+        "pine forest",
+        "mountain slopes",
+        "misty distance",
+        "flat shoreline rocks"
+      ],
+      "common_scene_settings": [
+        "water-level perspective",
+        "riverbank side view",
         "wide landscape",
-        "side profile near stone",
-        "overlook composition"
+        "close view from inside the river"
       ]
     },
-    "loc_apartment": {
-      "id": "loc_apartment",
-      "name": "Eli's Apartment",
-      "overview": "A modest apartment with simple furnishings.",
-      "visual_identity": "Compact modern living space with neutral décor.",
-      "architecture": "Small apartment interior with living room, kitchen and bedroom.",
-      "terrain": "Indoor wooden flooring.",
-      "vegetation": "Small potted houseplants.",
-      "lighting": "Natural window light.",
-      "color_palette": "Light gray, beige, warm wood.",
+    "cafe": {
+      "id": "cafe",
+      "name": "Town Cafe",
+      "overview": "A cozy neighborhood cafe overlooking the mountain scenery.",
+      "visual_identity": "Warm wooden interior with large front windows and quiet seating.",
+      "architecture": "Timber walls, wooden tables, simple counter, large glass windows.",
+      "terrain": "Streetfront location facing the town road.",
+      "vegetation": "Window boxes and potted plants.",
+      "lighting": "Natural morning light through large windows.",
+      "color_palette": "Warm oak, cream, dark brown, muted green.",
       "background_elements": [
-        "bookshelf",
-        "dining table",
-        "windows"
+        "street",
+        "mountains through windows",
+        "bakery across the road"
       ],
       "common_scene_settings": [
-        "interior medium shot",
-        "bedroom angle",
-        "living room"
-      ]
-    },
-    "loc_hardware_store": {
-      "id": "loc_hardware_store",
-      "name": "Hardware Store",
-      "overview": "A neighborhood hardware shop with organized aisles.",
-      "visual_identity": "Shelves filled with tools and supplies.",
-      "architecture": "Single-story commercial interior.",
-      "terrain": "Concrete flooring.",
-      "vegetation": "None.",
-      "lighting": "Bright overhead indoor lighting.",
-      "color_palette": "Gray, red, metallic silver, wood.",
-      "background_elements": [
-        "tool racks",
-        "paint shelves",
-        "checkout counter"
-      ],
-      "common_scene_settings": [
-        "aisle view",
-        "checkout perspective",
+        "corner table",
+        "window seat",
+        "counter view",
         "wide interior"
       ]
     }
   },
   "objects": {
-    "obj_flat_stone": {
-      "id": "obj_flat_stone",
-      "name": "Flat Stone",
-      "appearance": "Large naturally flat weathered stone with smooth sitting surface.",
-      "material": "Granite",
-      "color": "Light gray",
-      "size": "Approximately 1.5 meters wide"
+    "newspaper": {
+      "id": "newspaper",
+      "name": "Newspaper",
+      "appearance": "Large folded printed newspaper with black text and monochrome photographs.",
+      "material": "Paper",
+      "color": "Off-white with black print",
+      "size": "Large"
     },
-    "obj_watch": {
-      "id": "obj_watch",
-      "name": "Analog Wristwatch",
-      "appearance": "Simple round analog watch with worn leather strap.",
-      "material": "Metal and leather",
-      "color": "Silver with brown strap",
-      "size": "Small wrist-sized"
+    "rubber_boots": {
+      "id": "rubber_boots",
+      "name": "Rubber Boots",
+      "appearance": "Tall waterproof boots with matte finish.",
+      "material": "Rubber",
+      "color": "Dark green",
+      "size": "Knee-high"
     },
-    "obj_carving_wood": {
-      "id": "obj_carving_wood",
-      "name": "Wood Carving Block",
-      "appearance": "Partially carved rectangular block with visible shaving marks.",
-      "material": "Wood",
-      "color": "Light brown",
-      "size": "Handheld"
+    "bucket": {
+      "id": "bucket",
+      "name": "Bucket",
+      "appearance": "Round utility bucket with metal handle.",
+      "material": "Galvanized steel",
+      "color": "Silver",
+      "size": "Medium"
     },
-    "obj_carving_knife": {
-      "id": "obj_carving_knife",
-      "name": "Wood Carving Knife",
-      "appearance": "Short straight carving blade with rounded wooden handle.",
-      "material": "Steel and wood",
-      "color": "Silver blade with brown handle",
-      "size": "Handheld"
+    "long_handled_net": {
+      "id": "long_handled_net",
+      "name": "Long-handled Net",
+      "appearance": "Circular mesh net attached to a long straight handle.",
+      "material": "Wood and woven mesh",
+      "color": "Natural wood with beige mesh",
+      "size": "Long"
+    },
+    "laptop": {
+      "id": "laptop",
+      "name": "Laptop",
+      "appearance": "Slim modern laptop with minimalist design.",
+      "material": "Aluminum",
+      "color": "Silver",
+      "size": "13-inch"
+    },
+    "coffee_cup": {
+      "id": "coffee_cup",
+      "name": "Coffee Cup",
+      "appearance": "Simple ceramic mug with curved handle.",
+      "material": "Ceramic",
+      "color": "White",
+      "size": "Medium"
     }
   }
 }
