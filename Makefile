@@ -54,9 +54,6 @@ COUNT ?=
 edit-scenes:
 	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main edit-scenes "$(SCENES)" "$(COUNT)"
 
-edit-scene:
-	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main edit-scene
-
 create-video:
 	PYTHONPATH=. $(VENV_MAIN)/bin/python -m src.main create-video
 
