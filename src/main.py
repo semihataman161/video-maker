@@ -1,3 +1,4 @@
+import re
 import sys
 from pathlib import Path
 
@@ -7,7 +8,6 @@ from src.utils.file_utils import (
     is_path_exist, try_validate_path, try_read_json, save_json
 )
 from src.utils.chunk_utils import parse_chunks
-from src.utils.image_utils import get_image_prompt
 from src.constants import (
     CHUNKS, LANGUAGE, WORDS_PER_CAPTION, WORDS_PER_SCREEN,
     AUDIO_DIR, CHARACTERS_DIR, SCENES_DIR, THUMBNAILS_DIR,
@@ -18,6 +18,18 @@ create_directories([AUDIO_DIR, CHARACTERS_DIR, SCENES_DIR, THUMBNAILS_DIR])
 CASTING_JSON = CHARACTERS_DIR / "casting.json"
 
 timer_cache = TimerServiceCache()
+
+
+def parse_scene_indices(raw: str) -> list[int]:
+    text = raw.strip().strip("[]").strip()
+
+    if not text:
+        raise ValueError('No scene index given. Example: make edit-scenes SCENES="[12, 15, 21]"')
+
+    try:
+        return [int(part) for part in re.split(r"[,\s]+", text) if part]
+    except ValueError:
+        raise ValueError(f"Scene indices must be integers, got: {raw!r}")
 
 
 def load_characters() -> dict[str, Path]:
@@ -124,7 +136,7 @@ def step_create_scenes():
 
 
 @timer_cache.track("🛠️ Editing Scene")
-def step_edit_scene():
+def step_edit_scenes(scene_indices: list[int], count):
     from src.services.image_service import ImageService
     from src.services.image_service.prompt import PromptService
 
@@ -135,24 +147,29 @@ def step_edit_scene():
     prompt_service = PromptService(with_reference=with_reference)
     image_service = ImageService(with_reference=with_reference)
 
-    scene_index = 7
-    count = 1
+    prompts = prompt_service.build_scene_prompts()
+    references = prompt_service.build_scene_references(characters)
 
-    scene = prompt_service.get_scenes()[scene_index]
+    for scene_index in scene_indices:
+        if not 1 <= scene_index <= len(prompts):
+            raise IndexError(
+                f"Invalid scene index: {scene_index} (valid range: 1-{len(prompts)})"
+            )
 
-    character_ids = prompt_service.get_scene_character_ids(scene)
-    references = [characters[cid] for cid in character_ids]
+    print(f"\n🛠️  Editing scenes: {scene_indices} ({count} variations each)")
 
-    prompt = get_image_prompt(scene_index)
+    for scene_index in scene_indices:
+        position = scene_index - 1
+        output_paths = reserve_next_file_paths(SCENES_DIR, count)
 
-    output_paths = reserve_next_file_paths(SCENES_DIR, count)
+        print(f"\n=== Scene {scene_index} ===")
 
-    image_service.generate_variations(
-        prompt=prompt,
-        output_paths=output_paths,
-        count=count,
-        ref_image_paths=references or None,
-    )
+        image_service.generate_variations(
+            prompt=prompts[position],
+            output_paths=output_paths,
+            count=count,
+            ref_image_paths=references[position],
+        )
 
 
 @timer_cache.track("✨ Creating Thumbnails")
@@ -266,7 +283,7 @@ TASKS = {
     "create-srt": step_create_srt,
     "create-characters": step_create_characters,
     "create-scenes": step_create_scenes,
-    "edit-scene": step_edit_scene,
+    "edit-scenes": step_edit_scenes,
     "create-video": step_create_video,
     "create-thumbnails": step_create_thumbnails,
     "create-text-on-thumbnails": step_create_text_on_thumbnails,
@@ -285,7 +302,20 @@ if __name__ == "__main__":
         print(f"Available tasks: {' | '.join(TASKS)}")
         sys.exit(1)
 
-    TASKS[task]()
+    if task == "edit-scenes":
+        raw_scenes = sys.argv[2] if len(sys.argv) > 2 else ""
+        raw_count = sys.argv[3] if len(sys.argv) > 3 else ""
+
+        try:
+            scene_indices = parse_scene_indices(raw_scenes)
+            count = int(raw_count)
+        except ValueError as error:
+            print(f"❌ {error}")
+            sys.exit(1)
+
+        TASKS[task](scene_indices=scene_indices, count=count)
+    else:
+        TASKS[task]()
 
     if task == "create-video":
         timer_cache.summary()

@@ -48,6 +48,12 @@ create-characters:
 create-scenes:
 	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main create-scenes
 
+SCENES ?=
+COUNT ?=
+
+edit-scenes:
+	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main edit-scenes "$(SCENES)" "$(COUNT)"
+
 edit-scene:
 	PYTHONPATH=. $(VENV_IMAGE)/bin/python -m src.main edit-scene
 
