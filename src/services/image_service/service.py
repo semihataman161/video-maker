@@ -68,14 +68,16 @@ class ImageService:
             time.sleep(COOLDOWN_SECONDS)
 
     def __resolve_refs(self, ref_image_paths: list[Path | str] | None) -> list[Path] | None:
-        refs = [Path(path) for path in ref_image_paths] if ref_image_paths else None
+        if not self.with_reference:
+            return None
 
-        if self.with_reference:
-            for ref in refs:
-                try_validate_path(ref)
-            return refs
+        if not ref_image_paths:
+            return None
 
-        return None
+        refs = [Path(path) for path in ref_image_paths]
+        for ref in refs:
+            try_validate_path(ref)
+        return refs
 
     def generate(
             self,
