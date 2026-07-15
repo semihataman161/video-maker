@@ -83,13 +83,13 @@ Output ONLY the narration script as clean prose. No title, no thumbnail, no
 headings, no commentary, no explanations.
 ```
 
-### 3) VISUAL STYLE
+### 2) VISUAL STYLE
 
 ```
 stylized digital illustration, painterly rendering, storybook illustration, modern animated film concept art, soft lighting, warm color grading, cinematic composition, detailed environments, matte painting background, 16:9, not a photograph
 ```
 
-### 4) CHUNK PROMPT (ChatGPT)
+### 3) CHUNK PROMPT (ChatGPT)
 
 ```
 You are a strict text segmentation engine.
@@ -285,7 +285,7 @@ SCRIPT:
 [PASTE YOUR SCRIPT HERE GOT FROM STEP 1]
 ```
 
-### 5) LANGUAGE MARKET PROMPT (ChatGPT)
+### 4) LANGUAGE MARKET PROMPT (ChatGPT)
 
 ```
 You are an elite multilingual YouTube growth strategist.
@@ -420,10 +420,10 @@ Recommend:
 ==================================================
 
 SCRIPT
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 4]
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 3]
 ```
 
-### 6) CHUNK TRANSLATION PROMPT (ChatGPT)
+### 5) CHUNK TRANSLATION PROMPT (ChatGPT)
 
 ```
 You are an elite multilingual localization specialist.
@@ -797,14 +797,14 @@ Do NOT:
 ==================================================
 
 SCRIPT
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 4]
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 3]
 
 ==================================================
 ```
 
 <!-- FLUX2 KLEIN 4B SETUP -->
 
-### 7) PROJECT BIBLE PROMPT (ChatGPT)
+### 6) PROJECT BIBLE PROMPT (ChatGPT)
 
 ```
 ==================================================
@@ -1073,13 +1073,13 @@ No explanations.
 ==================================================
 
 VISUAL STYLE:
-[PASTE YOUR VISUAL_STYLE GOT FROM STEP 3]
+[PASTE YOUR VISUAL STYLE GOT FROM STEP 2]
 
 CHUNKS:
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 4]
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 3]
 ```
 
-### 8) SCENE METADATA PROMPT (ChatGPT)
+### 7) SCENE METADATA PROMPT (ChatGPT)
 
 ```
 ==================================================
@@ -1365,7 +1365,7 @@ Nothing may be ignored, changed, or reinterpreted unless explicitly required by 
 ==================================================
 
 VISUAL STYLE (LOCKED)
-[PASTE YOUR VISUAL_STYLE GOT FROM STEP 3]
+[PASTE YOUR VISUAL STYLE GOT FROM STEP 2]
 
 This visual style is externally defined.
 
@@ -1569,7 +1569,7 @@ INPUT
 You will receive CONTENT CHUNKS:
 
 --- CHUNKS START ---
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 4]
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 3]
 --- CHUNKS END ---
 
 Each chunk represents exactly ONE image generation unit.
@@ -2073,7 +2073,7 @@ TARGET LANGUAGE
 ==================================================
 
 SCRIPT CHUNKS
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.6]
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.5]
 
 ==================================================
 
@@ -2395,7 +2395,7 @@ VIDEO TITLE
 ==================================================
 
 SCRIPT CHUNKS
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.6]
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.5]
 
 ==================================================
 
@@ -2964,7 +2964,7 @@ VIDEO TITLE:
 [PASTE YOUR TITLE HERE GOT FROM STEP 1]
 
 SCRIPT CHUNKS:
-[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.6]
+[PASTE YOUR CHUNKS HERE GOT FROM STEP 3.5]
 
 ==================================================
 
