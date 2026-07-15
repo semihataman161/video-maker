@@ -26,10 +26,7 @@ def parse_scene_indices(raw: str) -> list[int]:
     if not text:
         raise ValueError('No scene index given. Example: make edit-scenes SCENES="[12, 15, 21]"')
 
-    try:
-        return [int(part) for part in re.split(r"[,\s]+", text) if part]
-    except ValueError:
-        raise ValueError(f"Scene indices must be integers, got: {raw!r}")
+    return [int(part) for part in re.split(r"[,\s]+", text) if part]
 
 
 def load_characters() -> dict[str, Path]:
@@ -306,12 +303,8 @@ if __name__ == "__main__":
         raw_scenes = sys.argv[2] if len(sys.argv) > 2 else ""
         raw_count = sys.argv[3] if len(sys.argv) > 3 else ""
 
-        try:
-            scene_indices = parse_scene_indices(raw_scenes)
-            count = int(raw_count)
-        except ValueError as error:
-            print(f"❌ {error}")
-            sys.exit(1)
+        scene_indices = parse_scene_indices(raw_scenes)
+        count = int(raw_count)
 
         TASKS[task](scene_indices=scene_indices, count=count)
     else:

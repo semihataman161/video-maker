@@ -1,3 +1,4 @@
+import subprocess
 import numpy as np
 from typing import Literal
 from moviepy import VideoFileClip, VideoClip, ColorClip, vfx
@@ -49,13 +50,42 @@ class OverlayVideoService(OverlayProtocol):
         f = frame.astype("float32") / 255.0
         return 0.2126 * f[:, :, 0] + 0.7152 * f[:, :, 1] + 0.0722 * f[:, :, 2]
 
-    def get_clip(self, total_duration: float):
+    def __count_real_frames(self) -> int | None:
+        cmd = [
+            "ffprobe", "-v", "error",
+            "-count_frames",
+            "-select_streams", "v:0",
+            "-show_entries", "stream=nb_read_frames",
+            "-of", "csv=p=0",
+            self.video_path,
+        ]
+
+        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+        return int(result.stdout.strip())
+
+    def __load_source(self) -> VideoFileClip:
         has_mask = (self.mode == "transparent")
+        clip = VideoFileClip(self.video_path, has_mask=has_mask)
+
+        n_real = self.__count_real_frames()
+
+        if not n_real:
+            return clip
+
+        safe_duration = (n_real - 1) / clip.fps
+
+        if safe_duration >= clip.duration:
+            return clip
+
+        return clip.subclipped(0, safe_duration)
+
+    def get_clip(self, total_duration: float):
         clip = (
-            VideoFileClip(self.video_path, has_mask=has_mask)
+            self.__load_source()
             .resized(self.size)
             .with_effects([vfx.Loop(duration=total_duration)])
             .with_duration(total_duration)
+            .with_memoize(True)
         )
 
         if self.mode == "transparent":
@@ -81,3 +111,5 @@ class OverlayVideoService(OverlayProtocol):
             )
             black = ColorClip(self.size, color=(0, 0, 0)).with_duration(total_duration)
             return [black.with_mask(mask)]
+
+        raise ValueError(f"Unknown overlay mode: {self.mode}")

@@ -8,8 +8,8 @@ from mlx_audio.stt import load
 from pydub import AudioSegment
 from pathlib import Path
 
-from src.utils.file_utils import try_validate_path, validate_paths, get_parent_directory
-from src.utils.timeline_utils import save_timeline
+from src.utils.file_utils import try_validate_path, safe_validate_path, validate_paths, get_parent_directory
+from src.utils.timeline_utils import save_timeline, get_timeline
 from src.utils.chunk_utils import split_sentences
 from src.constants import AUDIO_DIR, MUSICS_DIR
 from .constants import TTS_MODEL, ALIGNMENT_MODEL, CHUNK_PAUSE, SENTENCE_PAUSE, OUTRO_PAUSE, SAMPLE_RATE, SPEAKERS_DIR
@@ -23,6 +23,9 @@ class AudioService:
         self.language = language
         self.should_include_music = should_include_music
 
+        self.merged_path = AUDIO_DIR / "merged.wav"
+        self.merged_no_music_path = AUDIO_DIR / "merged_without_music.wav"
+
         if should_include_music:
             try_validate_path(MUSICS_DIR)
 
@@ -35,11 +38,22 @@ class AudioService:
         self.speaker_wav = self.__prepare_reference_audio()
         self.ref_text = self.ref_text_path.read_text(encoding="utf-8").strip()
 
-        print("🔊 Loading Qwen3-TTS (MLX)...")
-        self.tts_model = load_model(TTS_MODEL)
+        self._tts_model = None
+        self._alignment_model = None
 
-        print("🗣️ Loading Qwen3-ForcedAligner...")
-        self.alignment_model = load(ALIGNMENT_MODEL)
+    @property
+    def tts_model(self):
+        if self._tts_model is None:
+            print("🔊 Loading Qwen3-TTS (MLX)...")
+            self._tts_model = load_model(TTS_MODEL)
+        return self._tts_model
+
+    @property
+    def alignment_model(self):
+        if self._alignment_model is None:
+            print("🗣️ Loading Qwen3-ForcedAligner...")
+            self._alignment_model = load(ALIGNMENT_MODEL)
+        return self._alignment_model
 
     def __prepare_reference_audio(self):
         ref_path = Path(self.speaker_wav)
@@ -180,31 +194,31 @@ class AudioService:
                 "path": MUSICS_DIR / "1.wav",
                 "start_chunk": 1,
                 "end_chunk": p1,
-                "gain": -14
+                "gain": -6
             },
             {
                 "path": MUSICS_DIR / "2.wav",
                 "start_chunk": p1 + 1,
                 "end_chunk": p2,
-                "gain": -12
+                "gain": -6
             },
             {
                 "path": MUSICS_DIR / "3.wav",
                 "start_chunk": p2 + 1,
                 "end_chunk": p3,
-                "gain": -26
+                "gain": -20
             },
             {
                 "path": MUSICS_DIR / "4.wav",
                 "start_chunk": p3 + 1,
                 "end_chunk": p4,
-                "gain": -18
+                "gain": -12
             },
             {
                 "path": MUSICS_DIR / "5.wav",
                 "start_chunk": p4 + 1,
                 "end_chunk": total_chunks,
-                "gain": -16
+                "gain": -10
             }
         ]
 
@@ -255,7 +269,7 @@ class AudioService:
         music_bed = music_bed.fade_out(2000)
         return voiceover.overlay(music_bed)
 
-    def run(self):
+    def __generate_voiceover(self) -> tuple[AudioSegment, list[dict]]:
         combined = AudioSegment.empty()
         timeline = []
         current_time = 0
@@ -267,13 +281,35 @@ class AudioService:
             timeline.append(entry)
             print(f"   ✅ Chunk {i}/{total} done")
 
+        combined.export(self.merged_no_music_path, format="wav")
+        save_timeline(timeline)
+        print(f"   💾 Music-free voiceover saved: {self.merged_no_music_path}")
+
+        return combined, timeline
+
+    def __load_cached_voiceover(self) -> tuple[AudioSegment, list[dict]] | None:
+        if not safe_validate_path(self.merged_no_music_path):
+            return None
+
+        timeline = get_timeline()
+
+        print(f"   ♻️ Reusing existing voiceover: {self.merged_no_music_path}")
+        return AudioSegment.from_wav(self.merged_no_music_path), timeline
+
+    def run(self):
+        cached = self.__load_cached_voiceover()
+
+        if cached is not None:
+            voiceover, timeline = cached
+        else:
+            voiceover, timeline = self.__generate_voiceover()
+
         if self.should_include_music:
             print("\n   🎵 Applying background music to the final audio...")
-            final_audio = self.__apply_background_music(combined, timeline)
+            final_audio = self.__apply_background_music(voiceover, timeline)
             print("   ✅ Background music has been applied to the final audio.")
         else:
-            final_audio = combined
+            final_audio = voiceover
 
-        final_path = AUDIO_DIR / "merged.wav"
-        final_audio.export(final_path, format="wav")
-        save_timeline(timeline)
+        final_audio.export(self.merged_path, format="wav")
+        print(f"   ✅ Final audio: {self.merged_path}")
