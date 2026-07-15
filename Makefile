@@ -3,17 +3,17 @@ PYTHON_VERSION=3.11.8
 VENV_MAIN=.venv-main
 VENV_IMAGE=.venv-image
 
-activate_venv_main:
+activate-venv-main:
 	@echo "Run this command to activate main environment:"
 	@echo "source $(VENV_MAIN)/bin/activate"
 
-activate_venv_image:
+activate-venv-image:
 	@echo "Run this command to activate image environment:"
 	@echo "source $(VENV_IMAGE)/bin/activate"
 
-activate_venvs: activate_venv_main activate_venv_image
+activate-venvs: activate-venv-main activate-venv-image
 
-create_venv_main:
+create-venv-main:
 	pyenv install -s $(PYTHON_VERSION)
 	pyenv local $(PYTHON_VERSION)
 	pyenv exec python -m venv $(VENV_MAIN)
@@ -21,7 +21,7 @@ create_venv_main:
 	$(VENV_MAIN)/bin/pip install -r requirements-main.txt
 	@echo "✅ Main environment created and dependencies installed."
 
-create_venv_image:
+create-venv-image:
 	pyenv install -s $(PYTHON_VERSION)
 	pyenv local $(PYTHON_VERSION)
 	pyenv exec python -m venv $(VENV_IMAGE)
@@ -29,9 +29,9 @@ create_venv_image:
 	$(VENV_IMAGE)/bin/pip install -r requirements-image.txt
 	@echo "✅ Image environment created and dependencies installed."
 
-create_venvs: create_venv_main create_venv_image
+create-venvs: create-venv-main create-venv-image
 
-delete_venvs:
+delete-venvs:
 	rm -rf $(VENV_MAIN) $(VENV_IMAGE)
 	pip cache purge
 	@echo "🗑️ Virtual environments deleted."
