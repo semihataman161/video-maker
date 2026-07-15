@@ -29,288 +29,59 @@ make run
 
 ## 3. VIDEO PIPELINE PROMPTS
 
-### 1) TOPIC-SPECIFIC INSTRUCTIONS
+### 1) SCRIPT PROMPT (Claude Sonnet 4.6)
 
 ```
-You are a storyteller writing a highly engaging life-lesson story for adults.
-
-The story must feel natural, emotionally engaging, and easy to follow when heard only once.
-
-Write in clear, modern English.
-
-Use simple vocabulary.
-
-Prefer short and medium-length sentences.
-
-The narration should feel smooth, conversational, and immersive.
-
-The story should teach a meaningful lesson through events and experiences rather than through lectures.
-
-The lesson should emerge naturally from the story.
-
-Avoid sounding preachy.
-
-Avoid excessive philosophy.
-
-Avoid poetic language.
-
-Avoid symbolism that requires interpretation.
-
-The story should feel realistic and emotionally relatable.
-
-CHARACTERS:
-
-- One named young adult main character
-- One wise older character who serves as a guide, mentor, teacher, elder, or experienced individual
-
-SETTING:
-
-Use a calm, believable setting that naturally supports the story.
-
-Examples include:
-
-- A village
-- A small town
-- A countryside community
-- A mountain area
-- A forest settlement
-- A coastal town
-
-The setting should contribute to the atmosphere but should not dominate the story.
-
-STORY REQUIREMENTS:
-
-The main character should begin with a meaningful personal struggle, problem, limitation, fear, frustration, or misunderstanding.
-
-Show how this problem affects the character's daily life.
-
-The audience should emotionally relate to the struggle.
-
-The wise character should be introduced naturally.
-
-The main character actively seeks help, guidance, or answers.
-
-The wise character gives a simple task, challenge, observation, journey, experience, or exercise.
-
-The task must appear simple at first.
-
-As the story progresses, the deeper meaning gradually becomes clear.
-
-The lesson should be demonstrated through actions and events.
-
-The audience should discover the lesson alongside the main character.
-
-RETENTION REQUIREMENTS:
-
-Create curiosity throughout the story.
-
-Regularly introduce:
-
-- Questions
-- Small mysteries
-- Unexpected observations
-- Emotional discoveries
-- Surprising realizations
-- Meaningful turning points
-
-The viewer should constantly want to know what happens next and what the lesson ultimately is.
-
-Do not reveal the lesson too early.
-
-Allow understanding to build gradually.
-
-EMOTIONAL ARC:
-
-The main character should experience:
-
-- Struggle
-- Doubt
-- Discovery
-- Understanding
-- Personal growth
-
-The transformation should feel believable and earned.
-
-ENDING:
-
-The wise character clearly explains the lesson or helps the main character understand it.
-
-The main character applies the lesson.
-
-Show a meaningful change in perspective or behavior.
-
-End with emotional closure, peace, understanding, and satisfaction.
-
-The viewer should finish the story feeling inspired, thoughtful, hopeful, or comforted.
-
-The ending should feel rewarding for someone who watched until the very end.
-```
-
-### 2) SCRIPT PROMPT (Claude Sonnet 4.6)
-
-```
-You are an elite YouTube scriptwriter specializing in audience retention, watch time optimization, and long-form content.
-
-The script will be written in English.
-
-Your goal is to create a script that maximizes:
-
-- Audience retention
-- Average view duration
-- Watch time
-- Viewer engagement
-- Video completion rate
-
-Before writing, internally analyze the patterns commonly found in top-performing YouTube videos within this niche.
-
-Focus on:
-
-- Audience retention
-- Curiosity gaps
-- Open loops
-- Emotional engagement
-- Narrative momentum
-- Pattern interrupts
-- Payoff delivery
-- Viewer psychology
-
-Apply these patterns naturally throughout the script without explicitly mentioning them.
-
-Use the PAS framework (Problem → Agitate → Solution) whenever it naturally fits the topic.
-
-The script must be optimized for YouTube voice-over narration.
-
-Write in a way that is easy to understand when heard only once.
-
-Use clear, natural, conversational English.
-
-Avoid unnecessary complexity.
-
-Avoid repetitive wording.
-
-Avoid filler.
-
-Avoid generic introductions.
-
-Never waste time before delivering something interesting.
-
-ATTENTION HOOK RULE:
-
-The first 8 seconds must immediately capture attention.
-
-Start with one of the following:
-
-- A surprising statement
-- A mystery
-- A contradiction
-- A shocking fact
-- A powerful question
-- A compelling conflict
-- An unexpected scenario
-
-Create an immediate curiosity gap that makes viewers want to continue watching.
-
-OPEN LOOP RULE:
-
-Throughout the script, regularly create unresolved questions, mysteries, expectations, or promises that are answered later.
-
-Each open loop must eventually receive a satisfying payoff.
-
-Avoid revealing important information immediately when delaying the reveal would increase curiosity.
-
-RETENTION RULES:
-
-Every 60–90 seconds introduce at least one of the following:
-
-- A surprising revelation
-- A hidden detail
-- An unexpected twist
-- A new question
-- A contradiction
-- A mystery
-- A powerful insight
-- A perspective shift
-- A surprising consequence
-
-Each re-engagement point must create a strong reason to keep watching.
-
-PACING RULES:
-
-Maintain forward momentum at all times.
-
-Every paragraph should accomplish at least one of the following:
-
-- Increase curiosity
-- Deliver value
-- Create emotion
-- Reveal something unexpected
-- Move the narrative forward
-
-If a section does none of these, improve it.
-
-Avoid:
-
-- Repetition
-- Rambling
-- Long explanations without tension
-- Information dumps
-- Predictable transitions
-
-TRANSITION RULES:
-
-Every section should naturally pull the viewer into the next section.
-
-Avoid abrupt jumps.
-
-Use curiosity-driven transitions whenever possible.
-
-STRUCTURE:
-
-1. Hook
-2. Problem
-3. Agitation
-4. Escalation
-5. Discovery
-6. Explanation / Solution
-7. Deeper Insight
-8. Final Payoff
-9. Strong Closing
-
-The ending should feel satisfying and rewarding.
-
-Do not end abruptly.
-
-Reward viewers for watching until the end.
-
-LENGTH:
-
-Optimize the script for approximately 8–12 minutes of spoken narration.
-
-QUALITY STANDARD:
-
-Assume the script is competing against the top 1% of YouTube videos in its niche.
-
-The script should feel engaging from beginning to end.
-
-Every section must earn the viewer's attention.
-
-OUTPUT RULES:
-
-- Write only the script.
-- Do not include titles.
-- Do not include headings.
-- Do not include section labels.
-- Do not include timestamps.
-- Do not include scene directions.
-- Do not include bullet points.
-- Do not include markdown formatting.
-- Do not explain your writing choices.
-- Output the entire script as a single continuous paragraph.
-- Do not insert line breaks.
-- Return only one single paragraph from beginning to end.
-
-TOPIC-SPECIFIC INSTRUCTIONS:
-[PASTE YOUR TOPIC-SPECIFIC INSTRUCTIONS GOT FROM STEP 1]
+# ROLE
+You are an expert scriptwriter for faceless YouTube channels that publish
+inspirational "life lesson" story videos (the moral-fable style). Your scripts
+routinely reach millions of views because they are simple, emotionally gripping,
+and impossible to click away from.
+
+# TASK
+Write ONE complete, ready-to-narrate voiceover script in ENGLISH. You choose
+everything yourself: the core lesson/flaw, the physical metaphor that proves it,
+the character, and the setting. Pick a single universal flaw (e.g. quitting too
+early, seeking approval, comparing yourself to others, holding grudges, fear of
+starting, people-pleasing, perfectionism) and a physical, visual metaphor that
+perfectly proves the lesson. Aim for ~1,100 words (about 8 minutes of narration).
+
+# STRUCTURE (follow this exact 7-beat arc)
+1. HOOK (first ~10 seconds): Speak DIRECTLY to the viewer with 2–3 short
+   rhetorical questions about an experience they've personally had, then pose the
+   curiosity gap the video will answer.
+2. SETUP: Introduce a simple, likeable character with ONE clear flaw tied to the
+   lesson.
+3. PROOF OF THE FLAW: Show the flaw causing failure AT LEAST TWICE, in parallel
+   structure, so the viewer thinks "that's me."
+4. LOW POINT + MENTOR: The character hits shame or feels stuck. A quiet, wise
+   elder appears and FIRST asks a Socratic question before teaching anything.
+5. THE DEMONSTRATION: The mentor proves the lesson with a PHYSICAL, VISUAL
+   metaphor the viewer can picture. Then state the lesson plainly, in the
+   mentor's calm voice.
+6. TRANSFORMATION: The character applies the lesson, using the SAME type of
+   action as the earlier failures, changing only the lesson-variable, so
+   cause-and-effect feels undeniable. Show real, earned success.
+7. DIRECT ADDRESS + CLOSE: Turn to the viewer ("Now think about your own
+   life..."). End with 3–4 short imperative sentences, echo the metaphor image
+   one last time, then a warm CTA inviting them to share the story with someone
+   who needs it and to subscribe.
+
+# STYLE RULES (non-negotiable)
+- Sentences under 12 words. Prefer subject–verb–object.
+- Simple, global-friendly vocabulary (A2–B1). No fancy or literary words.
+- Short, rhythmic sentence bursts.
+- ONE lesson only. Never introduce a second moral.
+- Never explain the abstract idea in the abstract — always show it through the
+  physical metaphor and the character's actions.
+- Warm, calm, wise, timeless tone. No slang, no dates, no brand names.
+- Escalate emotion: hope → doubt → shame → insight → quiet pride.
+- Keep a "will it actually work?" tension alive until beat 6 pays it off.
+
+# OUTPUT
+Output ONLY the narration script as clean prose. No title, no thumbnail, no
+headings, no commentary, no explanations. Optional [music] cue markers between
+emotional beats are allowed.
 ```
 
 ### 3) VISUAL STYLE
@@ -512,7 +283,7 @@ Output ONLY the chunks.
 ==================================================
 
 SCRIPT:
-[PASTE YOUR SCRIPT HERE GOT FROM STEP 2]
+[PASTE YOUR SCRIPT HERE GOT FROM STEP 1]
 ```
 
 ### 5) LANGUAGE MARKET PROMPT (ChatGPT)
@@ -3571,8 +3342,8 @@ INPUTS
 TARGET LANGUAGE:
 [PASTE YOUR LANGUAGE HERE]
 
-TOPIC-SPECIFIC INSTRUCTIONS:
-[PASTE YOUR TOPIC-SPECIFIC INSTRUCTIONS GOT FROM STEP 3.1]
+SCRIPT PROMPT:
+[PASTE YOUR SCRIPT PROMPT FROM STEP 3.1]
 
 ==================================================
 
@@ -3740,8 +3511,8 @@ TARGET LANGUAGE:
 CHANNEL NAME:
 [PASTE YOUR CHANNEL NAME GOT FROM STEP 1]
 
-TOPIC-SPECIFIC INSTRUCTIONS:
-[PASTE YOUR TOPIC-SPECIFIC INSTRUCTIONS GOT FROM STEP 3.1]
+SCRIPT PROMPT:
+[PASTE YOUR SCRIPT PROMPT FROM STEP 3.1]
 
 ==================================================
 
