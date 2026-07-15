@@ -16,25 +16,39 @@ References = list[list[Path | str]]
 
 
 class ImageService:
-    def __init__(self, with_reference: bool):
-        self.with_reference = with_reference
-
+    def __init__(self):
         self.size = get_size_by_resolution(IMAGE_RESOLUTION)
         self.width = self.size[0]
         self.height = self.size[1]
 
-        self.model = None
-        self.__load_model()
+        self.base_model = None
+        self.edit_model = None
 
-    def __load_model(self):
-        cls = Flux2KleinEdit if self.with_reference else Flux2Klein
+    def __get_model(self, use_reference: bool):
+        if use_reference:
+            if self.edit_model is None:
+                print(f"🖼️  Loading Flux2KleinEdit (quantize={QUANTIZE})...")
+                self.edit_model = Flux2KleinEdit(
+                    model_config=ModelConfig.flux2_klein_4b(),
+                    quantize=QUANTIZE,
+                )
+            return self.edit_model
 
-        print(f"🖼️  Loading {cls.__name__} (quantize={QUANTIZE}, with_reference={self.with_reference})...")
+        if self.base_model is None:
+            print(f"🖼️  Loading Flux2Klein (quantize={QUANTIZE})...")
+            self.base_model = Flux2Klein(
+                model_config=ModelConfig.flux2_klein_4b(),
+                quantize=QUANTIZE,
+            )
+        return self.base_model
 
-        self.model = cls(
-            model_config=ModelConfig.flux2_klein_4b(),
-            quantize=QUANTIZE,
-        )
+    def __unload(self, which: str):
+        if which == "edit":
+            self.edit_model = None
+        else:
+            self.base_model = None
+        gc.collect()
+        mx.clear_cache()
 
     @staticmethod
     def __save_image_data(
@@ -67,10 +81,8 @@ class ImageService:
             print(f"⏳ Waiting for {COOLDOWN_SECONDS} seconds...\n")
             time.sleep(COOLDOWN_SECONDS)
 
-    def __resolve_refs(self, ref_image_paths: list[Path | str] | None) -> list[Path] | None:
-        if not self.with_reference:
-            return None
-
+    @staticmethod
+    def __resolve_refs(ref_image_paths: list[Path | str] | None) -> list[Path] | None:
         if not ref_image_paths:
             return None
 
@@ -90,12 +102,14 @@ class ImageService:
         final_seed = seed if seed is not None else random.randint(0, 2 ** 32 - 1)
 
         refs = self.__resolve_refs(ref_image_paths)
+        use_reference = bool(refs)
 
         self.__save_image_data(prompt, output_path, final_seed, refs)
 
         ref_label = ", ".join(ref.name for ref in refs) if refs else "none"
+        model_label = "edit" if use_reference else "base"
         print(
-            f"Generating: {self.width}x{self.height} | seed={final_seed} | "
+            f"Generating [{model_label}]: {self.width}x{self.height} | seed={final_seed} | "
             f"steps={STEPS} | refs=[{ref_label}]"
         )
 
@@ -108,10 +122,11 @@ class ImageService:
             "guidance": GUIDANCE,
         }
 
-        if refs:
+        if use_reference:
             kwargs["image_paths"] = refs
 
-        image = self.model.generate_image(**kwargs)
+        model = self.__get_model(use_reference)
+        image = model.generate_image(**kwargs)
         image.save(path=output_path)
         print(f"✅ Image saved to: {output_path}")
 
@@ -124,17 +139,34 @@ class ImageService:
             references: References | None = None,
             seeds: list[int] | None = None,
     ):
+        items = []
         for i, prompt in enumerate(prompts):
-            print(f"\n📸 {i + 1}/{len(prompts)}")
+            raw_refs = references[i] if references else None
+            seed = seeds[i] if seeds and i < len(seeds) else None
+            use_reference = bool(self.__resolve_refs(raw_refs))
+            items.append((prompt, output_paths[i], raw_refs, seed, use_reference))
 
-            self.generate(
-                prompt=prompt,
-                output_path=output_paths[i],
-                ref_image_paths=references[i] if references else None,
-                seed=seeds[i] if seeds and i < len(seeds) else None,
-            )
+        without_refs = [it for it in items if not it[4]]
+        with_refs = [it for it in items if it[4]]
 
-            self.__cooldown(i, len(prompts))
+        print(f"\n🧩 {len(without_refs)} sahne referanssız (base), "
+              f"{len(with_refs)} sahne referanslı (edit)")
+
+        for group_name, group in (("base", without_refs), ("edit", with_refs)):
+            if not group:
+                continue
+
+            for j, (prompt, out_path, raw_refs, seed, _) in enumerate(group):
+                print(f"\n📸 [{group_name}] {j + 1}/{len(group)}")
+                self.generate(
+                    prompt=prompt,
+                    output_path=out_path,
+                    ref_image_paths=raw_refs,
+                    seed=seed,
+                )
+                self.__cooldown(j, len(group))
+
+            self.__unload(group_name)
 
     def generate_variations(
             self,

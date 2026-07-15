@@ -58,9 +58,8 @@ def step_create_characters():
     from src.services.image_service import ImageService
     from src.services.image_service.prompt import PromptService
 
-    with_reference = False
-    prompt_service = PromptService(with_reference=with_reference)
-    image_service = ImageService(with_reference=with_reference)
+    prompt_service = PromptService()
+    image_service = ImageService()
 
     characters = prompt_service.build_character_prompts()
     character_count = 6
@@ -116,13 +115,12 @@ def step_create_scenes():
 
     characters = load_characters()
     print_characters(characters)
-    with_reference = bool(characters)
 
-    prompt_service = PromptService(with_reference=with_reference)
-    image_service = ImageService(with_reference=with_reference)
+    prompt_service = PromptService(characters)
+    image_service = ImageService()
 
     prompts = prompt_service.build_scene_prompts()
-    references = prompt_service.build_scene_references(characters)
+    references = prompt_service.build_scene_references()
     output_paths = reserve_next_file_paths(SCENES_DIR, len(prompts))
 
     image_service.generate_batch(
@@ -139,13 +137,12 @@ def step_edit_scenes(scene_indices: list[int], count):
 
     characters = load_characters()
     print_characters(characters)
-    with_reference = bool(characters)
 
-    prompt_service = PromptService(with_reference=with_reference)
-    image_service = ImageService(with_reference=with_reference)
+    prompt_service = PromptService(characters)
+    image_service = ImageService()
 
     prompts = prompt_service.build_scene_prompts()
-    references = prompt_service.build_scene_references(characters)
+    references = prompt_service.build_scene_references()
 
     for scene_index in scene_indices:
         if not 1 <= scene_index <= len(prompts):
@@ -176,15 +173,14 @@ def step_create_thumbnails():
 
     characters = load_characters()
     print_characters(characters)
-    with_reference = bool(characters)
 
-    prompt_service = PromptService(with_reference=with_reference)
-    image_service = ImageService(with_reference=with_reference)
+    prompt_service = PromptService(characters)
+    image_service = ImageService()
 
     thumbnails = prompt_service.get_thumbnails()
 
     prompts = prompt_service.build_thumbnail_prompts()
-    references = prompt_service.build_thumbnail_references(characters)
+    references = prompt_service.build_thumbnail_references()
     output_paths = [THUMBNAILS_DIR / f"{thumbnail['id']}.png" for thumbnail in thumbnails]
 
     image_service.generate_batch(
@@ -199,7 +195,7 @@ def step_create_text_on_thumbnails():
     from src.services.image_service.prompt import PromptService
     from src.services.image_text_overlay_service import ImageTextOverlayConfig, ImageTextOverlayService
 
-    prompt_service = PromptService(with_reference=False)
+    prompt_service = PromptService()
     thumbnails = prompt_service.get_thumbnails()
 
     text_overlay_config = ImageTextOverlayConfig(font_path=FONTS_DIR / "Anton-Regular.ttf")

@@ -5,8 +5,8 @@ from .constants import DATA_DIR
 
 
 class PromptService:
-    def __init__(self, with_reference: bool):
-        self.with_reference = with_reference
+    def __init__(self, characters: dict[str, Path] | None = None):
+        self.characters = characters or {}
 
         self.bible = try_read_json(DATA_DIR / "project_bible.json")
         self.scenes = try_read_json(DATA_DIR / "scene_metadata.json").get("scenes", [])
@@ -100,10 +100,6 @@ class PromptService:
 
     def __identity_sentence(self, character: dict, index: int):
         char_name = character.get("name", "The character")
-
-        if not self.with_reference:
-            return f"{char_name}, {character['identity_blend']},"
-
         descriptor = character.get("scene_descriptor") or character["identity_blend"]
         return f"{char_name} (Picture {index + 1}), {descriptor},"
 
@@ -161,7 +157,7 @@ class PromptService:
         # ======================================================
         characters = self.__ordered_scene_characters(scene)
 
-        if self.with_reference and characters:
+        if characters:
             parts.append(self.__reference_instruction(len(characters)))
 
         # ======================================================
@@ -260,12 +256,9 @@ class PromptService:
     def build_scene_prompts(self):
         return [self.__build_scene_prompt(scene) for scene in self.scenes]
 
-    def build_scene_references(self, characters: dict[str, Path]) -> list[list[Path]] | None:
-        if not self.with_reference:
-            return None
-
+    def build_scene_references(self) -> list[list[Path]]:
         return [
-            self.__resolve_references(self.get_scene_character_ids(scene), characters)
+            self.__resolve_references(self.get_scene_character_ids(scene), self.characters)
             for scene in self.scenes
         ]
 
@@ -291,7 +284,7 @@ class PromptService:
         # ======================================================
         char_entries = self.__ordered_thumbnail_characters(thumbnail)
 
-        if self.with_reference and char_entries:
+        if char_entries:
             parts.append(self.__reference_instruction(len(char_entries)))
 
         # ======================================================
@@ -441,11 +434,8 @@ class PromptService:
     def build_thumbnail_prompts(self):
         return [self.__build_thumbnail_prompt(t) for t in self.thumbnails]
 
-    def build_thumbnail_references(self, characters: dict[str, Path]) -> list[list[Path]] | None:
-        if not self.with_reference:
-            return None
-
+    def build_thumbnail_references(self) -> list[list[Path]]:
         return [
-            self.__resolve_references(self.get_thumbnail_character_ids(thumbnail), characters)
+            self.__resolve_references(self.get_thumbnail_character_ids(thumbnail), self.characters)
             for thumbnail in self.thumbnails
         ]
