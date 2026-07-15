@@ -80,8 +80,7 @@ perfectly proves the lesson. Aim for ~1,100 words (about 8 minutes of narration)
 
 # OUTPUT
 Output ONLY the narration script as clean prose. No title, no thumbnail, no
-headings, no commentary, no explanations. Optional [music] cue markers between
-emotional beats are allowed.
+headings, no commentary, no explanations.
 ```
 
 ### 3) VISUAL STYLE
